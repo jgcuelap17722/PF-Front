@@ -1,0 +1,25 @@
+
+    const colors =  {
+        black: '#454B54',
+        darkBlack: '#363A40',
+        white: '#ffffff',
+        // gray: '#A1A8B1',
+        // darkGray: '#727A85',
+        // lightGray: '#DDDDDD',
+        // lighterGray: '#F3F3F3',
+        primary: '#504F6F',
+        secondary: '#FAC942',
+        third: '#4992AB',
+        // accent: '#4D9BC6',
+        lightprimary: '#66668F',
+        lightsecondary: '#FED872',
+        // lightaccent: '#5EBCE6',
+        // lightthird: '#58BF8E',
+        darkprimary: '#4B4D62',
+        // darksecondary: '#3E3F6C',
+        // darkaccent: '#3999C3',
+        // darkthird: '#39A96D',
+        // warning: '#F94F19',
+        // success: '#81E78B',
+        // error: '#C51162'
+    }
