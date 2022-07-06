@@ -1,0 +1,54 @@
+.formBox {
+  display: flex;
+  flex-direction: row;
+  width: 910px;
+  height: 55px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  z-index: 2;
+  background-color: #ffffff;
+  margin-top: 64px;
+}
+.formBox form input {
+  font-size: 1.5em;
+  text-indent: 22px;
+}
+.formBox form input:focus {
+  outline: none !important;
+  box-sizing: border-box;
+  border: 3px solid #FAB942;
+}
+.formBox form input:focus::placeholder {
+  text-indent: 19px;
+  color: #ffffff;
+}
+.formBox form input::placeholder {
+  color: #ABABAB;
+  text-indent: 22px;
+}
+.formBox .pet {
+  margin-left: 0;
+  width: 507px;
+  height: 55px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 15px 0px 0px 15px;
+}
+.formBox .line {
+  position: relative;
+  height: 30px;
+  bottom: -5px;
+  display: inline-block;
+  border-left: 2.5px solid #ABABAB;
+}
+.formBox .city {
+  width: 346px;
+  height: 55px;
+  border: none;
+  box-sizing: border-box;
+}
+.formBox .button {
+  height: 55px;
+  box-sizing: border-box;
+  border: none;
+}
