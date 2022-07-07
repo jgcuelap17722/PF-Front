@@ -1,9 +1,6 @@
 import Home from './components/Home';
-import { Route, Routes } from 'react-router-dom'
-
+import { Route, Routes } from 'react-router-dom';
 import PetCare from './components/PetCare/PetCare';
-
-
 
 function App() {
   return (
