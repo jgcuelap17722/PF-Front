@@ -8,6 +8,7 @@
   z-index: 2;
   background-color: #ffffff;
   margin-top: 64px;
+  overflow: hidden;
 }
 .formBox form input {
   font-size: 1.5em;
@@ -27,6 +28,7 @@
   text-indent: 22px;
 }
 .formBox .pet {
+  display: inline-block;
   margin-left: 0;
   width: 507px;
   height: 55px;
@@ -42,13 +44,21 @@
   border-left: 2.5px solid #ABABAB;
 }
 .formBox .city {
+  display: inline-block;
   width: 346px;
   height: 55px;
   border: none;
   box-sizing: border-box;
 }
 .formBox .button {
+  position: absolute;
+  display: inline-block;
+  width: 54px;
   height: 55px;
   box-sizing: border-box;
   border: none;
+  border-radius: 0px 15px 15px 0px;
+}
+.formBox .button:hover {
+  background-color: #FAC942;
 }
