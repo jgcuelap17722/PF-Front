@@ -1,10 +1,12 @@
 import React from 'react'
 import s from '../../css/PetCare.module.css'
 import {ReactComponent as Huella} from '../../assets/Huella.svg'
+import NavBar from '../../assets/NavBar/NavBar'
 
 export default function PetCare() {
   return (
     <div>
+        <NavBar></NavBar>
         <div className={s.content}>
             <div className={s.section1}>
                 <div className={s.pic1}></div>
