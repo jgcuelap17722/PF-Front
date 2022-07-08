@@ -1,6 +1,9 @@
 import Home from './components/Home';
 import { Route, Routes } from 'react-router-dom'
-import './App.css';
+
+
+
+import PetDetail from './components/PetDetail/PetDetail';
 
 
 function App() {
@@ -13,7 +16,7 @@ function App() {
         {/* <Route path='/login' element={<Login  />} /> */}
         {/* <Route path='/searcher' element={<Searcher />} /> */}
         {/* <Route path='/pet-care' element={<PetCare />} /> */}
-        {/* <Route path='/pet-detail' element={<PetDetail />} /> */} 
+        <Route path='/pet-detail' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
       </Routes>
     </div>
