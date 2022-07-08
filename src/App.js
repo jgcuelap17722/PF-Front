@@ -1,7 +1,11 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from './components/Home/Home';
+import Home from './components/Home/Home.js';
+import { Route, Routes } from 'react-router-dom';
 import PetCare from './components/PetCare/PetCare';
 import Login from './components/Login/Login';
+
+import PetDetail from './components/PetDetail/PetDetail';
+
+
 
 
 function App() {
@@ -14,7 +18,7 @@ function App() {
         <Route path='/login' element={<Login  />} />
         {/* <Route path='/searcher' element={<Searcher />} /> */}
         <Route path='/pet-care' element={<PetCare />} />
-        {/* <Route path='/pet-detail' element={<PetDetail />} /> */} 
+        <Route path='/pet-detail' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
       </Routes>
     </div>
