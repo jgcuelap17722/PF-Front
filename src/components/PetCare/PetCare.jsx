@@ -2,6 +2,8 @@ import React from 'react'
 import s from '../../css/PetCare.module.css'
 import {ReactComponent as Huella} from '../../assets/Huella.svg'
 import NavBar from '../../assets/NavBar/NavBar'
+import Footer from '../../assets/Footer/Footer'
+
 
 export default function PetCare() {
   return (
@@ -62,6 +64,7 @@ export default function PetCare() {
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </div>
   )
 }
