@@ -11,17 +11,17 @@ const RelatedCase = () => {
     <section>
       <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
       <div className={s.relatedBox}>
-        {
+        {    
           dataRelated && dataRelated.map(({id, img, name, location, age}) =>{
             return <Card key={id} img={img} name={name} location={location} age={age} />
           })
         }
       </div>
       <h1 className={s.viewedTitle} >Mascotas Vistas Recientemente</h1>
-      <div className={s.relatedBox}>
+      <div className={s.relatedBox}> 
         {
           dataViewed && dataViewed.map(({id, img, name, location, age}) =>{
-            return <Card key={id} img={img} name={name} location={location} age={age} />
+            return <Card key={id} img={img} name={name} location={location} age={age} cardType='1'   />
           })
         }
       </div>

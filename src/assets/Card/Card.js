@@ -1,7 +1,7 @@
 import React from 'react'
 import s from '../../css/Card.module.css'
 
-const Card = ({img, name, location, age}) => {
+const Card = ({img, name, location, age }) => {
   return (
     <div className={s.cards}>
       <div className={s.cardsImg}>

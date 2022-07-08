@@ -9,6 +9,11 @@
   border-radius: 15px;
   z-index: 2;
 }
+.filterBox:hover {
+  position: relative;
+  bottom: 5px;
+  transition: 1 ease;
+}
 .filterBox .filterIcon {
   height: 140px;
   margin-top: 15px;
@@ -30,9 +35,4 @@
   font-size: 20px;
   line-height: 24px;
   color: #ffffff;
-}
-.filterBox:hover {
-  position: relative;
-  bottom: 5px;
-  transition: 1 ease;
 }

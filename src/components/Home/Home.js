@@ -4,6 +4,7 @@ import NavBar from '../../assets/NavBar/NavBar'
 import RelatedCase from './RelatedCase'
 import ArticlesCase from './ArticlesCase'
 import s from '../../css/Home.module.css'
+import Footer from '../../assets/Footer/Footer'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <HeroHome />
       <RelatedCase />
       <ArticlesCase />
+      <Footer />
     </main>
   )
 }

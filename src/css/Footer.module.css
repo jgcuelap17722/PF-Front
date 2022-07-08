@@ -1,0 +1,66 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 350px;
+  background: linear-gradient(180deg, #3C3B53 68.39%, #363A40 100%);
+}
+footer .logoBox {
+  margin-top: 40px;
+  width: 90%;
+}
+footer .logoBox img {
+  width: 300px;
+}
+footer .linksBox {
+  display: flex;
+  flex-direction: row;
+  gap: 3.3%;
+  margin-top: 15px;
+  width: 90%;
+}
+footer .linksBox a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 34px;
+}
+footer .linksBox a:hover {
+  color: #FAC942;
+}
+footer .linksColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 33%;
+  height: 100%;
+}
+footer .linksColumn p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  color: #ffffff;
+}
+footer .linksColumn .register {
+  font-size: 25px;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+footer .socialMediaLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+  width: 90%;
+  height: 45px;
+}
+footer .socialMediaLinks .socialMediaIcons {
+  height: 33px;
+}

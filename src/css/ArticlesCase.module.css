@@ -1,9 +1,14 @@
 .articlesBox {
   width: 100vw;
-  height: 700px;
+  height: 650px;
+}
+.articlesBox .articlesPosition {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
 }
 .articlesBox .articlesTitle {
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
   font-family: 'Inter';
   font-style: normal;

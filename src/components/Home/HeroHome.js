@@ -29,8 +29,8 @@ const HeroHome = () => {
       </div>
 
       {/* <div className={s.sponsorBox}> */}
-        {/* <h1 className={s.sponsor}>Apadrina Mascotas</h1> */}
-        {/* <h4 className={s.sponsorBanner}>También puedes apadrinar una mascotas</h4> */}
+        <h1 className={s.sponsor}>Apadrina Mascotas</h1>
+        <h4 className={s.sponsorBanner}>También puedes apadrinar una mascotas</h4>
       {/* </div> */}
 
 
