@@ -1,0 +1,38 @@
+.filterBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 199px;
+  height: 252px;
+  background: #FAC942;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  z-index: 2;
+}
+.filterBox .filterIcon {
+  height: 140px;
+  margin-top: 15px;
+}
+.filterBox .others {
+  margin-top: 35px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 24px;
+  color: #ffffff;
+}
+.filterBox .animals {
+  margin-top: 35px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+.filterBox:hover {
+  position: relative;
+  bottom: 5px;
+  transition: 1 ease;
+}

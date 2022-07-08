@@ -1,4 +1,5 @@
 .formBox {
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 910px;
@@ -28,7 +29,6 @@
   text-indent: 22px;
 }
 .formBox .pet {
-  display: inline-block;
   margin-left: 0;
   width: 507px;
   height: 55px;
@@ -37,28 +37,33 @@
   border-radius: 15px 0px 0px 15px;
 }
 .formBox .line {
-  position: relative;
-  height: 30px;
-  bottom: -5px;
+  position: absolute;
+  height: 40px;
+  top: 7px;
+  margin-left: 1px;
   display: inline-block;
   border-left: 2.5px solid #ABABAB;
 }
 .formBox .city {
-  display: inline-block;
   width: 346px;
   height: 55px;
+  margin-left: 3px;
   border: none;
   box-sizing: border-box;
 }
 .formBox .button {
   position: absolute;
-  display: inline-block;
   width: 54px;
-  height: 55px;
+  height: 60px;
+  right: 0;
   box-sizing: border-box;
   border: none;
   border-radius: 0px 15px 15px 0px;
+  background-color: transparent;
 }
 .formBox .button:hover {
   background-color: #FAC942;
+}
+.formBox .icon {
+  width: 30px;
 }

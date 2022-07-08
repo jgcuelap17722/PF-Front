@@ -1,0 +1,44 @@
+@import 'variables.less';
+
+.cards{
+  width: 273px;
+  height: 367.18px;
+  background: @white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  overflow: hidden;
+  justify-content: center;
+
+  .cardsImg{
+      width: 273px;
+      height: 255.38px;
+      background-position: center;
+  }
+  .textContainer{
+      width: 227px;
+      height: 96px;
+      bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      p:first-child{
+          margin-left: 10px; 
+          font-weight: bold;
+          font-style: normal;
+          font-size: 20px;
+          line-height: 27px;
+          color: @black;
+      }
+      p{
+          margin-left: 10px; 
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 27px;
+          font-style: italic;
+          color: @darkGray;
+      }
+      
+  }
+  
+}

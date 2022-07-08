@@ -1,0 +1,14 @@
+.articlesBox {
+  width: 100vw;
+  height: 700px;
+}
+.articlesBox .articlesTitle {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  color: #504F6F;
+}
