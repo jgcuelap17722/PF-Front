@@ -1,5 +1,5 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from './components/Home/Home';
+import Home from './components/Home/Home.js';
+import { Route, Routes } from 'react-router-dom';
 import PetCare from './components/PetCare/PetCare';
 import PetDetail from './components/PetDetail/PetDetail';
 

@@ -2,11 +2,15 @@ import React from "react";
 import s from '../../css/PetDetail.module.css'
 import { ReactComponent as LeftArrow } from '../../assets/iconmonstr-angel-left-thin.svg'
 import { ReactComponent as RightArrow } from '../../assets/iconmonstr-angel-right-thin.svg'
-import NavBar from "../../assets/NavBar/NavBar";
-
+import NavBar from "../../assets/NavBar/NavBar.jsx";
+import Footer from '../../assets/Footer/Footer.js'
+import {petsCardData} from '../../assets/dataMockups/petsCardData'
+import Card from '../../assets/Card/Card.js'
 
 const PetDetail = () => {
+  const dataRelated = petsCardData.filter(e => e.id < 6)
   return (
+    <>
     <div className={s.contenedorPadre}>
       <NavBar/>
       <div className={s.contenedorPrincipal}>
@@ -88,8 +92,34 @@ const PetDetail = () => {
             </div>
           </div>
         </div>
+        </div>
+        <div className={s.mascotasCerca}>
+        <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
+      <div className={s.relatedBox}>
+        {    
+          dataRelated && dataRelated.map(({id, img, name, location, age}) =>{
+            return <Card key={id} img={img} name={name} location={location} age={age} />
+          })
+        }
       </div>
-    </div>
+
+        </div>
+        <div className={s.mascotasFoundation}>
+        <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
+      <div className={s.relatedBox}>
+        {    
+          dataRelated && dataRelated.map(({id, img, name, location, age}) =>{
+            return <Card key={id} img={img} name={name} location={location} age={age} />
+          })
+        }
+      </div>
+
+        </div>
+        
+      </div>
+      
+      <Footer/>
+    </>
   )
 }
 
