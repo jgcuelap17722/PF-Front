@@ -2,10 +2,13 @@ import React from "react";
 import s from '../../css/PetDetail.module.css'
 import { ReactComponent as LeftArrow } from '../../assets/iconmonstr-angel-left-thin.svg'
 import { ReactComponent as RightArrow } from '../../assets/iconmonstr-angel-right-thin.svg'
+import NavBar from "../../assets/NavBar/NavBar";
+
 
 const PetDetail = () => {
   return (
     <div className={s.contenedorPadre}>
+      <NavBar/>
       <div className={s.contenedorPrincipal}>
         <div className={s.contenedorSlide}>
           <div className={s.contenedorImg}>

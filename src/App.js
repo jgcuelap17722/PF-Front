@@ -1,10 +1,7 @@
 import Home from './components/Home';
-import { Route, Routes } from 'react-router-dom'
-
-
-
+import { Route, Routes } from 'react-router-dom';
+import PetCare from './components/PetCare/PetCare';
 import PetDetail from './components/PetDetail/PetDetail';
-
 
 function App() {
   return (
@@ -15,7 +12,7 @@ function App() {
         {/* <Route path='/register' element={<Register />} /> */}
         {/* <Route path='/login' element={<Login  />} /> */}
         {/* <Route path='/searcher' element={<Searcher />} /> */}
-        {/* <Route path='/pet-care' element={<PetCare />} /> */}
+        <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
       </Routes>
