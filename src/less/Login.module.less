@@ -1,0 +1,112 @@
+@import 'variables';
+
+
+.content{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+
+        .form{
+            width: 700px;
+            height: 470px;
+            background-image: url('../assets/FormImage.png');
+            background-size: cover;
+            
+            .overflow{
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.4);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                justify-content:space-evenly;
+            }
+            
+            .title{
+                font-weight: 600;
+                font-size: 35px;
+                color: @white;
+                padding-top: 20px;
+            }
+            .inputGroup{
+                height: 70px;
+                p{
+                    text-align: left;
+                    padding: 23px 0 0 0;
+                }
+                img{
+                    // position:absolute;
+                    // bottom: 47%;
+                    // right: 36%;
+                    // width: 30px;
+                    
+                    
+                }
+                button{
+                    height: 52px;
+                    border:none;
+                    cursor: pointer;
+                    background-color: @white;
+                    border-bottom-right-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+            }
+            .input{
+                width: 400px;
+                height: 50px; 
+                outline: none;      
+                border: none;
+                border-radius: 5px;
+                padding-left: 20px;
+            }
+
+            // .input[id='El email es requerido'],
+            // .input[id='Por favor ingresa un email válido'],
+            // .input[id='El Password es requerido'],
+            // .input[id='Min 8, Mayúscula, Minúscula, Número y Especial']{
+            //     border-bottom: 1px solid @secondary;
+            //     border-top: 1px solid @secondary;
+            // }
+
+            .input[name='password']{
+                max-width: 370px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            .button{
+                width: 420px;
+                height: 50px;
+                background: @primary;
+                border-radius: 5px;
+                border: none;
+                color: @white;
+
+                &:hover{
+                    background-color: @darkPrimary;
+                    cursor: pointer;
+                    color: @lightGray;
+                }
+            }
+            a{
+                text-decoration: none;
+            }
+            .forget{  
+                position: relative;
+                bottom: 20px;
+                color: @white;
+                right: 0px;
+
+                &:hover{
+                    color: @secondary;
+                }
+            }
+            
+            .error{
+                color: @secondary;
+                font-size: smaller;
+            }
+        }
+}
