@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../../assets/NavBar/NavBar';
+import Footer from '../../assets/Footer/Footer';
 import s from '../../css/Login.module.css';
-import img from '../../assets/eye.png'
 import { Link } from 'react-router-dom';
 
 function validate (input) {
@@ -24,16 +24,11 @@ function validate (input) {
 
 export default function Login() {
 
-    //Validaciones
-    //Leer el input del campo
-    //validar con el regex
-    //mostrar o no mostrar el error
     const [input, setInput] = useState({
         email:'',
         password:''
     })
     const [error, setError] = useState({})
-    
     
     function handleChange (e) {
         setInput({
@@ -50,12 +45,18 @@ export default function Login() {
         inputPass[0].type === 'password'? inputPass[0].type = 'text': inputPass[0].type = 'password'
         console.log(inputPass)
     }
+    function handleSubmit (e){
+        e.preventDefault(e)
+        if (error.email || error.password || !input.email || !input.password) alert (`Ingresa toda la información`)
+        else alert ('Iniciando Sesión')
+    }
 
   return (
     <div>
         <NavBar></NavBar>
         <div className={s.content}>
-            <div className={s.form}>
+            <form onSubmit={(e)=>handleSubmit(e)}
+                    className={s.form}>
                 <div className={s.overflow}>
                     <h1 className={s.title}>Iniciar Sesión</h1>
                     <div className={s.inputGroup}>
@@ -82,14 +83,15 @@ export default function Login() {
                             {/* <img src={img} alt="img" />  */}
                             {error.password && <p className={s.error}>{error.password}</p>}
                     </div>
-                    <button className={s.button}>Iniciar Sesión</button>
+                    <button className={s.button} type='submit'>Iniciar Sesión</button>
                     <Link to='/reset-password'>
                         <p className={s.forget}>Olvidé mi Contraseña</p>
                     </Link>
                 </div>
 
-            </div>
+            </form>
         </div>
+        <Footer></Footer>
     </div>
   )
 }
