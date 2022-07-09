@@ -1,9 +1,12 @@
 import React from 'react'
 import s from '../../css/Card.module.css'
 
-const Card = ({img, name, location, age }) => {
+const Card = ({ img, name, location, age, cardType }) => {
+
+  // type: home, searcher, care
+  
   return (
-    <div className={s.cards}>
+    <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : s.cards3} >
       <div className={s.cardsImg}>
         <img src={img} alt={`${name}_img`} />
       </div>
@@ -14,6 +17,7 @@ const Card = ({img, name, location, age }) => {
       </div>
     </div>
   )
+
 }
 
 export default Card
