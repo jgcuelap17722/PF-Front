@@ -2,6 +2,8 @@ import React from 'react'
 import s from '../../css/Dashboard.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
+import { Link } from 'react-router-dom';
+
 
 export default function Dashboard() {
   return (
@@ -50,8 +52,9 @@ export default function Dashboard() {
 
                         </div>
                     </div>
-                    <button className={s.button}>Add Pet</button>
-                    
+                    <Link to='/create-pet' className={s.link}>
+                        <button className={s.button}>Add Pet</button>
+                    </Link>
                 </div>
 
             </div>
