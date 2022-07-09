@@ -11,8 +11,8 @@ const FiltersAmount = () => {
       <div className={s.sortBox}>
           <label htmlFor="select">Ordenar por: </label>
           <select name="select" >
+            <option value=""></option>
             <option value="">Nombre</option>
-            {/* <option value=""></option> */}
           </select>
       </div>
     </div>
