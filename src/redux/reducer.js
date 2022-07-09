@@ -1,6 +1,6 @@
-import {} from './actions';
+import { } from './actions';
 
-const initialState={
+const initialState = {
 	allPets: [],
 	petDetail: {},
 	petsFiltered: [],
@@ -10,10 +10,20 @@ const initialState={
 };
 
 export default function reducer(state = initialState, action) {
-  switch(action.type) {
-    
-    default:
-      return state;
-  }
+	switch (action.type) {
+		case 'GET_ALL_PETS':
+			return {
+				...state,
+				allPets: action.payload,
+				petsFiltered: action.payload,
+			}
+		case 'GET_DETAIL':
+			return{
+				...state,
+				detail:action.payload,
+			}
+		default:
+			return state;
+	}
 
 }
