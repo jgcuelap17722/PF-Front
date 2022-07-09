@@ -13,7 +13,7 @@ const RelatedCase = () => {
       <div className={s.relatedBox}>
         {    
           dataRelated && dataRelated.map(({id, img, name, location, age}) =>{
-            return <Card key={id} img={img} name={name} location={location} age={age} cardType='home'/>
+            return <Card key={id} img={img} name={name} location={location} age={age} cardType='care'/>
           })
         }
       </div>

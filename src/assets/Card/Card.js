@@ -6,7 +6,7 @@ const Card = ({ img, name, location, age, cardType }) => {
   // type: home, searcher, care
   
   return (
-    <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : s.cards3} >
+    <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : cardType === 'care'? s.cards3 : null} >
       <div className={s.cardsImg}>
         <img src={img} alt={`${name}_img`} />
       </div>
