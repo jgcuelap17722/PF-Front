@@ -1,40 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import s from '../../css/PetDetail.module.css'
-import { ReactComponent as LeftArrow } from '../../assets/iconmonstr-angel-left-thin.svg'
-import { ReactComponent as RightArrow } from '../../assets/iconmonstr-angel-right-thin.svg'
 import NavBar from "../../assets/NavBar/NavBar.jsx";
 import Footer from '../../assets/Footer/Footer.js'
 import Card from '../../assets/Card/Card.js'
 import { InfoApi } from "../../assets/dataMockups/InfoApi";
 import { Link } from "react-router-dom";
-
+import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
 
 // const INeed = {name, photos, size, species, tags, type, gender, contact, colors, breeds, age}
 const PetDetail = () => {
 
   // console.log(InfoApi)
-  const Api = InfoApi[4];
-  const ApiCerca = InfoApi.filter(el => el.contact.address.country === Api.contact.address.country && el.id !== Api.id).slice(0,5)
+  const Api = InfoApi[0];
+  const ApiCerca = InfoApi.filter(el => el.contact.address.country === Api.contact.address.country && el.id !== Api.id).slice(0, 5)
   const ApiOrganization = InfoApi.filter(el => el.organization_animal_id === Api.organization_animal_id && el.id !== Api.id).slice(6, 11)
+
+  const [selectIndex, setSelectIndex] = useState(0);
+  const [selectImage, setSelectImage] = useState(Api.photos[0]?.large);
+  const [preImage, setPrevImage] = useState(Api.photos[0]?.large);
+  const [nextImage, setNextImage] = useState(Api.photos[0]?.large);
+
+
+  function previus() {
+    const condition = selectIndex > 0;
+    const nextIndex = condition ? selectIndex - 1 : Api.photos.length - 1;
+
+
+    setSelectImage(Api.photos[nextIndex].small);
+    // setNextImage(Api.photos[nextIndex + 1].small)
+    // setPrevImage(Api.photos[nextIndex - 1].small)
+    setSelectIndex(nextIndex);
+
+  }
+
+  function next() {
+    const condition = selectIndex < Api.photos.length - 1;
+    const nextIndex = condition ? selectIndex + 1 : 0;
+    // const actual = nextIndex >= Api.photos.length -1 ? 0 : nextIndex +1
+    // const prev = nextIndex === 0 ?  Api.photos.length -1 : -1;
+
+
+    setSelectImage(Api.photos[nextIndex].small);
+    // setNextImage(Api.photos[actual].small)
+    // setPrevImage(Api.photos[prev].small)
+    setSelectIndex(nextIndex);
+  }
 
   return (
     <>
       <div className={s.contenedorPadre}>
         <NavBar />
-        <div className={s.contenedorPrincipal}>
-          <div className={s.contenedorSlide}>
-            <div className={s.contenedorImg}>
-              <div className={s.slide}>
-                {Api.photos.length > 1 ? Api.photos.map(el => <img src={el.small} className={s.img} />) : <img src="/" alt="img animal"></img>}
+
+        <div className={s.slideComplete}>
+
+          <div className={s.contenedorAux}>
+            <div className={s.contenedorSlide}>
+              <div className={s.contenedorImg}>
+                <div className={s.slide}>
+                  <img className={s.img} src={preImage} alt='img not found' />
+                </div>
               </div>
             </div>
-            <div className={s.controler}>
-              <button className={s.buttonLeft}>
-                <LeftArrow />
-              </button>
-              <button className={s.buttonRight}>
-                <RightArrow />
-              </button>
+          </div>
+
+          <div className={s.contenedorPrincipal}>
+            <div className={s.contenedorSlide}>
+              <div className={s.contenedorImg}>
+                <div className={s.slide}>
+                  <img className={s.img} src={selectImage} alt='img not found' />
+                </div>
+              </div>
+              <div className={s.controler}>
+                <button onClick={previus} className={s.buttonLeft}>
+                  < Arrow />
+                </button>
+                <button onClick={next} className={s.buttonRight}>
+                  <Arrow />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className={s.contenedorAux}>
+            <div className={s.contenedorSlide}>
+              <div className={s.contenedorImg}>
+                <div className={s.slide}>
+                  <img className={s.img} src={nextImage} alt='img not found' />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -142,7 +195,7 @@ const PetDetail = () => {
         <div className={s.mascotasCerca}>
           <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>
           <div className={s.relatedBox}>
-          {
+            {
               ApiOrganization && ApiOrganization.map(({ id, photos, name, contact, age }) => {
                 return <Link className={s.card} to={'/pet-detail/' + id}><Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} /></Link>
               })
@@ -155,7 +208,7 @@ const PetDetail = () => {
           <div className={s.relatedBox}>
             {
               ApiCerca && ApiCerca.map(({ id, photos, name, contact, age }) => {
-                return <Link className={s.card} to={'/pet-detail/' + id}><Card  key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} /></Link>
+                return <Link className={s.card} to={'/pet-detail/' + id}><Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} /></Link>
               })
             }
           </div>

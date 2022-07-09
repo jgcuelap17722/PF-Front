@@ -5,80 +5,184 @@
     max-height: 3500px;
     background: #FFFFFF;
 
-    .contenedorPrincipal {
+    .slideComplete {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: center;
+        text-align: center;
+        background-color: #000000;
 
-        .contenedorSlide {
-            position: relative;
+        .contenedorAux {
+            background-color: #000000;
+            max-width: 20rem;
+            min-height: 33.125rem;
 
-            .contenedorImg {
-                display: flex;
-                flex-wrap: nowrap;
+            .contenedorSlide {
+                position: relative;
 
-                .slide {
-                    min-width: 100%;
-                    overflow: hidden;
-                    transition: .3s ease all;
-                    // z-index: 9;
-                    max-height: 33.125rem;
-                    position: relative;
 
-                    .img {
-                        width: 30rem;
-                        height: 33.125rem;
-                        vertical-align: top;
-                        object-fit: cover;
+                .contenedorImg {
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    .slide {
+                        min-width: 100%;
+                        overflow: hidden;
+                        transition: .3s ease all;
+                        // z-index: 9;
+                        max-height: 33.125rem;
+                        position: relative;
+
+                        .img {
+                            display: flex;
+                            max-width: 30rem;
+                            min-height: 33.125rem;
+                            vertical-align: top;
+                            object-fit: cover;
+                            opacity: 0.4;
+                        }
+                    }
+                }
+
+                .controler {
+                    position: absolute;
+                    top: 0;
+                    // z-index: 10;
+                    width: 30rem;
+                    height: 100%;
+                    pointer-events: none;
+
+                    .buttonLeft {
+                        pointer-events: all;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        left: 0;
+
+                        .buttonLeft:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
+
+                    }
+
+                    .buttonRight {
+                        pointer-events: all;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        right: 0;
+
+
+                        .buttonRight:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
                     }
                 }
             }
+        }
 
-            .controler {
-                position: absolute;
-                top: 0;
-                // z-index: 10;
-                width: 30rem;
-                height: 100%;
-                pointer-events: none;
+        .contenedorPrincipal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            min-width: 35rem;
 
-                .buttonLeft {
-                    pointer-events: all;
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    outline: none;
-                    width: 3.125rem;
-                    height: 100%;
-                    text-align: center;
-                    position: absolute;
-                    transition: .3s ease all;
-                    left: 0;
+            .contenedorSlide {
+                position: relative;
 
-                    .buttonLeft:hover {
-                        background: rgba(0, 0, 0, .2);
-                        fill: #fff;
+
+                .contenedorImg {
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    .slide {
+                        min-width: 100%;
+                        overflow: hidden;
+                        transition: .3s ease all;
+                        // z-index: 9;
+                        max-height: 33.125rem;
+                        position: relative;
+
+                        .img {
+                            display: flex;
+                            max-width: 30rem;
+                            min-height: 33.125rem;
+                            vertical-align: top;
+                            object-fit: cover;
+
+                        }
                     }
-
                 }
 
-                .buttonRight {
-                    pointer-events: all;
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    outline: none;
-                    width: 3.125rem;
-                    height: 100%;
-                    text-align: center;
+                .controler {
                     position: absolute;
-                    transition: .3s ease all;
-                    right: 0;
+                    top: 0;
+                    // z-index: 10;
+                    width: 30rem;
+                    height: 100%;
+                    pointer-events: none;
 
+                    .buttonLeft {
+                        pointer-events: all;
+                        background: none;
+                        // opacity: 0.2;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        left: -50px;
+                        justify-content: center;
 
-                    .buttonRight:hover {
-                        background: rgba(0, 0, 0, .2);
+                        .buttonLeft:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
+
+                    }
+
+                    .buttonRight {
+                        pointer-events: all;
+                        background: none;
+                        // opacity: 0.7;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        right: -47px;
                         fill: #fff;
+
+                        transform: rotate(180deg);
+
+
+
+                        .buttonRight:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
                     }
                 }
             }
@@ -329,7 +433,7 @@
                     margin-bottom: 10px;
 
                     .direction {
-                        
+
                         height: 300px;
                         display: flex;
                         flex-direction: column;
@@ -385,7 +489,8 @@
         flex-direction: row;
         justify-content: center;
         gap: 35px;
-        .card{
+
+        .card {
             text-decoration: none;
         }
     }
@@ -416,10 +521,9 @@
         flex-direction: row;
         justify-content: center;
         gap: 35px;
-        .card{
+
+        .card {
             text-decoration: none;
         }
     }
 }
-
-
