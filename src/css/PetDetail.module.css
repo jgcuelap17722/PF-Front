@@ -79,12 +79,13 @@
 .contenedorPadre .contenedorMedium .contenedorDetalles {
   background-color: #66668F;
   width: 53.558rem;
-  height: 68.75rem;
+  min-height: 68.75rem;
   opacity: 0.9;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding-bottom: 20px;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .name {
   flex-direction: column;
@@ -124,6 +125,11 @@
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre .size .p {
   font-size: 25px;
+}
+.contenedorPadre .contenedorMedium .contenedorDetalles .sobre .size .sizeTags {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre .salud {
   display: flex;
@@ -219,7 +225,7 @@
   flex-direction: column;
   background-color: #66668F;
   width: 485.06px;
-  height: 690px;
+  min-height: 690px;
   border-left: 1px solid #504F6F;
   border-right: 1px solid #504F6F;
   border-radius: 15px;
@@ -262,24 +268,30 @@
   height: 100%;
   object-fit: cover;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .direction {
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 485.61px;
-  height: 200px;
+  margin-bottom: 10px;
+}
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection .direction {
+  height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .direction .directionInterior {
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection .direction .directionInterior {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .direction .directionInterior .h3 {
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection .direction .directionInterior .h3 {
   font-size: 30px;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .direction .directionInterior .p {
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection .direction .directionInterior .p {
   font-weight: 400;
   font-size: 20px;
 }
@@ -306,6 +318,9 @@
   justify-content: center;
   gap: 35px;
 }
+.mascotasCerca .relatedBox .card {
+  text-decoration: none;
+}
 .mascotasFoundation {
   display: flex;
   flex-direction: column;
@@ -328,4 +343,7 @@
   flex-direction: row;
   justify-content: center;
   gap: 35px;
+}
+.mascotasFoundation .relatedBox .card {
+  text-decoration: none;
 }
