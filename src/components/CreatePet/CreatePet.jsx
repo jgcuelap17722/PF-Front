@@ -7,6 +7,7 @@ export default function CreatePet() {
 
 	const [input, setInput] = useState({
 		type: '',
+		breed: '',
 		age: '',
 		petName: '',
 		genre: '',
@@ -32,6 +33,10 @@ export default function CreatePet() {
 
 		if(!input.age){
 			error.age = 'Selecciona una edad';
+		}
+
+		if(!input.breed){
+			error.breed = 'Selecciona una raza';
 		}
 
 		if(!input.petName){
@@ -147,6 +152,14 @@ export default function CreatePet() {
 								<option value="dog">Perro</option>
 							</select>
 							{ error.type && <p className={s.error}>{error.type}</p> }
+						</div>
+						<div>
+							<select onChange={(e) => handleChange(e)} name="breed" id="">
+								<option value="">Raza</option>
+								<option value="cat">raza1</option>
+								<option value="dog">raza2</option>
+							</select>
+							{ error.breed && <p className={s.error}>{error.breed}</p> }
 						</div>
 						<div>
 							<select onChange={(e) => handleChange(e)} name="age" id="">
