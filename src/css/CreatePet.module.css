@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 123vh;
+}
+@media (max-width: 1400px) {
+  .container {
+    height: 145vh;
+  }
+}
+.container .left {
+  background-image: url('../assets/images/create-pet.jpg');
+  background-size: cover;
+  width: 50%;
+}
+.container .left .overflow {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 0 0 / 0.4);
+}
+.container .right {
+  width: 50%;
+}
+.container .right form {
+  padding: 3rem 7rem 3rem 7rem;
+}
+.container .right form h1 {
+  color: #454B54;
+  margin-bottom: 1rem;
+}
+.container .right form div {
+  height: 4.5rem;
+}
+.container .right form div input {
+  width: 99.1%;
+  height: 2.2rem;
+}
+.container .right form div select {
+  width: 100%;
+  height: 2.6rem;
+}
+.container .right form div input,
+.container .right form div select {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #504F6F;
+  color: #504F6F;
+  outline: none;
+}
+.container .right form div input:focus,
+.container .right form div select:focus {
+  color: #4992AB;
+  border: 0.1rem solid #4992AB;
+}
+.container .right form div p {
+  padding-top: 0.2rem;
+  color: #FAB942;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.container .right form button {
+  height: 2.6rem;
+  width: 100%;
+  background-color: #504F6F;
+  border: none;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+.container .right form button:hover {
+  background-color: #4B4D62;
+  color: #FAC942;
+  cursor: pointer;
+}

@@ -1,0 +1,91 @@
+@import "variables";
+
+.container{
+	display: flex;
+	width: 100%;
+	height: 123vh;
+
+	@media @normalDesktop{
+			height: 145vh;
+		}
+
+	.left{
+		background-image: url('../assets/images/create-pet.jpg');
+		background-size: cover;
+		width: 50%;
+
+		.overflow{
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0 0 0 / .4);
+		}
+	}
+
+	.right{
+		width: 50%;
+
+		form{
+			padding: 3rem 7rem 3rem 7rem;
+
+			h1{
+				color: @black;
+				margin-bottom: 1rem;
+			}
+
+			div{
+				height: 4.5rem;
+
+				input{
+					width: 99.1%;
+					height: 2.2rem;
+				}
+
+				select{
+					width: 100%;
+					height: 2.6rem;
+				}
+
+				input,
+				select{
+					background-color: @white;
+					border: none;
+					border-radius: .2rem;
+					border: .1rem solid @primary;
+					color: @primary;
+					outline: none;
+				}
+
+				input:focus,
+				select:focus{
+					color: @third;
+					border: .1rem solid @third;
+				}
+
+				p{
+					padding-top: .2rem;
+					color: @darkSecondary;
+					font-weight: bold;
+					font-size: .8rem;
+				}
+
+			}
+
+			button{
+				height: 2.6rem;
+				width: 100%;
+				background-color: @primary;
+				border: none;
+				border-radius: .2rem;
+				color: @white;
+				font-weight: 600;
+
+				&:hover{
+					background-color: @darkPrimary;
+					color: @secondary;
+					cursor: pointer;
+				}
+			}
+			
+		}
+	}
+}
