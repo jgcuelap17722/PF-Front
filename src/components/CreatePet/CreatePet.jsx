@@ -13,8 +13,6 @@ export default function CreatePet() {
 	const allColors = InfoApi.map( p => p.colors.primary);
 	const colors = allColors.filter( ( c, index ) => allColors.indexOf(c) === index );
 
-	console.log(InfoApi.map( p => p.size ));
-
 	const [input, setInput] = useState({
 		type: '',
 		breed: '',
