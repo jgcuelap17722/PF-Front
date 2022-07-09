@@ -2,8 +2,18 @@ import React, { useState } from 'react';
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/CreatePet.module.css';
+import { catBreeds } from '../../assets/dataMockups/catBreed.js';
+import { dogBreeds } from '../../assets/dataMockups/dogBreed.js';
+import { InfoApi } from '../../assets/dataMockups/InfoApi.js';
+
+
 
 export default function CreatePet() {
+
+	const allColors = InfoApi.map( p => p.colors.primary);
+	const colors = allColors.filter( ( c, index ) => allColors.indexOf(c) === index );
+
+	console.log(InfoApi.map( p => p.size ));
 
 	const [input, setInput] = useState({
 		type: '',
@@ -156,18 +166,22 @@ export default function CreatePet() {
 						<div>
 							<select onChange={(e) => handleChange(e)} name="breed" id="">
 								<option value="">Raza</option>
-								<option value="cat">raza1</option>
-								<option value="dog">raza2</option>
+								{input.type === 'cat' ? catBreeds.map( b => 
+									<option value={b.name}>{b.name}</option> 
+								): null}
+								{input.type === 'dog' ? dogBreeds.map( b => 
+									<option value={b.name}>{b.name}</option> 
+								): null}
 							</select>
 							{ error.breed && <p className={s.error}>{error.breed}</p> }
 						</div>
 						<div>
 							<select onChange={(e) => handleChange(e)} name="age" id="">
 								<option value="">Edad</option>
-								<option value="puppy">Cachorro</option>
-								<option value="young">Joven</option>
-								<option value="adult">Adulto</option>
-								<option value="senior">Mayor</option>
+								<option value="baby">Baby</option>
+								<option value="young">Young</option>
+								<option value="adult">Adult</option>
+								<option value="senior">Senior</option>
 							</select>
 							{ error.age && <p className={s.error}>{error.age}</p> }
 						</div>
@@ -178,27 +192,26 @@ export default function CreatePet() {
 						<div>
 							<select onChange={(e) => handleChange(e)} name="genre" id="">
 								<option value="">Género</option>
-								<option value="male">Macho</option>
-								<option value="female">Hembra</option>
+								<option value="male">Male</option>
+								<option value="female">Female</option>
 							</select>
 							{ error.genre && <p className={s.error}>{error.genre}</p> }
 						</div>
 						<div>
 							<select onChange={(e) => handleChange(e)} name="size" id="">
 								<option value="">Tamaño</option>
-								<option value="small">Pequeño</option>
-								<option value="medium">Mediano</option>
-								<option value="large">Grande</option>
-								<option value="extraLarge">Extra Grande</option>
+								<option value="small">Small</option>
+								<option value="medium">Medium</option>
+								<option value="large">Large</option>
 							</select>
 							{ error.size && <p className={s.error}>{error.size}</p> }
 						</div>
 						<div>
 							<select onChange={(e) => handleChange(e)} name="color" id="">
 								<option value="">Color</option>
-								<option value="black">Negro</option>
-								<option value="brown">Marrón</option>
-								<option value="white">Blanco</option>
+								{colors && colors.map( c => 
+									<option value={c}>{c}</option>
+								)}
 							</select>
 							{ error.color && <p className={s.error}>{error.color}</p> }
 						</div>
