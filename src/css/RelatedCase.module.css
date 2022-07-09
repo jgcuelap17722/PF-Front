@@ -1,0 +1,34 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 1024px;
+}
+section .relatedBox {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 35px;
+}
+section .proximityTitle {
+  margin-top: 45px;
+  margin-bottom: 35px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  color: #504F6F;
+}
+section .viewedTitle {
+  margin-top: 80px;
+  margin-bottom: 35px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  color: #504F6F;
+}
