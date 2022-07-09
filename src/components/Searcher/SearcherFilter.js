@@ -1,21 +1,24 @@
 import s from '../../css/SearcherFilter.module.css'
 import FilterOption from './FilterOption'
-import { filtersOptionsDogs } from '../../assets/dataMockups/filtersOptions'
-import { InfoApi } from '../../assets/dataMockups/InfoApi'
+import { filtersOptionsDogs, filtersOptionsCats } from '../../assets/dataMockups/filtersOptions'
 
-const SearcherFilter = ({props}) => {
-  const dogsMockup = InfoApi.filter(e => e.type === 'Dog')
-  const catsMockup = InfoApi.filter(e => e.type === 'Cat')
+const SearcherFilter = ({ petType }) => {
 
-  console.log('dogs', dogsMockup);
-  console.log('cats', catsMockup);
-  
+
+  const filterType = petType
+  let filtersByType
+
+  if (filterType === 'dog') {
+    filtersByType = filtersOptionsDogs
+  } else {
+    filtersByType = filtersOptionsCats
+  }
+
   return (
     <aside className={s.searcherFilterBox}>
-      {/* <FilterOption type={filtersOptionsDogs[0].type} options={filtersOptionsDogs[0].options}/> */}
       {
-        filtersOptionsDogs.map(e=>{
-          return <FilterOption type={e.type} options={e.options}/>
+        filtersByType.map(e => {
+          return <FilterOption type={e.type} options={e.options} />
         })
       }
     </aside>

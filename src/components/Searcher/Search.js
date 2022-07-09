@@ -4,14 +4,17 @@ import FiltersAmount from './FiltersAmount'
 import Paginated from './Paginated'
 import Card from '../../assets/Card/Card'
 import { InfoApi } from '../../assets/dataMockups/InfoApi'
+import { useParams } from 'react-router'
 
 const Search = () => {
+
+  const { petType } = useParams()
 
   const data = InfoApi.filter((e, id) => id < 9)
 
   return (
     <section className={s.sectionBox}>
-      <SearcherFilter />
+      <SearcherFilter petType={petType} />
       <div className={s.paginatedBox}>
         <FiltersAmount />
         <div className={s.cardsBox}>
