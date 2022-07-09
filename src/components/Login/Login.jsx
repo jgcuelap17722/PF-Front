@@ -41,6 +41,7 @@ export default function Login() {
         }))
     }
     function showPassword (e){
+        e.preventDefault(e)
         let inputPass = document.getElementsByName('password')
         inputPass[0].type === 'password'? inputPass[0].type = 'text': inputPass[0].type = 'password'
         console.log(inputPass)
@@ -55,7 +56,7 @@ export default function Login() {
     <div>
         <NavBar></NavBar>
         <div className={s.content}>
-            <form onSubmit={(e)=>handleSubmit(e)}
+            <form 
                     className={s.form}>
                 <div className={s.overflow}>
                     <h1 className={s.title}>Iniciar Sesión</h1>
@@ -83,7 +84,7 @@ export default function Login() {
                             {/* <img src={img} alt="img" />  */}
                             {error.password && <p className={s.error}>{error.password}</p>}
                     </div>
-                    <button className={s.button} type='submit'>Iniciar Sesión</button>
+                    <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
                     <Link to='/reset-password'>
                         <p className={s.forget}>Olvidé mi Contraseña</p>
                     </Link>
