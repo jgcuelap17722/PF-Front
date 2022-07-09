@@ -36,7 +36,7 @@ export default function CreatePet() {
 		}
 
 		if(!input.breed){
-			error.breed = 'Selecciona una raza';
+			error.breed = 'Selecciona una raza'; 
 		}
 
 		if(!input.petName){
