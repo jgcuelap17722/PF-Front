@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../../assets/NavBar/NavBar.jsx';
 import s from '../../css/SignUp.module.css';
+import Footer from '../../assets/Footer/Footer';
 
 export default function SignUp() {
 
@@ -250,6 +251,7 @@ export default function SignUp() {
 					<div className={s.overflow}></div>
 				</div>
 			</main>
+			<Footer />
 		</div>
 	)
 }
