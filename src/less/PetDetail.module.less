@@ -5,80 +5,184 @@
     max-height: 3500px;
     background: #FFFFFF;
 
-    .contenedorPrincipal {
+    .slideComplete {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: center;
+        text-align: center;
+        background-color: #000000;
 
-        .contenedorSlide {
-            position: relative;
+        .contenedorAux {
+            background-color: #000000;
+            max-width: 20rem;
+            min-height: 33.125rem;
 
-            .contenedorImg {
-                display: flex;
-                flex-wrap: nowrap;
+            .contenedorSlide {
+                position: relative;
 
-                .slide {
-                    min-width: 100%;
-                    overflow: hidden;
-                    transition: .3s ease all;
-                    // z-index: 9;
-                    max-height: 33.125rem;
-                    position: relative;
 
-                    .img {
-                        width: 30rem;
-                        height: 33.125rem;
-                        vertical-align: top;
-                        object-fit: cover;
+                .contenedorImg {
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    .slide {
+                        min-width: 100%;
+                        overflow: hidden;
+                        transition: .3s ease all;
+                        // z-index: 9;
+                        max-height: 33.125rem;
+                        position: relative;
+
+                        .img {
+                            display: flex;
+                            max-width: 30rem;
+                            min-height: 33.125rem;
+                            vertical-align: top;
+                            object-fit: cover;
+                            opacity: 0.4;
+                        }
+                    }
+                }
+
+                .controler {
+                    position: absolute;
+                    top: 0;
+                    // z-index: 10;
+                    width: 30rem;
+                    height: 100%;
+                    pointer-events: none;
+
+                    .buttonLeft {
+                        pointer-events: all;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        left: 0;
+
+                        .buttonLeft:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
+
+                    }
+
+                    .buttonRight {
+                        pointer-events: all;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        right: 0;
+
+
+                        .buttonRight:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
                     }
                 }
             }
+        }
 
-            .controler {
-                position: absolute;
-                top: 0;
-                // z-index: 10;
-                width: 30rem;
-                height: 100%;
-                pointer-events: none;
+        .contenedorPrincipal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            min-width: 35rem;
 
-                .buttonLeft {
-                    pointer-events: all;
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    outline: none;
-                    width: 3.125rem;
-                    height: 100%;
-                    text-align: center;
-                    position: absolute;
-                    transition: .3s ease all;
-                    left: 0;
+            .contenedorSlide {
+                position: relative;
 
-                    .buttonLeft:hover {
-                        background: rgba(0, 0, 0, .2);
-                        fill: #fff;
+
+                .contenedorImg {
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    .slide {
+                        min-width: 100%;
+                        overflow: hidden;
+                        transition: .3s ease all;
+                        // z-index: 9;
+                        max-height: 33.125rem;
+                        position: relative;
+
+                        .img {
+                            display: flex;
+                            max-width: 30rem;
+                            min-height: 33.125rem;
+                            vertical-align: top;
+                            object-fit: cover;
+
+                        }
                     }
-
                 }
 
-                .buttonRight {
-                    pointer-events: all;
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    outline: none;
-                    width: 3.125rem;
-                    height: 100%;
-                    text-align: center;
+                .controler {
                     position: absolute;
-                    transition: .3s ease all;
-                    right: 0;
+                    top: 0;
+                    // z-index: 10;
+                    width: 30rem;
+                    height: 100%;
+                    pointer-events: none;
 
+                    .buttonLeft {
+                        pointer-events: all;
+                        background: none;
+                        // opacity: 0.2;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        left: -50px;
+                        justify-content: center;
 
-                    .buttonRight:hover {
-                        background: rgba(0, 0, 0, .2);
+                        .buttonLeft:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
+
+                    }
+
+                    .buttonRight {
+                        pointer-events: all;
+                        background: none;
+                        // opacity: 0.7;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        width: 3.125rem;
+                        height: 100%;
+                        text-align: center;
+                        position: absolute;
+                        transition: .3s ease all;
+                        right: -47px;
                         fill: #fff;
+
+                        transform: rotate(180deg);
+
+
+
+                        .buttonRight:hover {
+                            background: rgba(0, 0, 0, .2);
+                            fill: #fff;
+                        }
                     }
                 }
             }
@@ -95,12 +199,13 @@
         .contenedorDetalles {
             background-color: @lightPrimary;
             width: 53.558rem;
-            height: 68.75rem;
+            min-height: 68.75rem;
             opacity: 0.9;
             border-radius: 15px;
             display: flex;
             flex-direction: column;
             gap: 50px;
+            padding-bottom: 20px;
 
 
             .name {
@@ -148,6 +253,12 @@
 
                     .p {
                         font-size: 25px;
+                    }
+
+                    .sizeTags {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 15px;
                     }
                 }
 
@@ -264,7 +375,7 @@
                 flex-direction: column;
                 background-color: @lightPrimary;
                 width: 485.06px;
-                height: 690px;
+                min-height: 690px;
                 border-left: 1px solid @primary;
                 border-right: 1px solid @primary;
                 border-radius: 15px;
@@ -313,27 +424,38 @@
                     }
                 }
 
-                .direction {
-                    width: 485.61px;
-                    height: 200px;
+                .contenedorDirection {
                     display: flex;
-                    flex-direction: column;
-                    align-items: center;
                     justify-content: center;
+                    align-items: center;
+                    // width: 100%;
+                    width: 485.61px;
+                    margin-bottom: 10px;
 
-                    .directionInterior {
+                    .direction {
+
+                        height: 300px;
                         display: flex;
                         flex-direction: column;
-                        gap: 20px;
-                        margin-top: 20px;
+                        align-items: flex-start;
+                        justify-content: center;
 
-                        .h3 {
-                            font-size: 30px;
-                        }
+                        .directionInterior {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+                            margin-top: 20px;
+                            // align-items: flex-start;
+                            // justify-content: flex-start;
 
-                        .p {
-                            font-weight: 400;
-                            font-size: 20px;
+                            .h3 {
+                                font-size: 30px;
+                            }
+
+                            .p {
+                                font-weight: 400;
+                                font-size: 20px;
+                            }
                         }
                     }
                 }
@@ -341,6 +463,7 @@
         }
     }
 }
+
 .mascotasCerca {
     display: flex;
     flex-direction: column;
@@ -365,9 +488,14 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 35px
+        gap: 35px;
+
+        .card {
+            text-decoration: none;
+        }
     }
 }
+
 .mascotasFoundation {
     display: flex;
     flex-direction: column;
@@ -392,6 +520,10 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 35px
+        gap: 35px;
+
+        .card {
+            text-decoration: none;
+        }
     }
 }
