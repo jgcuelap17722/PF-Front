@@ -1,124 +1,223 @@
-import React from "react";
+import React, { useState } from "react";
 import s from '../../css/PetDetail.module.css'
-import { ReactComponent as LeftArrow } from '../../assets/iconmonstr-angel-left-thin.svg'
-import { ReactComponent as RightArrow } from '../../assets/iconmonstr-angel-right-thin.svg'
 import NavBar from "../../assets/NavBar/NavBar.jsx";
 import Footer from '../../assets/Footer/Footer.js'
-import {petsCardData} from '../../assets/dataMockups/petsCardData'
 import Card from '../../assets/Card/Card.js'
+import { InfoApi } from "../../assets/dataMockups/InfoApi";
+import { Link } from "react-router-dom";
+import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
 
+// const INeed = {name, photos, size, species, tags, type, gender, contact, colors, breeds, age}
 const PetDetail = () => {
-  const dataRelated = petsCardData.filter(e => e.id < 6)
+
+  // console.log(InfoApi)
+  const Api = InfoApi[0];
+  const ApiCerca = InfoApi.filter(el => el.contact.address.country === Api.contact.address.country && el.id !== Api.id).slice(0, 5)
+  const ApiOrganization = InfoApi.filter(el => el.organization_animal_id === Api.organization_animal_id && el.id !== Api.id).slice(6, 11)
+
+  const [selectIndex, setSelectIndex] = useState(0);
+  const [selectImage, setSelectImage] = useState(Api.photos[0]?.large);
+  const [preImage, setPrevImage] = useState(Api.photos[0]?.large);
+  const [nextImage, setNextImage] = useState(Api.photos[0]?.large);
+
+
+  function previus() {
+    const condition = selectIndex > 0;
+    const nextIndex = condition ? selectIndex - 1 : Api.photos.length - 1;
+
+
+    setSelectImage(Api.photos[nextIndex].small);
+    // setNextImage(Api.photos[nextIndex + 1].small)
+    // setPrevImage(Api.photos[nextIndex - 1].small)
+    setSelectIndex(nextIndex);
+
+  }
+
+  function next() {
+    const condition = selectIndex < Api.photos.length - 1;
+    const nextIndex = condition ? selectIndex + 1 : 0;
+    // const actual = nextIndex >= Api.photos.length -1 ? 0 : nextIndex +1
+    // const prev = nextIndex === 0 ?  Api.photos.length -1 : -1;
+
+
+    setSelectImage(Api.photos[nextIndex].small);
+    // setNextImage(Api.photos[actual].small)
+    // setPrevImage(Api.photos[prev].small)
+    setSelectIndex(nextIndex);
+  }
+
   return (
     <>
-    <div className={s.contenedorPadre}>
-      <NavBar/>
-      <div className={s.contenedorPrincipal}>
-        <div className={s.contenedorSlide}>
-          <div className={s.contenedorImg}>
-            <div className={s.slide}>
-              <img className={s.img} src='https://images.ecestaticos.com/6uBjSmsBorRk6l_IHAxkBS1JCwE=/114x0:1997x1410/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F721%2F122%2F714%2F72112271431cb1078c3fe3e75ad5ab41.jpg' alt='Img dog' />
-            </div>
-          </div>
-          <div className={s.controler}>
-            <button className={s.buttonLeft}>
-              <LeftArrow />
-            </button>
-            <button className={s.buttonRight}>
-              <RightArrow />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className={s.contenedorMedium}>
-      
-        <div className={s.contenedorDetalles}>
-          <div className={s.name}>
-            <h3 className={s.h3}>Name</h3>
-            <p className={s.p}>Raza, ciudad</p>
-          </div>
-          <div className={s.etiquetas}>
-            <p className={s.p}>Etiquetas</p>
-            <p className={s.p}>Etiquetas</p>
-            <p className={s.p}>Etiquetas</p>
-            <p className={s.p}>Etiquetas</p>
-          </div>
-          <div className={s.sobre}>
-            <h3 className={s.h3}>Sobre</h3>
-            <div className={s.size}>
-              <h4 className={s.h4}>size</h4>
-              <p className={s.p}>size</p>
-            </div>
-            <div className={s.salud}>
-              <h4 className={s.h4}>Salud</h4>
-              <p className={s.p}>Vacunas</p>
-            </div>
-          </div>
-          <div className={s.contenedorMascota}>
-            <h3 className={s.h3}>Conoce a la mascota</h3>
-            <p className={s.p}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </div>
-        
-        <div className={s.contenedorAdopcion}>
-          <div className={s.contenedorPrincipalAdopcion}>
-            <div className={s.name}>
-              <h3 className={s.h3}>¿Estás pensando en adoptar a Name? </h3>
+      <div className={s.contenedorPadre}>
+        <NavBar />
 
-            </div>
-            <div className={s.contenedorButtons}>
-              <button className={s.buttonAdoptar}>Adoptar</button>
-              <button className={s.buttonAdoptar}>Preguntas frecuentes</button>
-            </div>
-            <div>
-              <button className={s.buttonSponsor}>Sponsor</button>
-              <button className={s.buttonFavorite}>Favoritos</button>
+        <div className={s.slideComplete}>
+
+          <div className={s.contenedorAux}>
+            <div className={s.contenedorSlide}>
+              <div className={s.contenedorImg}>
+                <div className={s.slide}>
+                  <img className={s.img} src={preImage} alt='img not found' />
+                </div>
+              </div>
             </div>
           </div>
+
           <div className={s.contenedorPrincipal}>
-            <div className={s.name}>
-              <h3 className={s.h3}>Soy Foundation</h3>
-              <h4 className={s.h4}>Ciudad</h4>
+            <div className={s.contenedorSlide}>
+              <div className={s.contenedorImg}>
+                <div className={s.slide}>
+                  <img className={s.img} src={selectImage} alt='img not found' />
+                </div>
+              </div>
+              <div className={s.controler}>
+                <button onClick={previus} className={s.buttonLeft}>
+                  < Arrow />
+                </button>
+                <button onClick={next} className={s.buttonRight}>
+                  <Arrow />
+                </button>
+              </div>
             </div>
-            <div className={s.nameImg}>
-              <img className={s.img} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz6e3Wjv9StgTRGHXagFiBebV7xVdo6DanaNIgUJCaGmVHJB9tNrUoGgOKlegQN6APR5g&usqp=CAU' alt="imagen" />
-            </div>
-            <div className={s.direction}>
-              <div className={s.directionInterior}>
-                <h3 className={s.h3}>  Direction Foundation </h3>
-                <p className={s.p}>Calle 40</p>
-                <p className={s.p}>San Juan, CP: 2725</p>
+          </div>
+
+          <div className={s.contenedorAux}>
+            <div className={s.contenedorSlide}>
+              <div className={s.contenedorImg}>
+                <div className={s.slide}>
+                  <img className={s.img} src={nextImage} alt='img not found' />
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+
+
+
+        <div className={s.contenedorMedium}>
+
+          <div className={s.contenedorDetalles}>
+            <div className={s.name}>
+              <h3 className={s.h3}>{Api.name}</h3>
+              <p className={s.p}>{Api.breeds.primary} | {Api.contact.address.city},{Api.contact.address.state}</p>
+            </div>
+            <div className={s.etiquetas}>
+              <p>{Api.age}</p>○ <p>{Api.gender}</p> ○ <p>{Api.size}</p> ○ <p>{Api.colors.primary}</p>
+            </div>
+            <div className={s.sobre}>
+              <h3 className={s.h3}>Sobre</h3>
+              {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
+                <div className={s.size}>
+                  <h4 className={s.h4}>CHARACTERISTICS</h4>
+                  <div className={s.sizeTags}>
+                    {Api.tags ? Api.tags.map(el => <p className={s.p}>{el}</p>) : <p>no tiene etiquetas</p>}
+                  </div>
+                </div> : undefined}
+              {Api.attributes.house_trained === true ?
+                <div className={s.size}>
+                  <h4 className={s.h4}>HOUSE-TRAINED</h4>
+                  <p className={s.p}>Yes</p>
+                </div> : undefined}
+              {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
+                <div className={s.size}>
+                  <h4 className={s.h4}>HEALTH</h4>
+                  <p className={s.p}>Vaccinations up to date, spayed / neutered.</p>
+                </div> : undefined}
+              <div className={s.size}>
+                <h4 className={s.h4}>COAT LENGTH</h4>
+                <p className={s.p}>{Api.coat}</p>
+              </div>
+            </div>
+            <div className={s.contenedorMascota}>
+              <h3 className={s.h3}>Meet {Api.name}</h3>
+              <p className={s.p}>{Api.description}</p>
+            </div>
+          </div>
+
+          <div className={s.contenedorAdopcion}>
+            <div className={s.contenedorPrincipalAdopcion}>
+              <div className={s.name}>
+                <h3 className={s.h3}>{`¿Estás pensando en adoptar a ${Api.name}? `}</h3>
+
+              </div>
+              <div className={s.contenedorButtons}>
+                <Link to='/adopcion'>
+                  <button className={s.buttonAdoptar}>Adoptar</button>
+                </Link>
+                <Link to='/faqs'>
+                  <button className={s.buttonAdoptar}>Preguntas frecuentes</button>
+                </Link>
+              </div>
+              <div>
+                <Link to='/sponsor'>
+                  <button className={s.buttonSponsor}>Sponsor</button>
+                </Link>
+                <Link to='/favorites'>
+                  <button className={s.buttonFavorite}>Favoritos</button>
+                </Link>
+              </div>
+            </div>
+
+
+            <div className={s.contenedorPrincipal}>
+              <div className={s.name}>
+                <h3 className={s.h3}>Soy Foundation</h3>
+                <h4 className={s.h4}>{Api.contact.address.city},{Api.contact.address.state}</h4>
+              </div>
+              <div className={s.nameImg}>
+                <img className={s.img} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz6e3Wjv9StgTRGHXagFiBebV7xVdo6DanaNIgUJCaGmVHJB9tNrUoGgOKlegQN6APR5g&usqp=CAU' alt="imagen" />
+              </div>
+
+              <div className={s.contenedorDirection}>
+                <div className={s.direction}>
+                  <div className={s.directionInterior}>
+                    <h3 className={s.h3}>Location Address</h3>
+                    <p className={s.p}>{Api.contact.address.address1}</p>
+                    <p className={s.p}>{Api.contact.address.city},{Api.contact.address.state},{Api.contact.address.postcode}</p>
+                    <p className={s.p}>San Juan, CP: 2725</p>
+                  </div>
+                  <div className={s.directionInterior}>
+                    <p className={s.p}>{Api.contact.email}</p>
+                  </div>
+                  <div className={s.directionInterior}>
+                    <p className={s.p}>{Api.contact.phone}</p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
         </div>
         <div className={s.mascotasCerca}>
-        <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
-      <div className={s.relatedBox}>
-        {    
-          dataRelated && dataRelated.map(({id, img, name, location, age}) =>{
-            return <Card key={id} img={img} name={name} location={location} age={age} />
-          })
-        }
-      </div>
+          <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>
+          <div className={s.relatedBox}>
+            {
+              ApiOrganization && ApiOrganization.map(({ id, photos, name, contact, age }) => {
+                return <Link className={s.card} to={'/pet-detail/' + id}><Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} /></Link>
+              })
+            }
+          </div>
 
         </div>
         <div className={s.mascotasFoundation}>
-        <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
-      <div className={s.relatedBox}>
-        {    
-          dataRelated && dataRelated.map(({id, img, name, location, age}) =>{
-            return <Card key={id} img={img} name={name} location={location} age={age} />
-          })
-        }
-      </div>
+          <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
+          <div className={s.relatedBox}>
+            {
+              ApiCerca && ApiCerca.map(({ id, photos, name, contact, age }) => {
+                return <Link className={s.card} to={'/pet-detail/' + id}><Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} /></Link>
+              })
+            }
+          </div>
 
         </div>
-        
+
       </div>
-      
-      <Footer/>
+
+      <Footer />
     </>
   )
 }
