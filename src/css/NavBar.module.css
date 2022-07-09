@@ -1,6 +1,7 @@
 nav {
   background-color: #3C3B53;
   color: #ffffff;
+  width: 100vw;
 }
 nav a {
   text-decoration: none;
