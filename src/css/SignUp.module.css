@@ -1,0 +1,109 @@
+.container main {
+  display: flex;
+  justify-content: space-between;
+  border: 0.1rem solid black;
+  height: 120vh;
+}
+.container main .left {
+  display: flex;
+  padding-top: 4rem;
+  justify-content: center;
+  width: 50%;
+}
+.container main .left form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 4rem;
+}
+.container main .left form h1 {
+  margin-bottom: 1rem;
+  color: #454B54;
+}
+.container main .left form div {
+  width: 100%;
+  height: 4.2rem;
+}
+.container main .left form div select {
+  background-color: #ffffff;
+  width: 101%;
+  height: 2.6rem;
+  padding: 0;
+}
+.container main .left form div input {
+  width: 99.3%;
+  height: 2.2rem;
+  outline: none;
+  padding-left: 0.3rem;
+}
+.container main .left form div input,
+.container main .left form div select {
+  border: 0.1rem solid #504F6F;
+  border-radius: 0.2rem;
+  color: #504F6F;
+  text-align: left;
+}
+.container main .left form div input:focus,
+.container main .left form div select:focus {
+  border: 0.1rem solid #4992AB;
+  color: #4992AB;
+}
+.container main .left form div p {
+  color: #FAB942;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding-top: 0.2rem;
+}
+.container main .left form div input[name="password"] {
+  width: 92%;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.container main .left form div button {
+  width: 6.5%;
+  height: 2.4rem;
+  position: relative;
+  bottom: -0.05rem;
+  background-color: #ffffff;
+  border-top: 0.1rem solid #504F6F;
+  border-bottom: 0.1rem solid #504F6F;
+  border-right: 0.1rem solid #504F6F;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.container main .left form div button:hover {
+  background-color: #ffffff;
+}
+.container main .left form .inputFile {
+  display: block;
+}
+.container main .left form .displayNone {
+  display: none;
+}
+.container main .left form button {
+  height: 3.4rem;
+  background-color: #504F6F;
+  color: #ffffff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.2rem;
+  width: 101%;
+}
+.container main .left form button:hover {
+  background-color: #4B4D62;
+  color: #DDDDDD;
+  cursor: pointer;
+}
+.container main .right {
+  background-image: url('../assets/signup-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+}
+.container main .right .overflow {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 0 0 / 0.4);
+}
