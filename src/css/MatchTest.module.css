@@ -1,0 +1,66 @@
+.matchBox {
+  margin: 0;
+  position: relative;
+  margin-top: 20px;
+  width: 95%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.matchBox .imgFilter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(63, 64, 96, 0.5) 0%, rgba(242, 142, 52, 0) 77.67%);
+  z-index: 1;
+}
+.matchBox .infoBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.matchBox .infoBox img {
+  object-fit: contain;
+}
+.matchBox .textAndButton {
+  position: absolute;
+  margin-top: 15px;
+  right: 20px;
+  width: 550px;
+  font-family: 'Inter';
+  font-style: normal;
+  text-align: right;
+  color: #ffffff;
+  z-index: 2;
+}
+.matchBox .textAndButton h1 {
+  font-size: 40px;
+}
+.matchBox .textAndButton h3 {
+  margin-top: 7px;
+  font-size: 25px;
+  font-weight: 300;
+}
+.matchBox .textAndButton button {
+  margin-top: 15px;
+  width: 161px;
+  height: 41px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 31px;
+  color: #504F6F;
+  background-color: #FAC942;
+  border: 2px solid #FFFFFF;
+  border-radius: 15px;
+}
+.matchBox .textAndButton button:hover {
+  background-color: #504F6F;
+  color: #FAC942;
+  border: none;
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import s from '../../css/NavBar.module.css';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Logo } from '../LogoIcon.svg';
 import { ReactComponent as Favorites } from '../Favoritos.svg';
 
 export default function NavBar() {
@@ -10,7 +9,7 @@ export default function NavBar() {
 			<div className={s.navTop}>
 				<div>
 					<Link to='/'>
-						<Logo className={s.logo} />
+						<img src="https://i.postimg.cc/x8y022Hb/adoptame-logo-resplandor.png" alt="logo" className={s.logo} />
 					</Link>
 				</div>
 				<div className={s.registerLogin}>
