@@ -4,7 +4,6 @@ import { filtersOptionsDogs, filtersOptionsCats } from '../../assets/dataMockups
 
 const SearcherFilter = ({ petType }) => {
 
-
   const filterType = petType
   let filtersByType
 
