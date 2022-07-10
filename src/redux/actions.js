@@ -10,6 +10,8 @@ export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
 export const RESET_FILTER_CARD = 'RESET_FILTER_CARD'
+export const CITY_FILTER = CITY_FILTER
+
 
 
 export function getAllPets() {
@@ -100,4 +102,8 @@ export const typeFilter = (type)=>{
 
 export function resetPetDetail(){
     return {type: 'RESET_PET_DETAIL', payload: {}}
+}
+
+export function citySearch (dispatch){
+
 }
