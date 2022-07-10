@@ -105,16 +105,6 @@ export function resetPetDetail(){
     return {type: 'RESET_PET_DETAIL', payload: {}}
 }
 
-export function getDetail(){
-    return async function (dispatch){
-        // var json = await axios.get('http://localhost:3001');
-        return dispatch({
-            type:'GET_DETAIL',
-            payload: InfoApi
-        })
-    }
-}
-
 export function getCountries(){
 
     const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/countries';
