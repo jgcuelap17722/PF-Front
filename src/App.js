@@ -1,5 +1,5 @@
 import Home from './components/Home/Home.js';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate  } from 'react-router-dom';
 import PetCare from './components/PetCare/PetCare';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
@@ -20,10 +20,11 @@ function App() {
         <Route path='/login' element={<Login  />} />
         <Route path='/searcher/:petType' element={<Searcher />} />
         <Route path='/pet-care' element={<PetCare />} />
-        <Route path='/pet-detail' element={<PetDetail />} /> 
+        <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={<CreatePet />} /> 
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>
   );

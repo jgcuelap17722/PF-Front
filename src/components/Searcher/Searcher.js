@@ -1,15 +1,15 @@
 import NavBar from '../../assets/NavBar/NavBar'
-import Footer from '../../assets/Footer/Footer'
-import Search from './Search'
-import s from '../../css/Searcher.module.css'
 import MatchTest from './MatchTest'
+import SearchCase from './SearchCase'
+import Footer from '../../assets/Footer/Footer'
+import s from '../../css/Searcher.module.css'
 
 const Searcher = () => {
   return (
     <main className={s.searcherBox}>
       <NavBar />
       <MatchTest />
-      <Search /> 
+      <SearchCase /> 
       <Footer />
     </main>
   )

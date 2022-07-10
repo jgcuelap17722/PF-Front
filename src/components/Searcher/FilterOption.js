@@ -1,9 +1,19 @@
-import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux/es/exports'
 import s from '../../css/FilterOption.module.css'
-import { breedFilter, ageFilter, sizeFilter, genreFilter } from '../../redux/actions'
+import { 
+  breedFilter, 
+  ageFilter, 
+  sizeFilter, 
+  genreFilter, 
+  environmetFilter,
+  coatFilter,
+  colorFilter,
+  attributesFilter,
+  daysFilter,
+  shelterFilter
+} from '../../redux/actions'
 
-const FilterOption = ({ type = 'Raza', options = ['Prueba'], handlerFunction }) => {
+const FilterOption = ({ type = 'Raza', options = ['Prueba'] }) => {
 
   const dispatch = useDispatch()
 
@@ -17,12 +27,30 @@ const FilterOption = ({ type = 'Raza', options = ['Prueba'], handlerFunction }) 
         e.target.value.length && dispatch(ageFilter(e.target.value))
         break
       case 'Tamaño':
-        // const size = e.target.value.split(' ')
         e.target.value.length && dispatch(sizeFilter(e.target.value.split(' ')[0]))
         break
       case 'Sexo':
         e.target.value.length && dispatch(genreFilter(e.target.value))
         break
+      // case 'Afinidad con':
+      //   const environment = e.target.value === 'Kids' ? 'children' : e.target.value === 'Other dogs' ? 'dogs' : 'cats'
+      //   e.target.value.length && dispatch(environmetFilter(environment))
+      //   break
+      // case 'Pelaje':
+      //   e.target.value.length && dispatch(coatFilter(e.target.value))
+      //   break
+      // case 'Color':
+      //   e.target.value.length && dispatch(colorFilter(e.target.value))
+      //   break
+      // case 'Cuidado y Comportamiento':
+      //   e.target.value.length && dispatch(attributesFilter(e.target.value))
+      //   break
+      // case 'Tiempo en Adopción':
+      //   e.target.value.length && dispatch(daysFilter(e.target.value))
+      //   break
+      // case 'Refugios':
+      //   e.target.value.length && dispatch(shelterFilter(e.target.value))
+      //   break
       default:
         break;
     }

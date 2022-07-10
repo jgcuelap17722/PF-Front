@@ -1,6 +1,6 @@
 import s from '../../css/SearcherFilter.module.css'
 import FilterOption from './FilterOption'
-import { filtersOptionsDogs, filtersOptionsCats } from '../../assets/dataMockups/filtersOptions'
+import { filtersOptionsDogs, filtersOptionsCats } from '../../constants/filterOptions/filtersOptions'
 
 const SearcherFilter = ({ petType }) => {
 
@@ -13,7 +13,6 @@ const SearcherFilter = ({ petType }) => {
     filtersByType = filtersOptionsCats
   }
 
- 
   return (
     <aside className={s.searcherFilterBox}>
       {
