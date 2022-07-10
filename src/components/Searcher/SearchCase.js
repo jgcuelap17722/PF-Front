@@ -1,4 +1,3 @@
-import { useParams } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
@@ -7,16 +6,15 @@ import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
 import Card from '../../assets/Card/Card'
 
-import { getAllPets } from '../../redux/actions'
+import { getAllPets, typeFilter } from '../../redux/actions'
 
 import s from '../../css/Search.module.css'
 
 
-const SearchCase = () => {
+const SearchCase = ({ petType }) => {
 
-  const { petType } = useParams()
-  const dispatch = useDispatch()
   const allPets = useSelector(state => state.petsFiltered)
+
   // Paginado
   const [currentPage, setCurrentPage] = useState(1)
   const [petsPerPage, setPetsPerPage] = useState(9)
@@ -24,13 +22,11 @@ const SearchCase = () => {
   const indexOfFirstPet = indexOfLastPet - petsPerPage
   const currentPets = allPets.slice(indexOfFirstPet, indexOfLastPet)
 
+
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
 
-  useEffect(() => {
-    dispatch(getAllPets())
-  }, [dispatch])
 
   return (
     <section className={s.sectionBox}>

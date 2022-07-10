@@ -1,10 +1,21 @@
 import s from '../../css/FiltersAmount.module.css'
 import FilterCard from './FilterCard'
-import { useSelector } from 'react-redux/es/exports'
+import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { useEffect, useState } from 'react'
+import { resetFilterCard, resetPetOrder } from '../../redux/actions'
 
 const FiltersAmount = () => {
   const active = useSelector(state => state.filterActive)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    
+    return () => {
+      dispatch(resetFilterCard())
+    }
+  }, [])
+  
+  
 
   return (
     <div className={s.filterAmountBox}>
@@ -14,15 +25,7 @@ const FiltersAmount = () => {
             return <FilterCard key={`id_${index}${e}`} type={e}/>
           })
         }
-  
       </div>
-      {/* <div className={s.sortBox}>
-          <label htmlFor="select">Ordenar por: </label>
-          <select name="select" >
-            <option value=""></option>
-            <option value="">Nombre</option>
-          </select>
-      </div> */}
     </div>
   )
 }

@@ -18,7 +18,10 @@ function App() {
         {/* <Route path='/about-us' element={<AboutUs />} /> */}
         <Route path='/register' element={<SignUp />} />
         <Route path='/login' element={<Login  />} />
-        <Route path='/searcher/:petType' element={<Searcher />} />
+
+        {/* SEARCHER: SOLO FUNCIONA CON 2 PETTYPE Dog Y Cat */}
+        <Route path='/searcher/:petType' element={<Searcher />}/>
+         
         <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
