@@ -1,68 +1,54 @@
-import { breedFilter } from "../../redux/actions"
-
 import { dogBreeds } from "../petsBreeds/dogBreeds"
 import { catBreeds } from "../petsBreeds/catBreeds"
+import { organizations } from "../organizations/organizations"
 
 const dogsB = dogBreeds.map(e => e.name)
 const catsB = catBreeds.map(e => e.name)
-
-
-export const breedHandler =(value)=>{
-  breedFilter(value)
-}
-
+const organizationsNames = organizations.map(e => e.name)
 
 
 export const filtersOptionsDogs = [
   {
     type: 'Raza',
     options: dogsB,
-    handlerFunction: breedHandler
   },
   {
     type: 'Edad',
     options: ['Puppy', 'Young', 'Adult', 'Senior'],
-    handlerFunction: null
+
   },
   {
     type: 'Tamaño',
     options: ['Small (0-25 lbs)', 'Medium (26-60 lbs)', 'Large (61-100 lbs)', 'Extra Large (101 lbs or more)'],
-    handlerFunction: null
+
   },
   {
     type: 'Sexo',
     options: ['Male', 'Female'],
-    handlerFunction: null
   },
   {
     type: 'Afinidad con',
-    options: ['Niños', 'Otros perros', 'Gatos'],
-    handlerFunction: null
+    options: ['Kids', 'Other dogs', 'Cats'],
   },
   {
     type: 'Pelaje',
-    options: ['Sin pelo', 'Corto', 'Mediano', 'Largo', 'Ondulado','Enrulado' ],
-    handlerFunction: null
-  },
+    options: ['Hairless', 'Short', 'Medium', 'Long', 'Wire','Curly' ],
+    },
   {
     type: 'Color',
-    options: ['Beige', 'Bicolor', 'Negro'],
-    handlerFunction: null
+    options: ['Apricot / Beige', 'Bicolor', 'Black', 'Brindle', 'Brown / Chocolate', 'Golden', 'Gray / Blue / Silver', 'Harlequin', 'Merle (Blue)', 'Merle (Red)', 'Red / Chestnut / Orange', 'Sable', 'Tricolor (Brown, Black, & White)', 'White / Cream', 'Yellow / Tan / Blond / Fawn'],
   },
   {
-    type: 'Cuidado y \nComportamiento',
-    options: ['Hogareño', 'Necesidades Especiales'],
-    handlerFunction: null
+    type: 'Cuidado y Comportamiento',
+    options: ['House-trained', 'Special Needs'],
   },
   {
     type: 'Tiempo en Adopción',
     options: ['1', '7', '14', '+30'],
-    handlerFunction: null
   },
   {
     type: 'Refugios',
-    options: ['Prueba1', 'Prueba2'],
-    handlerFunction: null
+    options: organizationsNames,
   }
 ]
 
@@ -70,51 +56,41 @@ export const filtersOptionsCats = [
   {
     type: 'Raza',
     options: catsB,
-    handlerFunction: null
   },
   {
     type: 'Edad',
     options: ['Kitten', 'Young', 'Adult', 'Senior'],
-    handlerFunction: null
   },
   {
     type: 'Tamaño',
     options: ['Small (0-6 lbs)', 'Medium (7-11 lbs)', 'Large (12-16 lbs)', 'Extra Large (17 lbs or more)'],
-    handlerFunction: null
   },
   {
     type: 'Sexo',
     options: ['Male', 'Female'],
-    handlerFunction: null
   },
   {
     type: 'Afinidad con',
-    options: ['Niños', 'Perros', 'Otros gatos'],
-    handlerFunction: null
+    options: ['Kids', 'Dogs', 'Other cats'],
   },
   {
     type: 'Pelaje',
-    options: ['Sin pelo', 'Corto', 'Mediano', 'Largo'],
-    handlerFunction: null
+    options: ['Hairless', 'Short', 'Medium', 'Long'],
   },
   {
     type: 'Color',
     options: ['Black & White / Tuxedo', 'Blue Cream', 'Blue Point', 'Brown / Chocolate', 'Buff & White', 'Buff / Tan / Fawn', 'Calico', 'Chocolate Point', 'Cream / Ivory', 'Cream Point', 'Dilute Calico', 'Dilute Tortoiseshell', 'Flame Point', 'Gray & White', 'Gray / Blue / Silver', 'Lilac Point', 'Orange & White', 'Orange / Red', 'Seal Point', 'Smoke', 'Tabby (Brown / Chocolate)', 'Tabby (Buff / Tan / Fawn)', 'Tabby (Gray / Blue / Silver)', 'Tabby (Leopard / Spotted)', 'Tabby (Orange / Red)', 'Tabby (Tiger Striped)', 'Torbie', 'Tortoiseshell', 'White'],
-    handlerFunction: null
   },
   {
     type: 'Cuidado y Comportamiento',
-    options: ['Hogareño', 'Necesidades Especiales'],
-    handlerFunction: null
+    options: ['House-trained', 'Declawed', 'Special Needs'],
   },
   {
     type: 'Tiempo en Adopción',
     options: ['1', '7', '14', '+30'],
-    handlerFunction: null
   },
   {
     type: 'Refugios',
-    options: ['Prueba1', 'Prueba2'],
-    handlerFunction: null
+    options: organizationsNames,
   }
 ]

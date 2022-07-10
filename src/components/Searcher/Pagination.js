@@ -8,15 +8,14 @@ const Pagination = ({ petsPerPage, allPets, pagination, page }) => {
   for (let i = 1; i <= Math.ceil(allPets / petsPerPage); i++) {
     pageNumbers.push(i)
   }
-  // console.log('page numbers', pageNumbers);
 
   return (
     <nav className={s.paginationBox}>
       <ul>
         {page > 1 && <li><div className={s.paginationIcons} onClick={() => pagination(page - 1)}> <img src={back} alt=""/></div></li>}
         {
-          pageNumbers && pageNumbers.map(number =>
-            <li>
+          pageNumbers && pageNumbers.map((number, index) =>
+            <li key={`${number}${index}`}>
               <div className={page === number? s.pageActive : s.paginationItem} onClick={() => pagination(number)}><p>{number}</p></div>
             </li>
           )

@@ -10,19 +10,19 @@ const FiltersAmount = () => {
     <div className={s.filterAmountBox}>
       <div className={s.filtersCardsBox}>
         {
-          active && active.map(e=>{
-            return <FilterCard type={e}/>
+          active && active.map((e, index)=>{
+            return <FilterCard key={`id_${index}${e}`} type={e}/>
           })
         }
   
       </div>
-      <div className={s.sortBox}>
+      {/* <div className={s.sortBox}>
           <label htmlFor="select">Ordenar por: </label>
           <select name="select" >
             <option value=""></option>
             <option value="">Nombre</option>
           </select>
-      </div>
+      </div> */}
     </div>
   )
 }
