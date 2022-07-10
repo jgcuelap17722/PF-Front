@@ -22,8 +22,8 @@ const HeroHome = () => {
 
       <div className={s.filtersBox}>
         {
-          filtersInfo && filtersInfo.map(({ icon, type, handlerFunction }) => {
-            return <Filter icon={icon} type={type} handlerFunction={handlerFunction} />
+          filtersInfo && filtersInfo.map(({ icon, type  }) => {
+            return <Filter icon={icon} type={type}  />
           })
         }
       </div>

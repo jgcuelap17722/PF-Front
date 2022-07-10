@@ -47,25 +47,29 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.breeds.primary === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Raza').length < 1 ? [...state.filterActive, 'Raza'] : state.filterActive
+				// filterActive: state.filterActive.filter(e => e === 'Raza').length < 1 ? [...state.filterActive, 'Raza'] : state.filterActive
+				filterActive: ['Raza']
 			}
 		case AGE_FILTER:
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.age === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Edad').length < 1 ? [...state.filterActive, 'Edad'] : state.filterActive
+				// filterActive: state.filterActive.filter(e => e === 'Edad').length < 1 ? [...state.filterActive, 'Edad'] : state.filterActive
+				filterActive: ['Edad']
 			}
 		case SIZE_FILTER:
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.size === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Tamaño').length < 1 ? [...state.filterActive, 'Tamaño'] : state.filterActive
+				// filterActive: state.filterActive.filter(e => e === 'Tamaño').length < 1 ? [...state.filterActive, 'Tamaño'] : state.filterActive
+				filterActive: ['Tamaño']
 			}
 		case GENRE_FILTER:
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.gender === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Sexo').length < 1 ? [...state.filterActive, 'Sexo'] : state.filterActive
+				// filterActive: state.filterActive.filter(e => e === 'Sexo').length < 1 ? [...state.filterActive, 'Sexo'] : state.filterActive
+				filterActive: ['Sexo']
 			}
 		// RESET FILTERS
 		case RESET_PET_ORDER:

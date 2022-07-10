@@ -1,8 +1,8 @@
 import s from '../../css/FiltersAmount.module.css'
 import FilterCard from './FilterCard'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
-import { useEffect, useState } from 'react'
-import { resetFilterCard, resetPetOrder } from '../../redux/actions'
+import { useEffect } from 'react'
+import { resetFilterCard } from '../../redux/actions'
 
 const FiltersAmount = () => {
   const active = useSelector(state => state.filterActive)
@@ -13,7 +13,7 @@ const FiltersAmount = () => {
     return () => {
       dispatch(resetFilterCard())
     }
-  }, [])
+  }, [dispatch])
   
   
 
