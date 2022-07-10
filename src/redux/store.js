@@ -6,3 +6,4 @@ const {default: reducer} = require("./reducer");
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 export default store;
+

@@ -20,7 +20,7 @@ function App() {
         <Route path='/login' element={<Login  />} />
         {/* <Route path='/searcher' element={<Searcher />} /> */}
         <Route path='/pet-care' element={<PetCare />} />
-        <Route path='/pet-detail' element={<PetDetail />} /> 
+        <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={<CreatePet />} /> 
         <Route path='/dashboard' element={<Dashboard />} />

@@ -1,4 +1,4 @@
-import { } from './actions';
+
 
 const initialState = {
 	allPets: [],
@@ -20,7 +20,7 @@ export default function reducer(state = initialState, action) {
 		case 'GET_DETAIL':
 			return{
 				...state,
-				detail:action.payload,
+				petDetail: action.payload,
 			}
 		default:
 			return state;
