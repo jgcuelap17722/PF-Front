@@ -3,7 +3,7 @@ export const dogBreeds = [
     "name": "Affenpinscher",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -11,7 +11,7 @@ export const dogBreeds = [
     "name": "Afghan Hound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -19,7 +19,7 @@ export const dogBreeds = [
     "name": "Airedale Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -27,7 +27,7 @@ export const dogBreeds = [
     "name": "Akbash",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -35,7 +35,7 @@ export const dogBreeds = [
     "name": "Akita",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -43,7 +43,7 @@ export const dogBreeds = [
     "name": "Alaskan Malamute",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -51,7 +51,7 @@ export const dogBreeds = [
     "name": "American Bulldog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -59,7 +59,7 @@ export const dogBreeds = [
     "name": "American Bully",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -67,7 +67,7 @@ export const dogBreeds = [
     "name": "American Eskimo Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -75,7 +75,7 @@ export const dogBreeds = [
     "name": "American Foxhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -83,7 +83,7 @@ export const dogBreeds = [
     "name": "American Hairless Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -91,7 +91,7 @@ export const dogBreeds = [
     "name": "American Staffordshire Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -99,7 +99,7 @@ export const dogBreeds = [
     "name": "American Water Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -107,7 +107,7 @@ export const dogBreeds = [
     "name": "Anatolian Shepherd",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -115,7 +115,7 @@ export const dogBreeds = [
     "name": "Appenzell Mountain Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -123,15 +123,15 @@ export const dogBreeds = [
     "name": "Aussiedoodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Australian Cattle Dog \/ Blue Heeler",
+    "name": "Australian Cattle Dog / Blue Heeler",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -139,7 +139,7 @@ export const dogBreeds = [
     "name": "Australian Kelpie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -147,7 +147,7 @@ export const dogBreeds = [
     "name": "Australian Shepherd",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -155,7 +155,7 @@ export const dogBreeds = [
     "name": "Australian Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -163,7 +163,7 @@ export const dogBreeds = [
     "name": "Basenji",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -171,7 +171,7 @@ export const dogBreeds = [
     "name": "Basset Hound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -179,7 +179,7 @@ export const dogBreeds = [
     "name": "Beagle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -187,7 +187,7 @@ export const dogBreeds = [
     "name": "Bearded Collie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -195,7 +195,7 @@ export const dogBreeds = [
     "name": "Beauceron",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -203,39 +203,39 @@ export const dogBreeds = [
     "name": "Bedlington Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Belgian Shepherd \/ Laekenois",
+    "name": "Belgian Shepherd / Laekenois",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Belgian Shepherd \/ Malinois",
+    "name": "Belgian Shepherd / Malinois",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Belgian Shepherd \/ Sheepdog",
+    "name": "Belgian Shepherd / Sheepdog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Belgian Shepherd \/ Tervuren",
+    "name": "Belgian Shepherd / Tervuren",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -243,7 +243,7 @@ export const dogBreeds = [
     "name": "Bernedoodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -251,7 +251,7 @@ export const dogBreeds = [
     "name": "Bernese Mountain Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -259,7 +259,7 @@ export const dogBreeds = [
     "name": "Bichon Frise",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -267,7 +267,7 @@ export const dogBreeds = [
     "name": "Black and Tan Coonhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -275,7 +275,7 @@ export const dogBreeds = [
     "name": "Black Labrador Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -283,7 +283,7 @@ export const dogBreeds = [
     "name": "Black Mouth Cur",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -291,7 +291,7 @@ export const dogBreeds = [
     "name": "Black Russian Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -299,7 +299,7 @@ export const dogBreeds = [
     "name": "Bloodhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -307,7 +307,7 @@ export const dogBreeds = [
     "name": "Blue Lacy",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -315,7 +315,7 @@ export const dogBreeds = [
     "name": "Bluetick Coonhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -323,7 +323,7 @@ export const dogBreeds = [
     "name": "Boerboel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -331,7 +331,7 @@ export const dogBreeds = [
     "name": "Bolognese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -339,7 +339,7 @@ export const dogBreeds = [
     "name": "Border Collie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -347,7 +347,7 @@ export const dogBreeds = [
     "name": "Border Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -355,7 +355,7 @@ export const dogBreeds = [
     "name": "Borzoi",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -363,7 +363,7 @@ export const dogBreeds = [
     "name": "Boston Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -371,7 +371,7 @@ export const dogBreeds = [
     "name": "Bouvier des Flandres",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -379,7 +379,7 @@ export const dogBreeds = [
     "name": "Boxer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -387,7 +387,7 @@ export const dogBreeds = [
     "name": "Boykin Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -395,7 +395,7 @@ export const dogBreeds = [
     "name": "Briard",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -403,7 +403,7 @@ export const dogBreeds = [
     "name": "Brittany Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -411,7 +411,7 @@ export const dogBreeds = [
     "name": "Brussels Griffon",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -419,7 +419,7 @@ export const dogBreeds = [
     "name": "Bull Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -427,7 +427,7 @@ export const dogBreeds = [
     "name": "Bullmastiff",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -435,7 +435,7 @@ export const dogBreeds = [
     "name": "Cairn Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -443,7 +443,7 @@ export const dogBreeds = [
     "name": "Canaan Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -451,7 +451,7 @@ export const dogBreeds = [
     "name": "Cane Corso",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -459,7 +459,7 @@ export const dogBreeds = [
     "name": "Cardigan Welsh Corgi",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -467,7 +467,7 @@ export const dogBreeds = [
     "name": "Carolina Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -475,7 +475,7 @@ export const dogBreeds = [
     "name": "Catahoula Leopard Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -483,15 +483,15 @@ export const dogBreeds = [
     "name": "Cattle Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Caucasian Sheepdog \/ Caucasian Ovtcharka",
+    "name": "Caucasian Sheepdog / Caucasian Ovtcharka",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -499,7 +499,7 @@ export const dogBreeds = [
     "name": "Cavachon",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -507,7 +507,7 @@ export const dogBreeds = [
     "name": "Cavalier King Charles Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -515,7 +515,7 @@ export const dogBreeds = [
     "name": "Cavapoo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -523,7 +523,7 @@ export const dogBreeds = [
     "name": "Chesapeake Bay Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -531,7 +531,7 @@ export const dogBreeds = [
     "name": "Chihuahua",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -539,7 +539,7 @@ export const dogBreeds = [
     "name": "Chinese Crested Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -547,7 +547,7 @@ export const dogBreeds = [
     "name": "Chinese Foo Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -555,7 +555,7 @@ export const dogBreeds = [
     "name": "Chinook",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -563,7 +563,7 @@ export const dogBreeds = [
     "name": "Chiweenie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -571,7 +571,7 @@ export const dogBreeds = [
     "name": "Chocolate Labrador Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -579,15 +579,15 @@ export const dogBreeds = [
     "name": "Chow Chow",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Cirneco dell\u0027Etna",
+    "name": "Cirneco dellu0027Etna",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -595,7 +595,7 @@ export const dogBreeds = [
     "name": "Clumber Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -603,7 +603,7 @@ export const dogBreeds = [
     "name": "Cockapoo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -611,7 +611,7 @@ export const dogBreeds = [
     "name": "Cocker Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -619,7 +619,7 @@ export const dogBreeds = [
     "name": "Collie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -627,7 +627,7 @@ export const dogBreeds = [
     "name": "Coonhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -635,7 +635,7 @@ export const dogBreeds = [
     "name": "Corgi",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -643,7 +643,7 @@ export const dogBreeds = [
     "name": "Coton de Tulear",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -651,7 +651,7 @@ export const dogBreeds = [
     "name": "Curly-Coated Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -659,7 +659,7 @@ export const dogBreeds = [
     "name": "Dachshund",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -667,7 +667,7 @@ export const dogBreeds = [
     "name": "Dalmatian",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -675,7 +675,7 @@ export const dogBreeds = [
     "name": "Dandie Dinmont Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -683,7 +683,7 @@ export const dogBreeds = [
     "name": "Doberman Pinscher",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -691,7 +691,7 @@ export const dogBreeds = [
     "name": "Dogo Argentino",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -699,7 +699,7 @@ export const dogBreeds = [
     "name": "Dogue de Bordeaux",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -707,7 +707,7 @@ export const dogBreeds = [
     "name": "Dutch Shepherd",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -715,7 +715,7 @@ export const dogBreeds = [
     "name": "English Bulldog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -723,7 +723,7 @@ export const dogBreeds = [
     "name": "English Cocker Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -731,7 +731,7 @@ export const dogBreeds = [
     "name": "English Coonhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -739,7 +739,7 @@ export const dogBreeds = [
     "name": "English Foxhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -747,7 +747,7 @@ export const dogBreeds = [
     "name": "English Pointer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -755,7 +755,7 @@ export const dogBreeds = [
     "name": "English Setter",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -763,7 +763,7 @@ export const dogBreeds = [
     "name": "English Shepherd",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -771,7 +771,7 @@ export const dogBreeds = [
     "name": "English Springer Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -779,7 +779,7 @@ export const dogBreeds = [
     "name": "English Toy Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -787,7 +787,7 @@ export const dogBreeds = [
     "name": "Entlebucher",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -795,7 +795,7 @@ export const dogBreeds = [
     "name": "Eskimo Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -803,7 +803,7 @@ export const dogBreeds = [
     "name": "Feist",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -811,7 +811,7 @@ export const dogBreeds = [
     "name": "Field Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -819,7 +819,7 @@ export const dogBreeds = [
     "name": "Fila Brasileiro",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -827,7 +827,7 @@ export const dogBreeds = [
     "name": "Finnish Lapphund",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -835,7 +835,7 @@ export const dogBreeds = [
     "name": "Finnish Spitz",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -843,7 +843,7 @@ export const dogBreeds = [
     "name": "Flat-Coated Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -851,7 +851,7 @@ export const dogBreeds = [
     "name": "Fox Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -859,7 +859,7 @@ export const dogBreeds = [
     "name": "Foxhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -867,7 +867,7 @@ export const dogBreeds = [
     "name": "French Bulldog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -875,7 +875,7 @@ export const dogBreeds = [
     "name": "Galgo Spanish Greyhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -883,7 +883,7 @@ export const dogBreeds = [
     "name": "German Pinscher",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -891,7 +891,7 @@ export const dogBreeds = [
     "name": "German Shepherd Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -899,7 +899,7 @@ export const dogBreeds = [
     "name": "German Shorthaired Pointer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -907,7 +907,7 @@ export const dogBreeds = [
     "name": "German Spitz",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -915,7 +915,7 @@ export const dogBreeds = [
     "name": "German Wirehaired Pointer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -923,7 +923,7 @@ export const dogBreeds = [
     "name": "Giant Schnauzer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -931,7 +931,7 @@ export const dogBreeds = [
     "name": "Glen of Imaal Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -939,7 +939,7 @@ export const dogBreeds = [
     "name": "Golden Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -947,7 +947,7 @@ export const dogBreeds = [
     "name": "Goldendoodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -955,7 +955,7 @@ export const dogBreeds = [
     "name": "Gordon Setter",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -963,7 +963,7 @@ export const dogBreeds = [
     "name": "Great Dane",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -971,7 +971,7 @@ export const dogBreeds = [
     "name": "Great Pyrenees",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -979,7 +979,7 @@ export const dogBreeds = [
     "name": "Greater Swiss Mountain Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -987,7 +987,7 @@ export const dogBreeds = [
     "name": "Greyhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -995,7 +995,7 @@ export const dogBreeds = [
     "name": "Hamiltonstovare",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1003,7 +1003,7 @@ export const dogBreeds = [
     "name": "Harrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1011,7 +1011,7 @@ export const dogBreeds = [
     "name": "Havanese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1019,7 +1019,7 @@ export const dogBreeds = [
     "name": "Hound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1027,7 +1027,7 @@ export const dogBreeds = [
     "name": "Hovawart",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1035,7 +1035,7 @@ export const dogBreeds = [
     "name": "Husky",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1043,7 +1043,7 @@ export const dogBreeds = [
     "name": "Ibizan Hound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1051,7 +1051,7 @@ export const dogBreeds = [
     "name": "Icelandic Sheepdog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1059,7 +1059,7 @@ export const dogBreeds = [
     "name": "Illyrian Sheepdog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1067,7 +1067,7 @@ export const dogBreeds = [
     "name": "Irish Setter",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1075,7 +1075,7 @@ export const dogBreeds = [
     "name": "Irish Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1083,7 +1083,7 @@ export const dogBreeds = [
     "name": "Irish Water Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1091,7 +1091,7 @@ export const dogBreeds = [
     "name": "Irish Wolfhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1099,7 +1099,7 @@ export const dogBreeds = [
     "name": "Italian Greyhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1107,7 +1107,7 @@ export const dogBreeds = [
     "name": "Jack Russell Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1115,7 +1115,7 @@ export const dogBreeds = [
     "name": "Japanese Chin",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1123,7 +1123,7 @@ export const dogBreeds = [
     "name": "Jindo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1131,7 +1131,7 @@ export const dogBreeds = [
     "name": "Kai Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1139,7 +1139,7 @@ export const dogBreeds = [
     "name": "Karelian Bear Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1147,7 +1147,7 @@ export const dogBreeds = [
     "name": "Keeshond",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1155,7 +1155,7 @@ export const dogBreeds = [
     "name": "Kerry Blue Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1163,7 +1163,7 @@ export const dogBreeds = [
     "name": "Kishu",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1171,7 +1171,7 @@ export const dogBreeds = [
     "name": "Klee Kai",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1179,7 +1179,7 @@ export const dogBreeds = [
     "name": "Komondor",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1187,7 +1187,7 @@ export const dogBreeds = [
     "name": "Kuvasz",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1195,7 +1195,7 @@ export const dogBreeds = [
     "name": "Kyi Leo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1203,7 +1203,7 @@ export const dogBreeds = [
     "name": "Labradoodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1211,7 +1211,7 @@ export const dogBreeds = [
     "name": "Labrador Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1219,7 +1219,7 @@ export const dogBreeds = [
     "name": "Lakeland Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1227,7 +1227,7 @@ export const dogBreeds = [
     "name": "Lancashire Heeler",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1235,7 +1235,7 @@ export const dogBreeds = [
     "name": "Leonberger",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1243,7 +1243,7 @@ export const dogBreeds = [
     "name": "Lhasa Apso",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1251,7 +1251,7 @@ export const dogBreeds = [
     "name": "Lowchen",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1259,7 +1259,7 @@ export const dogBreeds = [
     "name": "Lurcher",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1267,7 +1267,7 @@ export const dogBreeds = [
     "name": "Maltese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1275,7 +1275,7 @@ export const dogBreeds = [
     "name": "Maltipoo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1283,7 +1283,7 @@ export const dogBreeds = [
     "name": "Manchester Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1291,7 +1291,7 @@ export const dogBreeds = [
     "name": "Maremma Sheepdog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1299,7 +1299,7 @@ export const dogBreeds = [
     "name": "Mastiff",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1307,7 +1307,7 @@ export const dogBreeds = [
     "name": "McNab",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1315,7 +1315,7 @@ export const dogBreeds = [
     "name": "Miniature Bull Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1323,7 +1323,7 @@ export const dogBreeds = [
     "name": "Miniature Dachshund",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1331,7 +1331,7 @@ export const dogBreeds = [
     "name": "Miniature Pinscher",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1339,7 +1339,7 @@ export const dogBreeds = [
     "name": "Miniature Poodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1347,7 +1347,7 @@ export const dogBreeds = [
     "name": "Miniature Schnauzer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1355,7 +1355,7 @@ export const dogBreeds = [
     "name": "Mixed Breed",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1363,7 +1363,7 @@ export const dogBreeds = [
     "name": "Morkie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1371,7 +1371,7 @@ export const dogBreeds = [
     "name": "Mountain Cur",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1379,7 +1379,7 @@ export const dogBreeds = [
     "name": "Mountain Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1387,7 +1387,7 @@ export const dogBreeds = [
     "name": "Munsterlander",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1395,7 +1395,7 @@ export const dogBreeds = [
     "name": "Neapolitan Mastiff",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1403,7 +1403,7 @@ export const dogBreeds = [
     "name": "New Guinea Singing Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1411,7 +1411,7 @@ export const dogBreeds = [
     "name": "Newfoundland Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1419,7 +1419,7 @@ export const dogBreeds = [
     "name": "Norfolk Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1427,7 +1427,7 @@ export const dogBreeds = [
     "name": "Norwegian Buhund",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1435,7 +1435,7 @@ export const dogBreeds = [
     "name": "Norwegian Elkhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1443,7 +1443,7 @@ export const dogBreeds = [
     "name": "Norwegian Lundehund",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1451,7 +1451,7 @@ export const dogBreeds = [
     "name": "Norwich Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1459,7 +1459,7 @@ export const dogBreeds = [
     "name": "Nova Scotia Duck Tolling Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1467,7 +1467,7 @@ export const dogBreeds = [
     "name": "Old English Sheepdog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1475,7 +1475,7 @@ export const dogBreeds = [
     "name": "Otterhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1483,7 +1483,7 @@ export const dogBreeds = [
     "name": "Papillon",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1491,15 +1491,15 @@ export const dogBreeds = [
     "name": "Parson Russell Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Patterdale Terrier \/ Fell Terrier",
+    "name": "Patterdale Terrier / Fell Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1507,7 +1507,7 @@ export const dogBreeds = [
     "name": "Pekingese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1515,7 +1515,7 @@ export const dogBreeds = [
     "name": "Pembroke Welsh Corgi",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1523,7 +1523,7 @@ export const dogBreeds = [
     "name": "Peruvian Inca Orchid",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1531,7 +1531,7 @@ export const dogBreeds = [
     "name": "Petit Basset Griffon Vendeen",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1539,7 +1539,7 @@ export const dogBreeds = [
     "name": "Pharaoh Hound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1547,7 +1547,7 @@ export const dogBreeds = [
     "name": "Pit Bull Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1555,7 +1555,7 @@ export const dogBreeds = [
     "name": "Plott Hound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1563,7 +1563,7 @@ export const dogBreeds = [
     "name": "Pointer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1571,7 +1571,7 @@ export const dogBreeds = [
     "name": "Polish Lowland Sheepdog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1579,7 +1579,7 @@ export const dogBreeds = [
     "name": "Pomeranian",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1587,7 +1587,7 @@ export const dogBreeds = [
     "name": "Pomsky",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1595,7 +1595,7 @@ export const dogBreeds = [
     "name": "Poodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1603,7 +1603,7 @@ export const dogBreeds = [
     "name": "Portuguese Podengo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1611,7 +1611,7 @@ export const dogBreeds = [
     "name": "Portuguese Water Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1619,7 +1619,7 @@ export const dogBreeds = [
     "name": "Presa Canario",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1627,7 +1627,7 @@ export const dogBreeds = [
     "name": "Pug",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1635,7 +1635,7 @@ export const dogBreeds = [
     "name": "Puggle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1643,7 +1643,7 @@ export const dogBreeds = [
     "name": "Puli",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1651,7 +1651,7 @@ export const dogBreeds = [
     "name": "Pumi",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1659,7 +1659,7 @@ export const dogBreeds = [
     "name": "Pyrenean Shepherd",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1667,7 +1667,7 @@ export const dogBreeds = [
     "name": "Rat Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1675,7 +1675,7 @@ export const dogBreeds = [
     "name": "Redbone Coonhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1683,7 +1683,7 @@ export const dogBreeds = [
     "name": "Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1691,7 +1691,7 @@ export const dogBreeds = [
     "name": "Rhodesian Ridgeback",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1699,7 +1699,7 @@ export const dogBreeds = [
     "name": "Rottweiler",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1707,7 +1707,7 @@ export const dogBreeds = [
     "name": "Rough Collie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1715,7 +1715,7 @@ export const dogBreeds = [
     "name": "Saint Bernard",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1723,7 +1723,7 @@ export const dogBreeds = [
     "name": "Saluki",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1731,7 +1731,7 @@ export const dogBreeds = [
     "name": "Samoyed",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1739,7 +1739,7 @@ export const dogBreeds = [
     "name": "Sarplaninac",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1747,7 +1747,7 @@ export const dogBreeds = [
     "name": "Schipperke",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1755,7 +1755,7 @@ export const dogBreeds = [
     "name": "Schnauzer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1763,7 +1763,7 @@ export const dogBreeds = [
     "name": "Schnoodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1771,7 +1771,7 @@ export const dogBreeds = [
     "name": "Scottish Deerhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1779,7 +1779,7 @@ export const dogBreeds = [
     "name": "Scottish Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1787,7 +1787,7 @@ export const dogBreeds = [
     "name": "Sealyham Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1795,7 +1795,7 @@ export const dogBreeds = [
     "name": "Setter",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1803,7 +1803,7 @@ export const dogBreeds = [
     "name": "Shar-Pei",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1811,7 +1811,7 @@ export const dogBreeds = [
     "name": "Sheep Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1819,7 +1819,7 @@ export const dogBreeds = [
     "name": "Sheepadoodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1827,15 +1827,15 @@ export const dogBreeds = [
     "name": "Shepherd",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Shetland Sheepdog \/ Sheltie",
+    "name": "Shetland Sheepdog / Sheltie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1843,7 +1843,7 @@ export const dogBreeds = [
     "name": "Shiba Inu",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1851,7 +1851,7 @@ export const dogBreeds = [
     "name": "Shih poo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1859,7 +1859,7 @@ export const dogBreeds = [
     "name": "Shih Tzu",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1867,7 +1867,7 @@ export const dogBreeds = [
     "name": "Shollie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1875,7 +1875,7 @@ export const dogBreeds = [
     "name": "Siberian Husky",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1883,7 +1883,7 @@ export const dogBreeds = [
     "name": "Silky Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1891,7 +1891,7 @@ export const dogBreeds = [
     "name": "Skye Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1899,7 +1899,7 @@ export const dogBreeds = [
     "name": "Sloughi",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1907,7 +1907,7 @@ export const dogBreeds = [
     "name": "Smooth Collie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1915,7 +1915,7 @@ export const dogBreeds = [
     "name": "Smooth Fox Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1923,7 +1923,7 @@ export const dogBreeds = [
     "name": "South Russian Ovtcharka",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1931,7 +1931,7 @@ export const dogBreeds = [
     "name": "Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1939,7 +1939,7 @@ export const dogBreeds = [
     "name": "Spanish Water Dog",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1947,7 +1947,7 @@ export const dogBreeds = [
     "name": "Spinone Italiano",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1955,7 +1955,7 @@ export const dogBreeds = [
     "name": "Spitz",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1963,7 +1963,7 @@ export const dogBreeds = [
     "name": "Staffordshire Bull Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1971,7 +1971,7 @@ export const dogBreeds = [
     "name": "Standard Poodle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1979,7 +1979,7 @@ export const dogBreeds = [
     "name": "Standard Schnauzer",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1987,7 +1987,7 @@ export const dogBreeds = [
     "name": "Sussex Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -1995,7 +1995,7 @@ export const dogBreeds = [
     "name": "Swedish Vallhund",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2003,7 +2003,7 @@ export const dogBreeds = [
     "name": "Tennessee Treeing Brindle",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2011,7 +2011,7 @@ export const dogBreeds = [
     "name": "Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2019,7 +2019,7 @@ export const dogBreeds = [
     "name": "Thai Ridgeback",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2027,7 +2027,7 @@ export const dogBreeds = [
     "name": "Tibetan Mastiff",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2035,7 +2035,7 @@ export const dogBreeds = [
     "name": "Tibetan Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2043,7 +2043,7 @@ export const dogBreeds = [
     "name": "Tibetan Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2051,7 +2051,7 @@ export const dogBreeds = [
     "name": "Tosa Inu",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2059,7 +2059,7 @@ export const dogBreeds = [
     "name": "Toy Fox Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2067,7 +2067,7 @@ export const dogBreeds = [
     "name": "Toy Manchester Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2075,7 +2075,7 @@ export const dogBreeds = [
     "name": "Treeing Walker Coonhound",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2083,7 +2083,7 @@ export const dogBreeds = [
     "name": "Vizsla",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2091,7 +2091,7 @@ export const dogBreeds = [
     "name": "Weimaraner",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2099,7 +2099,7 @@ export const dogBreeds = [
     "name": "Welsh Springer Spaniel",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2107,15 +2107,15 @@ export const dogBreeds = [
     "name": "Welsh Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "West Highland White Terrier \/ Westie",
+    "name": "West Highland White Terrier / Westie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2123,7 +2123,7 @@ export const dogBreeds = [
     "name": "Wheaten Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2131,7 +2131,7 @@ export const dogBreeds = [
     "name": "Whippet",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2139,7 +2139,7 @@ export const dogBreeds = [
     "name": "White German Shepherd",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2147,7 +2147,7 @@ export const dogBreeds = [
     "name": "Wire Fox Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2155,7 +2155,7 @@ export const dogBreeds = [
     "name": "Wirehaired Dachshund",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2163,7 +2163,7 @@ export const dogBreeds = [
     "name": "Wirehaired Pointing Griffon",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2171,15 +2171,15 @@ export const dogBreeds = [
     "name": "Wirehaired Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
   {
-    "name": "Xoloitzcuintli \/ Mexican Hairless",
+    "name": "Xoloitzcuintli / Mexican Hairless",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2187,7 +2187,7 @@ export const dogBreeds = [
     "name": "Yellow Labrador Retriever",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   },
@@ -2195,7 +2195,7 @@ export const dogBreeds = [
     "name": "Yorkshire Terrier",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/dog"
+        "href": "/v2/types/dog"
       }
     }
   }

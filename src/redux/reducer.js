@@ -1,10 +1,9 @@
-
-
 import {
 	RESET_PET_DETAIL,
 	GET_ALL_PETS,
 	GET_DETAIL,
 TYPE_FILTER,
+  	TYPE_FILTER,
 	BREED_FILTER,
 	RESET_PET_ORDER,
 	AGE_FILTER,
@@ -18,6 +17,10 @@ TYPE_FILTER,
 	// SHELTER_FILTER
 	RESET_FILTER_CARD,
 	GET_USER_INFO,
+	GET_COUNTRIES,
+	GET_CITIES_BY_COUNTRY,
+	CREATE_NEW_USER,
+	RESET_NEW_USER
 } from './actions';
 
 const initialState = {
@@ -28,7 +31,9 @@ const initialState = {
 	newUser: {},
 	userDetail: {},
 	userLogged: {},
-	filterActive: []
+	filterActive: [],
+	countries: [],
+	citiesByCountry: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -101,6 +106,31 @@ export default function reducer(state = initialState, action) {
 				...state,
 				userDetail: action.payload,
 			}
+
+		case GET_COUNTRIES:
+			return{
+				...state,
+				countries: action.payload
+			}
+
+		case GET_CITIES_BY_COUNTRY:
+			return{
+				...state,
+				citiesByCountry: action.payload
+			}
+
+		case CREATE_NEW_USER:
+			return{
+				...state,
+				newUser: action.payload
+			}
+
+		case RESET_NEW_USER:
+			return{
+				...state,
+				newUser: action.payload
+			}			
+
 		default:
 			return state;
 	}
