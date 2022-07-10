@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux/es/exports'
 import s from '../../css/FilterOption.module.css'
 import { breedFilter, ageFilter, sizeFilter, genreFilter } from '../../redux/actions'
@@ -14,10 +13,10 @@ const FilterOption = ({ type = 'Raza', options = ['Prueba'], handlerFunction }) 
         e.target.value.length && dispatch(breedFilter(e.target.value))
         break;
       case 'Edad':
+        console.log(e);
         e.target.value.length && dispatch(ageFilter(e.target.value))
         break
       case 'Tamaño':
-        // const size = e.target.value.split(' ')
         e.target.value.length && dispatch(sizeFilter(e.target.value.split(' ')[0]))
         break
       case 'Sexo':

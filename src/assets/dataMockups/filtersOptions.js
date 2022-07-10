@@ -74,17 +74,17 @@ export const filtersOptionsCats = [
   },
   {
     type: 'Edad',
-    options: ['Cachorro', 'Joven', 'Adulto', 'Anciano'],
+    options: ['Kitten', 'Young', 'Adult', 'Senior'],
     handlerFunction: null
   },
   {
     type: 'Tamaño',
-    options: ['Pequeño  (0-6 lbs)', 'Mediano (7-11 lbs)', 'Grande (12-16 lbs)', 'Extra Grande (17 lbs o más)'],
+    options: ['Small (0-6 lbs)', 'Medium (7-11 lbs)', 'Large (12-16 lbs)', 'Extra Large (17 lbs or more)'],
     handlerFunction: null
   },
   {
     type: 'Sexo',
-    options: ['Macho', 'Hembra'],
+    options: ['Male', 'Female'],
     handlerFunction: null
   },
   {
