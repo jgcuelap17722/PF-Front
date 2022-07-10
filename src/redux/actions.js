@@ -5,6 +5,7 @@ export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const AGE_FILTER = 'AGE_FILTER'
 export const SIZE_FILTER = 'SIZE_FILTER'
 export const GENRE_FILTER = 'GENRE_FILTER'
+export const TYPE_FILTER = 'TYPE_FILTER'
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -62,5 +63,16 @@ export const resetPetOrder = (orderType)=>{
         type: RESET_PET_ORDER,
         payload: orderType
     }
-}   
-
+}  
+export const typeFilter = (type)=>{
+    //let url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/pets/'
+    let url = InfoApi 
+    return async function (dispatch){
+        let json = await axios.get(url);
+        json = json.filter(e => e.type === type);
+        return dispatch ({
+        type: TYPE_FILTER,
+        payload: json,
+        })
+    } 
+}

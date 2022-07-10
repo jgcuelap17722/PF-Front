@@ -1,5 +1,6 @@
 import { } from './actions';
 import { BREED_FILTER, RESET_PET_ORDER } from './breedFilterAction';
+import {TYPE_FILTER} from '../redux/actions'
 
 const initialState = {
 	allPets: [],
@@ -53,6 +54,11 @@ export default function reducer(state = initialState, action) {
 				...state,
 				petsFiltered: state.allPets,
 				filterActive: state.filterActive.filter(e => e === action.payload)
+			}
+		case TYPE_FILTER:
+			return {
+				...state,
+				petsFiltered: action.payload
 			}
 		default:
 			return state;
