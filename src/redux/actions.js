@@ -14,6 +14,7 @@ export const ATTRIBUTES_FILTER = 'ATTRIBUTES_FILTER'
 export const DAYS_FILTER = 'DAYS_FILTER'
 export const SHELTER_FILTER = 'DAYS_FILTER'
 export const TYPE_FILTER = 'TYPE_FILTER'
+export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -128,4 +129,8 @@ export const typeFilter = (type)=>{
         payload: json,
         })
     } 
+}
+
+export function resetPetDetail(){
+    return {type: 'RESET_PET_DETAIL', payload: {}}
 }

@@ -1,6 +1,7 @@
 
 
 import {
+	RESET_PET_DETAIL,
 	GET_ALL_PETS,
 	GET_DETAIL,
   TYPE_FILTER,
@@ -38,7 +39,7 @@ export default function reducer(state = initialState, action) {
 		case GET_DETAIL:
 			return {
 				...state,
-				detail: action.payload,
+				petDetail: action.payload,
 			}
 		// SEARCHER FILTERS
 		case BREED_FILTER:
@@ -75,14 +76,14 @@ export default function reducer(state = initialState, action) {
 		case TYPE_FILTER:
 			return {
 				...state,
-<<<<<<< HEAD
-				petDetail: action.payload,
-=======
 				petsFiltered: action.payload
->>>>>>> dev
+			}
+		case RESET_PET_DETAIL:
+			return{
+				...state,
+				petDetail: action.payload,
 			}
 		default:
 			return state;
 	}
-
 }

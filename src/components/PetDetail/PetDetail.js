@@ -7,7 +7,7 @@ import { InfoApi } from "../../assets/dataMockups/InfoApi";
 import { Link } from "react-router-dom";
 import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPets, getDetail } from "../../redux/actions";
+import { getAllPets, getDetail, resetPetDetail } from "../../redux/actions";
 import { useParams } from "react-router-dom";
 
 
@@ -19,12 +19,15 @@ const PetDetail = () => {
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();
 
+  
+  
   useEffect(() => {
     dispatch(getAllPets())
-  }, [dispatch])
-
-  useEffect(() => {
     dispatch(getDetail(id))
+
+    return ()=>{
+      dispatch(resetPetDetail())
+    }
   }, [dispatch, id])
 
   const Api = estado[0]
@@ -179,7 +182,7 @@ const PetDetail = () => {
                 <div className={s.relatedBox}>
                   {
                     ApiOrganization && ApiOrganization?.map(({ id, photos, name, contact, age }) => {
-                      return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id}/>
+                      return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id} />
                     })
                   }
                 </div>
@@ -190,7 +193,7 @@ const PetDetail = () => {
                 <div className={s.relatedBox}>
                   {
                     ApiCerca && ApiCerca?.map(({ id, photos, name, contact, age }) => {
-                      return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id}/>
+                      return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id} />
                     })
                   }
                 </div>
