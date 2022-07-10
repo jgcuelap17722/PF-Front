@@ -1,0 +1,39 @@
+@import 'variables.less';
+
+.filterOptionBox{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-color: red;
+
+  &:first-child{
+    margin-top: 40px;
+  }
+
+  label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 29px;
+    color: #6C6868;
+    margin-bottom: 25px;
+  }
+  select{
+    border: none;
+    border-bottom: 1px solid #ABABAB;
+    width: 90%;
+    &:focus{
+      border: none;
+    }
+  }
+  option{
+    text-align: left;
+    background-color: transparent;
+    &:focus{
+      border: none;
+    }
+  }
+
+}

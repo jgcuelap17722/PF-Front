@@ -1,0 +1,22 @@
+.sectionBox {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 20px;
+  width: 95%;
+  height: 2000px;
+  gap: 20px;
+}
+.sectionBox .paginatedBox {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  gap: 10px;
+}
+.sectionBox .paginatedBox .cardsBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
