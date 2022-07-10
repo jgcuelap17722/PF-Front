@@ -1,26 +1,41 @@
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux/es/exports'
 import s from '../../css/FilterOption.module.css'
+import { breedFilter, ageFilter, sizeFilter, genreFilter } from '../../redux/actions'
 
 const FilterOption = ({ type = 'Raza', options = ['Prueba'], handlerFunction }) => {
 
-  let onClickHandler
+  const dispatch = useDispatch()
 
-  const defaultHandler = (e) => {
+  const onClickHandler = (e) => {
     e.preventDefault()
-    console.log(e.target.value);
-  }
-
-  if (!handlerFunction) {
-    onClickHandler = defaultHandler
+    switch (type) {
+      case 'Raza':
+        e.target.value.length && dispatch(breedFilter(e.target.value))
+        break;
+      case 'Edad':
+        e.target.value.length && dispatch(ageFilter(e.target.value))
+        break
+      case 'Tamaño':
+        // const size = e.target.value.split(' ')
+        e.target.value.length && dispatch(sizeFilter(e.target.value.split(' ')[0]))
+        break
+      case 'Sexo':
+        e.target.value.length && dispatch(genreFilter(e.target.value))
+        break
+      default:
+        break;
+    }
   }
 
   return (
     <div className={s.filterOptionBox}>
-      <label htmlFor={type}>{type}</label>
-      <select name={type} id="" onClick={onClickHandler}>
+      <label htmlFor='select'>{type}</label>
+      <select name='select' onChange={onClickHandler}>
         <option value=""></option>
         {
-          options.map(e => {
-            return <option value={e}>{e}</option>
+          options.map(element => {
+            return <option key={`${element}`} value={element}>{element}</option>
           })
         }
       </select>

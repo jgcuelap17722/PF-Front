@@ -1,28 +1,37 @@
+import { breedFilter } from "../../redux/actions"
+
 import { dogBreeds } from "../petsBreeds/dogBreeds"
 import { catBreeds } from "../petsBreeds/catBreeds"
 
 const dogsB = dogBreeds.map(e => e.name)
 const catsB = catBreeds.map(e => e.name)
 
+
+export const breedHandler =(value)=>{
+  breedFilter(value)
+}
+
+
+
 export const filtersOptionsDogs = [
   {
     type: 'Raza',
     options: dogsB,
-    handlerFunction: null
+    handlerFunction: breedHandler
   },
   {
     type: 'Edad',
-    options: ['Cachorro', 'Joven', 'Adulto', 'Anciano'],
+    options: ['Puppy', 'Young', 'Adult', 'Senior'],
     handlerFunction: null
   },
   {
     type: 'Tamaño',
-    options: ['Pequeño (0-25 lbs)', 'Mediano (26-60 lbs)', 'Grande (61-100 lbs)', 'Extra Grande (101 lbs o más)'],
+    options: ['Small (0-25 lbs)', 'Medium (26-60 lbs)', 'Large (61-100 lbs)', 'Extra Large (101 lbs or more)'],
     handlerFunction: null
   },
   {
     type: 'Sexo',
-    options: ['Macho', 'Hembra'],
+    options: ['Male', 'Female'],
     handlerFunction: null
   },
   {

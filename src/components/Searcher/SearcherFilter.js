@@ -13,11 +13,12 @@ const SearcherFilter = ({ petType }) => {
     filtersByType = filtersOptionsCats
   }
 
+ 
   return (
     <aside className={s.searcherFilterBox}>
       {
-        filtersByType.map(e => {
-          return <FilterOption type={e.type} options={e.options} />
+        filtersByType.map((e, id) => {
+          return <FilterOption key={`${e.type}${id}`} type={e.type} options={e.options} handlerFunction={e.handlerFunction} />
         })
       }
     </aside>

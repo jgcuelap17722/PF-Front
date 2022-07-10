@@ -32,6 +32,7 @@ const Search = () => {
     dispatch(getAllPets())
   }, [dispatch])
 
+  // console.log('allPets', allPets);
 
   return (
     <section className={s.sectionBox}>
