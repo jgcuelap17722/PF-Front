@@ -8,7 +8,7 @@ import Footer from '../../assets/Footer/Footer'
 
 const Home = () => {
   return (
-    <main>
+    <main className={s.homeBox}>
       <NavBar />
       <HeroHome />
       <RelatedCase />

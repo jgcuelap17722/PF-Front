@@ -1,4 +1,7 @@
 footer {
+  padding: 0;
+  box-sizing: border-box;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

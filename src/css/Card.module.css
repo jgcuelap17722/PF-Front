@@ -6,11 +6,11 @@
   border-radius: 15px;
   overflow: hidden;
   justify-content: center;
+  transition: all 1s ease;
 }
 .cards:hover {
   position: relative;
   bottom: 5px;
-  transition: 1 ease;
 }
 .cards .cardsImg {
   width: 273px;
@@ -53,11 +53,6 @@
   border-radius: 15px;
   overflow: hidden;
   justify-content: center;
-}
-.cards2:hover {
-  position: relative;
-  bottom: 5px;
-  transition: 1 ease;
 }
 .cards2 .cardsImg {
   width: 100%;
