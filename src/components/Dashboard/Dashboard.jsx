@@ -2,10 +2,19 @@ import React from 'react'
 import s from '../../css/Dashboard.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
-import { Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getUserInfo } from '../../redux/actions';
 
 export default function Dashboard() {
+    const dispatch = useDispatch()
+    const detail = useSelector((state) => state.userDetail)
+    
+    useEffect(()=>{
+        dispatch(getUserInfo())
+    },[dispatch])
+    
   return (
     <div>
         <NavBar></NavBar>
@@ -28,26 +37,26 @@ export default function Dashboard() {
                         <div className={s.left}>
                             <div>
                                 <h4>First Name</h4>
-                                <input type="text" />
+                                <input value={detail.name} type="text" />
                             </div>
                             <div>
                                 <h4>Phone</h4>
-                                <input type="text" />
+                                <input value={detail.phone} type="text" />
                             </div>
                             <div>
                                 <h4>Country</h4>
-                                <input type="text" />
+                                <input value={detail.countryId} type="text" />
                             </div>
                         </div>
                     
                         <div className={s.right}>
                             <div>
                                 <h4>Last Name</h4>
-                                <input type="text" />
+                                <input value={detail.lastName} type="text" />
                             </div>
                             <div id='lastInput'>
                                 <h4>City</h4>
-                                <input type="text" />
+                                <input value={detail.cityId} type="text" />
                             </div>
 
                         </div>

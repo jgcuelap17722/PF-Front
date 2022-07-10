@@ -4,7 +4,7 @@ import {
 	RESET_PET_DETAIL,
 	GET_ALL_PETS,
 	GET_DETAIL,
-  TYPE_FILTER,
+TYPE_FILTER,
 	BREED_FILTER,
 	RESET_PET_ORDER,
 	AGE_FILTER,
@@ -17,6 +17,7 @@ import {
 	// DAYS_FILTER,
 	// SHELTER_FILTER
 	RESET_FILTER_CARD,
+	GET_USER_INFO,
 } from './actions';
 
 const initialState = {
@@ -94,6 +95,11 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				petDetail: action.payload,
+			}
+		case GET_USER_INFO:
+			return{
+				...state,
+				userDetail: action.payload,
 			}
 		default:
 			return state;

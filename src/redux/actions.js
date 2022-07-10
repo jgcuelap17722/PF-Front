@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { InfoApi } from "../assets/dataMockups/InfoApi.js";
+import { user } from '../assets/dataMockups/user.js'
 export const BREED_FILTER = 'BREED_FILTER'
 export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const AGE_FILTER = 'AGE_FILTER'
@@ -10,7 +11,7 @@ export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
 export const RESET_FILTER_CARD = 'RESET_FILTER_CARD'
-
+export const GET_USER_INFO = 'GET_USER_INFO'
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -100,4 +101,15 @@ export const typeFilter = (type)=>{
 
 export function resetPetDetail(){
     return {type: 'RESET_PET_DETAIL', payload: {}}
+}
+
+export function getUserInfo(){
+    return async function (dispatch){
+        // var user = await axios.get('https://api-rest-adoptame.herokuapp.com/api/v1.0/user/{id}');
+        return dispatch({
+            type:'GET_USER_INFO',
+            payload: user[0],
+
+        })
+    }
 }
