@@ -197,7 +197,7 @@ const PetDetail = () => {
           <div className={s.relatedBox}>
             {
               ApiOrganization && ApiOrganization.map(({ id, photos, name, contact, age }) => {
-                return <Link className={s.card} to={'/pet-detail/' + id}><Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} /></Link>
+                return <Link className={s.card} to={'/pet-detail/' + id}><Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home'/></Link>
               })
             }
           </div>

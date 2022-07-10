@@ -1,4 +1,5 @@
-import { useDispatch } from 'react-redux/es/exports'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux/es/exports'
 import s from '../../css/FilterOption.module.css'
 import { 
   breedFilter, 
@@ -13,14 +14,21 @@ import {
   shelterFilter
 } from '../../redux/actions'
 
-const FilterOption = ({ type = 'Raza', options = ['Prueba'] }) => {
+const FilterOption = ({ type, options }) => {
+
+  const [displayOption, setDisplayOption] = useState('')
+  const filterActive = useSelector(state => state.filterActive)
 
   const dispatch = useDispatch()
 
+  console.log('filter', filterActive[0]);
+
   const onClickHandler = (e) => {
-    e.preventDefault()
+
     switch (type) {
       case 'Raza':
+
+        e.preventDefault()
         e.target.value.length && dispatch(breedFilter(e.target.value))
         break;
       case 'Edad':
@@ -59,7 +67,7 @@ const FilterOption = ({ type = 'Raza', options = ['Prueba'] }) => {
   return (
     <div className={s.filterOptionBox}>
       <label htmlFor='select'>{type}</label>
-      <select name='select' onChange={onClickHandler}>
+      <select value={displayOption} name='select' onChange={onClickHandler}>
         <option value=""></option>
         {
           options.map(element => {

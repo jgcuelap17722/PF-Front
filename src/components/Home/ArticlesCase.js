@@ -4,6 +4,8 @@ import dogCare  from '../../assets/images/dog-care.jpg'
 import catCare  from '../../assets/images/cat-care.jpg'
 
 const ArticlesCase = () => {
+
+
   return (
     <section className={s.articlesBox}>
       <h1 className={s.articlesTitle}>Información Para el Cuidado de tus Mascotas</h1>
