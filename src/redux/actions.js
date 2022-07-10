@@ -120,7 +120,7 @@ export function getUserInfo(){
 
 export function getCountries(){
 
-    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/countries';
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries/';
 
     return async function(dispatch){
 
@@ -134,14 +134,13 @@ export function getCountries(){
 
 export function getCitiesByCountry(id){
 
-    const url = `https://pf-api-pets.herokuapp.com/api/v1.0/cities/${id}`;
-
+    const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/cities/${id}`;
+    // console.log(url)
     return async function(dispatch){
-
         return await fetch(url)
-            .then( response => response.json() )
-            .then( data => {
-                dispatch({type: GET_CITIES_BY_COUNTRY, payload: data})
+        .then( response => response.json() )
+        .then( data => {
+            dispatch({type: GET_CITIES_BY_COUNTRY, payload: data})
             })
 
     }

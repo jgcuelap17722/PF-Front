@@ -5,16 +5,23 @@ import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getUserInfo } from '../../redux/actions';
+import { getCitiesByCountry, getCountries, getUserInfo } from '../../redux/actions';
 
 export default function Dashboard() {
     const dispatch = useDispatch()
     const detail = useSelector((state) => state.userDetail)
-    
+    const city = useSelector((state)=> state.citiesByCountry)
+    const country = useSelector((state)=> state.countries)
+
     useEffect(()=>{
         dispatch(getUserInfo())
+        dispatch(getCitiesByCountry(detail.countryId))
+        dispatch(getCountries())
     },[dispatch])
-    
+    // console.log(city)
+    // console.log(country)
+    // country = country.filter()
+    // city = city.filter(el=> el === )
   return (
     <div>
         <NavBar></NavBar>
@@ -45,7 +52,7 @@ export default function Dashboard() {
                             </div>
                             <div>
                                 <h4>Country</h4>
-                                <input value={detail.countryId} type="text" />
+                                <input value={country[0]} type="text" />
                             </div>
                         </div>
                     
