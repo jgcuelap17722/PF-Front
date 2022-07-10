@@ -45,11 +45,11 @@
   border-left: 2.5px solid #ABABAB;
 }
 .formBox .city {
-  width: 346px;
+  width: 856px;
   height: 55px;
-  margin-left: 3px;
   border: none;
   box-sizing: border-box;
+  border-radius: 15px 0px 0px 15px;
 }
 .formBox .button {
   position: absolute;

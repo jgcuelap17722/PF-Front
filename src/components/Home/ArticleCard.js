@@ -1,9 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import s from '../../css/ArticleCard.module.css'
 
-const ArticleCard = ({ img }) => {
+const ArticleCard = ({ img, url }) => {
+
+  const navigate = useNavigate()
+
+  const onClickHandler = ()=>{
+    navigate(`/pet-care`) 
+  }
+
+
   return (
-    <div className={s.articleCardBox}>
+    <div onClick={onClickHandler} className={s.articleCardBox}>
       <div className={s.imgBox}>
         <img src={img} alt="" />
       </div>

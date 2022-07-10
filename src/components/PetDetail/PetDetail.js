@@ -197,10 +197,10 @@ const PetDetail = () => {
                     })
                   }
                 </div>
-
               </div>
             </>
             : <Card />
+
 
         }
       </div>
