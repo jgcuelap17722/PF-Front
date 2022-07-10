@@ -13,6 +13,7 @@ export const COLOR_FILTER = 'COAT_FILTER'
 export const ATTRIBUTES_FILTER = 'ATTRIBUTES_FILTER'
 export const DAYS_FILTER = 'DAYS_FILTER'
 export const SHELTER_FILTER = 'DAYS_FILTER'
+export const TYPE_FILTER = 'TYPE_FILTER'
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -111,5 +112,18 @@ export const resetPetOrder = (orderType)=>{
         type: RESET_PET_ORDER,
         payload: orderType
     }
-}   
+}  
 
+// TYPE FILTER
+export const typeFilter = (type)=>{
+    //let url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/pets/'
+    let url = InfoApi 
+    return async function (dispatch){
+        let json = await axios.get(url);
+        json = json.filter(e => e.type === type);
+        return dispatch ({
+        type: TYPE_FILTER,
+        payload: json,
+        })
+    } 
+}
