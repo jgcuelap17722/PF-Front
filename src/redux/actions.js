@@ -103,7 +103,7 @@ export const typeFilter = (type)=>{
 
 export function resetPetDetail(){
     return {type: 'RESET_PET_DETAIL', payload: {}}
-
+}
 
 export function getDetail(){
     return async function (dispatch){
