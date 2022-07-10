@@ -18,8 +18,8 @@ export default function SignUp() {
 		typeCount: '',
 		name: '',
 		lastName: '',
-		country: '',
-		city: '',
+		countryId: '',
+		cityId: 0,
 		email: '',
 		password: '',
 		confirmPassword: '',
@@ -31,19 +31,19 @@ export default function SignUp() {
 	useEffect(() => {
 		dispatch(getCountries());
 
-		if(input.country === 'Argentina'){
+		if(input.countryId === 'ARG'){
 			dispatch(getCitiesByCountry('ARG'))
 		}
-		if(input.country === 'Chile'){
+		if(input.countryId === 'CHL'){
 			dispatch(getCitiesByCountry('CHL'))                
 		}
-		if(input.country === 'Colombia'){
+		if(input.countryId === 'COL'){
 			dispatch(getCitiesByCountry('COL'))                
 		}
-		if(input.country === 'Ecuador'){
+		if(input.countryId === 'ECU'){
 			dispatch(getCitiesByCountry('ECU'))                
 		}
-		if(input.country === 'Peru'){
+		if(input.countryId === 'PER'){
 			dispatch(getCitiesByCountry('PER'))                
 		}
 
@@ -90,12 +90,12 @@ export default function SignUp() {
 			error.lastName = 'Tus apellidos no pueden contener más de 20 carateres';
 		}
 
-		if(!input.country){
-			error.country = 'Por favor selecciona un país';
+		if(!input.countryId){
+			error.countryId = 'Por favor selecciona un país';
 		}
 
-		if(!input.city){
-			error.city = 'Por favor selecciona una ciudad';
+		if(!input.cityId){
+			error.cityId = 'Por favor selecciona una ciudad';
 		}
 
 		if(!input.email){
@@ -158,16 +158,16 @@ export default function SignUp() {
 			if( !input.name || 
 				!input.lastName || 
 				!input.typeCount || 
-				!input.country || 
-				!input.city || 
+				!input.countryId || 
+				!input.cityId || 
 				!input.email || 
 				!input.password || 
 				!input.confirmPassword ||
 				error.name || 
 				error.lastName || 
 				error.typeCount || 
-				error.country || 
-				error.city || 
+				error.countryId || 
+				error.cityId || 
 				error.email || 
 				error.password || 
 				error.confirmPassword){
@@ -180,8 +180,8 @@ export default function SignUp() {
 			if(error.name || 
 				error.lastName || 
 				error.typeCount || 
-				error.country || 
-				error.city || 
+				error.countryId || 
+				error.cityId || 
 				error.email || 
 				error.password || 
 				error.confirmPassword ||
@@ -195,8 +195,8 @@ export default function SignUp() {
 			typeCount: '',
 			name: '',
 			lastName: '',
-			country: '',
-			city: '',
+			countryId: '',
+			cityId: '',
 			email: '',
 			password: '',
 			confirmPassword: '',
@@ -242,22 +242,22 @@ export default function SignUp() {
 							{ error.lastName && <p>{error.lastName}</p> }
 						</div>
 						<div>
-							<select value={input.country} name="country" onChange={(e) => handleChange(e)}>
+							<select value={input.countryId} name="countryId" onChange={(e) => handleChange(e)}>
 								<option value="">País</option>
 								{countries && countries.map( c =>
-									<option value={c.name}>{c.name}</option>
+									<option value={c.id}>{c.name}</option>
 								)}
 							</select>
-							{ error.country && <p>{error.country}</p> }
+							{ error.countryId && <p>{error.countryId}</p> }
 						</div>
 						<div>
-							<select value={input.city} name="city" onChange={(e) => handleChange(e)}>
+							<select value={input.cityId} name="cityId" onChange={(e) => handleChange(e)}>
 								<option value="">Ciudad</option>
 								{cities && cities.map( c =>
-									<option value={c.name}>{c.name}</option>
+									<option value={c.id}>{c.name}</option>
 								)}
 							</select>
-							{ error.city && <p>{error.city}</p> }
+							{ error.cityId && <p>{error.cityId}</p> }
 						</div>
 						<div>
 							<input  onChange={(e) => handleChange(e)} 
