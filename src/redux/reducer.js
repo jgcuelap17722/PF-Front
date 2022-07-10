@@ -1,7 +1,9 @@
 import { } from './actions';
+
 import {
 	GET_ALL_PETS,
 	GET_DETAIL,
+  TYPE_FILTER,
 	BREED_FILTER,
 	RESET_PET_ORDER,
 	AGE_FILTER,
@@ -69,6 +71,11 @@ export default function reducer(state = initialState, action) {
 				...state,
 				petsFiltered: state.allPets,
 				filterActive: state.filterActive.filter(e => e !== action.payload)
+			}
+		case TYPE_FILTER:
+			return {
+				...state,
+				petsFiltered: action.payload
 			}
 		default:
 			return state;
