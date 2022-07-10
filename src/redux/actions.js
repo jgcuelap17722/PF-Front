@@ -6,9 +6,11 @@ export const AGE_FILTER = 'AGE_FILTER'
 export const SIZE_FILTER = 'SIZE_FILTER'
 export const GENRE_FILTER = 'GENRE_FILTER'
 export const TYPE_FILTER = 'TYPE_FILTER'
+export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
 export const RESET_FILTER_CARD = 'RESET_FILTER_CARD'
+
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -20,15 +22,19 @@ export function getAllPets() {
     }
 }
 
-export function getDetail() {
-    return async function (dispatch) {
-        // var json = await axios.get('http://localhost:3001');
+export function getDetail(id){
+    return async function (dispatch){
+        var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
+        // console.log(pets.data)
+        const filter = pets.data.animals.filter(el => el.id == id)
         return dispatch({
-            type: GET_DETAIL,
-            payload: InfoApi
+
+            type:'GET_DETAIL',
+            payload: filter
+
         })
     }
-}
+    }
 
 
 export const breedFilter = (value) => {
@@ -90,4 +96,8 @@ export const typeFilter = (type)=>{
             console.log(error);
         }
     } 
+}
+
+export function resetPetDetail(){
+    return {type: 'RESET_PET_DETAIL', payload: {}}
 }
