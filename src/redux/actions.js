@@ -31,7 +31,6 @@ export function getAllPets() {
 export function getDetail(id){
     return async function (dispatch){
         var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-        // console.log(pets.data)
         const filter = pets.data.animals.filter(el => el.id == id)
         return dispatch({
 
