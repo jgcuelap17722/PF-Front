@@ -8,7 +8,7 @@ const Pagination = ({ petsPerPage, allPets, pagination, page }) => {
   for (let i = 1; i <= Math.ceil(allPets / petsPerPage); i++) {
     pageNumbers.push(i)
   }
-  console.log('page numbers', pageNumbers);
+  // console.log('page numbers', pageNumbers);
 
   return (
     <nav className={s.paginationBox}>
