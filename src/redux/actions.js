@@ -117,7 +117,7 @@ export function getDetail(){
 
 export function getCountries(){
 
-    const url = 'http://localhost:5000/api/v1.0/countries';
+    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/countries';
 
     return async function(dispatch){
 
@@ -131,7 +131,7 @@ export function getCountries(){
 
 export function getCitiesByCountry(id){
 
-    const url = `http://localhost:5000/api/v1.0/cities/${id}`;
+    const url = `https://pf-api-pets.herokuapp.com/api/v1.0/cities/${id}`;
 
     return async function(dispatch){
 
@@ -147,7 +147,7 @@ export function getCitiesByCountry(id){
 
 export function createNewUser(obj){
 
-    const url = 'http://localhost:5000/api/v1.0/user';
+    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/user';
     const options = {
        method: 'POST',
        headers: {'Content-Type' : 'Application/json'},
