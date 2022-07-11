@@ -16,7 +16,10 @@ export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 export const RESET_NEW_USER = 'RESET_NEW_USER';
+export const LOGIN_USER = 'LOGIN_USER';
+export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const CITY_FILTER = 'CITY_FILTER'
+
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -57,7 +60,6 @@ export const ageFilter = (value) => {
 }
 
 export const sizeFilter = (value) => {
-    console.log('agee', value);
     return {
         type: SIZE_FILTER,
         payload: value
@@ -119,9 +121,7 @@ export function getUserInfo(){
 }
 
 export function getCountries(){
-
-    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries/';
-
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries';
     return async function(dispatch){
         return await fetch(url)
             .then( response => response.json() )
@@ -132,9 +132,7 @@ export function getCountries(){
 }
 
 export function getCitiesByCountry(id){
-
     const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/cities/${id}`;
-    // console.log(url)
     return async function(dispatch){
         return await fetch(url)
         .then( response => response.json() )
@@ -148,11 +146,11 @@ export function getCitiesByCountry(id){
 
 export function createNewUser(obj){
 
-    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/user';
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/user';
     const options = {
        method: 'POST',
        headers: {'Content-Type' : 'Application/json'},
-        body: JSON.stringify(obj)
+       body: JSON.stringify(obj)
     }
 
     return async function(dispatch){
@@ -169,6 +167,30 @@ export function resetNewUser(){
     return {type: RESET_NEW_USER, payload: {}}
 }
 
+
+export function loginUser(obj){
+
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/auth/userLogin';
+    const options = {
+       method: 'POST',
+       headers: {'Content-Type' : 'Application/json'},
+       body: JSON.stringify(obj)
+    }
+
+    return async function(dispatch){
+
+        return await fetch(url, options)
+            .then( response => response.json() )
+            .then( data => {
+                dispatch({type: LOGIN_USER, payload: data})
+            })
+    }
+}
+
+export function resetUserLogged(){
+    return {type: RESET_USER_LOGGED, payload: {}}
+}
+
 export function cityFilter(obj){
     let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
     return async function(dispatch){
@@ -182,3 +204,4 @@ export function cityFilter(obj){
             .catch(error => console.log(error))
             }
 }
+

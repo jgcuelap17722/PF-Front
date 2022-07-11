@@ -20,6 +20,8 @@ import {
 	GET_CITIES_BY_COUNTRY,
 	CREATE_NEW_USER,
 	RESET_NEW_USER,
+	LOGIN_USER,
+	RESET_USER_LOGGED
 	CITY_FILTER,
 } from './actions';
 
@@ -131,7 +133,18 @@ export default function reducer(state = initialState, action) {
 				...state,
 				newUser: action.payload
 			}	
-		case CITY_FILTER:
+		case LOGIN_USER:
+			return{
+				...state,
+				userLogged: action.payload
+			}
+
+		case RESET_USER_LOGGED:
+			return{
+				...state,
+				userLogged: action.payload
+			}
+      case CITY_FILTER:
 			return{
 				...state,
 				filteredByCity: action.payload,
