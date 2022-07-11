@@ -21,13 +21,12 @@ const FilterOption = ({ type, options }) => {
 
   const dispatch = useDispatch()
 
-  console.log('filter', filterActive[0]);
+  // console.log('filter', filterActive[0]);
 
   const onClickHandler = (e) => {
 
     switch (type) {
       case 'Raza':
-
         e.preventDefault()
         e.target.value.length && dispatch(breedFilter(e.target.value))
         break;

@@ -19,6 +19,7 @@ export const RESET_NEW_USER = 'RESET_NEW_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const CITY_FILTER = 'CITY_FILTER'
+export const RESET_SEARCH = 'RESET_SEARCH'
 
 
 export function getAllPets() {
@@ -31,13 +32,13 @@ export function getAllPets() {
     }
 }
 
-export function getDetail(id){
-    return async function (dispatch){
+export function getDetail(id) {
+    return async function (dispatch) {
         var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
         const filter = pets.data.animals.filter(el => el.id == id)
         return dispatch({
 
-            type:'GET_DETAIL',
+            type: 'GET_DETAIL',
             payload: filter
 
         })
@@ -73,135 +74,140 @@ export const genreFilter = (value) => {
     }
 }
 
-export const resetPetOrder = (orderType)=>{
-    return{
+export const resetPetOrder = (orderType) => {
+    return {
         type: RESET_PET_ORDER,
         payload: orderType
     }
-}  
+}
 
-export const resetFilterCard = ()=>{
-    return{
+export const resetFilterCard = () => {
+    return {
         type: RESET_FILTER_CARD
     }
 }
 
-export const typeFilter = (type)=>{
+export const typeFilter = (type) => {
     let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
 
-    return async function (dispatch){
+    return async function (dispatch) {
         try {
             let response = await axios.get(url);
             const data = response.data.animals
             // console.log(data)
             const json = data.filter(e => e.type === type);
-            return dispatch ({
-            type: TYPE_FILTER,
-            payload: json,
+            return dispatch({
+                type: TYPE_FILTER,
+                payload: json,
             })
         } catch (error) {
             console.log(error);
         }
-    } 
+    }
 }
 
-export function resetPetDetail(){
-    return {type: 'RESET_PET_DETAIL', payload: {}}
+export function resetPetDetail() {
+    return { type: 'RESET_PET_DETAIL', payload: {} }
 }
 
-export function getUserInfo(){
-    return async function (dispatch){
+export function getUserInfo() {
+    return async function (dispatch) {
         // var user = await axios.get('https://api-rest-adoptame.herokuapp.com/api/v1.0/user/{id}');
         return dispatch({
-            type:'GET_USER_INFO',
+            type: 'GET_USER_INFO',
             payload: user[0],
 
         })
     }
 }
 
-export function getCountries(){
+export function getCountries() {
     const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries';
-    return async function(dispatch){
+    return async function (dispatch) {
         return await fetch(url)
-            .then( response => response.json() )
-            .then( data => {
-                dispatch({type: GET_COUNTRIES, payload: data})
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: GET_COUNTRIES, payload: data })
             })
     }
 }
 
-export function getCitiesByCountry(id){
+export function getCitiesByCountry(id) {
     const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/cities/${id}`;
-    return async function(dispatch){
+    return async function (dispatch) {
         return await fetch(url)
-        .then( response => response.json() )
-        .then( data => {
-            dispatch({type: GET_CITIES_BY_COUNTRY, payload: data})
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data })
             })
 
     }
 
 }
 
-export function createNewUser(obj){
+export function createNewUser(obj) {
 
     const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/user';
     const options = {
-       method: 'POST',
-       headers: {'Content-Type' : 'Application/json'},
-       body: JSON.stringify(obj)
+        method: 'POST',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
     }
 
-    return async function(dispatch){
+    return async function (dispatch) {
 
         return await fetch(url, options)
-            .then( response => response.json() )
-            .then( data => {
-                dispatch({type: CREATE_NEW_USER, payload: data })
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: CREATE_NEW_USER, payload: data })
             })
     }
 }
 
-export function resetNewUser(){
-    return {type: RESET_NEW_USER, payload: {}}
+export function resetNewUser() {
+    return { type: RESET_NEW_USER, payload: {} }
 }
 
 
-export function loginUser(obj){
+export function loginUser(obj) {
 
     const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/auth/userLogin';
     const options = {
-       method: 'POST',
-       headers: {'Content-Type' : 'Application/json'},
-       body: JSON.stringify(obj)
+        method: 'POST',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
     }
 
-    return async function(dispatch){
+    return async function (dispatch) {
 
         return await fetch(url, options)
-            .then( response => response.json() )
-            .then( data => {
-                dispatch({type: LOGIN_USER, payload: data})
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: LOGIN_USER, payload: data })
             })
     }
 }
 
-export function resetUserLogged(){
-    return {type: RESET_USER_LOGGED, payload: {}}
+export function resetUserLogged() {
+    return { type: RESET_USER_LOGGED, payload: {} }
 }
 
-export function cityFilter(obj){
+export function cityFilter(obj) {
+    console.log(obj);
     let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
-    return async function(dispatch){
+    return async function (dispatch) {
         return await fetch(url)
-                
-                .then( res => res.json())
-                .then( json => {
-                    let filtered = json.animals.filter(el => el.contact.address.city === obj.city)
-                dispatch({type: CITY_FILTER, payload: filtered })
+            .then(res => res.json())
+            .then(json => {
+                let filtered = json.animals.filter(el => el.contact.address.city.toLowerCase() === obj.city)
+                dispatch({ type: CITY_FILTER, payload: filtered })
             })
             .catch(error => console.log(error))
-            }
+    }
 }
 
+export const resetSearch = () => {
+    return {
+        type: RESET_SEARCH,
+    }
+}
