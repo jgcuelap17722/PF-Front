@@ -19,7 +19,8 @@ import {
 	GET_COUNTRIES,
 	GET_CITIES_BY_COUNTRY,
 	CREATE_NEW_USER,
-	RESET_NEW_USER
+	RESET_NEW_USER,
+	CITY_FILTER,
 } from './actions';
 
 const initialState = {
@@ -32,7 +33,8 @@ const initialState = {
 	userLogged: {},
 	filterActive: [],
 	countries: [],
-	citiesByCountry: []
+	citiesByCountry: [],
+	filteredByCity: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -128,7 +130,12 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				newUser: action.payload
-			}			
+			}	
+		case CITY_FILTER:
+			return{
+				...state,
+				filteredByCity: action.payload,
+			}		
 
 		default:
 			return state;

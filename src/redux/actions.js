@@ -16,7 +16,7 @@ export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 export const RESET_NEW_USER = 'RESET_NEW_USER';
-export const CITY_FILTER = CITY_FILTER
+export const CITY_FILTER = 'CITY_FILTER'
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -91,6 +91,7 @@ export const typeFilter = (type)=>{
         try {
             let response = await axios.get(url);
             const data = response.data.animals
+            // console.log(data)
             const json = data.filter(e => e.type === type);
             return dispatch ({
             type: TYPE_FILTER,
@@ -166,4 +167,18 @@ export function createNewUser(obj){
 
 export function resetNewUser(){
     return {type: RESET_NEW_USER, payload: {}}
+}
+
+export function cityFilter(obj){
+    let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
+    return async function(dispatch){
+        return await fetch(url)
+                
+                .then( res => res.json())
+                .then( json => {
+                    let filtered = json.animals.filter(el => el.contact.address.city === obj.city)
+                dispatch({type: CITY_FILTER, payload: filtered })
+            })
+            .catch(error => console.log(error))
+            }
 }
