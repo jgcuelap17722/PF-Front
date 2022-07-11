@@ -58,7 +58,6 @@ export const ageFilter = (value) => {
 }
 
 export const sizeFilter = (value) => {
-    console.log('agee', value);
     return {
         type: SIZE_FILTER,
         payload: value
@@ -109,7 +108,7 @@ export function resetPetDetail(){
 
 export function getCountries(){
 
-    const url = 'http://localhost:5000/api/v1.0/countries';
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries';
 
     return async function(dispatch){
 
@@ -123,7 +122,7 @@ export function getCountries(){
 
 export function getCitiesByCountry(id){
 
-    const url = `http://localhost:5000/api/v1.0/cities/${id}`;
+    const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/cities/${id}`;
 
     return async function(dispatch){
 
@@ -139,7 +138,7 @@ export function getCitiesByCountry(id){
 
 export function createNewUser(obj){
 
-    const url = 'http://localhost:5000/api/v1.0/user';
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/user';
     const options = {
        method: 'POST',
        headers: {'Content-Type' : 'Application/json'},
@@ -162,7 +161,7 @@ export function resetNewUser(){
 
 export function loginUser(obj){
 
-    const url = 'http://localhost:5000/api/v1.0/auth/userLogin';
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/auth/userLogin';
     const options = {
        method: 'POST',
        headers: {'Content-Type' : 'Application/json'},
