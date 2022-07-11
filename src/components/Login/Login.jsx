@@ -50,6 +50,7 @@ export default function Login() {
             return;
         }else if(userLogged.token){
             localStorage.setItem('token', userLogged.token);
+            localStorage.setItem('userId', userLogged.user.id);
             navigator('/');
             return;
         }
@@ -79,7 +80,7 @@ export default function Login() {
 
   return (
     <div>
-        <NavBar></NavBar>
+        <NavBar />
         <div className={s.content}>
             <form 
                     className={s.form}>
@@ -117,7 +118,7 @@ export default function Login() {
 
             </form>
         </div>
-        <Footer></Footer>
+        <Footer />
     </div>
   )
 }

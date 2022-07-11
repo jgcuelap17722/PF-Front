@@ -9,14 +9,14 @@ import { getCitiesByCountry, getCountries, getUserInfo, loginUser } from '../../
 
 export default function Dashboard() {
     const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
     const dispatch = useDispatch()
     const detail = useSelector((state) => state.userDetail)
-    const { id } = useSelector((state) => state.userLogged.user)
 
     useEffect(() => {
-        dispatch(getUserInfo(id, token))
+        dispatch(getUserInfo(userId, token))
         dispatch(getCountries())
-    }, [])
+    }, [dispatch])
     useEffect(() => {
         setTimeout(() => {
             dispatch(getCitiesByCountry(detail.countryId))
@@ -28,7 +28,7 @@ export default function Dashboard() {
 
     return (
         <div>
-            <NavBar></NavBar>
+            <NavBar />
             <div className={s.content}>
                 <h1>Mi Dashboard</h1>
                 <div className={s.datos}>
@@ -82,7 +82,7 @@ export default function Dashboard() {
             </div>
 
 
-            <Footer></Footer>
+            <Footer />
         </div>
     )
 }
