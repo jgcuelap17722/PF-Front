@@ -22,6 +22,7 @@ import {
 	RESET_NEW_USER,
 	LOGIN_USER,
 	RESET_USER_LOGGED
+	CITY_FILTER,
 } from './actions';
 
 const initialState = {
@@ -34,7 +35,8 @@ const initialState = {
 	userLogged: {},
 	filterActive: [],
 	countries: [],
-	citiesByCountry: []
+	citiesByCountry: [],
+	filteredByCity: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -130,8 +132,7 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				newUser: action.payload
-			}
-
+			}	
 		case LOGIN_USER:
 			return{
 				...state,
@@ -143,6 +144,11 @@ export default function reducer(state = initialState, action) {
 				...state,
 				userLogged: action.payload
 			}
+      case CITY_FILTER:
+			return{
+				...state,
+				filteredByCity: action.payload,
+			}		
 
 		default:
 			return state;

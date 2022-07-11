@@ -18,6 +18,7 @@ export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 export const RESET_NEW_USER = 'RESET_NEW_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
+export const CITY_FILTER = 'CITY_FILTER'
 
 
 export function getAllPets() {
@@ -92,6 +93,7 @@ export const typeFilter = (type)=>{
         try {
             let response = await axios.get(url);
             const data = response.data.animals
+            // console.log(data)
             const json = data.filter(e => e.type === type);
             return dispatch ({
             type: TYPE_FILTER,
@@ -165,6 +167,7 @@ export function resetNewUser(){
     return {type: RESET_NEW_USER, payload: {}}
 }
 
+
 export function loginUser(obj){
 
     const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/auth/userLogin';
@@ -186,5 +189,19 @@ export function loginUser(obj){
 
 export function resetUserLogged(){
     return {type: RESET_USER_LOGGED, payload: {}}
+}
+
+export function cityFilter(obj){
+    let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
+    return async function(dispatch){
+        return await fetch(url)
+                
+                .then( res => res.json())
+                .then( json => {
+                    let filtered = json.animals.filter(el => el.contact.address.city === obj.city)
+                dispatch({type: CITY_FILTER, payload: filtered })
+            })
+            .catch(error => console.log(error))
+            }
 }
 
