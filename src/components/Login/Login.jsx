@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/Login.module.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+import { loginUser, resetUserLogged } from '../../redux/actions.js';
+import { useDispatch, useSelector } from 'react-redux';
 
 function validate (input) {
     let error = {};
@@ -24,12 +27,35 @@ function validate (input) {
 
 export default function Login() {
 
+    const dispatch = useDispatch()
+    const userLogged = useSelector( state => state.userLogged);
+    const navigator = useNavigate();
+
     const [input, setInput] = useState({
         email:'',
         password:''
     })
     const [error, setError] = useState({})
-    
+
+    useEffect(() => {
+        
+        
+        if(userLogged.Error){
+            alert(userLogged.Error);
+            dispatch(resetUserLogged());
+            return;
+        }else if(userLogged.error){
+            alert(userLogged.error);
+            dispatch(resetUserLogged());
+            return;
+        }else if(userLogged.token){
+            localStorage.setItem('token', userLogged.token);
+            navigator('/');
+            return;
+        }
+
+    }, [input, userLogged])
+
     function handleChange (e) {
         setInput({
             ...input,
@@ -44,12 +70,11 @@ export default function Login() {
         e.preventDefault(e)
         let inputPass = document.getElementsByName('password')
         inputPass[0].type === 'password'? inputPass[0].type = 'text': inputPass[0].type = 'password'
-        console.log(inputPass)
     }
     function handleSubmit (e){
         e.preventDefault(e)
         if (error.email || error.password || !input.email || !input.password) alert (`Ingresa toda la información`)
-        else alert ('Iniciando Sesión')
+        else dispatch(loginUser(input));
     }
 
   return (

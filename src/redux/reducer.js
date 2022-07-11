@@ -18,7 +18,9 @@ import {
 	GET_COUNTRIES,
 	GET_CITIES_BY_COUNTRY,
 	CREATE_NEW_USER,
-	RESET_NEW_USER
+	RESET_NEW_USER,
+	LOGIN_USER,
+	RESET_USER_LOGGED
 } from './actions';
 
 const initialState = {
@@ -122,7 +124,19 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				newUser: action.payload
-			}			
+			}
+
+		case LOGIN_USER:
+			return{
+				...state,
+				userLogged: action.payload
+			}
+
+		case RESET_USER_LOGGED:
+			return{
+				...state,
+				userLogged: action.payload
+			}
 
 		default:
 			return state;

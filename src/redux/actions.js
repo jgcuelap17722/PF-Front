@@ -14,6 +14,8 @@ export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 export const RESET_NEW_USER = 'RESET_NEW_USER';
+export const LOGIN_USER = 'LOGIN_USER';
+export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 
 
 export function getAllPets() {
@@ -107,7 +109,7 @@ export function resetPetDetail(){
 
 export function getCountries(){
 
-    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/countries';
+    const url = 'http://localhost:5000/api/v1.0/countries';
 
     return async function(dispatch){
 
@@ -121,7 +123,7 @@ export function getCountries(){
 
 export function getCitiesByCountry(id){
 
-    const url = `https://pf-api-pets.herokuapp.com/api/v1.0/cities/${id}`;
+    const url = `http://localhost:5000/api/v1.0/cities/${id}`;
 
     return async function(dispatch){
 
@@ -137,11 +139,11 @@ export function getCitiesByCountry(id){
 
 export function createNewUser(obj){
 
-    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/user';
+    const url = 'http://localhost:5000/api/v1.0/user';
     const options = {
        method: 'POST',
        headers: {'Content-Type' : 'Application/json'},
-        body: JSON.stringify(obj)
+       body: JSON.stringify(obj)
     }
 
     return async function(dispatch){
@@ -157,3 +159,27 @@ export function createNewUser(obj){
 export function resetNewUser(){
     return {type: RESET_NEW_USER, payload: {}}
 }
+
+export function loginUser(obj){
+
+    const url = 'http://localhost:5000/api/v1.0/auth/userLogin';
+    const options = {
+       method: 'POST',
+       headers: {'Content-Type' : 'Application/json'},
+       body: JSON.stringify(obj)
+    }
+
+    return async function(dispatch){
+
+        return await fetch(url, options)
+            .then( response => response.json() )
+            .then( data => {
+                dispatch({type: LOGIN_USER, payload: data})
+            })
+    }
+}
+
+export function resetUserLogged(){
+    return {type: RESET_USER_LOGGED, payload: {}}
+}
+
