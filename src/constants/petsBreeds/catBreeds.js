@@ -3,7 +3,7 @@ export const catBreeds = [
     "name": "Abyssinian",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -11,7 +11,7 @@ export const catBreeds = [
     "name": "American Bobtail",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -19,7 +19,7 @@ export const catBreeds = [
     "name": "American Curl",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -27,7 +27,7 @@ export const catBreeds = [
     "name": "American Shorthair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -35,7 +35,7 @@ export const catBreeds = [
     "name": "American Wirehair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -43,7 +43,7 @@ export const catBreeds = [
     "name": "Applehead Siamese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -51,7 +51,7 @@ export const catBreeds = [
     "name": "Balinese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -59,7 +59,7 @@ export const catBreeds = [
     "name": "Bengal",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -67,7 +67,7 @@ export const catBreeds = [
     "name": "Birman",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -75,7 +75,7 @@ export const catBreeds = [
     "name": "Bombay",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -83,7 +83,7 @@ export const catBreeds = [
     "name": "British Shorthair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -91,7 +91,7 @@ export const catBreeds = [
     "name": "Burmese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -99,7 +99,7 @@ export const catBreeds = [
     "name": "Burmilla",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -107,7 +107,7 @@ export const catBreeds = [
     "name": "Calico",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -115,7 +115,7 @@ export const catBreeds = [
     "name": "Canadian Hairless",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -123,7 +123,7 @@ export const catBreeds = [
     "name": "Chartreux",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -131,7 +131,7 @@ export const catBreeds = [
     "name": "Chausie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -139,7 +139,7 @@ export const catBreeds = [
     "name": "Chinchilla",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -147,7 +147,7 @@ export const catBreeds = [
     "name": "Cornish Rex",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -155,7 +155,7 @@ export const catBreeds = [
     "name": "Cymric",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -163,7 +163,7 @@ export const catBreeds = [
     "name": "Devon Rex",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -171,7 +171,7 @@ export const catBreeds = [
     "name": "Dilute Calico",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -179,7 +179,7 @@ export const catBreeds = [
     "name": "Dilute Tortoiseshell",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -187,7 +187,7 @@ export const catBreeds = [
     "name": "Domestic Long Hair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -195,7 +195,7 @@ export const catBreeds = [
     "name": "Domestic Medium Hair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -203,7 +203,7 @@ export const catBreeds = [
     "name": "Domestic Short Hair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -211,7 +211,7 @@ export const catBreeds = [
     "name": "Egyptian Mau",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -219,15 +219,15 @@ export const catBreeds = [
     "name": "Exotic Shorthair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
   {
-    "name": "Extra-Toes Cat \/ Hemingway Polydactyl",
+    "name": "Extra-Toes Cat / Hemingway Polydactyl",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -235,7 +235,7 @@ export const catBreeds = [
     "name": "Havana",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -243,7 +243,7 @@ export const catBreeds = [
     "name": "Himalayan",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -251,7 +251,7 @@ export const catBreeds = [
     "name": "Japanese Bobtail",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -259,7 +259,7 @@ export const catBreeds = [
     "name": "Javanese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -267,7 +267,7 @@ export const catBreeds = [
     "name": "Korat",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -275,7 +275,7 @@ export const catBreeds = [
     "name": "LaPerm",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -283,7 +283,7 @@ export const catBreeds = [
     "name": "Maine Coon",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -291,7 +291,7 @@ export const catBreeds = [
     "name": "Manx",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -299,7 +299,7 @@ export const catBreeds = [
     "name": "Munchkin",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -307,7 +307,7 @@ export const catBreeds = [
     "name": "Nebelung",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -315,7 +315,7 @@ export const catBreeds = [
     "name": "Norwegian Forest Cat",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -323,7 +323,7 @@ export const catBreeds = [
     "name": "Ocicat",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -331,7 +331,7 @@ export const catBreeds = [
     "name": "Oriental Long Hair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -339,7 +339,7 @@ export const catBreeds = [
     "name": "Oriental Short Hair",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -347,7 +347,7 @@ export const catBreeds = [
     "name": "Oriental Tabby",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -355,7 +355,7 @@ export const catBreeds = [
     "name": "Persian",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -363,7 +363,7 @@ export const catBreeds = [
     "name": "Pixiebob",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -371,7 +371,7 @@ export const catBreeds = [
     "name": "Ragamuffin",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -379,7 +379,7 @@ export const catBreeds = [
     "name": "Ragdoll",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -387,7 +387,7 @@ export const catBreeds = [
     "name": "Russian Blue",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -395,7 +395,7 @@ export const catBreeds = [
     "name": "Scottish Fold",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -403,7 +403,7 @@ export const catBreeds = [
     "name": "Selkirk Rex",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -411,7 +411,7 @@ export const catBreeds = [
     "name": "Siamese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -419,7 +419,7 @@ export const catBreeds = [
     "name": "Siberian",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -427,7 +427,7 @@ export const catBreeds = [
     "name": "Silver",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -435,7 +435,7 @@ export const catBreeds = [
     "name": "Singapura",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -443,7 +443,7 @@ export const catBreeds = [
     "name": "Snowshoe",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -451,15 +451,15 @@ export const catBreeds = [
     "name": "Somali",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
   {
-    "name": "Sphynx \/ Hairless Cat",
+    "name": "Sphynx / Hairless Cat",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -467,7 +467,7 @@ export const catBreeds = [
     "name": "Tabby",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -475,7 +475,7 @@ export const catBreeds = [
     "name": "Tiger",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -483,7 +483,7 @@ export const catBreeds = [
     "name": "Tonkinese",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -491,7 +491,7 @@ export const catBreeds = [
     "name": "Torbie",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -499,7 +499,7 @@ export const catBreeds = [
     "name": "Tortoiseshell",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -507,7 +507,7 @@ export const catBreeds = [
     "name": "Toyger",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -515,7 +515,7 @@ export const catBreeds = [
     "name": "Turkish Angora",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -523,7 +523,7 @@ export const catBreeds = [
     "name": "Turkish Van",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -531,7 +531,7 @@ export const catBreeds = [
     "name": "Tuxedo",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   },
@@ -539,7 +539,7 @@ export const catBreeds = [
     "name": "York Chocolate",
     "_links": {
       "type": {
-        "href": "\/v2\/types\/cat"
+        "href": "/v2/types/cat"
       }
     }
   }

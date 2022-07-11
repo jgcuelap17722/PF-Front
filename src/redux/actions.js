@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { InfoApi } from "../assets/dataMockups/InfoApi.js";
+import { user } from '../assets/dataMockups/user.js'
 export const BREED_FILTER = 'BREED_FILTER'
 export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const AGE_FILTER = 'AGE_FILTER'
@@ -10,9 +11,12 @@ export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
 export const RESET_FILTER_CARD = 'RESET_FILTER_CARD'
+export const GET_USER_INFO = 'GET_USER_INFO'
+export const GET_COUNTRIES = 'GET_COUNTRIES';
+export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
+export const CREATE_NEW_USER = 'CREATE_NEW_USER';
+export const RESET_NEW_USER = 'RESET_NEW_USER';
 export const CITY_FILTER = CITY_FILTER
-
-
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -27,7 +31,6 @@ export function getAllPets() {
 export function getDetail(id){
     return async function (dispatch){
         var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-        // console.log(pets.data)
         const filter = pets.data.animals.filter(el => el.id == id)
         return dispatch({
 
@@ -36,8 +39,7 @@ export function getDetail(id){
 
         })
     }
-    }
-
+}
 
 export const breedFilter = (value) => {
     return {
@@ -104,6 +106,64 @@ export function resetPetDetail(){
     return {type: 'RESET_PET_DETAIL', payload: {}}
 }
 
-export function citySearch (dispatch){
+export function getUserInfo(){
+    return async function (dispatch){
+        // var user = await axios.get('https://api-rest-adoptame.herokuapp.com/api/v1.0/user/{id}');
+        return dispatch({
+            type:'GET_USER_INFO',
+            payload: user[0],
 
+        })
+    }
+}
+
+export function getCountries(){
+
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries/';
+
+    return async function(dispatch){
+        return await fetch(url)
+            .then( response => response.json() )
+            .then( data => {
+                dispatch({type: GET_COUNTRIES, payload: data})
+            })
+    }
+}
+
+export function getCitiesByCountry(id){
+
+    const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/cities/${id}`;
+    // console.log(url)
+    return async function(dispatch){
+        return await fetch(url)
+        .then( response => response.json() )
+        .then( data => {
+            dispatch({type: GET_CITIES_BY_COUNTRY, payload: data})
+            })
+
+    }
+
+}
+
+export function createNewUser(obj){
+
+    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/user';
+    const options = {
+       method: 'POST',
+       headers: {'Content-Type' : 'Application/json'},
+        body: JSON.stringify(obj)
+    }
+
+    return async function(dispatch){
+
+        return await fetch(url, options)
+            .then( response => response.json() )
+            .then( data => {
+                dispatch({type: CREATE_NEW_USER, payload: data })
+            })
+    }
+}
+
+export function resetNewUser(){
+    return {type: RESET_NEW_USER, payload: {}}
 }
