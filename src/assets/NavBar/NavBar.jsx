@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from '../../css/NavBar.module.css';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Favorites } from '../Favoritos.svg';
+import { resetUserLogged } from '../../redux/actions.js';
+import { useDispatch } from 'react-redux';
 
 export default function NavBar() {
+
+	const token = localStorage.getItem('token');
+	const dispatch = useDispatch();
+
+	function closeSesion(){
+
+		if(token){
+			localStorage.removeItem('token');
+			dispatch(resetUserLogged());
+			return;
+		}
+	}
+
+	function favs(e){
+		e.preventDefault();
+		const favAlert = alert('Debes iniciar sesión para ver tus favoritos');
+		return favAlert;
+	}
+
 	return (
 		<nav>
 			<div className={s.navTop}>
@@ -13,14 +34,15 @@ export default function NavBar() {
 					</Link>
 				</div>
 				<div className={s.registerLogin}>
-					<Link to='/favorites'>
+					<Link to='/favorites' onClick={ token ? '/favorites' : favs }>
 						<Favorites className={s.favorites} />
 					</Link>
-					<Link to='/register'>
-						<p>Registro</p>
+
+					<Link to={token ? '/dashboard' : '/register' }>
+						<p>{token ? 'Mi Perfil' : 'Registro'}</p>
 					</Link>
-					<Link to='/login'>
-						<p>Iniciar Sesión</p>
+					<Link to={'/login'}>
+						<p onClick={closeSesion}>{token ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
 					</Link>
 				</div>
 			</div>
