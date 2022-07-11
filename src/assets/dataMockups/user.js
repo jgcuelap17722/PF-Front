@@ -11,5 +11,5 @@ export const user =[
       "phone": "2392562725",
       "document": 123456789,
       "countryId": "ARG",
-      "cityId": 580
+      "cityId":1,
     },]
