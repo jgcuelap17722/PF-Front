@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { InfoApi } from "../assets/dataMockups/InfoApi.js";
+import { user } from '../assets/dataMockups/user.js'
 export const BREED_FILTER = 'BREED_FILTER'
 export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const AGE_FILTER = 'AGE_FILTER'
@@ -10,6 +11,7 @@ export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
 export const RESET_FILTER_CARD = 'RESET_FILTER_CARD'
+export const GET_USER_INFO = 'GET_USER_INFO'
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
@@ -29,7 +31,6 @@ export function getAllPets() {
 export function getDetail(id){
     return async function (dispatch){
         var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-        // console.log(pets.data)
         const filter = pets.data.animals.filter(el => el.id == id)
         return dispatch({
 
@@ -105,12 +106,22 @@ export function resetPetDetail(){
     return {type: 'RESET_PET_DETAIL', payload: {}}
 }
 
+export function getUserInfo(){
+    return async function (dispatch){
+        // var user = await axios.get('https://api-rest-adoptame.herokuapp.com/api/v1.0/user/{id}');
+        return dispatch({
+            type:'GET_USER_INFO',
+            payload: user[0],
+
+        })
+    }
+}
+
 export function getCountries(){
 
-    const url = 'https://pf-api-pets.herokuapp.com/api/v1.0/countries';
+    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries/';
 
     return async function(dispatch){
-
         return await fetch(url)
             .then( response => response.json() )
             .then( data => {
@@ -121,14 +132,13 @@ export function getCountries(){
 
 export function getCitiesByCountry(id){
 
-    const url = `https://pf-api-pets.herokuapp.com/api/v1.0/cities/${id}`;
-
+    const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/cities/${id}`;
+    // console.log(url)
     return async function(dispatch){
-
         return await fetch(url)
-            .then( response => response.json() )
-            .then( data => {
-                dispatch({type: GET_CITIES_BY_COUNTRY, payload: data})
+        .then( response => response.json() )
+        .then( data => {
+            dispatch({type: GET_CITIES_BY_COUNTRY, payload: data})
             })
 
     }

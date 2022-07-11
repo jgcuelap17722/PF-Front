@@ -15,6 +15,7 @@ import {
 	// DAYS_FILTER,
 	// SHELTER_FILTER
 	RESET_FILTER_CARD,
+	GET_USER_INFO,
 	GET_COUNTRIES,
 	GET_CITIES_BY_COUNTRY,
 	CREATE_NEW_USER,
@@ -98,6 +99,11 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				petDetail: action.payload,
+			}
+		case GET_USER_INFO:
+			return{
+				...state,
+				userDetail: action.payload,
 			}
 
 		case GET_COUNTRIES:
