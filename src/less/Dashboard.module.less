@@ -1,0 +1,115 @@
+@import 'variables';
+
+.content{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h1{
+        color: @primary;
+        margin:20px 0 0 -500px;
+    }
+
+    .datos{
+        margin-top: 20px;
+        padding-top: 15px;
+        width: 50%;
+        height: 30px;
+        display: flex;
+        justify-content: space-evenly;
+        border-top: 2px solid @primary;
+        border-left: 2px solid @primary;
+        border-right: 2px solid @primary;
+        border-radius: 15px 15px 0 0;
+
+        h3{
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        .selected{
+            color: @black;
+            background-color: @secondary;
+            padding: 0 20px;
+            border-radius: 15px 15px 0 0;
+
+        }
+        .nonSelected{
+            color: @black;
+        }
+    }
+    .infoContainer{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 380px;
+        border: 2px solid @primary;
+        border-radius:  0 0 15px 15px;
+
+        h2{
+            color: @darkGray;
+            padding-left: 60px;
+            padding-top: 20px;
+        }
+        .inputContainer{
+            display: flex;
+            padding-top: 25px;            
+            justify-content: center;
+            #lastInput{
+                margin-bottom: 0;
+                height: 50%;
+                background-color: aqua;
+            }
+            .right{
+                padding-left: 50px;
+                height: 220px;
+
+                input{
+                    margin-bottom: 97px;
+                }
+                
+            }
+
+            h4{
+                color: @darkGray;
+            }
+            input{
+                margin-bottom: 20px;
+                margin-top: 5px;
+                border: none;
+                border: 2px solid @lightPrimary;
+                border-radius: 5px;
+                height: 30px;
+                outline:none;
+                &:focus{
+                    border: 2px solid @third;
+                }
+            }
+
+        }
+        .button{
+            width: 100%;
+            height: 40px;
+            align-self: center;
+            border: none;
+            background-color: @primary;
+            color: @secondary;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover{
+                color: @white;
+                background-color: @third;
+            }
+        }
+        .link{
+            display: flex;
+            align-self: center;
+            width: 83%;
+        }
+        a{
+            text-decoration: none;
+        }
+
+    }
+}

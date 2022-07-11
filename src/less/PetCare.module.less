@@ -1,0 +1,205 @@
+@import 'variables';
+
+.content{
+
+    width: 100%;
+    height: 1500px;
+    display: flex;
+    flex-direction: column;
+
+    .section1{
+        width: 100%;
+        height: 459px;
+        display: flex;
+        align-items: center;
+        padding-top: 60px;
+
+        .pic1 {
+            width: 646.11px;
+            height: 426px;
+            background: url(https://cdn.pixabay.com/photo/2017/09/25/13/12/cocker-spaniel-2785074__340.jpg);
+            background-size: cover;
+            border-width: 10px 10px 10px 0px;
+            border-style: solid;
+            border-color: @third;
+            box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.25);
+            border-radius: 0px 200px 200px 0px;
+        }
+        .textBox1 {
+            width: 780.64px;
+            height: 459px;
+            margin-left: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .title1 {
+                width: 552px;
+                height: 44px;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 36px;
+                line-height: 44px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: @primary;
+            }
+            .text1 {
+                width: 546px;
+                height: 335px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 29px;
+                text-align: justify;
+                color: @black;
+            }
+        }
+    }
+    .section2{
+        width: 100%;
+        height: 459px;
+        display: flex;
+        align-items: center;
+
+        .pic2{
+            width: 646.11px;
+            height: 426px;
+            background: url(https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262__340.jpg);
+            background-size: cover;
+            border-width: 10px 0px 10px 10px;
+            border-style: solid;
+            border-color: @secondary;
+            box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.25);
+            border-radius: 200px 0px 0px 200px;
+        }
+        .textBox2{
+            width: 780.64px;
+            height: 459px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-left: 150px;
+
+            .title2{
+                width: 370px;
+                height: 44px;
+                font-weight: 700;
+                font-size: 36px;
+                line-height: 44px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: @primary;
+
+            }
+            .text2{
+                width: 556px;
+                height: 319px;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 29px;
+                text-align: justify;
+                color: @black;
+            }
+        }
+    }
+    .donate{
+
+        width: 90%;
+        height: 423.88px;
+        margin: 0 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .card1{
+            width: 276px;
+            height: 367.18px;
+            background-color: @secondary;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+
+
+            .cardImg1{
+                left: 19.72%;
+                right: 69.01%;
+            }
+            .cardText1{
+                width: 273px;
+                height: 75.29px;
+                top: 50%;
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 27px;
+                display: flex;
+                align-items: flex-end;
+                text-align: center;
+                color: @white;
+            }
+            .donarButton{
+                margin: 0 auto;
+                width: 90%;
+                height: 52.98px;
+                color: @white;
+                background: @primary;
+                border-radius: 5px;
+                border: none;
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 27px;
+            }
+        }
+        .cards{
+            width: 273px;
+            height: 367.18px;
+            background: @white;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+            overflow: hidden;
+            justify-content: center;
+
+            .cardsImg{
+                width: 273px;
+                height: 255.38px;
+                background-position: center;
+            }
+            .textContainer{
+                width: 227px;
+                height: 96px;
+                bottom: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                p:first-child{
+                    margin-left: 10px; 
+                    font-weight: bold;
+                    font-style: normal;
+                    font-size: 20px;
+                    line-height: 27px;
+                    color: @black;
+                }
+                p{
+                    margin-left: 10px; 
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 27px;
+                    font-style: italic;
+                    color: @darkGray;
+                }
+                
+            }
+            
+        }
+        
+    }
+}

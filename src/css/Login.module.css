@@ -1,0 +1,85 @@
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.content .form {
+  width: 700px;
+  height: 470px;
+  background-image: url('../assets/FormImage.png');
+  background-size: cover;
+}
+.content .form .overflow {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.content .form .title {
+  font-weight: 600;
+  font-size: 35px;
+  color: #ffffff;
+  padding-top: 20px;
+}
+.content .form .inputGroup {
+  height: 70px;
+}
+.content .form .inputGroup p {
+  text-align: left;
+  padding: 23px 0 0 0;
+}
+.content .form .inputGroup button {
+  height: 52px;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.content .form .input {
+  width: 400px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding-left: 20px;
+}
+.content .form .input[name='password'] {
+  max-width: 370px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.content .form .button {
+  width: 420px;
+  height: 50px;
+  background: #504F6F;
+  border-radius: 5px;
+  border: none;
+  color: #ffffff;
+}
+.content .form .button:hover {
+  background-color: #4B4D62;
+  cursor: pointer;
+  color: #DDDDDD;
+}
+.content .form a {
+  text-decoration: none;
+}
+.content .form .forget {
+  position: relative;
+  bottom: 20px;
+  color: #ffffff;
+  right: 0px;
+}
+.content .form .forget:hover {
+  color: #FAC942;
+}
+.content .form .error {
+  color: #FAC942;
+  font-size: smaller;
+}

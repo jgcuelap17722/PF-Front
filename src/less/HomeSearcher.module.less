@@ -1,0 +1,88 @@
+@import 'variables.less';
+
+
+.formBox {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 910px;
+  height: 55px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  z-index: 2;
+  background-color: @white;
+  margin-top: 64px;
+  overflow: hidden;
+
+  form {
+
+    input{
+      font-size: 1.5em;
+      text-indent: 22px;
+    }
+
+    input:focus {
+      outline: none !important;
+      box-sizing: border-box;
+      border: 3px solid @darkSecondary;
+    }
+
+    input:focus::placeholder {
+      text-indent: 19px;
+      color: @white
+    }
+
+    input::placeholder {
+      color: #ABABAB;
+      text-indent: 22px;
+    }
+  }
+  .pet {
+    // position: absolute;
+    margin-left: 0;
+    width: 507px;
+    height: 55px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 15px 0px 0px 15px;
+  }
+  .line{
+    position: absolute;
+    height: 40px;
+    top: 7px;
+    margin-left: 1px;
+    display: inline-block;
+    border-left: 2.5px solid #ABABAB;
+  }
+  // .city{
+  //   width: 346px;
+  //   height: 55px;
+  //   margin-left: 3px;
+  //   border: none;
+  //   box-sizing: border-box;
+  // }
+    .city{
+    width: 856px;
+    height: 55px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 15px 0px 0px 15px;
+  }
+  .button{
+    position: absolute;
+    width: 54px;
+    height: 60px;
+    right: 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+    background-color: transparent;
+  }
+  .button:hover{
+    background-color: @secondary;
+  }
+  .icon{
+    width: 30px;
+  }
+
+}

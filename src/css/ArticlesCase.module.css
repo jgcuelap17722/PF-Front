@@ -1,0 +1,19 @@
+.articlesBox {
+  width: 100vw;
+  height: 650px;
+}
+.articlesBox .articlesPosition {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+.articlesBox .articlesTitle {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  color: #504F6F;
+}

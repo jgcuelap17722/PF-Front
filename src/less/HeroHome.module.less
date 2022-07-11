@@ -1,0 +1,95 @@
+@import 'variables.less';
+
+.sectionBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 820px;
+  // background-color: rgb(223, 223, 223);
+
+  h1 {
+    margin-top: 60px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 67px;
+    color: #FFFFFF;
+    z-index: 2;
+  }
+
+  h4 {
+    margin-top: 6;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    color: #FFFFFF;
+    z-index: 2;
+  }
+
+  .filtersBox {
+    position: absolute;
+    display: flex;
+    gap: 37px;
+    margin-top: 369px;
+    flex-direction: row;
+    z-index: 2;
+  }
+
+  // .sponsorBox{
+  //   position: absolute;
+  //   width: 300px;
+  //   height: 200px;
+  //   background-color: #504F6F;
+  //   z-index: 4;
+  // }
+
+  .sponsor {
+    position: absolute;
+    margin-top: 660px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 77px;
+    color: #504F6F;
+  }
+
+  .sponsorBanner {
+    position: absolute;
+    margin-top: 742px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: #504F6F;
+  }
+
+}
+
+.imgFilter {
+  position: absolute;
+  width: 100vw;
+  height: 566px;
+  // background-color: blue;
+  background: linear-gradient(180deg, rgba(63, 64, 96, 0.5) 0%, rgba(242, 142, 52, 0) 77.67%);
+  z-index: 1;
+}
+
+.imageBox {
+  position: absolute;
+  width: 100vw;
+  height: 566px;
+  z-index: 0;
+  overflow: hidden;
+
+  img {
+    object-fit: contain;
+  }
+}

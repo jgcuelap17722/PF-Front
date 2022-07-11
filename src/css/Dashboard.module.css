@@ -1,0 +1,102 @@
+.content {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content h1 {
+  color: #504F6F;
+  margin: 20px 0 0 -500px;
+}
+.content .datos {
+  margin-top: 20px;
+  padding-top: 15px;
+  width: 50%;
+  height: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 2px solid #504F6F;
+  border-left: 2px solid #504F6F;
+  border-right: 2px solid #504F6F;
+  border-radius: 15px 15px 0 0;
+}
+.content .datos h3 {
+  margin-top: 5px;
+  font-weight: 500;
+}
+.content .datos .selected {
+  color: #454B54;
+  background-color: #FAC942;
+  padding: 0 20px;
+  border-radius: 15px 15px 0 0;
+}
+.content .datos .nonSelected {
+  color: #454B54;
+}
+.content .infoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 380px;
+  border: 2px solid #504F6F;
+  border-radius: 0 0 15px 15px;
+}
+.content .infoContainer h2 {
+  color: #727A85;
+  padding-left: 60px;
+  padding-top: 20px;
+}
+.content .infoContainer .inputContainer {
+  display: flex;
+  padding-top: 25px;
+  justify-content: center;
+}
+.content .infoContainer .inputContainer #lastInput {
+  margin-bottom: 0;
+  height: 50%;
+  background-color: aqua;
+}
+.content .infoContainer .inputContainer .right {
+  padding-left: 50px;
+  height: 220px;
+}
+.content .infoContainer .inputContainer .right input {
+  margin-bottom: 97px;
+}
+.content .infoContainer .inputContainer h4 {
+  color: #727A85;
+}
+.content .infoContainer .inputContainer input {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border: none;
+  border: 2px solid #66668F;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+}
+.content .infoContainer .inputContainer input:focus {
+  border: 2px solid #4992AB;
+}
+.content .infoContainer .button {
+  width: 100%;
+  height: 40px;
+  align-self: center;
+  border: none;
+  background-color: #504F6F;
+  color: #FAC942;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.content .infoContainer .button:hover {
+  color: #ffffff;
+  background-color: #4992AB;
+}
+.content .infoContainer .link {
+  display: flex;
+  align-self: center;
+  width: 83%;
+}
+.content .infoContainer a {
+  text-decoration: none;
+}
