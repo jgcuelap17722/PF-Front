@@ -122,7 +122,6 @@ export function getCountries(){
     const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries/';
 
     return async function(dispatch){
-
         return await fetch(url)
             .then( response => response.json() )
             .then( data => {
