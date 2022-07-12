@@ -6,27 +6,33 @@ import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
 import Card from '../../assets/Card/Card'
 
-import { getAllPets, typeFilter } from '../../redux/actions'
+import { getAllPets, typeFilter, resetSearch } from '../../redux/actions'
 
 import s from '../../css/Search.module.css'
 
 
-const SearchCase = ({ petType }) => {
+const SearchCase = ({ petType, type }) => {
 
-  const allPets = useSelector(state => state.petsFiltered)
+  const petsByType = useSelector(state => state.petsFiltered)
+  const petsByCity = useSelector(state => state.petByCityFiltered)
+  const pets = type === 'location'? petsByCity : type === 'pet'? petsByType : null
 
   // Paginado
   const [currentPage, setCurrentPage] = useState(1)
   const [petsPerPage, setPetsPerPage] = useState(9)
   const indexOfLastPet = currentPage * petsPerPage
   const indexOfFirstPet = indexOfLastPet - petsPerPage
-  const currentPets = allPets.slice(indexOfFirstPet, indexOfLastPet)
+  const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet)
 
+  // console.log('petsbyCity', petsByCity);
+  // console.log('pets', pets);
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
 
+
+  
 
   return (
     <section className={s.sectionBox}>
@@ -53,7 +59,7 @@ const SearchCase = ({ petType }) => {
 
         <Pagination
           petsPerPage={petsPerPage}
-          allPets={allPets.length}
+          allPets={pets.length}
           pagination={pagination}
           page={currentPage}
         />
