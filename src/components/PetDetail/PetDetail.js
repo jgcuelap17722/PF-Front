@@ -85,18 +85,18 @@ const PetDetail = () => {
                 <div className={s.contenedorDetalles}>
                   <div className={s.name}>
                     <h3 className={s.h3}>{Api.name}</h3>
-                    <p className={s.p}>{Api.breeds.primary} | {Api.contact.address.city},{Api.contact.address.state}</p>
+                    <p className={s.p}>{Api.breeds.primary} - {Api.contact.address.city},{Api.contact.address.state}</p>
                   </div>
                   <div className={s.etiquetas}>
-                    <p>{Api.age}</p>○ <p>{Api.gender}</p> ○ <p>{Api.size}</p> ○ <p>{Api.colors.primary}</p>
+                    <p>{Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.colors.primary}</p>
                   </div>
                   <div className={s.sobre}>
-                    <h3 className={s.h3}>Sobre</h3>
+                    <h3 className={s.h3}>Info</h3>
                     {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
                       <div className={s.size}>
                         <h4 className={s.h4}>CHARACTERISTICS</h4>
                         <div className={s.sizeTags}>
-                          {Api.tags ? Api.tags.map(el => <p className={s.p}>{el}</p>) : <p>no tiene etiquetas</p>}
+                          {Api.tags ? Api.tags.map(el => <p className={s.p}>{`- ${el}`}</p>) : <p>no tiene etiquetas</p>}
                         </div>
                       </div> : undefined}
                     {Api.attributes.house_trained === true ?
@@ -112,6 +112,7 @@ const PetDetail = () => {
                     <div className={s.size}>
                       <h4 className={s.h4}>COAT LENGTH</h4>
                       <p className={s.p}>{Api.coat}</p>
+                      <hr/>
                     </div>
                   </div>
                   <div className={s.contenedorMascota}>

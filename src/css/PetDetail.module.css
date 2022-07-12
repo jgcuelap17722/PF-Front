@@ -62,7 +62,7 @@
   justify-content: center;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles {
-  background-color: #66668F;
+  background-color: #ffffff;
   width: 53.558rem;
   min-height: 68.75rem;
   opacity: 0.9;
@@ -79,17 +79,22 @@
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .name .h3 {
   font-size: 45px;
+  color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .name .p {
   margin-top: 10px;
   font-size: 30px;
+  color: #727A85;
+  border-bottom: 2px solid #FAC942;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .etiquetas {
   display: flex;
   gap: 10px;
   flex-direction: row;
   margin-left: 20px;
-  font-size: 30px;
+  font-size: 25px;
+  color: #727A85;
+  border-bottom: 2px solid #4992AB;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre {
   display: flex;
@@ -98,7 +103,8 @@
   gap: 50px;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre .h3 {
-  font-size: 45px;
+  font-size: 30px;
+  color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre .size {
   display: flex;
@@ -106,10 +112,16 @@
   gap: 5px;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre .size .h4 {
-  font-size: 30px;
+  font-size: 20px;
+  color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre .size .p {
-  font-size: 25px;
+  font-size: 20px;
+  color: #A1A8B1;
+}
+.contenedorPadre .contenedorMedium .contenedorDetalles .sobre .size hr {
+  width: 100%;
+  border: 1px solid #4992AB;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .sobre .size .sizeTags {
   display: flex;
@@ -131,25 +143,27 @@
   margin-left: 20px;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .contenedorMascota .h3 {
-  font-size: 45px;
+  font-size: 35px;
+  color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .contenedorMascota .p {
   margin-top: 20px;
-  font-size: 30px;
+  font-size: 20px;
+  color: #727A85;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: 5px solid #FAC942;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion {
-  background-color: #66668F;
-  width: 485.06px;
   height: 400px;
   border-radius: 15px;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name {
-  width: 485px;
   height: 134px;
   display: flex;
   justify-content: center;
@@ -166,7 +180,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #000000;
+  color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons {
   display: flex;
@@ -180,48 +194,64 @@
   width: 380.44px;
   height: 80px;
   font-size: 30px;
-  border-radius: 50px;
+  border-radius: 15px;
   background-color: #504F6F;
   color: #ffffff;
   cursor: pointer;
+  border: none;
+}
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons .buttonAdoptar:hover {
+  background-color: #4B4D62;
+  color: #FAC942;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor {
-  width: 242.53px;
+  width: 50%;
   height: 80px;
   background-color: #FAC942;
-  border-radius: 0 0 0 15px;
   font-size: 30px;
   font-family: 'Inter';
   font-weight: 400;
   cursor: pointer;
+  border: none;
+  border-right: 1px solid #ffffff;
+  color: #504F6F;
+}
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor:hover {
+  background-color: #FAB942;
+  color: #ffffff;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite {
   font-family: 'Inter';
   font-weight: 400;
-  width: 242.53px;
+  width: 50%;
   height: 80px;
   background-color: #FAC942;
-  border-radius: 0 0 15px 0;
   font-size: 30px;
   cursor: pointer;
+  border: none;
+  color: #504F6F;
+  transition: all 0.3s ease;
+}
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite:hover {
+  background-color: #FAB942;
+  color: #ffffff;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal {
   display: flex;
   flex-direction: column;
-  background-color: #66668F;
-  width: 485.06px;
+  background-color: #ffffff;
   min-height: 690px;
-  border-left: 1px solid #504F6F;
-  border-right: 1px solid #504F6F;
-  border-radius: 15px;
+  border: none;
+  border-radius: 0 15px 15px 0;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .name {
-  width: 485px;
   height: 151px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
+  color: #727A85;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .name .h3 {
   font-family: 'Inter';
@@ -232,6 +262,7 @@
   display: flex;
   align-items: center;
   text-align: center;
+  color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .name .h4 {
   margin-top: 20px;
@@ -243,9 +274,10 @@
   display: flex;
   align-items: center;
   text-align: center;
+  color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .nameImg {
-  width: 484px;
+  width: 100%;
   height: 300px;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .nameImg .img {
@@ -257,7 +289,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 485.61px;
+  width: 100%;
   margin-bottom: 10px;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection .direction {
@@ -275,10 +307,12 @@
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection .direction .directionInterior .h3 {
   font-size: 30px;
+  color: #727A85;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipal .contenedorDirection .direction .directionInterior .p {
   font-weight: 400;
   font-size: 20px;
+  color: #A1A8B1;
 }
 .mascotasCerca {
   display: flex;
