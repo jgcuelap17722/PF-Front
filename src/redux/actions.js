@@ -110,15 +110,22 @@ export function resetPetDetail() {
     return { type: 'RESET_PET_DETAIL', payload: {} }
 }
 
-export function getUserInfo() {
-    return async function (dispatch) {
-        // var user = await axios.get('https://api-rest-adoptame.herokuapp.com/api/v1.0/user/{id}');
-        return dispatch({
-            type: 'GET_USER_INFO',
-            payload: user[0],
+export function getUserInfo(id, token) {
+    
+        const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/user/${id}`
+        const options = {
+            method: 'GET',
+            headers: { 'authorization': token },
+        }
+        return async function (dispatch) {
 
-        })
-    }
+            return await fetch(url, options)
+                .then(response => response.json())
+                .then(data => {
+                    dispatch({ type: GET_USER_INFO, payload: data })
+                })
+        }
+    
 }
 
 export function getCountries() {
@@ -193,13 +200,14 @@ export function resetUserLogged() {
 }
 
 export function cityFilter(obj) {
-    console.log(obj);
+
     let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
     return async function (dispatch) {
         return await fetch(url)
+
             .then(res => res.json())
             .then(json => {
-                let filtered = json.animals.filter(el => el.contact.address.city.toLowerCase() === obj.city)
+                let filtered = json.animals.filter(el => el.contact.address.city === obj.city)
                 dispatch({ type: CITY_FILTER, payload: filtered })
             })
             .catch(error => console.log(error))
