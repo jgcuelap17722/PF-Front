@@ -6,12 +6,15 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCitiesByCountry, getCountries, getUserInfo, loginUser } from '../../redux/actions';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Dashboard() {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
     const dispatch = useDispatch()
     const detail = useSelector((state) => state.userDetail)
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    console.log(user);
 
     useEffect(() => {
         dispatch(getUserInfo(userId, token))
@@ -31,6 +34,14 @@ export default function Dashboard() {
             <NavBar />
             <div className={s.content}>
                 <h1>Mi Dashboard</h1>
+                {isAuthenticated && 
+                    <div>
+                        <img src={user.picture} alt={user.name} />
+                        <h2>{user.name}</h2>
+                        <p>{user.email}</p>
+                    </div>
+                }
+
                 <div className={s.datos}>
                     <div className={s.selected}>
                         <h3>About Me</h3>

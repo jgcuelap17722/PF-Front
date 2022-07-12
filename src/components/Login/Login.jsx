@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { loginUser, resetUserLogged } from '../../redux/actions.js';
 import { useDispatch, useSelector } from 'react-redux';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 function validate (input) {
     let error = {};
@@ -30,6 +32,7 @@ export default function Login() {
     const dispatch = useDispatch()
     const userLogged = useSelector( state => state.userLogged);
     const navigator = useNavigate();
+    const { loginWithRedirect } = useAuth0();
 
     const [input, setInput] = useState({
         email:'',
@@ -111,6 +114,8 @@ export default function Login() {
                             {error.password && <p className={s.error}>{error.password}</p>}
                     </div>
                     <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
+                    {/*<button onClick={() => loginWithRedirect()}className={s.button} type='submit'>Iniciar Sesión</button>*/}
+
                     <Link to='/reset-password'>
                         <p className={s.forget}>Olvidé mi Contraseña</p>
                     </Link>

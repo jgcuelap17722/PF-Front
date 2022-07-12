@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as Favorites } from '../Favoritos.svg';
 import { resetUserLogged } from '../../redux/actions.js';
 import { useDispatch } from 'react-redux';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 export default function NavBar() {
 
 	const token = localStorage.getItem('token');
 	const dispatch = useDispatch();
+    const { loginWithRedirect, logout } = useAuth0();
+
 
 	function closeSesion(){
 
@@ -41,9 +45,10 @@ export default function NavBar() {
 					<Link to={token ? '/dashboard' : '/register' }>
 						<p>{token ? 'Mi Perfil' : 'Registro'}</p>
 					</Link>
-					<Link to={'/login'}>
-						<p onClick={closeSesion}>{token ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
-					</Link>
+					{/*<Link to={'/login'}>*/}
+						<p onClick={() => loginWithRedirect()}>'Iniciar Sesión'</p>
+					{/*</Link>*/}
+						<p onClick={() => logout({returnTo: window.location.origin})}>'Cerrar Sesión'</p>
 				</div>
 			</div>
 			<div className={s.navBottom}>
