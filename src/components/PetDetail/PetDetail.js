@@ -126,7 +126,7 @@ const PetDetail = () => {
                     </div>
                   </div>
                   <div className={s.contenedorMascota}>
-                    <h3 className={s.h3}>Meet {Api.name}</h3>
+                    <h3 className={s.h3}>Conoce a: {Api.name}</h3>
                     <p className={s.p}>{Api.description}</p>
                   </div>
                 </div>
