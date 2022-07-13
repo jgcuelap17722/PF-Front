@@ -33,7 +33,7 @@ const PetDetail = () => {
   const Api = estado[0]
 
 
-  const cantidad = Api?.photos?.length
+  const cantidad = Api?.photos.length
   // console.log(cantidad)
   if (!Array.isArray(Api?.photos) || cantidad === 0) return;
 
@@ -65,54 +65,64 @@ const PetDetail = () => {
           estado.length > 0 ?
 
             <>
+              <div className={s.top}>
+              <button className={s.buttonLeft} onClick={previus}> < Arrow /> </button>
                 <div className={s.contenedorImg}>
-                  <button className={s.buttonLeft} onClick={previus}> < Arrow /> </button>
+               
                   {Api.photos && Api.photos.map((el, index) => {
                     return (
-                      <div className={s.slide}>
-                        {selectIndex === index && (
-                          <img key={index} className={s.img} src={el.small} />
-                        )}
-                      </div>
+                  <div className={s.slide}>
+                      
+                    {selectIndex === index && (
+                      <img key={index} className={s.img} src={el.small} />
+                    )}
+                      
+                  </div>
                     )
                   })}
-                  <button className={s.buttonRight} onClick={next}>< Arrow /></button>
                 </div>
+              <button className={s.buttonRight} onClick={next}>< Arrow /></button>
+
+                <div className={s.topRight}>
+                  <div className={s.name}>
+                      <h3 className={s.h3}>{Api.name}</h3>
+                      <p className={s.p}>{Api.breeds.primary} - {Api.contact.address.city},{Api.contact.address.state}</p>
+                    </div>
+                    <div className={s.etiquetas}>
+                      <p>{Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.colors.primary}</p>
+                    </div>
+                    {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
+                      <div className={s.size}>
+                        <h4 className={s.h4}>CARACTERÍSTICAS</h4>
+                        <div className={s.sizeTags}>
+                          {Api.tags.length ? Api.tags.map(el => <p className={s.p}>{`• ${el}`}</p>) : <p className={s.p}>No publican</p>}
+                        </div>
+                      </div> : undefined}
+                </div>
+              </div>
               
 
               <div className={s.contenedorMedium}>
 
                 <div className={s.contenedorDetalles}>
-                  <div className={s.name}>
-                    <h3 className={s.h3}>{Api.name}</h3>
-                    <p className={s.p}>{Api.breeds.primary} - {Api.contact.address.city},{Api.contact.address.state}</p>
-                  </div>
-                  <div className={s.etiquetas}>
-                    <p>{Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.colors.primary}</p>
-                  </div>
-                  <div className={s.sobre}>
-                    <h3 className={s.h3}>Info</h3>
-                    {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
-                      <div className={s.size}>
-                        <h4 className={s.h4}>CHARACTERISTICS</h4>
-                        <div className={s.sizeTags}>
-                          {Api.tags ? Api.tags.map(el => <p className={s.p}>{`- ${el}`}</p>) : <p>no tiene etiquetas</p>}
-                        </div>
-                      </div> : undefined}
+                 
+                  <div className={s.info}>
+                    <h3 className={s.h3}>INFORMACIÓN</h3>
+                    
                     {Api.attributes.house_trained === true ?
                       <div className={s.size}>
-                        <h4 className={s.h4}>HOUSE-TRAINED</h4>
+                        <h4 className={s.h4}>ENTRENADO - EN CASA</h4>
                         <p className={s.p}>Yes</p>
                       </div> : undefined}
                     {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
                       <div className={s.size}>
-                        <h4 className={s.h4}>HEALTH</h4>
+                        <h4 className={s.h4}>DATOS CLÍNICOS</h4>
                         <p className={s.p}>Vaccinations up to date, spayed / neutered.</p>
                       </div> : undefined}
                     <div className={s.size}>
-                      <h4 className={s.h4}>COAT LENGTH</h4>
+                      <h4 className={s.h4}>LARGO DEL PELO</h4>
                       <p className={s.p}>{Api.coat}</p>
-                      <hr/>
+                    
                     </div>
                   </div>
                   <div className={s.contenedorMascota}>
@@ -122,37 +132,43 @@ const PetDetail = () => {
                 </div>
 
                 <div className={s.contenedorAdopcion}>
-                  <div className={s.contenedorPrincipalAdopcion}>
+                    <div className={s.contenedorPrincipalAdopcion}>
+                      <div className={s.name}>
+                        <h3 className={s.h3}>{`¿Estás pensando en adoptar a ${Api.name}? `}</h3>
+
+                      </div>
+                      <div className={s.contenedorButtons}>
+                        <Link to='/adopcion'>
+                          <button className={s.buttonAdoptar}>Adoptar</button>
+                        </Link>
+                        <Link to='/faqs'>
+                          <button className={s.buttonAdoptar}>Preguntas frecuentes</button>
+                        </Link>
+                      </div>
+                      <div>
+                        <Link to='/sponsor'>
+                          <button className={s.buttonSponsor}>Donar</button>
+                        </Link>
+                        <Link to='/favorites'>
+                          <button className={s.buttonFavorite}>★ Favoritos</button>
+                        </Link>
+                      </div>
+                    </div>
+                </div>
+                  
+
+
+                
+              </div>
+
+              {Api.contact.address.city?
+                <div className={s.contenedorFundacion}>
                     <div className={s.name}>
-                      <h3 className={s.h3}>{`¿Estás pensando en adoptar a ${Api.name}? `}</h3>
-
-                    </div>
-                    <div className={s.contenedorButtons}>
-                      <Link to='/adopcion'>
-                        <button className={s.buttonAdoptar}>Adoptar</button>
-                      </Link>
-                      <Link to='/faqs'>
-                        <button className={s.buttonAdoptar}>Preguntas frecuentes</button>
-                      </Link>
-                    </div>
-                    <div>
-                      <Link to='/sponsor'>
-                        <button className={s.buttonSponsor}>Sponsor</button>
-                      </Link>
-                      <Link to='/favorites'>
-                        <button className={s.buttonFavorite}>Favoritos</button>
-                      </Link>
-                    </div>
-                  </div>
-
-
-                  <div className={s.contenedorPrincipal}>
-                    <div className={s.name}>
-                      <h3 className={s.h3}>Soy Foundation</h3>
+                      <h3 className={s.h3}>Adopta un perro</h3>
                       <h4 className={s.h4}>{Api.contact.address.city},{Api.contact.address.state}</h4>
                     </div>
                     <div className={s.nameImg}>
-                      <img className={s.img} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz6e3Wjv9StgTRGHXagFiBebV7xVdo6DanaNIgUJCaGmVHJB9tNrUoGgOKlegQN6APR5g&usqp=CAU' alt="imagen" />
+                      <img className={s.img} src='https://i0.wp.com/soniablanco.es/wp-content/uploads/2014/01/adoptaunperro.jpg?fit=960%2C325&ssl=1' alt="imagen" />
                     </div>
 
                     <div className={s.contenedorDirection}>
@@ -173,12 +189,9 @@ const PetDetail = () => {
 
                     </div>
 
-                  </div>
-
-
-                </div>
-              </div>
-              <div className={s.mascotasCerca}>
+                  </div>:undefined}
+              {Api.contact.address.city?
+                <div className={s.mascotasFoundation}>
                 <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>
                 <div className={s.relatedBox}>
                   {
@@ -188,8 +201,10 @@ const PetDetail = () => {
                   }
                 </div>
 
-              </div>
-              <div className={s.mascotasFoundation}>
+              </div>: undefined}
+              
+              
+                <div className={s.mascotasCerca}>
                 <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
                 <div className={s.relatedBox}>
                   {
