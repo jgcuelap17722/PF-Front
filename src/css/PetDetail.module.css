@@ -66,9 +66,10 @@
   transform: rotate(180deg);
   fill: black;
 }
-.contenedorPadre .top .buttonRight .buttonRight:hover {
-  background: rgba(0, 0, 0, 0.2);
-  fill: #fff;
+.contenedorPadre .top .buttonRight:hover {
+  background: #4992AB;
+  fill: #4B4D62;
+  scale: 105%;
 }
 .contenedorPadre .top .topRight {
   padding-left: 2rem;
@@ -242,6 +243,7 @@
   cursor: pointer;
   border: none;
   color: #504F6F;
+  transition: all 0.3s ease;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor:hover {
   background-color: #FAB942;
