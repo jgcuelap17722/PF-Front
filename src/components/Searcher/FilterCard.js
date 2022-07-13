@@ -1,9 +1,9 @@
 import s from '../../css/FilterCard.module.css'
-import { resetPetOrder } from '../../redux/actions'
+import { resetPetOrder, resetFilterCard } from '../../redux/actions'
 import { useDispatch } from 'react-redux/es/exports'
 
 
-const FilterCard = ({type}) => {
+const FilterCard = ({type, reset}) => {
 
   const dispatch = useDispatch()
 
@@ -12,9 +12,9 @@ const FilterCard = ({type}) => {
   }
 
   return (
-    <div className={s.filterCardBox}>
+    <div onClick={reset && onClickHandler} className={s.filterCardBox}>
       <p>{type}</p>
-      <button onClick={onClickHandler}>X</button>
+      {/* <button onClick={onClickHandler}>X</button> */}
     </div>
   )
 }

@@ -2,20 +2,17 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getAllPets } from "../../redux/actions"
 import Card from "../../assets/Card/Card"
-import { petsCardData } from "../../assets/dataMockups/petsCardData"
 import s from "../../css/RelatedCase.module.css"
 
 const RelatedCase = () => {
 
-  const allPets = useSelector(state => state.allPets)
+  const allPets = useSelector(state => state.petsReducer.allPets)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getAllPets())
   }, [dispatch])
   
-  // console.log(allPets);
-
   const dataRelated = allPets.filter((e, index) => index< 5)
   const dataViewed = allPets.filter((e, index) => index < 2)
 

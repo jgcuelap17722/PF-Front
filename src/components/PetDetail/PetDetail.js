@@ -13,8 +13,8 @@ import { useParams } from "react-router-dom";
 
 const PetDetail = () => {
   let { id } = useParams();
-  const allPets = useSelector((state) => state.allPets)
-  const estado = useSelector((state) => state.petDetail)
+  const allPets = useSelector((state) => state.petsReducer.allPets)
+  const estado = useSelector((state) => state.petsReducer.petDetail)
   const dispatch = useDispatch();
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();

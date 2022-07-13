@@ -10,11 +10,8 @@ import { getAllPets, typeFilter, cityFilter, resetSearch } from '../../redux/act
 
 const Searcher = () => {
 
-  // const { type, case } = useParams();
   const { type, item } = useParams();
   const navigate = useNavigate()
-  // console.log(type, item);
-
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,9 +20,9 @@ const Searcher = () => {
   
   useEffect(() => {
     return () => {
-      // resetSearch()
+      dispatch(resetSearch())
     }
-  }, [type])
+  }, [dispatch, type])
 
   useEffect(() => {
     if (type === 'pet') {

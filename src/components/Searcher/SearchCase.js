@@ -13,9 +13,7 @@ import s from '../../css/Search.module.css'
 
 const SearchCase = ({ petType, type }) => {
 
-  const petsByType = useSelector(state => state.petsFiltered)
-  const petsByCity = useSelector(state => state.petByCityFiltered)
-  const pets = type === 'location'? petsByCity : type === 'pet'? petsByType : null
+  const pets = useSelector(state => state.petsReducer.petsFiltered)
 
   // Paginado
   const [currentPage, setCurrentPage] = useState(1)
@@ -24,15 +22,18 @@ const SearchCase = ({ petType, type }) => {
   const indexOfFirstPet = indexOfLastPet - petsPerPage
   const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet)
 
-  // console.log('petsbyCity', petsByCity);
-  // console.log('pets', pets);
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    return () => {
+      dispatch(resetSearch())
+    }
+  }, [dispatch])
+
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
-
-  
 
   return (
     <section className={s.sectionBox}>
