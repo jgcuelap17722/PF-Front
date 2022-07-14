@@ -12,8 +12,8 @@ import { useParams } from "react-router-dom";
 
 export default function PetCare() {
 
-    const allPets = useSelector((state) => state.allPets)
-    const estado = useSelector((state) => state.petDetail)
+    const allPets = useSelector((state) => state.petsReducer.allPets)
+    const estado = useSelector((state) => state.petsReducer.petDetail)
     const dispatch = useDispatch();
 
     useEffect(() => {

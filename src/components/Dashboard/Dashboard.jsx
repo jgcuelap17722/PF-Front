@@ -14,10 +14,10 @@ import { getCountries, getUserInfo, patchUser, getCitiesByCountry } from '../../
 export default function Dashboard() {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
-    const cities = useSelector( state => state.citiesByCountry );
-    const detail = useSelector((state) => state.userDetail)
+    const cities = useSelector( state => state.reducer.citiesByCountry );
+    const detail = useSelector((state) => state.reducer.userDetail)
     const dispatch = useDispatch()
-const patch = useSelector((state)=> state.patch)
+const patch = useSelector((state)=> state.reducer.patch)
     localStorage.setItem('userDetail', JSON.stringify(detail));
     let userDetail = localStorage.getItem('userDetail');
     userDetail = JSON.parse(userDetail)
@@ -92,7 +92,7 @@ function handleSelect(e){
     }
 
 
-const countryEstado = useSelector((state) => state.countries)
+const countryEstado = useSelector((state) => state.reducer.countries)
 
 
 
