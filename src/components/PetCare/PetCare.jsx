@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import s from '../../css/PetCare.module.css'
 import {ReactComponent as Huella} from '../../assets/Huella.svg'
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
+import { useDispatch, useSelector } from 'react-redux'
+import Card from '../../assets/Card/Card.js'
+import { Link } from "react-router-dom";
+import { getAllPets, getDetail, resetPetDetail } from "../../redux/actions";
+import { useParams } from "react-router-dom";
 
 
 export default function PetCare() {
+
+    const allPets = useSelector((state) => state.allPets)
+    const estado = useSelector((state) => state.petDetail)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllPets());
+
+    }, [dispatch])
+
   return (
     <div>
         <NavBar></NavBar>
@@ -35,7 +50,7 @@ export default function PetCare() {
                     <p className={s.cardText1}>Recuerda que puedes apoyarlos con una pequeña donación</p>
                     <button className={s.donarButton}>DONAR</button>
                 </div>
-                <div className={s.cards}>
+                {/* <div className={s.cards}>
                     <div className={s.cardsImg}style={{ backgroundImage: `url(https://cdn.pixabay.com/photo/2017/09/25/13/12/cocker-spaniel-2785074__340.jpg)` }}>
                     </div>
                     <div className={s.textContainer}>
@@ -52,8 +67,8 @@ export default function PetCare() {
                         <p>Location</p>
                         <p>Age</p>
                     </div>
-                </div>
-                <div className={s.cards}>
+                </div> */}
+                {/* <div className={s.cards}>
                     <div className={s.cardsImg}style={{ backgroundImage: `url(https://cdn.pixabay.com/photo/2015/11/17/13/13/bulldog-1047518__340.jpg)` }}>
                     </div>
                     <div className={s.textContainer}>
@@ -61,6 +76,13 @@ export default function PetCare() {
                         <p>Location</p>
                         <p>Age</p>
                     </div>
+                </div> */}
+                <div className={s.relatedBox}>
+                  {
+                    allPets && allPets.slice(0,3).map(({ id, photos, name, contact, age }) => {
+                      return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id} />
+                    })
+                  }
                 </div>
             </div>
         </div>
