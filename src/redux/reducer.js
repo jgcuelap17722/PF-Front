@@ -1,4 +1,4 @@
-import {
+ import {
 	RESET_PET_DETAIL,
 	GET_ALL_PETS,
 	GET_DETAIL,
