@@ -44,7 +44,8 @@ export const filtersOptionsDogs = [
   },
   {
     type: 'Tiempo en Adopción',
-    options: ['1', '7', '14', '+30'],
+    // options: ['1', '7', '14', '+30'],
+    options: ['recent', 'older'],
   },
   {
     type: 'Refugios',
@@ -87,7 +88,8 @@ export const filtersOptionsCats = [
   },
   {
     type: 'Tiempo en Adopción',
-    options: ['1', '7', '14', '+30'],
+    // options: ['1', '7', '14', '+30'],
+    options: ['recent', 'older'],
   },
   {
     type: 'Refugios',

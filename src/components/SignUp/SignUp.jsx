@@ -3,15 +3,15 @@ import NavBar from '../../assets/NavBar/NavBar.jsx';
 import { useNavigate } from 'react-router';
 import s from '../../css/SignUp.module.css';
 import Footer from '../../assets/Footer/Footer';
-import { getCountries, getCitiesByCountry, createNewUser, resetNewUser } from '../../redux/actions.js';
+import { getCountries, getCitiesByCountry, createNewUser, resetNewUser, sendEmailConfirm } from '../../redux/actions.js';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function SignUp() {
 
 	const dispatch = useDispatch();
-	const countries = useSelector( state => state.countries );
-	const cities = useSelector( state => state.citiesByCountry );
-	const newUser = useSelector( state => state.newUser)
+	const countries = useSelector( state => state.reducer.countries );
+	const cities = useSelector( state => state.reducer.citiesByCountry );
+	const newUser = useSelector( state => state.reducer.newUser)
 	const navigate = useNavigate();
 
 	const [input, setInput] = useState({
@@ -27,8 +27,11 @@ export default function SignUp() {
 	})
 
 	const [error, setError] = useState({});
+	// const email = input.email;
+	// const emailObj = {email: email};
 
-	useEffect(() => {
+
+	useEffect( () => {
 		dispatch(getCountries());
 
 		if(input.countryId === 'ARG'){
@@ -52,9 +55,8 @@ export default function SignUp() {
 			dispatch(resetNewUser())
 			return;
 		}else if(newUser.message){
-			alert(newUser.message);
 			dispatch(resetNewUser())
-			navigate('/login');
+			navigate('/email-confirm');
 			return;
 		}
 
@@ -190,7 +192,12 @@ export default function SignUp() {
 				return;
 			}
 		}
-		dispatch(createNewUser(input));
+		const email = input.email;
+		const emailObj = {email: email};
+		dispatch(createNewUser(input)).then( () => {
+			dispatch(sendEmailConfirm(emailObj));
+		});
+		localStorage.setItem('email', input.email);
 		setInput({
 			typeCount: '',
 			name: '',
@@ -202,8 +209,6 @@ export default function SignUp() {
 			confirmPassword: '',
 			document: ''
 		})
-
-
 
 	}
 

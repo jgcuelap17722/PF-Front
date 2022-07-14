@@ -7,14 +7,14 @@ import { InfoApi } from "../../assets/dataMockups/InfoApi";
 import { Link } from "react-router-dom";
 import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPets, getDetail, resetPetDetail } from "../../redux/actions";
+import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
 
 
 const PetDetail = () => {
   let { id } = useParams();
-  const allPets = useSelector((state) => state.allPets)
-  const estado = useSelector((state) => state.petDetail)
+  const allPets = useSelector((state) => state.petsReducer.allPets)
+  const estado = useSelector((state) => state.petsReducer.petDetail)
   const dispatch = useDispatch();
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();

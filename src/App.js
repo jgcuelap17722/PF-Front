@@ -1,5 +1,7 @@
-import Home from './components/Home/Home.js';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes, Navigate  } from 'react-router-dom';
+import Home from './components/Home/Home.js';
 import PetCare from './components/PetCare/PetCare';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
@@ -11,11 +13,14 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Donations from './components/Donations/Donations.js';
 
+import Searcher from './components/Searcher/Searcher';
+import EmailConfirm from './components/EmailConfirm/EmailConfirm';
+import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
-  const usuario = useSelector((state)=> state.userLogged)
+  const usuario = useSelector((state)=> state.reducer.userLogged)
 
   return (
     <div>
@@ -34,6 +39,8 @@ function App() {
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={user || Object.keys(usuario).length > 0? <CreatePet />: <Navigate replace to="/login"/>} /> 
         <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} />
+        <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
+        <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>
