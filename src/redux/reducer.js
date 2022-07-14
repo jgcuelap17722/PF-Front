@@ -1,5 +1,4 @@
 import {
-	// RESET_FILTER_CARD,
 	GET_USER_INFO,
 	GET_COUNTRIES,
 	GET_CITIES_BY_COUNTRY,
@@ -7,6 +6,8 @@ import {
 	RESET_NEW_USER,
 	LOGIN_USER,
 	RESET_USER_LOGGED,
+	PATCH_USER,
+	CONFIRM_EMAIL
 } from './actions';
 
 const initialState = {
@@ -15,15 +16,13 @@ const initialState = {
 	userLogged: {},
 	countries: [],
 	citiesByCountry: [],
+	patch:{},
+	emailConfirmed: {}
 };
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		// case RESET_FILTER_CARD:
-		// 	return {
-		// 		...state,
-		// 		filterActive: []
-		// 	}
+
 		case GET_USER_INFO:
 			return {
 				...state,
@@ -63,6 +62,18 @@ export default function reducer(state = initialState, action) {
 				...state,
 				userLogged: action.payload
 			}
+ 
+	  case PATCH_USER:
+  		return{
+	  		...state,
+		  	patch: action.payload,
+		  }
+    
+    case CONFIRM_EMAIL:
+      return {
+        ...state,
+        emailConfirmed: action.payload
+      }
 
 		default:
 			return state;

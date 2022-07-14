@@ -14,6 +14,8 @@ export default function NavBar() {
 
 		if(token){
 			localStorage.removeItem('token');
+			localStorage.removeItem('userId');
+			localStorage.removeItem('user');
 			dispatch(resetUserLogged());
 			return;
 		}
