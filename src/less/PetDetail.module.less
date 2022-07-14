@@ -66,9 +66,10 @@
                 border-radius: 3px;
                 transform: rotate(180deg);
                 fill: black;
-                .buttonRight:hover {
-                    background: rgba(0, 0, 0, .2);
-                    fill: #fff;
+                &:hover {
+                    background: @third;
+                    fill: @darkPrimary;
+                    scale: 105%;
                 }
         }
         .topRight{
@@ -245,6 +246,7 @@
                     cursor: pointer;
                     border: none;
                     color: @primary;
+                    transition: all .3s ease;
                     &:hover{
                         background-color: @darkSecondary;
                         color: @white;
