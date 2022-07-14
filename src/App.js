@@ -7,10 +7,15 @@ import PetDetail from './components/PetDetail/PetDetail';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import CreatePet from './components/CreatePet/CreatePet';
 import Searcher from './components/Searcher/Searcher'
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 
 
 function App() {
+  const [user, setUser] = useState(localStorage.getItem('user'))
+  const usuario = useSelector((state)=> state.userLogged)
+
   return (
     <div>
       <Routes>
@@ -21,12 +26,11 @@ function App() {
 
         {/* SEARCHER: SOLO FUNCIONA CON 2 PETTYPE Dog Y Cat */}
         <Route path='/searcher/:petType' element={<Searcher />}/>
-         
         <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
-        <Route path='/create-pet' element={<CreatePet />} /> 
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/create-pet' element={user || Object.keys(usuario).length > 0? <CreatePet />: <Navigate replace to="/login"/>} /> 
+        <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>

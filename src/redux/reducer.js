@@ -23,6 +23,7 @@ import {
 	LOGIN_USER,
 	RESET_USER_LOGGED,
 	CITY_FILTER,
+	PATCH_USER,
 } from './actions';
 
 const initialState = {
@@ -37,6 +38,7 @@ const initialState = {
 	countries: [],
 	citiesByCountry: [],
 	filteredByCity: [],
+	patch:{},
 };
 
 export default function reducer(state = initialState, action) {
@@ -149,7 +151,12 @@ export default function reducer(state = initialState, action) {
 				...state,
 				filteredByCity: action.payload,
 			}		
-
+	case PATCH_USER:
+		// console.log(action.payload)
+		return{
+			...state,
+			patch: action.payload,
+		}
 		default:
 			return state;
 	}
