@@ -9,9 +9,9 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function SignUp() {
 
 	const dispatch = useDispatch();
-	const countries = useSelector( state => state.countries );
-	const cities = useSelector( state => state.citiesByCountry );
-	const newUser = useSelector( state => state.newUser)
+	const countries = useSelector( state => state.reducer.countries );
+	const cities = useSelector( state => state.reducer.citiesByCountry );
+	const newUser = useSelector( state => state.reducer.newUser)
 	const navigate = useNavigate();
 
 	const [input, setInput] = useState({
