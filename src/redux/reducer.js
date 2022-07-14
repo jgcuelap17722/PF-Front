@@ -1,4 +1,4 @@
-import {
+ import {
 	RESET_PET_DETAIL,
 	GET_ALL_PETS,
 	GET_DETAIL,
@@ -24,7 +24,9 @@ import {
 	RESET_USER_LOGGED,
 	CITY_FILTER,
 	PATCH_USER,
-	RESET_SEARCH
+	RESET_SEARCH,
+  RESET_SEARCH,
+	CONFIRM_EMAIL
 } from './actions';
 
 const initialState = {
@@ -41,6 +43,7 @@ const initialState = {
 	filteredByCity: [],
 	patch:{},
 	petByCityFiltered: [],
+	emailConfirmed: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -153,19 +156,20 @@ export default function reducer(state = initialState, action) {
 				...state,
 				userLogged: action.payload
 			}
+      
 		case CITY_FILTER:
 			return {
 				...state,
 				filteredByCity: action.payload,
-			}		
-	case PATCH_USER:
-		// console.log(action.payload)
-		return{
-			...state,
-			patch: action.payload,
-		}
-			// 	petByCityFiltered: action.payload
-			// }
+				petByCityFiltered: action.payload
+			}
+
+	  case PATCH_USER:
+  		return{
+	  		...state,
+		  	patch: action.payload,
+		  }
+    
 		// case RESET_SEARCH:
 		// 	return {
 		// 		...state,
@@ -173,6 +177,12 @@ export default function reducer(state = initialState, action) {
 		// 		petsFiltered: [],
 		// 		filteredByCity: []
 		// 	}
+    
+       case CONFIRM_EMAIL:
+          return {
+            ...state,
+            emailConfirmed: action.payload
+          }
 
 		default:
 			return state;

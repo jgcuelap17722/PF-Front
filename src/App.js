@@ -1,14 +1,16 @@
-import Home from './components/Home/Home.js';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes, Navigate  } from 'react-router-dom';
+import Home from './components/Home/Home.js';
 import PetCare from './components/PetCare/PetCare';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import PetDetail from './components/PetDetail/PetDetail';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import CreatePet from './components/CreatePet/CreatePet';
-import Searcher from './components/Searcher/Searcher'
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import Searcher from './components/Searcher/Searcher';
+import EmailConfirm from './components/EmailConfirm/EmailConfirm';
+
 
 
 
@@ -33,6 +35,7 @@ function App() {
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={user || Object.keys(usuario).length > 0? <CreatePet />: <Navigate replace to="/login"/>} /> 
         <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} />
+        <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>
