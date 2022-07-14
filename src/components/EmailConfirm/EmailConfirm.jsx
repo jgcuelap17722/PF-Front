@@ -12,6 +12,11 @@ export default function EmailConfirm() {
 
 	function emailType(email){
 		let emailUrl = 'https://www.' + email.split('@')[1] + '/mail';
+		if(emailUrl.includes('.es')){
+			let esVerify = emailUrl.split('.');
+			let urlChanged = esVerify[0] + '.' + esVerify[1] + '.com/mail';
+			return urlChanged;
+		}
 		return emailUrl;
 	}
 
