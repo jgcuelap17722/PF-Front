@@ -1,6 +1,5 @@
 import {
-
-	RESET_FILTER_CARD,
+	// RESET_FILTER_CARD,
 	GET_USER_INFO,
 	GET_COUNTRIES,
 	GET_CITIES_BY_COUNTRY,
@@ -20,11 +19,11 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		case RESET_FILTER_CARD:
-			return {
-				...state,
-				filterActive: []
-			}
+		// case RESET_FILTER_CARD:
+		// 	return {
+		// 		...state,
+		// 		filterActive: []
+		// 	}
 		case GET_USER_INFO:
 			return {
 				...state,

@@ -7,7 +7,7 @@ import { InfoApi } from "../../assets/dataMockups/InfoApi";
 import { Link } from "react-router-dom";
 import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPets, getDetail, resetPetDetail } from "../../redux/actions";
+import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
 
 

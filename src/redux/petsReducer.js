@@ -18,7 +18,7 @@ import {
 	SHELTER_FILTER,
 	CITY_FILTER,
 	RESET_SEARCH,
-} from './actions';
+} from './petsActions';
 
 
 const initialState = {

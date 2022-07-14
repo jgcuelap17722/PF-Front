@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getAllPets } from "../../redux/actions"
+import { getAllPets } from "../../redux/petsActions"
 import Card from "../../assets/Card/Card"
 import s from "../../css/RelatedCase.module.css"
 

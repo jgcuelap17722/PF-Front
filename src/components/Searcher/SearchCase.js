@@ -6,7 +6,7 @@ import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
 import Card from '../../assets/Card/Card'
 
-import { getAllPets, typeFilter, resetSearch } from '../../redux/actions'
+import { getAllPets, typeFilter, resetSearch } from '../../redux/petsActions'
 
 import s from '../../css/Search.module.css'
 

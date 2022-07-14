@@ -6,7 +6,7 @@ import s from '../../css/Searcher.module.css'
 import { useNavigate, useParams } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { getAllPets, typeFilter, cityFilter, resetSearch } from '../../redux/actions'
+import { getAllPets, typeFilter, cityFilter, resetSearch } from '../../redux/petsActions'
 
 const Searcher = () => {
 

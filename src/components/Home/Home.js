@@ -6,7 +6,7 @@ import ArticlesCase from './ArticlesCase'
 import s from '../../css/Home.module.css'
 import Footer from '../../assets/Footer/Footer'
 import { useDispatch } from 'react-redux/es/exports'
-import { resetSearch } from '../../redux/actions'
+import { resetSearch } from '../../redux/petsActions'
 
 const Home = () => {
 

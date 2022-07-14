@@ -12,7 +12,7 @@ import {
   attributesFilter,
   daysFilter,
   shelterFilter,
-} from '../../redux/actions'
+} from '../../redux/petsActions'
 
 const FilterOption = ({ type, options, SetFiltersAmount, filtersAmount }) => {
 
