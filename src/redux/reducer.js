@@ -23,6 +23,7 @@ import {
 	LOGIN_USER,
 	RESET_USER_LOGGED,
 	CITY_FILTER,
+	PATCH_USER,
 	RESET_SEARCH
 } from './actions';
 
@@ -38,6 +39,7 @@ const initialState = {
 	countries: [],
 	citiesByCountry: [],
 	filteredByCity: [],
+	patch:{},
 	petByCityFiltered: [],
 };
 
@@ -155,8 +157,15 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				filteredByCity: action.payload,
-				petByCityFiltered: action.payload
-			}
+			}		
+	case PATCH_USER:
+		// console.log(action.payload)
+		return{
+			...state,
+			patch: action.payload,
+		}
+			// 	petByCityFiltered: action.payload
+			// }
 		// case RESET_SEARCH:
 		// 	return {
 		// 		...state,

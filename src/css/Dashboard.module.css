@@ -51,22 +51,43 @@
   padding-top: 25px;
   justify-content: center;
 }
+.content .infoContainer .inputContainer select {
+  border: none;
+  border: 2px solid #66668F;
+  border-radius: 5px;
+  height: 36px;
+  width: 232px;
+  outline: none;
+  margin-bottom: 10px;
+}
+.content .infoContainer .inputContainer select:hover {
+  border: 2px solid #4992AB;
+}
 .content .infoContainer .inputContainer #lastInput {
   margin-bottom: 0;
   height: 50%;
   background-color: aqua;
 }
+.content .infoContainer .inputContainer .left .divPhone button {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border: none;
+  border: 2px solid #66668F;
+  border-radius: 5px;
+  height: 36px;
+  outline: none;
+}
+.content .infoContainer .inputContainer .left .divPhone button:hover {
+  border: 2px solid #4992AB;
+}
 .content .infoContainer .inputContainer .right {
   padding-left: 50px;
-  height: 220px;
-}
-.content .infoContainer .inputContainer .right input {
-  margin-bottom: 97px;
 }
 .content .infoContainer .inputContainer h4 {
   color: #727A85;
 }
 .content .infoContainer .inputContainer input {
+  text-transform: capitalize;
   margin-bottom: 20px;
   margin-top: 5px;
   border: none;
