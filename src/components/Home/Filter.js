@@ -8,9 +8,9 @@ const Filter = ({icon, type }) => {
 
   const onClickHandler = ()=>{
     if(type === 'PERROS'){
-      navigate(`/searcher/dog`) 
+      navigate(`/searcher/pet/dog`) 
     } else if(type === 'GATOS'){
-      navigate(`/searcher/cat`) 
+      navigate(`/searcher/pet/cat`) 
     }
   }
   return (

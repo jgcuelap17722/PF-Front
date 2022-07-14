@@ -2,7 +2,7 @@ import {
 	RESET_PET_DETAIL,
 	GET_ALL_PETS,
 	GET_DETAIL,
-  	TYPE_FILTER,
+	TYPE_FILTER,
 	BREED_FILTER,
 	RESET_PET_ORDER,
 	AGE_FILTER,
@@ -24,6 +24,7 @@ import {
 	RESET_USER_LOGGED,
 	CITY_FILTER,
 	PATCH_USER,
+	RESET_SEARCH
 } from './actions';
 
 const initialState = {
@@ -39,6 +40,7 @@ const initialState = {
 	citiesByCountry: [],
 	filteredByCity: [],
 	patch:{},
+	petByCityFiltered: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -59,6 +61,7 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.breeds.primary === action.payload),
+				petByCityFiltered: state.filteredByCity.filter(e => e.breeds.primary === action.payload),
 				// filterActive: state.filterActive.filter(e => e === 'Raza').length < 1 ? [...state.filterActive, 'Raza'] : state.filterActive
 				filterActive: ['Raza']
 			}
@@ -66,6 +69,7 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.age === action.payload),
+				petByCityFiltered: state.filteredByCity.filter(e => e.age === action.payload),
 				// filterActive: state.filterActive.filter(e => e === 'Edad').length < 1 ? [...state.filterActive, 'Edad'] : state.filterActive
 				filterActive: ['Edad']
 			}
@@ -73,6 +77,7 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.size === action.payload),
+				petByCityFiltered: state.filteredByCity.filter(e => e.size === action.payload),
 				// filterActive: state.filterActive.filter(e => e === 'Tamaño').length < 1 ? [...state.filterActive, 'Tamaño'] : state.filterActive
 				filterActive: ['Tamaño']
 			}
@@ -80,6 +85,7 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.petsByType.filter(e => e.gender === action.payload),
+				petByCityFiltered: state.filteredByCity.filter(e => e.gender === action.payload),
 				// filterActive: state.filterActive.filter(e => e === 'Sexo').length < 1 ? [...state.filterActive, 'Sexo'] : state.filterActive
 				filterActive: ['Sexo']
 			}
@@ -88,6 +94,7 @@ export default function reducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.petsByType,
+				petByCityFiltered: state.filteredByCity,
 				filterActive: state.filterActive.filter(e => e !== action.payload)
 			}
 		case RESET_FILTER_CARD:
@@ -102,52 +109,52 @@ export default function reducer(state = initialState, action) {
 				petsByType: action.payload
 			}
 		case RESET_PET_DETAIL:
-			return{
+			return {
 				...state,
 				petDetail: action.payload,
 			}
 		case GET_USER_INFO:
-			return{
+			return {
 				...state,
 				userDetail: action.payload,
 			}
 
 		case GET_COUNTRIES:
-			return{
+			return {
 				...state,
 				countries: action.payload
 			}
 
 		case GET_CITIES_BY_COUNTRY:
-			return{
+			return {
 				...state,
 				citiesByCountry: action.payload
 			}
 
 		case CREATE_NEW_USER:
-			return{
+			return {
 				...state,
 				newUser: action.payload
 			}
 
 		case RESET_NEW_USER:
-			return{
+			return {
 				...state,
 				newUser: action.payload
-			}	
+			}
 		case LOGIN_USER:
-			return{
+			return {
 				...state,
 				userLogged: action.payload
 			}
 
 		case RESET_USER_LOGGED:
-			return{
+			return {
 				...state,
 				userLogged: action.payload
 			}
-      case CITY_FILTER:
-			return{
+		case CITY_FILTER:
+			return {
 				...state,
 				filteredByCity: action.payload,
 			}		
@@ -157,6 +164,16 @@ export default function reducer(state = initialState, action) {
 			...state,
 			patch: action.payload,
 		}
+			// 	petByCityFiltered: action.payload
+			// }
+		// case RESET_SEARCH:
+		// 	return {
+		// 		...state,
+		// 		petsByType: [],
+		// 		petsFiltered: [],
+		// 		filteredByCity: []
+		// 	}
+
 		default:
 			return state;
 	}

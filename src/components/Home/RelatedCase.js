@@ -14,7 +14,7 @@ const RelatedCase = () => {
     dispatch(getAllPets())
   }, [dispatch])
   
-  console.log(allPets);
+  // console.log(allPets);
 
   const dataRelated = allPets.filter((e, index) => index< 5)
   const dataViewed = allPets.filter((e, index) => index < 2)

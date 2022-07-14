@@ -20,6 +20,8 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const CITY_FILTER = 'CITY_FILTER'
 export const PATCH_USER = 'PATCH_USER'
+export const RESET_SEARCH = 'RESET_SEARCH'
+
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -199,6 +201,7 @@ export function resetUserLogged() {
 }
 
 export function cityFilter(obj) {
+
     let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
     return async function (dispatch) {
         return await fetch(url)
@@ -233,3 +236,8 @@ export function patchUser(id, obj, token){
     }
 }
 
+export const resetSearch = () => {
+    return {
+        type: RESET_SEARCH,
+    }
+}
