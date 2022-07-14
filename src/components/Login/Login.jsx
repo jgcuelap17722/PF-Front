@@ -28,7 +28,7 @@ function validate (input) {
 export default function Login() {
 
     const dispatch = useDispatch()
-    const userLogged = useSelector( state => state.userLogged);
+    const userLogged = useSelector( state => state.reducer.userLogged);
     const navigator = useNavigate();
 
     const [input, setInput] = useState({

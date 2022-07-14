@@ -13,11 +13,9 @@ import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 
 
-
-
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
-  const usuario = useSelector((state)=> state.userLogged)
+  const usuario = useSelector((state)=> state.reducer.userLogged)
 
   return (
     <div>
