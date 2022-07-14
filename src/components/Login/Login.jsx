@@ -28,7 +28,7 @@ function validate (input) {
 export default function Login() {
 
     const dispatch = useDispatch()
-    const userLogged = useSelector( state => state.userLogged);
+    const userLogged = useSelector( state => state.reducer.userLogged);
     const navigator = useNavigate();
 
     const [input, setInput] = useState({
@@ -51,6 +51,7 @@ export default function Login() {
         }else if(userLogged.token){
             localStorage.setItem('token', userLogged.token);
             localStorage.setItem('userId', userLogged.user.id);
+            localStorage.setItem('user', JSON.stringify(userLogged));
             navigator('/');
             return;
         }
@@ -111,9 +112,15 @@ export default function Login() {
                             {error.password && <p className={s.error}>{error.password}</p>}
                     </div>
                     <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
-                    <Link to='/reset-password'>
-                        <p className={s.forget}>Olvidé mi Contraseña</p>
-                    </Link>
+                    <div className={s.textBox}>
+                        <Link to='/reset-password'>
+                            <p className={s.forget}>Olvidé mi Contraseña</p>
+                        </Link>
+                        <p>No estás registrado?</p>
+                        <Link to='/register'>
+                            <p className={s.forget}>Regístrate</p>
+                        </Link>
+                    </div>
                 </div>
 
             </form>
