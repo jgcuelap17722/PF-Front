@@ -9,6 +9,7 @@ import CreatePet from './components/CreatePet/CreatePet';
 import Searcher from './components/Searcher/Searcher'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import Donations from './components/Donations/Donations.js';
 
 
 
@@ -27,7 +28,7 @@ function App() {
         {/* SEARCHER: SOLO FUNCIONA CON 2 PETTYPE Dog Y Cat */}
         <Route path='/searcher/:petType' element={<Searcher />}/>
         <Route path='/searcher/:type/:item' element={<Searcher />}/>
-         
+        <Route path='/sponsor' element={<Donations />}/>
         <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
