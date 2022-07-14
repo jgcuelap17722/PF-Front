@@ -25,7 +25,6 @@
 	CITY_FILTER,
 	PATCH_USER,
 	RESET_SEARCH,
-  RESET_SEARCH,
 	CONFIRM_EMAIL
 } from './actions';
 

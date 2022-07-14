@@ -21,8 +21,6 @@ export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const CITY_FILTER = 'CITY_FILTER';
 export const PATCH_USER = 'PATCH_USER';
 export const RESET_SEARCH = 'RESET_SEARCH';
-export const CITY_FILTER = 'CITY_FILTER';
-export const RESET_SEARCH = 'RESET_SEARCH';
 export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
 
 
