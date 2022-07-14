@@ -1,26 +1,26 @@
 import axios from 'axios'
 import { InfoApi } from "../assets/dataMockups/InfoApi.js";
 import { user } from '../assets/dataMockups/user.js'
-export const BREED_FILTER = 'BREED_FILTER'
-export const RESET_PET_ORDER = 'RESET_PET_ORDER'
-export const AGE_FILTER = 'AGE_FILTER'
-export const SIZE_FILTER = 'SIZE_FILTER'
-export const GENRE_FILTER = 'GENRE_FILTER'
-export const TYPE_FILTER = 'TYPE_FILTER'
-export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
-export const GET_ALL_PETS = 'GET_ALL_PETS'
-export const GET_DETAIL = 'GET_DETAIL'
-export const RESET_FILTER_CARD = 'RESET_FILTER_CARD'
-export const GET_USER_INFO = 'GET_USER_INFO'
+export const BREED_FILTER = 'BREED_FILTER';
+export const RESET_PET_ORDER = 'RESET_PET_ORDER';
+export const AGE_FILTER = 'AGE_FILTER';
+export const SIZE_FILTER = 'SIZE_FILTER';
+export const GENRE_FILTER = 'GENRE_FILTER';
+export const TYPE_FILTER = 'TYPE_FILTER';
+export const RESET_PET_DETAIL = 'RESET_PET_DETAIL';
+export const GET_ALL_PETS = 'GET_ALL_PETS';
+export const GET_DETAIL = 'GET_DETAIL';
+export const RESET_FILTER_CARD = 'RESET_FILTER_CARD';
+export const GET_USER_INFO = 'GET_USER_INFO';
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
 export const CREATE_NEW_USER = 'CREATE_NEW_USER';
 export const RESET_NEW_USER = 'RESET_NEW_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
-export const CITY_FILTER = 'CITY_FILTER'
-export const RESET_SEARCH = 'RESET_SEARCH'
-
+export const CITY_FILTER = 'CITY_FILTER';
+export const RESET_SEARCH = 'RESET_SEARCH';
+export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -111,42 +111,42 @@ export function resetPetDetail() {
 }
 
 export function getUserInfo(id, token) {
-    
-        const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/user/${id}`
-        const options = {
-            method: 'GET',
-            headers: { 'authorization': token },
-        }
-        return async function (dispatch) {
 
-            return await fetch(url, options)
-                .then(response => response.json())
-                .then(data => {
-                    dispatch({ type: GET_USER_INFO, payload: data })
-                })
-        }
+    const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/user/${id}`
+    const options = {
+        method: 'GET',
+        headers: { 'authorization': token },
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: GET_USER_INFO, payload: data })
+        })
+    }
     
 }
 
 export function getCountries() {
-    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/countries';
+    const url = 'http://localhost:5000/api/v1.0/countries';
     return async function (dispatch) {
         return await fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                dispatch({ type: GET_COUNTRIES, payload: data })
-            })
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: GET_COUNTRIES, payload: data })
+        })
     }
 }
 
 export function getCitiesByCountry(id) {
-    const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/cities/${id}`;
+    const url = `http://localhost:5000/api/v1.0/cities/${id}`;
     return async function (dispatch) {
         return await fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data })
-            })
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data })
+        })
 
     }
 
@@ -154,7 +154,7 @@ export function getCitiesByCountry(id) {
 
 export function createNewUser(obj) {
 
-    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/user';
+    const url = 'http://localhost:5000/api/v1.0/user';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -164,10 +164,10 @@ export function createNewUser(obj) {
     return async function (dispatch) {
 
         return await fetch(url, options)
-            .then(response => response.json())
-            .then(data => {
-                dispatch({ type: CREATE_NEW_USER, payload: data })
-            })
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: CREATE_NEW_USER, payload: data })
+        })
     }
 }
 
@@ -178,7 +178,7 @@ export function resetNewUser() {
 
 export function loginUser(obj) {
 
-    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/auth/userLogin';
+    const url = 'http://localhost:5000/api/v1.0/auth/userLogin';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -188,10 +188,10 @@ export function loginUser(obj) {
     return async function (dispatch) {
 
         return await fetch(url, options)
-            .then(response => response.json())
-            .then(data => {
-                dispatch({ type: LOGIN_USER, payload: data })
-            })
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: LOGIN_USER, payload: data })
+        })
     }
 }
 
@@ -205,17 +205,36 @@ export function cityFilter(obj) {
     return async function (dispatch) {
         return await fetch(url)
 
-            .then(res => res.json())
-            .then(json => {
-                let filtered = json.animals.filter(el => el.contact.address.city === obj.city)
-                dispatch({ type: CITY_FILTER, payload: filtered })
-            })
-            .catch(error => console.log(error))
+        .then(res => res.json())
+        .then(json => {
+            let filtered = json.animals.filter(el => el.contact.address.city === obj.city)
+            dispatch({ type: CITY_FILTER, payload: filtered })
+        })
+        .catch(error => console.log(error))
     }
 }
 
 export const resetSearch = () => {
     return {
         type: RESET_SEARCH,
+    }
+}
+
+export function emailConfirmed(obj){
+
+    const url = 'http://localhost:5000/api/v1.0/verify';
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
+    }
+
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: CONFIRM_EMAIL, payload: data})
+            })
     }
 }

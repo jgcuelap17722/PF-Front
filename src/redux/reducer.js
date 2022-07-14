@@ -23,7 +23,8 @@ import {
 	LOGIN_USER,
 	RESET_USER_LOGGED,
 	CITY_FILTER,
-	RESET_SEARCH
+	RESET_SEARCH,
+	CONFIRM_EMAIL
 } from './actions';
 
 const initialState = {
@@ -39,6 +40,7 @@ const initialState = {
 	citiesByCountry: [],
 	filteredByCity: [],
 	petByCityFiltered: [],
+	emailConfirmed: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -156,6 +158,12 @@ export default function reducer(state = initialState, action) {
 				...state,
 				filteredByCity: action.payload,
 				petByCityFiltered: action.payload
+			}
+
+		case CONFIRM_EMAIL:
+			return {
+				...state,
+				emailConfirmed: action.payload
 			}
 		// case RESET_SEARCH:
 		// 	return {

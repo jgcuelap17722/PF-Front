@@ -1,0 +1,59 @@
+.container {
+  border: 0.1rem solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container .notification {
+  width: 50%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-size: 1.2rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 2rem -1rem;
+}
+.container .notification .logo {
+  background-color: #4B4D62;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .notification .logo img {
+  width: 50%;
+}
+.container .notification .notificationBottom {
+  background-image: url('https://media.discordapp.net/attachments/996508124863283221/996841168392437860/Gracias.png?width=887&height=499');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  padding: 2rem 0 0 0;
+}
+.container .notification .notificationBottom p {
+  color: #504F6F;
+  padding: 0 3rem;
+  text-align: justify;
+  margin-bottom: 1rem;
+  margin-left: 20rem;
+}
+.container .notification .notificationBottom p a {
+  font-weight: #ffffff;
+}
+.container .notification .notificationBottom p:last-of-type {
+  font-weight: bold;
+}
+.container .notification button {
+  height: 5rem;
+  border: none;
+  color: #ffffff;
+  background-color: #504F6F;
+}
+.container .notification button:hover {
+  background-color: #4992AB;
+  color: #DDDDDD;
+  cursor: pointer;
+}

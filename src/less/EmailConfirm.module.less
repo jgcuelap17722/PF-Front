@@ -1,0 +1,74 @@
+@import "variables";
+
+.container{
+	border: .1rem solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+
+	.notification{
+		// border: .1rem solid @lightPrimary;
+		width: 50%;
+		height: 75%;
+		display: flex;
+		flex-direction: column;
+		border-radius: .5rem;	
+		overflow: hidden;
+		font-size: 1.2rem;
+		background-color: @white;
+		box-shadow: 0 0 2rem -1rem;
+		
+
+		.logo{
+			background-color: @darkPrimary;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img{
+				width: 50%;
+			}
+		}
+
+		.notificationBottom{
+
+			background-image: url('https://media.discordapp.net/attachments/996508124863283221/996841168392437860/Gracias.png?width=887&height=499');
+		background-repeat:no-repeat;
+		background-size: cover;
+		height: 100%;
+		padding: 2rem 0 0 0;
+
+			p{
+				color: @primary;
+				padding: 0 3rem;
+				text-align: justify;
+				margin-bottom: 1rem;
+				margin-left: 20rem;
+
+				a{
+					font-weight: @white;
+				}
+			}
+
+			p:last-of-type{
+				font-weight: bold;
+			}
+		}
+
+		button{
+			height: 5rem;
+			border: none;
+			color: @white;
+			background-color: @primary;
+
+			&:hover{
+				background-color: @third;
+				color: @lightGray;
+				cursor: pointer;
+			}
+		}
+
+	}
+}
