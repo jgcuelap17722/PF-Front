@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { InfoApi } from "../assets/dataMockups/InfoApi.js";
 import { user } from '../assets/dataMockups/user.js'
 export const BREED_FILTER = 'BREED_FILTER';
 export const RESET_PET_ORDER = 'RESET_PET_ORDER';
@@ -45,71 +44,6 @@ export function getDetail(id) {
 
         })
     }
-}
-
-export const breedFilter = (value) => {
-    return {
-        type: BREED_FILTER,
-        payload: value
-    }
-}
-
-export const ageFilter = (value) => {
-
-    return {
-        type: AGE_FILTER,
-        payload: value
-    }
-}
-
-export const sizeFilter = (value) => {
-    return {
-        type: SIZE_FILTER,
-        payload: value
-    }
-}
-
-export const genreFilter = (value) => {
-    return {
-        type: GENRE_FILTER,
-        payload: value
-    }
-}
-
-export const resetPetOrder = (orderType) => {
-    return {
-        type: RESET_PET_ORDER,
-        payload: orderType
-    }
-}
-
-export const resetFilterCard = () => {
-    return {
-        type: RESET_FILTER_CARD
-    }
-}
-
-export const typeFilter = (type) => {
-    let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
-
-    return async function (dispatch) {
-        try {
-            let response = await axios.get(url);
-            const data = response.data.animals
-            // console.log(data)
-            const json = data.filter(e => e.type === type);
-            return dispatch({
-                type: TYPE_FILTER,
-                payload: json,
-            })
-        } catch (error) {
-            console.log(error);
-        }
-    }
-}
-
-export function resetPetDetail() {
-    return { type: 'RESET_PET_DETAIL', payload: {} }
 }
 
 export function getUserInfo(id, token) {

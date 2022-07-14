@@ -19,7 +19,7 @@
 .filterOptionBox select {
   border: none;
   border-bottom: 1px solid #ABABAB;
-  width: 90%;
+  width: 80%;
 }
 .filterOptionBox select:focus {
   border: none;

@@ -6,7 +6,7 @@ import Footer from '../../assets/Footer/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../assets/Card/Card.js'
 import { Link } from "react-router-dom";
-import { getAllPets, getDetail, resetPetDetail } from "../../redux/actions";
+import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
 
 
