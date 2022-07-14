@@ -7,6 +7,7 @@ import PetDetail from './components/PetDetail/PetDetail';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import CreatePet from './components/CreatePet/CreatePet';
 import Searcher from './components/Searcher/Searcher'
+import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 
 
 
@@ -27,6 +28,7 @@ function App() {
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={<CreatePet />} /> 
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>
