@@ -11,8 +11,7 @@ export const COAT_FILTER = 'COAT_FILTER'
 export const COLOR_FILTER = 'COLOR_FILTER'
 export const ATTRIBUTES_FILTER = 'ATTRIBUTES_FILTER'
 export const DAYS_FILTER = 'DAYS_FILTER'
-export const SHELTER_FILTE = 'SHELTER_FILTE'
-
+export const SHELTER_FILTER = 'SHELTER_FILTER'
 
 export const TYPE_FILTER = 'TYPE_FILTER'
 export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
@@ -53,8 +52,9 @@ export function getDetail(id) {
     }
 }
 
+// SEARCHER FILTERS ------------------------------
+
 export const breedFilter = (value) => {
-    console.log('action breed', value);
     return {
         type: BREED_FILTER,
         payload: value
@@ -62,7 +62,6 @@ export const breedFilter = (value) => {
 }
 
 export const ageFilter = (value) => {
-    console.log('action breed', value);
     return {
         type: AGE_FILTER,
         payload: value
@@ -70,7 +69,6 @@ export const ageFilter = (value) => {
 }
 
 export const sizeFilter = (value) => {
-    console.log('action breed', value);
     return {
         type: SIZE_FILTER,
         payload: value
@@ -78,7 +76,6 @@ export const sizeFilter = (value) => {
 }
 
 export const genreFilter = (value) => {
-    console.log('action breed', value);
     return {
         type: GENRE_FILTER,
         payload: value
@@ -86,43 +83,46 @@ export const genreFilter = (value) => {
 }
 
 export const environmentFilter = (value) => {
-    console.log('action environment', value);
     return {
         type: ENVIRONMENT_FILTER,
         payload: value
     }
 }
 export const coatFilter = (value) => {
-    console.log('action coat', value);
     return {
         type: COAT_FILTER,
         payload: value
     }
 }
 export const colorFilter = (value) => {
-    console.log('action coat', value);
     return {
         type: COLOR_FILTER,
         payload: value
     }
 }
 export const attributesFilter = (value) => {
-    console.log('action coat', value);
     return {
         type: ATTRIBUTES_FILTER,
         payload: value
     }
 }
 export const daysFilter = (value) => {
-    console.log('action coat', value);
     return {
         type: DAYS_FILTER,
         payload: value
     }
 }
 
+export const shelterFilter = (value)=>{
+    return {
+        type: SHELTER_FILTER,
+        payload: value
+    }
+}
+
+//------------------------------------------------
+
 export const resetPetOrder = (orderType) => {
-    console.log('action breed', orderType);
     return {
         type: RESET_PET_ORDER,
         payload: orderType
@@ -130,7 +130,6 @@ export const resetPetOrder = (orderType) => {
 }
 
 export const typeFilter = (type) => {
-    console.log('action', type);
     let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
 
     return async function (dispatch) {
@@ -148,6 +147,7 @@ export const typeFilter = (type) => {
         }
     }
 }
+
 
 export function cityFilter(obj) {
     let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'

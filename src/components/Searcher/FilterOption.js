@@ -12,17 +12,13 @@ import {
   attributesFilter,
   daysFilter,
   shelterFilter,
-  filtersQueue
 } from '../../redux/actions'
 
 const FilterOption = ({ type, options, SetFiltersAmount, filtersAmount }) => {
 
-
   const filterActive = useSelector(state => state.petsReducer.filterActive)
 
   const dispatch = useDispatch()
-
-  // console.log('filter', filterActive[0]);
 
   const onClickHandler = (e) => {
     
@@ -56,9 +52,10 @@ const FilterOption = ({ type, options, SetFiltersAmount, filtersAmount }) => {
       case 'Tiempo en Adopción':
         e.target.value.length && dispatch(daysFilter(e.target.value))
         break
-      // case 'Refugios':
-      //   e.target.value.length && dispatch(shelterFilter(e.target.value))
-      //   break
+      case 'Refugios':
+        e.target.value.length && dispatch(shelterFilter(e.target.value))
+        // e.target.value.length && dispatch(shelterFilter('NJ934'))
+        break
       default:
         break;
     }
@@ -67,7 +64,7 @@ const FilterOption = ({ type, options, SetFiltersAmount, filtersAmount }) => {
   return (
     <div className={s.filterOptionBox}>
       <label htmlFor='select'>{type}</label>
-      <select name='select' onChange={onClickHandler}>
+      <select value='' name='select' onChange={onClickHandler}>
         <option value=""></option>
         {
           options.map(element => {
