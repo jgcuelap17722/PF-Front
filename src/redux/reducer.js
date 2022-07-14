@@ -23,7 +23,9 @@
 	LOGIN_USER,
 	RESET_USER_LOGGED,
 	CITY_FILTER,
+	PATCH_USER,
 	RESET_SEARCH,
+  RESET_SEARCH,
 	CONFIRM_EMAIL
 } from './actions';
 
@@ -39,6 +41,7 @@ const initialState = {
 	countries: [],
 	citiesByCountry: [],
 	filteredByCity: [],
+	patch:{},
 	petByCityFiltered: [],
 	emailConfirmed: {}
 };
@@ -153,6 +156,7 @@ export default function reducer(state = initialState, action) {
 				...state,
 				userLogged: action.payload
 			}
+      
 		case CITY_FILTER:
 			return {
 				...state,
@@ -160,11 +164,12 @@ export default function reducer(state = initialState, action) {
 				petByCityFiltered: action.payload
 			}
 
-		case CONFIRM_EMAIL:
-			return {
-				...state,
-				emailConfirmed: action.payload
-			}
+	  case PATCH_USER:
+  		return{
+	  		...state,
+		  	patch: action.payload,
+		  }
+    
 		// case RESET_SEARCH:
 		// 	return {
 		// 		...state,
@@ -172,6 +177,12 @@ export default function reducer(state = initialState, action) {
 		// 		petsFiltered: [],
 		// 		filteredByCity: []
 		// 	}
+    
+       case CONFIRM_EMAIL:
+          return {
+            ...state,
+            emailConfirmed: action.payload
+          }
 
 		default:
 			return state;
