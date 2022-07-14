@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard/Dashboard.jsx';
 import CreatePet from './components/CreatePet/CreatePet';
 import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
+import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 
 
 
@@ -35,6 +36,7 @@ function App() {
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={user || Object.keys(usuario).length > 0? <CreatePet />: <Navigate replace to="/login"/>} /> 
         <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} />
+        <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
