@@ -7,7 +7,8 @@
   border-radius: 15px;
   overflow: hidden;
   justify-content: center;
-  transition: all 1s ease;
+  transition: bottom ease 0.2s;
+  bottom: 0;
 }
 .cards:hover {
   position: relative;
@@ -74,6 +75,9 @@
   height: 100%;
   object-fit: cover;
 }
+.cards2 .cardsImg img:hover {
+  cursor: pointer;
+}
 .cards2 .textContainer {
   width: 227px;
   height: 96px;
@@ -91,6 +95,9 @@
   line-height: 27px;
   color: #454B54;
 }
+.cards2 .textContainer p:first-child:hover {
+  cursor: pointer;
+}
 .cards2 .textContainer p {
   margin-left: 20px;
   font-weight: 400;
@@ -98,6 +105,9 @@
   line-height: 27px;
   font-style: italic;
   color: #727A85;
+}
+.cards2 .textContainer p:hover {
+  cursor: pointer;
 }
 .cards3 {
   position: relative;

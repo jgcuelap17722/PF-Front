@@ -12,43 +12,43 @@ const RelatedCase = () => {
   useEffect(() => {
     dispatch(getAllPets())
   }, [dispatch])
-  
-  const dataRelated = allPets.filter((e, index) => index< 5)
+
+  const dataRelated = allPets.filter((e, index) => index < 5)
   const dataViewed = allPets.filter((e, index) => index < 2)
 
   return (
     <section>
       <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
       <div className={s.relatedBox}>
-        {    
-          dataRelated && dataRelated.map((e, index) =>{
-            return (
-              <Card
+          {
+            dataRelated && dataRelated.map((e, index) => {
+              return (
+                <Card
                   key={`${e.name}${index}`}
                   img={e.photos[0].small}
                   name={e.name}
                   location={`${e.contact.address.city}, ${e.contact.address.state}`}
                   age={e.age}
-                  id = {e.id}
+                  id={e.id}
                   cardType='home' />
-             )
-          })
-        }
+              )
+            })
+          }
       </div>
       <h1 className={s.viewedTitle} >Mascotas Vistas Recientemente</h1>
-      <div className={s.relatedBox}> 
+      <div className={s.relatedBox}>
         {
-          dataViewed && dataViewed.map((e, index) =>{
+          dataViewed && dataViewed.map((e, index) => {
             return (
               <Card
-                  key={`${e.name}${index}`}
-                  img={e.photos[0].small}
-                  name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
-                  age={e.age}
-                  id = {e.id}
-                  cardType='home' />
-             )
+                key={`${e.name}${index}`}
+                img={e.photos[0].small}
+                name={e.name}
+                location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                age={e.age}
+                id={e.id}
+                cardType='home' />
+            )
           })
         }
       </div>

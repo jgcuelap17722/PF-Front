@@ -9,7 +9,8 @@
 	border-radius: 15px;
 	overflow: hidden;
 	justify-content: center;
-	transition: all 1s ease;
+  transition: bottom ease 0.2s;
+	bottom: 0;
 
 	&:hover {
 		position: relative;
@@ -90,6 +91,9 @@
 		img {
 			height: 100%;
 			object-fit: cover;
+			&:hover{
+				cursor: pointer;
+			}
 		}
 	}
 
@@ -109,6 +113,9 @@
 			font-size: 22px;
 			line-height: 27px;
 			color: @black;
+			&:hover{
+				cursor: pointer;
+			}
 		}
 
 		p {
@@ -118,6 +125,9 @@
 			line-height: 27px;
 			font-style: italic;
 			color: @darkGray;
+			&:hover{
+				cursor: pointer;
+			}
 		}
 
 	}
