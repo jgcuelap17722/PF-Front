@@ -41,7 +41,12 @@
   margin-left: 20rem;
 }
 .container .notification .notificationBottom p a {
-  font-weight: #ffffff;
+  text-decoration: none;
+  color: #4992AB;
+  font-weight: 600;
+}
+.container .notification .notificationBottom p a:hover {
+  color: #8DBECE;
 }
 .container .notification .notificationBottom p:last-of-type {
   font-weight: bold;
