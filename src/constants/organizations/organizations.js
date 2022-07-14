@@ -21,7 +21,7 @@ export const organizations = [
       "saturday": null,
       "sunday": null
     },
-    "url": "https:\/\/www.petfinder.com\/member\/us\/ga\/acworth\/special-touch-animal-rescue-ga762\/?referrer_id=a0f66808-949c-4be7-be59-5424418f4fa9",
+    "url": "https://www.petfinder.com/member/us/ga/acworth/special-touch-animal-rescue-ga762/?referrer_id=a0f66808-949c-4be7-be59-5424418f4fa9",
     "website": null,
     "mission_statement": "We are a private foster home group. We are NOT a shelter or facility. Our dogs come from licensed animal...",
     "adoption": {
@@ -39,10 +39,10 @@ export const organizations = [
     "distance": null,
     "_links": {
       "self": {
-        "href": "\/v2\/organizations\/ga762"
+        "href": "/v2/organizations/ga762"
       },
       "animals": {
-        "href": "\/v2\/animals?organization=ga762"
+        "href": "/v2/animals?organization=ga762"
       }
     }
   },
