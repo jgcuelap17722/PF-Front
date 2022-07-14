@@ -111,9 +111,15 @@ export default function Login() {
                             {error.password && <p className={s.error}>{error.password}</p>}
                     </div>
                     <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
-                    <Link to='/reset-password'>
-                        <p className={s.forget}>Olvidé mi Contraseña</p>
-                    </Link>
+                    <div className={s.textBox}>
+                        <Link to='/reset-password'>
+                            <p className={s.forget}>Olvidé mi Contraseña</p>
+                        </Link>
+                        <p>No estás registrado?</p>
+                        <Link to='/register'>
+                            <p className={s.forget}>Regístrate</p>
+                        </Link>
+                    </div>
                 </div>
 
             </form>
