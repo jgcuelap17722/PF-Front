@@ -3,7 +3,7 @@ import NavBar from '../../assets/NavBar/NavBar.jsx';
 import { useNavigate } from 'react-router';
 import s from '../../css/SignUp.module.css';
 import Footer from '../../assets/Footer/Footer';
-import { getCountries, getCitiesByCountry, createNewUser, resetNewUser, emailConfirmed } from '../../redux/actions.js';
+import { getCountries, getCitiesByCountry, createNewUser, resetNewUser, sendEmailConfirm } from '../../redux/actions.js';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function SignUp() {
@@ -195,7 +195,7 @@ export default function SignUp() {
 		const email = input.email;
 		const emailObj = {email: email};
 		dispatch(createNewUser(input)).then( () => {
-			dispatch(emailConfirmed(emailObj));
+			dispatch(sendEmailConfirm(emailObj));
 		});
 		localStorage.setItem('email', input.email);
 		setInput({

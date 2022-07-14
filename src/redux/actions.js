@@ -129,7 +129,7 @@ export function getUserInfo(id, token) {
 }
 
 export function getCountries() {
-    const url = 'http://localhost:5000/api/v1.0/countries';
+    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/countries';
     return async function (dispatch) {
         return await fetch(url)
         .then(response => response.json())
@@ -140,7 +140,7 @@ export function getCountries() {
 }
 
 export function getCitiesByCountry(id) {
-    const url = `http://localhost:5000/api/v1.0/cities/${id}`;
+    const url = `https://restapi-adoptame.up.railway.app/api/v1.0/cities/${id}`;
     return async function (dispatch) {
         return await fetch(url)
         .then(response => response.json())
@@ -154,7 +154,7 @@ export function getCitiesByCountry(id) {
 
 export function createNewUser(obj) {
 
-    const url = 'http://localhost:5000/api/v1.0/user';
+    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/user';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -178,7 +178,7 @@ export function resetNewUser() {
 
 export function loginUser(obj) {
 
-    const url = 'http://localhost:5000/api/v1.0/auth/userLogin';
+    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/auth/userLogin';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -220,9 +220,9 @@ export const resetSearch = () => {
     }
 }
 
-export function emailConfirmed(obj){
+export function sendEmailConfirm(obj){
 
-    const url = 'http://localhost:5000/api/v1.0/verify';
+    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/verify';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
