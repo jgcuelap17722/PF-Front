@@ -37,14 +37,7 @@
                     text-align: left;
                     padding: 23px 0 0 0;
                 }
-                img{
-                    // position:absolute;
-                    // bottom: 47%;
-                    // right: 36%;
-                    // width: 30px;
-                    
-                    
-                }
+
                 button{
                     height: 52px;
                     border:none;
@@ -62,14 +55,6 @@
                 border-radius: 5px;
                 padding-left: 20px;
             }
-
-            // .input[id='El email es requerido'],
-            // .input[id='Por favor ingresa un email válido'],
-            // .input[id='El Password es requerido'],
-            // .input[id='Min 8, Mayúscula, Minúscula, Número y Especial']{
-            //     border-bottom: 1px solid @secondary;
-            //     border-top: 1px solid @secondary;
-            // }
 
             .input[name='password']{
                 max-width: 370px;
@@ -93,16 +78,22 @@
             a{
                 text-decoration: none;
             }
-            .forget{  
-                position: relative;
-                bottom: 20px;
-                color: @white;
-                right: 0px;
+            .textBox{
+                display: flex;
+                .forget{  
+                    color: @white;
+                    right: 0px;
+                    &:hover{
+                        color: @secondary;
+                    }
+                }
+                p{
+                    font-size: 15px;
+                    padding: 0 2px 0 10px;
 
-                &:hover{
-                    color: @secondary;
                 }
             }
+            
             
             .error{
                 color: @secondary;

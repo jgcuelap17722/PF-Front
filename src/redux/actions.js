@@ -19,8 +19,12 @@ export const RESET_NEW_USER = 'RESET_NEW_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const CITY_FILTER = 'CITY_FILTER';
+export const PATCH_USER = 'PATCH_USER';
+export const RESET_SEARCH = 'RESET_SEARCH';
+export const CITY_FILTER = 'CITY_FILTER';
 export const RESET_SEARCH = 'RESET_SEARCH';
 export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
+
 
 export function getAllPets() {
     return async function (dispatch) {
@@ -111,7 +115,6 @@ export function resetPetDetail() {
 }
 
 export function getUserInfo(id, token) {
-
     const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/user/${id}`
     const options = {
         method: 'GET',
@@ -125,7 +128,6 @@ export function getUserInfo(id, token) {
             dispatch({ type: GET_USER_INFO, payload: data })
         })
     }
-    
 }
 
 export function getCountries() {
@@ -153,16 +155,13 @@ export function getCitiesByCountry(id) {
 }
 
 export function createNewUser(obj) {
-
     const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/user';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
         body: JSON.stringify(obj)
     }
-
     return async function (dispatch) {
-
         return await fetch(url, options)
         .then(response => response.json())
         .then(data => {
@@ -177,16 +176,13 @@ export function resetNewUser() {
 
 
 export function loginUser(obj) {
-
     const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/auth/userLogin';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
         body: JSON.stringify(obj)
     }
-
     return async function (dispatch) {
-
         return await fetch(url, options)
         .then(response => response.json())
         .then(data => {
@@ -214,6 +210,27 @@ export function cityFilter(obj) {
     }
 }
 
+export function patchUser(id, obj, token){
+    const url = `https://restapi-adoptame.up.railway.app/api/v1.0/user/${id}`;
+    // console.log(JSON.stringify(obj))
+    // console.log(url)
+    // console.log(token)
+    const options = {
+        method: 'PATCH',
+        headers: { 'authorization': token,  'Content-Type': 'Application/json'  },
+        body: JSON.stringify(obj),
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                dispatch({ type: PATCH_USER, payload: data })
+            })
+    }
+}
+
 export const resetSearch = () => {
     return {
         type: RESET_SEARCH,
@@ -221,16 +238,13 @@ export const resetSearch = () => {
 }
 
 export function sendEmailConfirm(obj){
-
     const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/verify';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
         body: JSON.stringify(obj)
     }
-
     return async function (dispatch) {
-
         return await fetch(url, options)
             .then(response => response.json())
             .then(data => {
