@@ -126,7 +126,7 @@ const PetDetail = () => {
                     </div>
                   </div>
                   <div className={s.contenedorMascota}>
-                    <h3 className={s.h3}>Meet {Api.name}</h3>
+                    <h3 className={s.h3}>Conoce a: {Api.name}</h3>
                     <p className={s.p}>{Api.description}</p>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ const PetDetail = () => {
                     <div className={s.contenedorDirection}>
                       <div className={s.direction}>
                         <div className={s.directionInterior}>
-                          <h3 className={s.h3}>Location Address</h3>
+                          <h3 className={s.h3}>Dirección de la Fundación</h3>
                           <p className={s.p}>{Api.contact.address.address1}</p>
                           <p className={s.p}>{Api.contact.address.city},{Api.contact.address.state},{Api.contact.address.postcode}</p>
                           <p className={s.p}>San Juan, CP: 2725</p>

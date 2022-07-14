@@ -19,6 +19,7 @@ export const RESET_NEW_USER = 'RESET_NEW_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const CITY_FILTER = 'CITY_FILTER'
+export const PATCH_USER = 'PATCH_USER'
 export const RESET_SEARCH = 'RESET_SEARCH'
 
 
@@ -112,7 +113,7 @@ export function resetPetDetail() {
 
 export function getUserInfo(id, token) {
     
-        const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/user/${id}`
+        const url = `https://restapi-adoptame.up.railway.app/api/v1.0/user/${id}`
         const options = {
             method: 'GET',
             headers: { 'authorization': token },
@@ -154,7 +155,7 @@ export function getCitiesByCountry(id) {
 
 export function createNewUser(obj) {
 
-    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/user';
+    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/user';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -178,7 +179,7 @@ export function resetNewUser() {
 
 export function loginUser(obj) {
 
-    const url = 'https://api-rest-adoptame.herokuapp.com/api/v1.0/auth/userLogin';
+    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/auth/userLogin';
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -211,6 +212,27 @@ export function cityFilter(obj) {
                 dispatch({ type: CITY_FILTER, payload: filtered })
             })
             .catch(error => console.log(error))
+    }
+}
+
+export function patchUser(id, obj, token){
+    const url = `https://restapi-adoptame.up.railway.app/api/v1.0/user/${id}`;
+    // console.log(JSON.stringify(obj))
+    // console.log(url)
+    // console.log(token)
+    const options = {
+        method: 'PATCH',
+        headers: { 'authorization': token,  'Content-Type': 'Application/json'  },
+        body: JSON.stringify(obj),
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                dispatch({ type: PATCH_USER, payload: data })
+            })
     }
 }
 

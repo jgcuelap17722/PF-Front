@@ -51,6 +51,7 @@ export default function Login() {
         }else if(userLogged.token){
             localStorage.setItem('token', userLogged.token);
             localStorage.setItem('userId', userLogged.user.id);
+            localStorage.setItem('user', JSON.stringify(userLogged));
             navigator('/');
             return;
         }
