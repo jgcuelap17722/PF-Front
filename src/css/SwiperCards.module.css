@@ -1,0 +1,14 @@
+.swiperBox {
+  width: 90%;
+  overflow: visible;
+}
+.swiperBox .swiper {
+  width: 100%;
+  padding: 20px;
+}
+.swiperBox .swiper .swiper-wraper {
+  color: white;
+}
+.swiperBox .swiper .swiper-wraper .swiper-button-prev {
+  left: 26px !important;
+}
