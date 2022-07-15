@@ -16,7 +16,7 @@
 
   form {
 
-    input{
+    input {
       font-size: 1.5em;
       text-indent: 22px;
     }
@@ -25,6 +25,7 @@
       outline: none !important;
       box-sizing: border-box;
       border: 3px solid @darkSecondary;
+      background-color: @white;
     }
 
     input:focus::placeholder {
@@ -36,7 +37,25 @@
       color: #ABABAB;
       text-indent: 22px;
     }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      outline: none !important;
+      box-sizing: border-box;
+      background-color: @white;
+      // -webkit-text-fill-color: green;
+      // -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
+
   .pet {
     // position: absolute;
     margin-left: 0;
@@ -46,14 +65,15 @@
     box-sizing: border-box;
     border-radius: 15px 0px 0px 15px;
   }
-  .line{
-    position: absolute;
-    height: 40px;
-    top: 7px;
-    margin-left: 1px;
-    display: inline-block;
-    border-left: 2.5px solid #ABABAB;
-  }
+
+  // .line{
+  //   position: absolute;
+  //   height: 40px;
+  //   top: 7px;
+  //   margin-left: 1px;
+  //   display: inline-block;
+  //   border-left: 2.5px solid #ABABAB;
+  // }
   // .city{
   //   width: 346px;
   //   height: 55px;
@@ -61,14 +81,15 @@
   //   border: none;
   //   box-sizing: border-box;
   // }
-    .city{
+  .city {
     width: 856px;
     height: 55px;
     border: none;
     box-sizing: border-box;
     border-radius: 15px 0px 0px 15px;
   }
-  .button{
+
+  .button {
     position: absolute;
     width: 54px;
     height: 60px;
@@ -78,10 +99,13 @@
     border-radius: 0px 15px 15px 0px;
     background-color: transparent;
   }
-  .button:hover{
+
+  .button:hover {
     background-color: @secondary;
+    cursor: pointer;
   }
-  .icon{
+
+  .icon {
     width: 30px;
   }
 
