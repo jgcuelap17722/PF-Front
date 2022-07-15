@@ -9,7 +9,7 @@ import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
-
+import { useNavigate } from 'react-router'
 
 const PetDetail = () => {
   let { id } = useParams();
@@ -18,7 +18,7 @@ const PetDetail = () => {
   const dispatch = useDispatch();
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();
-
+  const navigate = useNavigate()
   
   
   useEffect(() => {
@@ -54,6 +54,11 @@ const PetDetail = () => {
     const condition = selectIndex < Api.photos.length - 1;
     const nextIndex = condition ? selectIndex + 1 : 0;
     setSelectIndex(nextIndex);
+  }
+  function handleClick(e){
+    e.preventDefault();
+    localStorage.setItem('petDetail', JSON.stringify(estado));
+    navigate(`/sponsor`) 
   }
 
   return (
@@ -146,9 +151,7 @@ const PetDetail = () => {
                         </Link>
                       </div>
                       <div>
-                        <Link to='/sponsor'>
-                          <button className={s.buttonSponsor}>Donar</button>
-                        </Link>
+                          <button className={s.buttonSponsor} onClick={handleClick}>Donar</button>
                         <Link to='/favorites'>
                           <button className={s.buttonFavorite}>★ Favoritos</button>
                         </Link>
