@@ -1,7 +1,7 @@
 import React from 'react'
 import s from '../../css/PwResetConfirm.module.css';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function PwResetConfirm() {
@@ -9,6 +9,7 @@ export default function PwResetConfirm() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const email = 'revisar'
+	
 
     return (
 		<main className={s.container}>

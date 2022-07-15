@@ -41,7 +41,7 @@ function App() {
         <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/reset' element={<PwReset />} />
-        <Route path='/reset/confirm' element={<PwResetConfirm />} />
+        <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>
