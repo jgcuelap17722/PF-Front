@@ -11,6 +11,7 @@ import CreatePet from './components/CreatePet/CreatePet';
 import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
+import Favorites from './components/Favorites/Favorites.jsx';
 import PwReset from './components/PwReset/PwReset'
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
 
@@ -38,6 +39,7 @@ function App() {
         <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} />
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm' element={<PwResetConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
