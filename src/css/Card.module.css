@@ -26,11 +26,10 @@
 .cards .cardsImg img:hover {
   cursor: pointer;
 }
-.cards .cardImgCharging {
-  width: 273px;
-  height: 255.38px;
+.cards .cardsImg .cardImgCharging {
+  width: 100%;
+  height: 100%;
   background-color: #b4b4b4;
-  background-position: center;
 }
 .cards .textContainer {
   width: 227px;
