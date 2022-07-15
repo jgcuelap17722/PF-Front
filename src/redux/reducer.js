@@ -7,7 +7,8 @@ import {
 	LOGIN_USER,
 	RESET_USER_LOGGED,
 	PATCH_USER,
-	CONFIRM_EMAIL
+	CONFIRM_EMAIL,
+	POST_PAY
 } from './actions';
 
 const initialState = {
@@ -16,8 +17,9 @@ const initialState = {
 	userLogged: {},
 	countries: [],
 	citiesByCountry: [],
-	patch:{},
-	emailConfirmed: {}
+	patch: {},
+	emailConfirmed: {},
+	pay: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -62,19 +64,24 @@ export default function reducer(state = initialState, action) {
 				...state,
 				userLogged: action.payload
 			}
- 
-	  case PATCH_USER:
-  		return{
-	  		...state,
-		  	patch: action.payload,
-		  }
-    
-    case CONFIRM_EMAIL:
-      return {
-        ...state,
-        emailConfirmed: action.payload
-      }
 
+		case PATCH_USER:
+			return {
+				...state,
+				patch: action.payload,
+			}
+
+		case CONFIRM_EMAIL:
+			return {
+				...state,
+				emailConfirmed: action.payload
+			}
+
+		case POST_PAY:
+			return{
+				...state,
+				pay: action.payload
+			}
 		default:
 			return state;
 	}
