@@ -27,48 +27,56 @@
   width: 50%;
 }
 .container .notification .notificationBottom {
-  background-image: url('https://i.postimg.cc/pTWC58xR/Gracias-5.png');
+  background-image: url('https://i.postimg.cc/bv8SxC9b/Gracias-11.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
   padding: 0 0 0 0;
   display: flex;
   flex-direction: column;
-  padding-top: 5rem;
-  align-items: center;
+  padding-top: 2rem;
+}
+.container .notification .notificationBottom .right {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  align-self: flex-end;
+  margin-right: 2rem;
 }
 .container .notification .notificationBottom h2 {
-  color: #504F6F;
+  color: #ffffff;
+  padding-bottom: 0.4rem;
 }
 .container .notification .notificationBottom p {
-  color: #66668F;
-  padding: 0.5rem 3rem;
-  text-align: justify;
+  color: #ffffff;
   margin-bottom: 1rem;
+  font-size: smaller;
 }
 .container .notification .notificationBottom p a {
   text-decoration: none;
   color: #4992AB;
-  font-weight: 600;
+  font-weight: 400;
 }
 .container .notification .notificationBottom p a:hover {
   color: #8DBECE;
 }
 .container .notification .notificationBottom p:last-of-type {
-  font-weight: bold;
+  padding-bottom: 1rem;
+  color: #FAC942;
 }
 .container .notification .notificationBottom input {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   height: 2rem;
   border-radius: 0.3rem;
 }
 .container .notification .notificationBottom button {
   height: 3rem;
-  width: 40%;
+  width: 100%;
   border: none;
-  color: #ffffff;
-  background-color: #504F6F;
+  color: #504F6F;
+  background-color: #FAC942;
   border-radius: 0.3rem;
+  font-size: larger;
 }
 .container .notification .notificationBottom button:hover {
   background-color: #4992AB;

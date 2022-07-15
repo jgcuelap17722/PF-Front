@@ -3,16 +3,33 @@ import s from '../../css/PwReset.module.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { pwReset } from '../../redux/actions';
+
 
 export default function PwReset() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const email = 'revisar'
+	const [input, setInput] = useState({email:''})
+	const [error, setError] = useState({email:''})
 
-    function emailType(email){
-		let emailUrl = 'https://www.' + email.split('@')[1] + '/mail';
-		return emailUrl;
+	useEffect(() => {
+
+	}, [])
+	
+
+
+	function handleInput(e){
+		setInput({
+			...input,
+			[e.target.name]: e.target.value
+		})
+
+	}
+	function handleSubmit(e){
+		e.preventDefault(e);
+		dispatch(pwReset(input))
 	}
     return (
 		<main className={s.container}>
@@ -22,9 +39,11 @@ export default function PwReset() {
 				</div>
 				<div className={s.notificationBottom}>
 					<h2>Has olvidado tu contraseña?</h2>				
-					<p>Recuerda que si has creado una cuenta como fundación, el estado se encontrará pendiente hasta ser aprobado el documento que nos has proporcionado.</p>
+					<p>Por favor ingresa tu e-mail para restablecerla</p>
+					<input type="email" name={'email'}placeholder='e-mail' onChange={handleInput} />
+					<button onClick={(e)=>handleSubmit(e)}>Aceptar</button>
 				</div>
-				{/* <button>Aceptar</button> */}
+				
 			</div>
 		</main>
 	)
