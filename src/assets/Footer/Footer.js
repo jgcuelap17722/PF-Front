@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer>
       <div className={s.logoBox}>
-        <Link to={'/'} ><img src={logo} alt="Mascotas_logo" /></Link>
+        <Link to={'/'} ><img src="https://i.postimg.cc/x8y022Hb/adoptame-logo-resplandor.png" alt="Mascotas_logo" /></Link>
       </div>
       <div className={s.linksBox}>
         <div className={s.linksColumn} >
