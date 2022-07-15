@@ -1,10 +1,9 @@
 import s from '../../css/FiltersAmount.module.css'
 import FilterCard from './FilterCard'
-import { useDispatch, useSelector } from 'react-redux/es/exports'
-import { useEffect } from 'react'
+import { useSelector } from 'react-redux/es/exports'
 
 const FiltersAmount = () => {
-  const active = useSelector(state => state.petsReducer.filterActive)
+  const active = useSelector(state => state.petsReducer.filterDisplayed)
 
   return (
     <>

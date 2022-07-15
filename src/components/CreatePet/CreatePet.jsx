@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/CreatePet.module.css';
@@ -13,136 +14,11 @@ export default function CreatePet() {
 	const allColors = InfoApi.map( p => p.colors.primary);
 	const colors = allColors.filter( ( c, index ) => allColors.indexOf(c) === index );
 
-	const [input, setInput] = useState({
-		type: '',
-		breed: '',
-		age: '',
-		petName: '',
-		genre: '',
-		size: '',
-		color: '',
-		hairType: '',
-		vaccines: false,
-		castrated: false,
-		specialCare: false,
-		image: ''
-	})
 
-	const [error, setError] = useState({})
-
-	function validate(input){
-
-		let error = {};
-		let regex = /[\d|\-|¿|'|?|.|,|=|~|¡|+|^|{|}|<|>|!]/i;
-
-		if(!input.type){
-			error.type = 'Selecciona un tipo';
-		}
-
-		if(!input.age){
-			error.age = 'Selecciona una edad';
-		}
-
-		if(!input.breed){
-			error.breed = 'Selecciona una raza'; 
-		}
-
-		if(!input.petName){
-			error.petName = 'El nombre es requerido';
-		}else if(regex.test(input.petName)){
-			error.petName = 'Ingresa sólo caracteres válidos'
-		}
-
-		if(!input.genre){
-			error.genre = 'Selecciona un género';
-		}
-
-		if(!input.size){
-			error.size = 'Selecciona un tamaño';
-		}
-
-		if(!input.color){
-			error.color = 'Selecciona un color';
-		}
-
-		if(!input.hairType){
-			error.hairType = 'Selecciona un tipo de pelo';
-		}
-
-		if(!input.vaccines){
-			error.vaccines = 'Debes seleccionar una opción';
-		}
-
-		if(!input.castrated){
-			error.castrated = 'Debes seleccionar una opción';
-		}
-
-		if(!input.specialCare){
-			error.specialCare = 'Debes seleccionar una opción';
-		}
-
-		let imageExt = input.image && input.image.split('.');
-		imageExt = imageExt && imageExt[imageExt.length - 1];
-
-		if(!input.image){
-			error.image = 'Una imagen de tu mascota es requerida';
-		}else if(imageExt !== 'png' && imageExt !== 'jpeg' && imageExt !== 'jpg' ){
-			error.image = 'Por favor carga una imagen válida. .png | .jpeg | .jpg son permitidos';
-		}
-
-		return error;
-
-	}
-
-	function handleChange(e){
-		e.preventDefault();
-
-		setInput({...input,
-			[e.target.name]: e.target.value
-		})
-
-		setError(validate({
-			...input,
-			[e.target.name]: e.target.value
-		}))
-	}
-
-	function handleSubmit(e){
-		e.preventDefault();
-		if(		error.type || 
-				error.age || 
-				error.petName || 
-				error.genre || 
-				error.size || 
-				error.color || 
-				error.hairType || 
-				error.vaccines ||
-				error.castrated ||
-				error.specialCare || 
-				error.image){
-				alert('Por favor rellene todos los campos para crear una nueva mascota');
-				return;
-		}
-
-		if(		!input.type || 
-				!input.age || 
-				!input.petName || 
-				!input.genre || 
-				!input.size || 
-				!input.color || 
-				!input.hairType || 
-				!input.vaccines ||
-				!input.castrated ||
-				!input.specialCare || 
-				!input.image){
-				alert('Por favor rellene todos los campos para crear una nueva mascota');
-				return;
-		}
-
-		alert('Creando nueva mascota...');
-		return;
-	}
-
+	const { register, handleSubmit, formState: { errors } } = useForm();
+	const onSubmit = data => console.log(data);
+	console.log(errors);
+	
 	return (
 		<div>
 			<NavBar />
@@ -151,71 +27,67 @@ export default function CreatePet() {
 					<div className={s.overflow}></div>
 				</div>
 				<div className={s.right}>
-					<form onSubmit={(e) => handleSubmit(e)}>
-					<h1>Crear Mascota</h1>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="type" id="">
-								<option value="">Tipo</option>
+							<select {...register("type", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Tipo</option>
 								<option value="cat">Gato</option>
-								<option value="dog">Perro</option>
+								<option value="dot">Perro</option>
 							</select>
-							{ error.type && <p className={s.error}>{error.type}</p> }
+							{ errors?.type && <p className={s.error}>{errors.type.message}</p> }
 						</div>
+
 						<div>
-							<select onChange={(e) => handleChange(e)} name="breed" id="">
-								<option value="">Raza</option>
-								{input.type === 'cat' ? catBreeds.map( b => 
-									<option value={b.name}>{b.name}</option> 
-								): null}
-								{input.type === 'dog' ? dogBreeds.map( b => 
-									<option value={b.name}>{b.name}</option> 
-								): null}
+							<select {...register("breed", {required: "error en este input"})}>
+								<option value="" disabled selected hidden>Raza</option>
+									<option value="siamesse">Siamesse</option> 
 							</select>
-							{ error.breed && <p className={s.error}>{error.breed}</p> }
+							{ errors?.breed && <p className={s.error}>{errors.breed.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="age" id="">
-								<option value="">Edad</option>
-								<option value="baby">Baby</option>
-								<option value="young">Young</option>
-								<option value="adult">Adult</option>
-								<option value="senior">Senior</option>
+							<select  {...register("age", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Edad</option>
+								<option value="puppy">Cachorro</option>
+								<option value="young">Joven</option>
+								<option value="adult">Adulto</option>
+								<option value="senior">Mayor</option>
 							</select>
-							{ error.age && <p className={s.error}>{error.age}</p> }
+							{ errors?.age && <p className={s.error}>{errors.age.message}</p> }
 						</div>
 						<div>
-							<input onChange={(e) => handleChange(e)} name="petName" type="text" placeholder="Nombre de tu mascota" />
-							{ error.petName && <p className={s.error}>{error.petName}</p> }
+							<input {...register("petName", { required: "error en este input" })} type="text" placeholder="Nombre de tu mascota" />
+							{ errors?.petName && <p className={s.error}>{errors.petName.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="genre" id="">
-								<option value="">Género</option>
-								<option value="male">Male</option>
-								<option value="female">Female</option>
+							<select {...register("genre", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Género</option>
+								<option value="male">Macho</option>
+								<option value="female">Hembra</option>
 							</select>
-							{ error.genre && <p className={s.error}>{error.genre}</p> }
+							{ errors?.genre && <p className={s.error}>{errors.genre.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="size" id="">
-								<option value="">Tamaño</option>
-								<option value="small">Small</option>
-								<option value="medium">Medium</option>
-								<option value="large">Large</option>
+							<select {...register("size", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Tamaño</option>
+								<option value="small">Pequeño</option>
+								<option value="medium">Mediano</option>
+								<option value="large">Grande</option>
 							</select>
-							{ error.size && <p className={s.error}>{error.size}</p> }
+							{ errors?.size && <p className={s.error}>{errors.size.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="color" id="">
-								<option value="">Color</option>
+							<select {...register("color", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Color</option>
+									<option value="black">Negro</option>
 								{colors && colors.map( c => 
 									<option value={c}>{c}</option>
 								)}
 							</select>
-							{ error.color && <p className={s.error}>{error.color}</p> }
+							{ errors?.color && <p className={s.error}>{errors.color.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="hairType" id="">
-								<option value="">Tipo de Pelo</option>
+							<select {...register("hairType", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Tipo de Pelo</option>
 								<option value="hairless">Sin Pelo</option>
 								<option value="short">Corto</option>
 								<option value="medium">Medio</option>
@@ -223,36 +95,33 @@ export default function CreatePet() {
 								<option value="wire">Alambre</option>
 								<option value="curly">Crespo</option>
 							</select>
-							{ error.hairType && <p className={s.error}>{error.hairType}</p> }
+							{ errors?.hairType && <p className={s.error}>{errors.hairType.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="vaccines" id="">
-								<option value="">Vacunas</option>
+							<select {...register("vaccines", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Vacunas</option>
 								<option value="true">Si</option>
 								<option value="false">No</option>
 							</select>
-							{ error.vaccines && <p className={s.error}>{error.vaccines}</p> }
+							{ errors?.vaccines && <p className={s.error}>{errors.vaccines.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="castrated" id="">
-								<option value="">Castrado</option>
+							<select {...register("castrated", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Castrado</option>
 								<option value="true">Si</option>
 								<option value="false">No</option>
 							</select>
-							{ error.castrated && <p className={s.error}>{error.castrated}</p> }
+							{ errors?.castrated && <p className={s.error}>{errors.castrated.message}</p> }
 						</div>
 						<div>
-							<select onChange={(e) => handleChange(e)} name="specialCare" id="">
-								<option value="">Cuidados Especiales</option>
+							<select {...register("specialCares", { required: "error en este input" })}>
+								<option value="" disabled selected hidden>Cuidados Especiales</option>
 								<option value="true">Si</option>
 								<option value="false">No</option>
 							</select>
-							{ error.specialCare && <p className={s.error}>{error.specialCare}</p> }
+							{ errors?.specialCares && <p className={s.error}>{errors.specialCares.message}</p> }
 						</div>
-						<div>
-							<input onChange={(e) => handleChange(e)} name="image" type="file" accept="image/png, image/jpeg, image/jpg" />
-							{ error.image && <p className={s.error}>{error.image}</p> }
-						</div>
+						
 						<button type='submit'>Crear Mascota</button>
 					</form>
 				</div>					

@@ -16,7 +16,11 @@ const Card = ({ img, name, location, age, cardType, id = 1 }) => {
     <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : cardType === 'care'? s.cards3 : null} >
       <FavoriteStar id={id} />
       <div onClick={onClickHandler} className={s.cardsImg}>
-        <img src={img} alt={`${name}_img`} />
+        {
+            img
+            ?<img src={img} alt={`${name}_img`} />
+            :<div className={s.cardImgCharging}></div>
+        }
       </div>
       <div onClick={onClickHandler} className={s.textContainer}>
         <p>{name}</p>
