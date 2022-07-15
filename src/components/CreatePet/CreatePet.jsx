@@ -29,61 +29,61 @@ export default function CreatePet() {
 				<div className={s.right}>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div>
-							<select {...register("Type", { required: "error en este input" })}>
+							<select {...register("type", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Tipo</option>
 								<option value="cat">Gato</option>
 								<option value="dot">Perro</option>
 							</select>
-							{ errors?.Type && <p className={s.error}>{errors.Type.message}</p> }
+							{ errors?.type && <p className={s.error}>{errors.type.message}</p> }
 						</div>
 
 						<div>
-							<select {...register("Breed", {required: "error en este input"})}>
+							<select {...register("breed", {required: "error en este input"})}>
 								<option value="" disabled selected hidden>Raza</option>
 									<option value="siamesse">Siamesse</option> 
 							</select>
-							{ errors?.Breed && <p className={s.error}>{errors.Breed.message}</p> }
+							{ errors?.breed && <p className={s.error}>{errors.breed.message}</p> }
 						</div>
 						<div>
-							<select  {...register("Age", { required: "error en este input" })}>
+							<select  {...register("age", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Edad</option>
 								<option value="puppy">Cachorro</option>
 								<option value="young">Joven</option>
 								<option value="adult">Adulto</option>
 								<option value="senior">Mayor</option>
 							</select>
-							{ errors?.Age && <p className={s.error}>{errors.Age.message}</p> }
+							{ errors?.age && <p className={s.error}>{errors.age.message}</p> }
 						</div>
 						<div>
 							<input {...register("petName", { required: "error en este input" })} type="text" placeholder="Nombre de tu mascota" />
 							{ errors?.petName && <p className={s.error}>{errors.petName.message}</p> }
 						</div>
 						<div>
-							<select {...register("Genre", { required: "error en este input" })}>
+							<select {...register("genre", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Género</option>
 								<option value="male">Macho</option>
 								<option value="female">Hembra</option>
 							</select>
-							{ errors?.Genre && <p className={s.error}>{errors.Genre.message}</p> }
+							{ errors?.genre && <p className={s.error}>{errors.genre.message}</p> }
 						</div>
 						<div>
-							<select {...register("Size", { required: "error en este input" })}>
+							<select {...register("size", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Tamaño</option>
 								<option value="small">Pequeño</option>
 								<option value="medium">Mediano</option>
 								<option value="large">Grande</option>
 							</select>
-							{ errors?.Size && <p className={s.error}>{errors.Size.message}</p> }
+							{ errors?.size && <p className={s.error}>{errors.size.message}</p> }
 						</div>
 						<div>
-							<select {...register("Color", { required: "error en este input" })}>
+							<select {...register("color", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Color</option>
 									<option value="black">Negro</option>
 								{colors && colors.map( c => 
 									<option value={c}>{c}</option>
 								)}
 							</select>
-							{ errors?.Color && <p className={s.error}>{errors.Color.message}</p> }
+							{ errors?.color && <p className={s.error}>{errors.color.message}</p> }
 						</div>
 						<div>
 							<select {...register("hairType", { required: "error en este input" })}>
@@ -98,20 +98,20 @@ export default function CreatePet() {
 							{ errors?.hairType && <p className={s.error}>{errors.hairType.message}</p> }
 						</div>
 						<div>
-							<select {...register("Vaccines", { required: "error en este input" })}>
+							<select {...register("vaccines", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Vacunas</option>
 								<option value="true">Si</option>
 								<option value="false">No</option>
 							</select>
-							{ errors?.Vaccines && <p className={s.error}>{errors.Vaccines.message}</p> }
+							{ errors?.vaccines && <p className={s.error}>{errors.vaccines.message}</p> }
 						</div>
 						<div>
-							<select {...register("Castrated", { required: "error en este input" })}>
+							<select {...register("castrated", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Castrado</option>
 								<option value="true">Si</option>
 								<option value="false">No</option>
 							</select>
-							{ errors?.Castrated && <p className={s.error}>{errors.Castrated.message}</p> }
+							{ errors?.castrated && <p className={s.error}>{errors.castrated.message}</p> }
 						</div>
 						<div>
 							<select {...register("specialCares", { required: "error en este input" })}>
