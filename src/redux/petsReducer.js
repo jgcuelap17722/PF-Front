@@ -26,7 +26,8 @@ const initialState = {
 	petDetail: {},
 	petsAvailables: [],
 	petsFiltered: [],
-	filterActive: []
+	filterActive: [],
+	filterDisplayed: []
 };
 
 export default function petsReducer(state = initialState, action) {
@@ -47,35 +48,40 @@ export default function petsReducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === "Raza" ? state.petsAvailables.filter(e => e.breeds.primary === action.payload) : state.petsFiltered.filter(e => e.breeds.primary === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Raza').length < 1 ? [...state.filterActive, 'Raza'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Raza').length < 1 ? [...state.filterActive, 'Raza'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]				
 			}
 
 		case AGE_FILTER:
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === 'Edad' ? state.petsAvailables.filter(e => e.age === action.payload) : state.petsFiltered.filter(e => e.age === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Edad').length < 1 ? [...state.filterActive, 'Edad'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Edad').length < 1 ? [...state.filterActive, 'Edad'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 
 		case SIZE_FILTER:
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === 'Tamaño' ? state.petsAvailables.filter(e => e.size === action.payload) : state.petsFiltered.filter(e => e.size === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Tamaño').length < 1 ? [...state.filterActive, 'Tamaño'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Tamaño').length < 1 ? [...state.filterActive, 'Tamaño'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 
 		case GENRE_FILTER:
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === "Sexo" ? state.petsAvailables.filter(e => e.gender === action.payload) : state.petsFiltered.filter(e => e.gender === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Sexo').length < 1 ? [...state.filterActive, 'Sexo'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Sexo').length < 1 ? [...state.filterActive, 'Sexo'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 
 		case ENVIRONMENT_FILTER:
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === 'Afinidad con' ? state.petsAvailables.filter(e => e.environment[`${action.payload}`] === true) : state.petsFiltered.filter(e => e.environment[`${action.payload}`] === true),
-				filterActive: state.filterActive.filter(e => e === 'Afinidad Con').length < 1 ? [...state.filterActive, 'Afinidad Con'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Afinidad Con').length < 1 ? [...state.filterActive, 'Afinidad Con'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 
 			}
 
@@ -83,21 +89,24 @@ export default function petsReducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === "Pelaje" ? state.petsAvailables.filter(e => e.coat === action.payload) : state.petsFiltered.filter(e => e.coat === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Pelaje').length < 1 ? [...state.filterActive, 'Pelaje'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Pelaje').length < 1 ? [...state.filterActive, 'Pelaje'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 
 		case COLOR_FILTER:
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === "Color" ? state.petsAvailables.filter(e => e.colors.primary === action.payload) : state.petsFiltered.filter(e => e.colors.primary === action.payload),
-				filterActive: state.filterActive.filter(e => e === 'Color').length < 1 ? [...state.filterActive, 'Color'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Color').length < 1 ? [...state.filterActive, 'Color'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 
 		case ATTRIBUTES_FILTER:
 			return {
 				...state,
 				petsFiltered: state.filterActive[0] === "Cuidado y Comportamiento" ? state.petsAvailables.filter(e => e.attributes[`${action.payload}`] === true) : state.petsFiltered.filter(e => e.attributes[`${action.payload}`] === true),
-				filterActive: state.filterActive.filter(e => e === 'Cuidado y Comportamiento').length < 1 ? [...state.filterActive, 'Cuidado y Comportamiento'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Cuidado y Comportamiento').length < 1 ? [...state.filterActive, 'Cuidado y Comportamiento'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 
 		case DAYS_FILTER:
@@ -120,7 +129,8 @@ export default function petsReducer(state = initialState, action) {
 						return b.published_at - a.published_at
 					}
 				}),
-				filterActive: state.filterActive.filter(e => e === 'Tiempo en Adopción').length < 1 ? [...state.filterActive, 'Tiempo en Adopción'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Tiempo en Adopción').length < 1 ? [...state.filterActive, 'Tiempo en Adopción'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 		
 			
@@ -132,7 +142,8 @@ export default function petsReducer(state = initialState, action) {
 			return{
 				...state,
 				petsFiltered: petsIteratedByShelter.filter(e => e.organization_id === shelterId.id),
-				filterActive: state.filterActive.filter(e => e === 'Refugios').length < 1 ? [...state.filterActive, 'Refugios'] : state.filterActive
+				filterActive: state.filterActive.filter(e => e === 'Refugios').length < 1 ? [...state.filterActive, 'Refugios'] : state.filterActive,
+				filterDisplayed: [...state.filterDisplayed, action.payload]
 			}
 
 
@@ -155,7 +166,8 @@ export default function petsReducer(state = initialState, action) {
 			return {
 				...state,
 				petsFiltered: state.petsAvailables,
-				filterActive: []
+				filterActive: [],
+				filterDisplayed: []
 			}
 
 		case RESET_PET_DETAIL:

@@ -36,7 +36,8 @@ const FilterOption = ({ type, options, SetFiltersAmount, filtersAmount }) => {
         e.target.value.length && dispatch(genreFilter(e.target.value))
         break
       case 'Afinidad con':
-        const environment = e.target.value === 'Kids' ? 'children' : e.target.value === 'Other dogs' ? 'dogs' : 'cats'
+        console.log('afinidad', e.target.value);
+        const environment = e.target.value === 'Kids' ? 'children' : e.target.value === 'Dogs' ? 'dogs' : 'cats'
         e.target.value.length && dispatch(environmentFilter(environment))
         break
       case 'Pelaje':
