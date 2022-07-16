@@ -19,8 +19,6 @@ const initialState = {
 	userLogged: {},
 	countries: [],
 	citiesByCountry: [],
-	patch: {},
-	emailConfirmed: {},
 	pay: [],
 	patch:{},
 	emailConfirmed: {},
