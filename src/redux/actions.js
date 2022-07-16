@@ -9,10 +9,12 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const PATCH_USER = 'PATCH_USER';
 export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
+export const POST_PAY = 'POST_PAY';
 export const PW_RESET = 'PW_RESET';
 export const PW_CHANGE = 'PW_CHANGE';
 export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
 const { REACT_APP_BACKEND_URL } = process.env;
+
 
 
 export function getUserInfo(id, token) {
@@ -171,6 +173,23 @@ export function pwChange(obj, tak){
             .then(response => response.json())
             .then(data => {
                 dispatch({ type: PW_CHANGE, payload: data})
+            })
+    }
+}
+
+export function postPay(obj){
+    const url = `https://api-rest-adoptame.up.railway.app/api/v1.0/donations/urlPreferential`;
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'Application/json'},
+        body: JSON.stringify(obj),
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: POST_PAY, payload: data })
             })
     }
 }
