@@ -5,6 +5,79 @@
   align-items: center;
 }
 .content .component {
-  padding-top: 3rem;
-  background-color: aqua;
+  margin-top: 3rem;
+  padding-top: 4rem;
+  width: 60%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2rem -1rem;
+}
+.content .component h2 {
+  color: #504F6F;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1.8rem;
+}
+.content .component h3 {
+  color: #FAB942;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  margin-left: 2.5rem;
+}
+.content .component .donation {
+  display: flex;
+  height: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+.content .component .donation p {
+  margin-right: 1rem;
+  padding-left: 3rem;
+  color: #454B54;
+  font-size: 1.5rem;
+}
+.content .component .donation input {
+  width: 10rem;
+  height: 2rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  font-family: 'Inter';
+  color: #A1A8B1;
+}
+.content .component .donation input::-webkit-outer-spin-button,
+.content .component .donation input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.content .component .donation input[type=number] {
+  -moz-appearance: textfield;
+}
+.content .component .donation button {
+  width: 8rem;
+  height: 2rem;
+  background-color: #504F6F;
+  border: none;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+.content .component .donation button:hover {
+  background-color: #FAC942;
+  color: #504F6F;
+}
+.content .back {
+  margin-top: 2rem;
+  border: none;
+  color: #504F6F;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+.content .back:hover {
+  border-bottom: 3px solid #FAC942;
+  color: #504F6F;
 }
