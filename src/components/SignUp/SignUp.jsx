@@ -20,7 +20,7 @@ export default function SignUp() {
 			watch, 
 			setError, 
 			clearErrors } = useForm();
-			
+
 	const role = watch("role");
 	const email = watch("email");
 	const selectCountry = watch("countryId");
@@ -72,7 +72,7 @@ export default function SignUp() {
 			return;
 		}
 
-	}, [selectCountry, watchPass, confirmPass])
+	}, [selectCountry, watchPass, confirmPass, newUser])
 	
 	function showPassword(e){
 		e.preventDefault(e);
