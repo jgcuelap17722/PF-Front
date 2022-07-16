@@ -7,14 +7,14 @@ export const InfoApi = [
 		"species": "Cat",
 		"breeds": {
 			"primary": "Domestic Short Hair",
-			"secondary": null,
-			"mixed": false,
-			"unknown": false
+			// "secondary": null,
+			// "mixed": false,
+			// "unknown": false
 		},
 		"colors": {
 			"primary": "Black u0026 White / Tuxedo",
-			"secondary": null,
-			"tertiary": null
+			// "secondary": null,
+			// "tertiary": null
 		},
 		"age": "Young",
 		"gender": "Male",
@@ -32,10 +32,10 @@ export const InfoApi = [
 			"dogs": null,
 			"cats": null
 		},
-		"tags": ["Friendly", "Affectionate", "Protective", "Smart", "Funny", "Quiet"],
+		// "tags": ["Friendly", "Affectionate", "Protective", "Smart", "Funny", "Quiet"],
 		"name": "Dinero",
 		"description": "This handsome boy name is Dinero. He was a surrender to the shelter, due to too many cats in the...",
-		"organization_animal_id": null,
+		// "organization_animal_id": null,
 		"photos": [{
 			"small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56100778/1/?bust=1656433703u0026width=100",
 			"medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56100778/1/?bust=1656433703u0026width=300",
@@ -68,7 +68,7 @@ export const InfoApi = [
 			"large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56100778/1/?bust=1656433703u0026width=600",
 			"full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/56100778/1/?bust=1656433703"
 		},
-		"videos": [],
+		// "videos": [],
 		"status": "adoptable",
 		"status_changed_at": "2022-06-28T16:28:48+0000",
 		"published_at": "2022-06-28T16:28:48+0000",

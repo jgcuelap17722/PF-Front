@@ -1,4 +1,5 @@
 import { organizations } from '../constants/organizations/organizations'
+import { favPetsMock } from '../assets/dataMockups/favPetsMock'
 
 import {
 	RESET_PET_DETAIL,
@@ -18,6 +19,9 @@ import {
 	SHELTER_FILTER,
 	CITY_FILTER,
 	RESET_SEARCH,
+	GET_FAV_PETS,
+	POST_FAV_PET,
+	DELETE_FAV_PET,
 } from './petsActions';
 
 
@@ -27,11 +31,15 @@ const initialState = {
 	petsAvailables: [],
 	petsFiltered: [],
 	filterActive: [],
-	filterDisplayed: []
+	filterDisplayed: [],
+	petsFavs: [...favPetsMock]
 };
 
 export default function petsReducer(state = initialState, action) {
 	switch (action.type) {
+
+		//GETS - POST - DELETE
+
 		case GET_ALL_PETS:
 			return {
 				...state,
@@ -42,7 +50,22 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				petDetail: action.payload,
 			}
-
+		case GET_FAV_PETS:
+			return{
+				...state,
+				petsFavs: action.payload
+			}
+		case POST_FAV_PET:
+			return{
+				...state,
+				petsFavs: [...state.petsFavs, action.payload]
+			}
+		case DELETE_FAV_PET:
+			return{
+				...state,
+				petsFavs: state.petsFavs.filter(e=> e.id !== action.payload)
+			}
+		
 		// SEARCHER FILTERS
 		case BREED_FILTER:
 			return {
@@ -82,7 +105,6 @@ export default function petsReducer(state = initialState, action) {
 				petsFiltered: state.filterActive[0] === 'Afinidad con' ? state.petsAvailables.filter(e => e.environment[`${action.payload}`] === true) : state.petsFiltered.filter(e => e.environment[`${action.payload}`] === true),
 				filterActive: state.filterActive.filter(e => e === 'Afinidad Con').length < 1 ? [...state.filterActive, 'Afinidad Con'] : state.filterActive,
 				filterDisplayed: [...state.filterDisplayed, action.payload]
-
 			}
 
 		case COAT_FILTER:

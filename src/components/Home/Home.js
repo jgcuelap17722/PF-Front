@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import HeroHome from './HeroHome'
-import NavBar from '../../assets/NavBar/NavBar'
+// import NavBar from '../../assets/NavBar/NavBar'
+import NavBarFavs from './NavBarFavs'
 import RelatedCase from './RelatedCase'
 import ArticlesCase from './ArticlesCase'
 import s from '../../css/Home.module.css'
@@ -20,7 +21,8 @@ const Home = () => {
 
   return (
     <main className={s.homeBox}>
-      <NavBar />
+      {/* <NavBar /> */}
+      <NavBarFavs />
       <HeroHome />
       <RelatedCase />
       <ArticlesCase />

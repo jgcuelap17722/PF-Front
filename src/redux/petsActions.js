@@ -18,8 +18,9 @@ export const TYPE_FILTER = 'TYPE_FILTER'
 export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
-
-
+export const GET_FAV_PETS = 'GET_FAV_PETS'
+export const POST_FAV_PET = 'POST_FAV_PET'
+export const DELETE_FAV_PET = 'DELETE_FAV_PET'
 
 export function getAllPets() {
   return async function (dispatch) {
@@ -41,6 +42,27 @@ export function getDetail(id) {
           payload: filter
 
       })
+  }
+}
+
+export const getPetFavs =()=>{
+  return{
+    type: GET_ALL_PETS,
+  }
+}
+
+export const postFavPet =(value)=>{
+  return{
+    type: POST_FAV_PET,
+    payload: value
+  }
+}
+
+export const deletePetFav=(value)=>{
+  console.log('delete', value);
+  return{
+    type: DELETE_FAV_PET,
+    payload: value
   }
 }
 
