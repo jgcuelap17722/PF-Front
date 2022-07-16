@@ -4,3 +4,7 @@
   flex-direction: column;
   align-items: center;
 }
+.content .component {
+  padding-top: 3rem;
+  background-color: aqua;
+}

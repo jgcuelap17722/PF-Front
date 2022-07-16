@@ -65,16 +65,18 @@ export default function Donations() {
             <NavBar />
             {linkPago?.length > 0 ? window.location.replace(`${linkPago}`) :
                 <div className={s.content}>
-
-                    <Link to='/'>
-                        <button>Home</button>
-                    </Link>
-                    <ul>
-                        <h2>fundacion</h2>
-                    </ul>
-                    <input type='number' name="valor" onChange={handleChange}></input>
-                    <button onClick={handleClick}>Pagar</button>
-
+                    <div className={s.component}>
+                        
+                        <ul>
+                            <h2>fundacion</h2>
+                        </ul>
+                        <input type='number' name="valor" onChange={handleChange}></input>
+                        
+                        <Link to='/'>
+                            <button>Home</button>
+                        </Link>
+                        <button onClick={handleClick}>Pagar</button>
+                    </div>
                 </div>
             }
             <Footer />
