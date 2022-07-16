@@ -9,10 +9,16 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const PATCH_USER = 'PATCH_USER';
 export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
+export const POST_PAY = 'POST_PAY';
+export const PW_RESET = 'PW_RESET';
+export const PW_CHANGE = 'PW_CHANGE';
+export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
+const { REACT_APP_BACKEND_URL } = process.env;
+
 
 
 export function getUserInfo(id, token) {
-    const url = `https://api-rest-adoptame.herokuapp.com/api/v1.0/user/${id}`
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/user/${id}`
     const options = {
         method: 'GET',
         headers: { 'authorization': token },
@@ -28,7 +34,7 @@ export function getUserInfo(id, token) {
 }
 
 export function getCountries() {
-    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/countries';
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/countries`;
     return async function (dispatch) {
         return await fetch(url)
         .then(response => response.json())
@@ -39,7 +45,7 @@ export function getCountries() {
 }
 
 export function getCitiesByCountry(id) {
-    const url = `https://restapi-adoptame.up.railway.app/api/v1.0/cities/${id}`;
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/cities/${id}`;
     return async function (dispatch) {
         return await fetch(url)
         .then(response => response.json())
@@ -52,7 +58,7 @@ export function getCitiesByCountry(id) {
 }
 
 export function createNewUser(obj) {
-    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/user';
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/user`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -73,7 +79,7 @@ export function resetNewUser() {
 
 
 export function loginUser(obj) {
-    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/auth/userLogin';
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/auth/userLogin`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -93,13 +99,13 @@ export function resetUserLogged() {
 }
 
 export function patchUser(id, obj, token){
-    const url = `https://restapi-adoptame.up.railway.app/api/v1.0/user/${id}`;
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/user/${id}`;
     // console.log(JSON.stringify(obj))
     // console.log(url)
     // console.log(token)
     const options = {
         method: 'PATCH',
-        headers: { 'authorization': token,  'Content-Type': 'Application/json'  },
+        headers: { 'authorization': token,  'Content-Type': 'Application/json' },
         body: JSON.stringify(obj),
     }
     return async function (dispatch) {
@@ -114,7 +120,7 @@ export function patchUser(id, obj, token){
 }
 
 export function sendEmailConfirm(obj){
-    const url = 'https://restapi-adoptame.up.railway.app/api/v1.0/verify';
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -125,6 +131,65 @@ export function sendEmailConfirm(obj){
             .then(response => response.json())
             .then(data => {
                 dispatch({ type: CONFIRM_EMAIL, payload: data})
+            })
+    }
+}
+
+export function emailConfirmed(tok){
+	const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/tk/${tok}`;
+	return async function (dispatch) {
+		return await fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				dispatch({ type: EMAIL_CONFIRMED, payload: data})
+			})
+	}
+}
+
+export function pwReset(obj){
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/recpass`;
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: PW_RESET, payload: data})
+            })
+    }
+}
+export function pwChange(obj, tak){
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/modpass/${tak}`;
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: PW_CHANGE, payload: data})
+            })
+    }
+}
+
+export function postPay(obj){
+    const url = `https://api-rest-adoptame.up.railway.app/api/v1.0/donations/urlPreferential`;
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'Application/json'},
+        body: JSON.stringify(obj),
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: POST_PAY, payload: data })
             })
     }
 }

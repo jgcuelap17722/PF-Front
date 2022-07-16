@@ -4,12 +4,10 @@ export const user =[
       "name": "Matias",
       "lastName": "Logotetti",
       "email": "matitl@hotmail.com",
-      "role": "foundation",
+      "role": "user",
       "active": true,
-      "donaciones": 0,
       "address": "mi house 123",
       "phone": "2392562725",
-      "document": 123456789,
       "countryId": "ARG",
       "cityId":1,
     },]

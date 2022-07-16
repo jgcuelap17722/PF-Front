@@ -1,10 +1,21 @@
-import React from 'react';
+import { useEffect } from 'react';
 import s from '../../css/EmailConfirmed.module.css';
 import { useNavigate } from 'react-router';
+import { useParams } from 'react-router-dom';
+import { emailConfirmed } from '../../redux/actions.js';
+import { useDispatch } from 'react-redux';
 
 export default function EmailConfirmed() {
 
 	const navigate = useNavigate();
+	const { token } = useParams();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if(token){
+			dispatch(emailConfirmed(token));
+		}
+	}, [dispatch]);
 
 	function handleAccept(){
 		navigate('/login');
