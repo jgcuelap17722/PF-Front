@@ -1,16 +1,14 @@
 import React from 'react'
 import s from '../../css/PwResetConfirm.module.css';
-import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import {useForm} from 'react-hook-form'
 import { pwChange } from '../../redux/actions';
-import { useRef } from 'react';
+
 
 export default function PwResetConfirm() {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 	const { token } = useParams()
 	const msg = useSelector(state => state.reducer.pwReset)
 	const confirm = useSelector(state => state.reducer.pwChange)
