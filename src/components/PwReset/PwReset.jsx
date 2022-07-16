@@ -13,10 +13,8 @@ export default function PwReset() {
     const navigate = useNavigate();
 	const [input, setInput] = useState({email:''})
 	const [error, setError] = useState({email:''})
+	const msg = useSelector(state => state.reducer.pwReset)
 
-	useEffect(() => {
-
-	}, [])
 	
 
 
@@ -40,7 +38,8 @@ export default function PwReset() {
 				<div className={s.notificationBottom}>
 					<h2>Has olvidado tu contraseña?</h2>				
 					<p>Por favor ingresa tu e-mail para restablecerla</p>
-					<input type="email" name={'email'}placeholder='e-mail' onChange={handleInput} />
+					<input type="email" name={'email'}placeholder='e-mail' onChange={handleInput} autoComplete='off' />
+					{msg.msg? <p className={s.msg}>Te hemos enviado un e-mail para cambiar tu contraseña</p>: null}
 					<button onClick={(e)=>handleSubmit(e)}>Aceptar</button>
 				</div>
 				

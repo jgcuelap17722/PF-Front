@@ -39,13 +39,14 @@
 .container .notification .notificationBottom .right {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 48%;
   align-self: flex-end;
   margin-right: 2rem;
 }
 .container .notification .notificationBottom h2 {
   color: #ffffff;
-  padding-bottom: 0.4rem;
+  padding-bottom: 2rem;
+  font-weight: 500;
 }
 .container .notification .notificationBottom p {
   color: #ffffff;
@@ -64,12 +65,19 @@
   padding-bottom: 1rem;
   color: #FAC942;
 }
-.container .notification .notificationBottom input {
-  margin-bottom: 1rem;
+.container .notification .notificationBottom form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-self: flex-end;
+  margin-right: 2rem;
+}
+.container .notification .notificationBottom form input {
   height: 2rem;
   border-radius: 0.3rem;
 }
-.container .notification .notificationBottom button {
+.container .notification .notificationBottom form button {
+  margin-top: 2.5rem;
   height: 3rem;
   width: 100%;
   border: none;
@@ -78,7 +86,7 @@
   border-radius: 0.3rem;
   font-size: larger;
 }
-.container .notification .notificationBottom button:hover {
+.container .notification .notificationBottom form button:hover {
   background-color: #4992AB;
   color: #DDDDDD;
   cursor: pointer;

@@ -8,7 +8,8 @@ import {
 	RESET_USER_LOGGED,
 	PATCH_USER,
 	CONFIRM_EMAIL,
-	PW_RESET
+	PW_RESET,
+	PW_CHANGE
 } from './actions';
 
 const initialState = {
@@ -19,7 +20,8 @@ const initialState = {
 	citiesByCountry: [],
 	patch:{},
 	emailConfirmed: {},
-	pwReset:{}
+	pwReset:{},
+	pwChange:{}
 };
 
 export default function reducer(state = initialState, action) {
@@ -80,6 +82,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         pwReset: action.payload
+      }
+    case PW_CHANGE:
+      return {
+        ...state,
+        pwChange: action.payload
       }
 
 		default:

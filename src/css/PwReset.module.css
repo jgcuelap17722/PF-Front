@@ -34,7 +34,7 @@
   padding: 0 0 0 0;
   display: flex;
   flex-direction: column;
-  padding-top: 5rem;
+  padding-top: 2rem;
   align-items: center;
 }
 .container .notification .notificationBottom h2 {
@@ -58,9 +58,24 @@
   font-weight: bold;
 }
 .container .notification .notificationBottom input {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  width: 39%;
   height: 2rem;
   border-radius: 0.3rem;
+  outline: none;
+  font-family: 'Inter';
+  color: #4992AB;
+  border: none;
+  border: 1px solid #504F6F;
+}
+.container .notification .notificationBottom .msg {
+  color: "primary";
+  text-shadow: 2px;
+  width: 60%;
+  font-size: 16px;
+  padding: 0;
+  text-align: center;
+  font-style: italic;
 }
 .container .notification .notificationBottom button {
   height: 3rem;
