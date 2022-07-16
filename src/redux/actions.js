@@ -11,11 +11,12 @@ export const PATCH_USER = 'PATCH_USER';
 export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
 export const PW_RESET = 'PW_RESET';
 export const PW_CHANGE = 'PW_CHANGE';
-const { REACT_APP_BACKEND_URL } = process.env;
+export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
+const { REACT_APP_BACKEND_URL_LOCAL } = process.env;
 
 
 export function getUserInfo(id, token) {
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/user/${id}`
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/user/${id}`
     const options = {
         method: 'GET',
         headers: { 'authorization': token },
@@ -31,7 +32,7 @@ export function getUserInfo(id, token) {
 }
 
 export function getCountries() {
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/countries`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/countries`;
     return async function (dispatch) {
         return await fetch(url)
         .then(response => response.json())
@@ -42,7 +43,7 @@ export function getCountries() {
 }
 
 export function getCitiesByCountry(id) {
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/cities/${id}`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/cities/${id}`;
     return async function (dispatch) {
         return await fetch(url)
         .then(response => response.json())
@@ -55,7 +56,7 @@ export function getCitiesByCountry(id) {
 }
 
 export function createNewUser(obj) {
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/user`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/user`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -76,7 +77,7 @@ export function resetNewUser() {
 
 
 export function loginUser(obj) {
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/auth/userLogin`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/auth/userLogin`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -96,7 +97,7 @@ export function resetUserLogged() {
 }
 
 export function patchUser(id, obj, token){
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/user/${id}`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/user/${id}`;
     // console.log(JSON.stringify(obj))
     // console.log(url)
     // console.log(token)
@@ -117,7 +118,7 @@ export function patchUser(id, obj, token){
 }
 
 export function sendEmailConfirm(obj){
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/verify`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -131,8 +132,20 @@ export function sendEmailConfirm(obj){
             })
     }
 }
+
+export function emailConfirmed(tok){
+	const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/verify/tk/${tok}`;
+	return async function (dispatch) {
+		return await fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				dispatch({ type: EMAIL_CONFIRMED, payload: data})
+			})
+	}
+}
+
 export function pwReset(obj){
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/recpass`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/verify/recpass`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json' },
@@ -147,7 +160,7 @@ export function pwReset(obj){
     }
 }
 export function pwChange(obj, tak){
-    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/modpass/${tak}`;
+    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/verify/modpass/${tak}`;
     const options = {
         method: 'PUT',
         headers: { 'Content-Type': 'Application/json' },
