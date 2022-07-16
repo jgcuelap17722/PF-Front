@@ -1,0 +1,93 @@
+.container {
+  border: 0.1rem solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container .notification {
+  width: 48%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-size: 1.2rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 2rem -1rem;
+}
+.container .notification .logo {
+  background-color: #4B4D62;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .notification .logo img {
+  width: 50%;
+}
+.container .notification .notificationBottom {
+  background-image: url('https://i.postimg.cc/bv8SxC9b/Gracias-11.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  padding: 0 0 0 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+.container .notification .notificationBottom .right {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  align-self: flex-end;
+  margin-right: 2rem;
+}
+.container .notification .notificationBottom h2 {
+  color: #ffffff;
+  padding-bottom: 2rem;
+  font-weight: 500;
+}
+.container .notification .notificationBottom p {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: smaller;
+}
+.container .notification .notificationBottom p a {
+  text-decoration: none;
+  color: #4992AB;
+  font-weight: 400;
+}
+.container .notification .notificationBottom p a:hover {
+  color: #8DBECE;
+}
+.container .notification .notificationBottom p:last-of-type {
+  padding-bottom: 1rem;
+  color: #FAC942;
+}
+.container .notification .notificationBottom form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-self: flex-end;
+  margin-right: 2rem;
+}
+.container .notification .notificationBottom form input {
+  height: 2rem;
+  border-radius: 0.3rem;
+}
+.container .notification .notificationBottom form button {
+  margin-top: 2.5rem;
+  height: 3rem;
+  width: 100%;
+  border: none;
+  color: #504F6F;
+  background-color: #FAC942;
+  border-radius: 0.3rem;
+  font-size: larger;
+}
+.container .notification .notificationBottom form button:hover {
+  background-color: #4992AB;
+  color: #DDDDDD;
+  cursor: pointer;
+}

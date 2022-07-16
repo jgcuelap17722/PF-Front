@@ -12,6 +12,9 @@ export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
 export const POST_PAY = 'POST_PAY';
 const { REACT_APP_BACKEND_URL_LOCAL } = process.env;
 
+export const PW_RESET = 'PW_RESET';
+export const PW_CHANGE = 'PW_CHANGE';
+
 
 export function getUserInfo(id, token) {
     const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/user/${id}`
@@ -146,5 +149,34 @@ export function postPay(obj){
                 dispatch({ type: POST_PAY, payload: data })
             })
     }
-
+}
+export function pwReset(obj){
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/recpass`;
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: PW_RESET, payload: data})
+            })
+    }
+}
+export function pwChange(obj, tak){
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/modpass/${tak}`;
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: PW_CHANGE, payload: data})
+            })
+    }
 }
