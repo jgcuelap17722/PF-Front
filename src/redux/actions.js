@@ -9,7 +9,10 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const RESET_USER_LOGGED = 'RESET_USER_LOGGED';
 export const PATCH_USER = 'PATCH_USER';
 export const CONFIRM_EMAIL = 'CONFIRM_EMAIL';
+export const PW_RESET = 'PW_RESET';
+export const PW_CHANGE = 'PW_CHANGE';
 const { REACT_APP_BACKEND_URL } = process.env;
+
 
 export function getUserInfo(id, token) {
     const url = `${REACT_APP_BACKEND_URL}/api/v1.0/user/${id}`
@@ -125,6 +128,36 @@ export function sendEmailConfirm(obj){
             .then(response => response.json())
             .then(data => {
                 dispatch({ type: CONFIRM_EMAIL, payload: data})
+            })
+    }
+}
+export function pwReset(obj){
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/recpass`;
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: PW_RESET, payload: data})
+            })
+    }
+}
+export function pwChange(obj, tak){
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/verify/modpass/${tak}`;
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'Application/json' },
+        body: JSON.stringify(obj)
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: PW_CHANGE, payload: data})
             })
     }
 }

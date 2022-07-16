@@ -12,6 +12,8 @@ import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 import Favorites from './components/Favorites/Favorites.jsx';
+import PwReset from './components/PwReset/PwReset'
+import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='/favorites' element={<Favorites />} />
+        <Route path='/reset' element={<PwReset />} />
+        <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>

@@ -113,7 +113,7 @@ export default function Login() {
                     </div>
                     <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
                     <div className={s.textBox}>
-                        <Link to='/reset-password'>
+                        <Link to='/reset'>
                             <p className={s.forget}>Olvidé mi Contraseña</p>
                         </Link>
                         <p>No estás registrado?</p>

@@ -1,0 +1,110 @@
+@import "variables";
+
+.container{
+	border: .1rem solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+
+	.notification{
+		// border: .1rem solid @lightPrimary;
+		width: 48%;
+		height: 75%;
+		display: flex;
+		flex-direction: column;
+		border-radius: .5rem;	
+		overflow: hidden;
+		font-size: 1.2rem;
+		background-color: @white;
+		box-shadow: 0 0 2rem -1rem;
+		
+
+		.logo{
+			background-color: @darkPrimary;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img{
+				width: 50%;
+			}
+		}
+
+		.notificationBottom{
+
+		background-image: url('https://i.postimg.cc/bv8SxC9b/Gracias-11.png');
+		background-repeat:no-repeat;
+		background-size:cover;
+		height: 100%;
+		padding: 0 0 0 0;
+		display: flex;
+		flex-direction: column;
+		padding-top: 2rem;
+        .right{
+			display: flex;
+			flex-direction: column;
+			width: 48%;
+			align-self: flex-end;
+			margin-right: 2rem;
+		}
+		h2{
+            color: @white;
+			padding-bottom: 2rem;
+			font-weight: 500;
+        }
+			p{
+				color: @white;
+				margin-bottom: 1rem;
+				font-size: smaller;
+				a{	
+					text-decoration: none;
+					color: @third;
+					font-weight: 400;
+
+					&:hover{
+						color: @lightThird;
+					}
+
+				}
+			}
+
+			p:last-of-type{
+				padding-bottom: 1rem;
+				color: @secondary;
+			}
+			form{
+				display: flex;
+				flex-direction: column;
+				width: 90%;
+				align-self: flex-end;
+				margin-right: 2rem;
+				input{
+
+					height: 2rem;
+					border-radius: .3rem;
+				}
+				button{
+					margin-top: 2.5rem;
+					height: 3rem;
+					width: 100%;
+					border: none;
+					color: @primary;
+					background-color: @secondary;
+					border-radius: .3rem;
+					font-size: larger;
+		
+					&:hover{
+						background-color: @third;
+						color: @lightGray;
+						cursor: pointer;
+					}
+			}
+			}
+		}
+
+		
+
+	}
+}
