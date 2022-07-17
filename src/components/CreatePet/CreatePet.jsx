@@ -5,7 +5,7 @@ import Footer from '../../assets/Footer/Footer';
 import s from '../../css/CreatePet.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNewPet, getBreedsByPetType } from '../../redux/petsActions.js';
-import { catColors } from './petColors.js';
+import { catColors, dogColors } from './petColors.js';
 
 export default function CreatePet() {
 
@@ -15,13 +15,13 @@ export default function CreatePet() {
 	const userId = user.user.id;
 	const breeds = useSelector( state => state.petsReducer.breedsByPetType )
 
+
 	const { register,
 			handleSubmit, 
 			formState: { errors }, 
 			watch } = useForm();
 
 	const petType = watch("typeId");
-	console.log(petType);
 
 	const onSubmit = async data => {
 
@@ -65,7 +65,7 @@ export default function CreatePet() {
 		}
 		console.log(data);
 
-		// dispatch(createNewPet(data));
+		dispatch(createNewPet(data, user.token));
 	}
 
 	useEffect(() => {
@@ -148,10 +148,10 @@ export default function CreatePet() {
 						<div>
 							<select {...register("colorId", { required: "Selecciona un color" })}>
 								<option value="" disabled selected hidden>Color</option>
-									<option value="negro">Negro</option>
-									{/*{ petType && petType === 'gato' ? catColors.map( c => 
-										return (<option value={c}>{c}</option>)
-									)}*/}
+									{/*<option value={31}>Negro</option>*/}
+									{ petType && petType === 'gato' ? catColors.map( (c, index) =>
+											<option value={c}>{c}</option>
+									)}
 							</select>
 							{ errors?.colorId && <p className={s.error}>{errors.colorId.message}</p> }
 						</div>
@@ -171,14 +171,14 @@ export default function CreatePet() {
 							<select {...register("health", { required: "error en este input" })}>
 								<option value="" disabled selected hidden>Vacunas</option>
 								<option value="vacunas al dia">Vacunas al día</option>
-								<option value="sin vacunas">Sin vacunas</option>
+								<option value="no vacunado">No vacunado</option>
 							</select>
 							{ errors?.health && <p className={s.error}>{errors.health.message}</p> }
 						</div>
 						<div id="tags">
 							<select multiple {...register("tags")}>
 								<option value="amigable">Amigable</option>
-								<option value="carinoso">Cariñoso</option>
+								<option value="cariñoso">Cariñoso</option>
 							</select>
 						</div>
 						<div>
@@ -234,7 +234,7 @@ export default function CreatePet() {
 							</div>
 						</div>
 						<div>
-      						<input {...register("photos", { required: "Debes cargar al menos una foto de tu mascota" })}
+      						<input {...register("photos")}
       							   type="file"
       							   id="photos"
       							   accept="image/png, image/jpeg, image/jpg"

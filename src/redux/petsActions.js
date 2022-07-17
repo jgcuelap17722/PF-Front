@@ -20,6 +20,7 @@ export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
 export const CREATE_PET = 'CREATE_PET'
 export const BREEDS_BY_PET_TYPE = 'BREEDS_BY_PET_TYPE'
+const { REACT_APP_TEST_BACK_URL } = process.env;
 
 
 
@@ -170,20 +171,22 @@ export function resetPetDetail() {
 
 // ------------- PETS CRUD -------------
 
-export function createNewPet(data){
-  const formData = new FormData();
-  formData.append("file", data.file[0]);
+export function createNewPet(data, token){
+ 
 
-  const url = `http://localhost:5000/api/v1.0/create-pet`;
+  const url = `https://api-rest-adoptame.up.railway.app/api/v1.0/pets`;
   const options = {
     method: 'POST',
-    headers: { 'Content-Type': 'Application/json' },
-    body: JSON.stringify(formData)
+    headers: { 'Content-Type': 'Application/json',
+                'authorization': token 
+            },
+    body: JSON.stringify(data)
   }
   return async function (dispatch) {
     return await fetch(url, options)
       .then(response => response.json())
       .then(data => {
+        // console.log(data);
         return dispatch({type: CREATE_PET, payload: data})
       })
   }
@@ -192,7 +195,7 @@ export function createNewPet(data){
 
 export function getBreedsByPetType(type){
 
-  const url = `https://restapi-adoptame.up.railway.app/api/v1.0/breed-pet/${type}`;
+  const url = `https://api-rest-adoptame.up.railway.app/api/v1.0/breed-pet/${type}`;
 
   return async function(dispatch){
     return await fetch(url)

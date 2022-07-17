@@ -14,3 +14,20 @@ export const catColors = [
 	'Rojo / Castaño / Naranja', 
 	'Sable', 
 	'Tricolor (Marrón, Negro y Blanco)'];
+
+export const dogColors = [
+	'Amarillo / Bronceado / Rubio /', 
+	'Beige', 'Arlequín', 
+	'Atigrado', 
+	'Beige', 
+	'Bicolor', 
+	'Blanco / Crema', 
+	'Golden', 
+	'Gris / Azulado / Plata', 
+	'Marrón / Chocolate', 
+	'Merlé (Azul)', 
+	'Merlé (Rojo)', 
+	'Negro', 
+	'Rojo / Castaño / Naranja', 
+	'Sable', 
+	'Tricolor (Marrón, Negro y Blanco)'];
