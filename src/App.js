@@ -8,7 +8,7 @@ import SignUp from './components/SignUp/SignUp';
 import PetDetail from './components/PetDetail/PetDetail';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import CreatePet from './components/CreatePet/CreatePet';
-import Donations from './components/Donations/Donations.js';
+import Donations from './components/Donations/Donations.jsx';
 import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
@@ -39,8 +39,8 @@ function App() {
         <Route path='/dashboard/mascotas' element={<DashboardUser/>} />
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
-        <Route path='/email-confirm' element={!user || !Object.keys(usuario).length < 1? <EmailConfirm />: <Navigate replace to="/"/>} />
-        <Route path='/favorites' element={<Favs />} />
+        <Route path='/email-confirm' element={<EmailConfirm />} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
