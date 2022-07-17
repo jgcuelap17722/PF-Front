@@ -43,7 +43,7 @@ function App() {
         <Route path='/dashboard/mascotas' element={<DashboardUser/>} />
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
-        <Route path='/email-confirm' element={!user || !Object.keys(usuario).length < 1? <EmailConfirm />: <Navigate replace to="/"/>} />
+        <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='/favorites' element={<Favorites />} />
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />

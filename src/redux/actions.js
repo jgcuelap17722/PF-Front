@@ -178,7 +178,7 @@ export function pwChange(obj, tak){
 }
 
 export function postPay(obj){
-    const url = `https://api-rest-adoptame.up.railway.app/api/v1.0/donations/urlPreferential`;
+    const url = `${REACT_APP_BACKEND_URL}/api/v1.0/donations/urlPreferential`;
     const options = {
         method: 'POST',
         headers: {'Content-Type': 'Application/json'},
