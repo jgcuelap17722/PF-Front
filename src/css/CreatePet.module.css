@@ -5,7 +5,7 @@
 }
 @media (max-width: 1400px) {
   .container {
-    height: 155vh;
+    height: 255vh;
   }
 }
 .container .left {
@@ -20,9 +20,12 @@
 }
 .container .right {
   width: 50%;
+  border: 0.1rem solid red;
 }
 .container .right form {
-  padding: 3rem 7rem 3rem 7rem;
+  padding: 3rem 7rem 0 7rem;
+  border: 0.1rem solid green;
+  height: 100%;
 }
 .container .right form h1 {
   color: #454B54;
@@ -49,15 +52,56 @@
   outline: none;
 }
 .container .right form div input:focus,
-.container .right form div select:focus {
+.container .right form div select:focus,
+.container .right form div textarea {
   color: #4992AB;
   border: 0.1rem solid #4992AB;
+}
+.container .right form div textarea {
+  border: none;
+  width: 93.7%;
+  height: 98%;
+  border-radius: 0.5rem;
+  resize: none;
+  padding: 1rem;
+  border: 0.1rem solid #504F6F;
+  outline: none;
+}
+.container .right form div input[id=file] {
+  color: #000000;
 }
 .container .right form div p {
   padding-top: 0.2rem;
   color: #FAB942;
   font-weight: bold;
   font-size: 0.8rem;
+}
+.container .right form div[id="tags"] select {
+  border: 0.1rem solid #504F6F;
+  height: 3rem;
+}
+.container .right form div[id="attributes"],
+.container .right form div[id="environment"] {
+  border: 0.1rem solid #504F6F;
+  height: auto;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  color: #66668F;
+  font-weight: bold;
+}
+.container .right form div[id="attributes_house_trained"],
+.container .right form div[id="environment_children"] {
+  height: 5.7rem;
+}
+.container .right form div[id="attributes_house_trained"] select,
+.container .right form div[id="environment_children"] select {
+  margin-top: 0.5rem;
+}
+.container .right form div[id="textarea"] {
+  width: 98.8%;
+  height: auto;
+  margin-bottom: 1rem;
 }
 .container .right form button {
   height: 2.6rem;
@@ -69,7 +113,7 @@
   font-weight: 600;
 }
 .container .right form button:hover {
-  background-color: #4B4D62;
-  color: #FAC942;
+  background-color: #4992AB;
+  color: #DDDDDD;
   cursor: pointer;
 }

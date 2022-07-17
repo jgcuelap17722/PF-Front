@@ -18,6 +18,8 @@ export const TYPE_FILTER = 'TYPE_FILTER'
 export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
+export const CREATE_PET = 'CREATE_PET'
+export const BREEDS_BY_PET_TYPE = 'BREEDS_BY_PET_TYPE'
 
 
 
@@ -34,7 +36,7 @@ export function getAllPets() {
 export function getDetail(id) {
   return async function (dispatch) {
       var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-      const filter = pets.data.animals.filter(el => el.id == id)
+      const filter = pets.data.animals.filter(el => el.id === Number(id))
       return dispatch({
 
           type: 'GET_DETAIL',
@@ -164,4 +166,41 @@ export const resetPetOrder = (orderType) => {
 
 export function resetPetDetail() {
   return { type: RESET_PET_DETAIL, payload: {} }
+}
+
+// ------------- PETS CRUD -------------
+
+export function createNewPet(data){
+  const formData = new FormData();
+  formData.append("file", data.file[0]);
+
+  const url = `http://localhost:5000/api/v1.0/create-pet`;
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'Application/json' },
+    body: JSON.stringify(formData)
+  }
+  return async function (dispatch) {
+    return await fetch(url, options)
+      .then(response => response.json())
+      .then(data => {
+        return dispatch({type: CREATE_PET, payload: data})
+      })
+  }
+
+}
+
+export function getBreedsByPetType(type){
+
+  const url = `https://restapi-adoptame.up.railway.app/api/v1.0/breed-pet/${type}`;
+
+  return async function(dispatch){
+    return await fetch(url)
+      .then( response => response.json() )
+      .then( data => {
+        return dispatch({type: BREEDS_BY_PET_TYPE, payload: data})
+      })
+
+  }
+
 }
