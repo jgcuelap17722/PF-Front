@@ -13,6 +13,7 @@ export default function SignUp() {
 	const cities = useSelector( state => state.reducer.citiesByCountry );
 	const newUser = useSelector( state => state.reducer.newUser)
 	const navigate = useNavigate();
+	console.log(cities);
 
 	const { register,
 			handleSubmit, 
@@ -124,9 +125,9 @@ export default function SignUp() {
 						<div>
 							<select {...register("cityId", { required: "Por favor selecciona una ciudad" })}>
 								<option value="" disabled selected hidden>Ciudad</option>
-								{cities && cities.map( c => {
+								{/*{cities && cities.map( c => {
 									return <option value={c.id}>{c.name}</option>
-								})}
+								})}*/}
 							</select>
 							{ errors?.cityId && <p>{errors.cityId.message}</p> }
 						</div>
