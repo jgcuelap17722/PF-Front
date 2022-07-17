@@ -84,12 +84,6 @@ export const deletePetFav = ({userId, petId}) => { //QUERY
   };
 }
 
-export const isFavorite= ()=>{
-  return{
-    type: IS_FAVORITE
-  }
-}
-
 // SEARCHER FILTERS ------------------------------
 
 export const breedFilter = (value) => {
