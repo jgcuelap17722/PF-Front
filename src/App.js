@@ -12,12 +12,11 @@ import Donations from './components/Donations/Donations.jsx';
 import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
-import Favorites from './components/Favorites/Favorites.jsx';
 import DashboardUser from './components/Dashboard/DashboardUser.jsx';
 import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx'
 import PwReset from './components/PwReset/PwReset'
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
-
+import Favs from './components/Favs/Favs'
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
@@ -30,15 +29,12 @@ function App() {
         {/* <Route path='/about-us' element={<AboutUs />} /> */}
         <Route path='/register' element={<SignUp />} />
         <Route path='/login' element={<Login  />} />
-        {/* SEARCHER: SOLO FUNCIONA CON 2 PETTYPE Dog Y Cat */}
         <Route path='/searcher/:petType' element={<Searcher />}/>
         <Route path='/searcher/:type/:item' element={<Searcher />}/>
         <Route path='/sponsor' element={<Donations />}/>
         <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
-        {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={user || Object.keys(usuario).length > 0? <CreatePet />: <Navigate replace to="/login"/>} /> 
-        {/* <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} /> */}
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/dashboard/mascotas' element={<DashboardUser/>} />
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />

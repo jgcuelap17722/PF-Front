@@ -1,0 +1,48 @@
+nav {
+  background-color: #3C3B53;
+  color: #ffffff;
+  width: 100%;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}
+nav a:hover {
+  color: #DDDDDD;
+  cursor: pointer;
+}
+nav .navTop {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6rem;
+}
+nav .navTop .logo {
+  position: relative;
+  height: 6rem;
+  bottom: -0.8rem;
+}
+nav .navTop .registerLogin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20rem;
+  font-size: 1.2rem;
+}
+nav .navTop .registerLogin .favorites {
+  height: 2.2rem;
+}
+nav .navTop .registerLogin .favorites:hover {
+  cursor: pointer;
+  fill: #FAB942;
+}
+nav .navBottom {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(180deg, #3C3B53, #363A40);
+  padding-bottom: 0.5rem;
+}
+nav .navBottom .links {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}

@@ -9,6 +9,7 @@ import Card from '../../assets/Card/Card'
 import { getAllPets, typeFilter, resetSearch } from '../../redux/petsActions'
 
 import s from '../../css/Search.module.css'
+import Spinner from '../../assets/Spinner/Spinner'
 
 
 const SearchCase = ({ petType, type }) => {
@@ -23,7 +24,7 @@ const SearchCase = ({ petType, type }) => {
   const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet)
 
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     return () => {
       dispatch(resetSearch())
@@ -43,18 +44,20 @@ const SearchCase = ({ petType, type }) => {
         <FiltersAmount />
         <div className={s.cardsBox}>
           {
-            currentPets && currentPets.map((e, index) => {
-              return (
-                <Card
-                  key={`${e.name}${index}`}
-                  id = {e.id}
-                  img={e.photos[0].small}
-                  name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
-                  age={e.age}
-                  cardType='search' />
-              )
-            })
+            currentPets
+              ? currentPets.map((e, index) => {
+                return (
+                  <Card
+                    key={`${e.name}${index}`}
+                    id={e.id}
+                    img={e.photos[0].option_1}
+                    name={e.name}
+                    location={`${e.contact.address.city}, ${e.contact.address.country}`}
+                    age={e.age}
+                    cardType='search' />
+                )
+              })
+              : <Spinner />
           }
         </div>
 

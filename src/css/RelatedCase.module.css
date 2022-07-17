@@ -14,7 +14,7 @@ section .relatedBox {
   gap: 15px;
 }
 section .proximityTitle {
-  margin-top: 45px;
+  margin-top: 20px;
   margin-bottom: 35px;
   font-family: 'Inter';
   font-style: normal;
@@ -24,7 +24,7 @@ section .proximityTitle {
   color: #504F6F;
 }
 section .viewedTitle {
-  margin-top: 80px;
+  margin-top: 40px;
   margin-bottom: 35px;
   font-family: 'Inter';
   font-style: normal;

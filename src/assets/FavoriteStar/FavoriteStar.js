@@ -1,19 +1,23 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux/es/exports'
+import { postFavPet, deletePetFav } from '../../redux/petsActions'
 import favStarAvoid from '../../assets/icons/favstar-avoid.svg'
 import favStarFilled from '../../assets/icons/favstar-filled.svg'
 import s from '../../css/FavoriteStar.module.css'
 
-const FavoriteStar = ({ id }) => {
+
+const FavoriteStar = ({petId, userId = 1}) => {
 
   const [display, setDisplay] = useState(false)
+  const dispatch = useDispatch()
 
   const clickHandler = (e)=>{
     if(display){
       setDisplay(false)
-      //Action Delete
+      dispatch(deletePetFav({userId, petId}))
     }else {
       setDisplay(true)
-      //Action Delete
+      dispatch(postFavPet({userId, petId}))
     }
   }
 

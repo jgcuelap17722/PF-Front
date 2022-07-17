@@ -27,26 +27,27 @@ const FilterOption = ({ type, options, SetFiltersAmount, filtersAmount }) => {
         e.target.value.length && dispatch(breedFilter(e.target.value))
         break;
       case 'Edad':
-        e.target.value.length && dispatch(ageFilter(e.target.value.toLowerCase()))
+        e.target.value.length && dispatch(ageFilter(e.target.value))
         break
       case 'Tamaño':
-        e.target.value.length && dispatch(sizeFilter(e.target.value.split(' ')[0].toLowerCase()))
+        e.target.value.length && dispatch(sizeFilter(e.target.value.split(' ')[0]))
         break
       case 'Sexo':
-        e.target.value.length && dispatch(genreFilter(e.target.value.toLowerCase()))
+        e.target.value.length && dispatch(genreFilter(e.target.value))
         break
       case 'Afinidad con':
-        const environment = e.target.value === 'Niños' ? 'children' : e.target.value === 'Perros' ? 'dogs' : 'cats'
+        console.log('afinidad', e.target.value);
+        const environment = e.target.value === 'Kids' ? 'children' : e.target.value === 'Dogs' ? 'dogs' : 'cats'
         e.target.value.length && dispatch(environmentFilter(environment))
         break
       case 'Pelaje':
-        e.target.value.length && dispatch(coatFilter(e.target.value.toLowerCase()))
+        e.target.value.length && dispatch(coatFilter(e.target.value))
         break
       case 'Color':
         e.target.value.length && dispatch(colorFilter(e.target.value))
         break
       case 'Cuidado y Comportamiento':
-        const attributes = e.target.value === 'Hogareño' ? 'house_trained' : 'special_needs'
+        const attributes = e.target.value === 'House-trained' ? 'house_trained' : e.target.value === 'Declawed' ? 'declawed' : 'special_needs'
         e.target.value.length && dispatch(attributesFilter(attributes))
         break
       case 'Tiempo en Adopción':

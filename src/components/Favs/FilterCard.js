@@ -1,11 +1,9 @@
 import s from '../../css/FilterCard.module.css'
 import { resetPetOrder } from '../../redux/petsActions'
 import { useDispatch } from 'react-redux/es/exports'
-import { capitalize } from '../../assets/Helpers/capitalize'
 
-const FilterCard = ({type, reset, text}) => {
 
-  console.log('type', type);
+const FilterCard = ({type, reset}) => {
 
   const dispatch = useDispatch()
 
@@ -15,7 +13,7 @@ const FilterCard = ({type, reset, text}) => {
 
   return (
     <div onClick={reset && onClickHandler} className={s.filterCardBox}>
-      <p>{type ? capitalize(type) : text}</p>
+      <p>{type}</p>
       {/* <button onClick={onClickHandler}>X</button> */}
     </div>
   )

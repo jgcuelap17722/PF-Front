@@ -1,10 +1,9 @@
 import { useNavigate } from 'react-router'
 import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
+import { capitalize } from '../Helpers/capitalize'
 
-const Card = ({ img, name, location, age, cardType, id = 1 }) => {
-
-  //CardType = home, search, care
+const Card = ({ img, name, location, age, cardType, id, fav }) => {
 
   const navigate = useNavigate()
 
@@ -14,7 +13,7 @@ const Card = ({ img, name, location, age, cardType, id = 1 }) => {
   
   return (
     <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : cardType === 'care'? s.cards3 : null} >
-      <FavoriteStar id={id} />
+      <FavoriteStar petId={id} img={img} name={name} location={location} age={age}/>
       <div onClick={onClickHandler} className={s.cardsImg}>
         {
             img
@@ -23,9 +22,12 @@ const Card = ({ img, name, location, age, cardType, id = 1 }) => {
         }
       </div>
       <div onClick={onClickHandler} className={s.textContainer}>
-        <p>{name}</p>
-        <p>{location}</p>
-        <p>{age}</p>
+        <p>{capitalize(name)}</p>
+        <p>{capitalize(location)}</p>
+        <p>{capitalize(age)}</p>
+        {
+          fav === 'favorite' && <button className={s.deleteButton}>Eliminar de Favoritos</button>
+        }
       </div>
     </div>
   )

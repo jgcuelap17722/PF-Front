@@ -1,0 +1,50 @@
+.favCardBox {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 1px #DDDDDD;
+  cursor: pointer;
+}
+.favCardBox .favCardImgBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 100px;
+  overflow: hidden;
+}
+.favCardBox .favCardImgBox img {
+  height: 80%;
+  object-fit: contain;
+}
+.favCardBox .textBox {
+  height: 80%;
+  margin-left: 10px;
+}
+.favCardBox .textBox h5 {
+  font-size: 15px;
+}
+.favCardBox .textBox p {
+  font-size: 14px;
+}
+.favCardBox .textBox .favCardDelete {
+  margin-top: 15px;
+  background-color: transparent;
+  border: none;
+  text-indent: 0;
+  padding: 0;
+  color: #3C3B53;
+  transition: all 500ms ease;
+  font-size: 14px;
+}
+.favCardBox .textBox .favCardDelete:hover {
+  color: #3C3B53;
+  font-weight: 900;
+  cursor: pointer;
+}
+.favCardBox:hover {
+  background-color: #F3F3F3;
+}
