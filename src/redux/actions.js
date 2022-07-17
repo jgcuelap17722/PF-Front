@@ -49,7 +49,6 @@ export function getCitiesByCountry(id) {
     return async function (dispatch) {
         return await axios.get(url)
         .then(data => {
-            // console.log(data.data);
             dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data.data })
         })
 
