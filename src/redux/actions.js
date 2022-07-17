@@ -47,10 +47,9 @@ export function getCountries() {
 export function getCitiesByCountry(id) {
     const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/cities/${id}`;
     return async function (dispatch) {
-        return await fetch(url)
-        .then(response => response.json())
+        return await axios.get(url)
         .then(data => {
-            dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data })
+            dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data.data })
         })
 
     }
@@ -178,7 +177,7 @@ export function pwChange(obj, tak){
 }
 
 export function postPay(obj){
-    const url = `${REACT_APP_BACKEND_URL_LOCAL}/api/v1.0/donations/urlPreferential`;
+
     const options = {
         method: 'POST',
         headers: {'Content-Type': 'Application/json'},
