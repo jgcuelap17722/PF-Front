@@ -40,7 +40,7 @@ function App() {
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
-        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/favorites' element={<Favs />} />
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
