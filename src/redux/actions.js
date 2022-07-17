@@ -50,6 +50,7 @@ export function getCitiesByCountry(id) {
         return await fetch(url)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data })
         })
 
