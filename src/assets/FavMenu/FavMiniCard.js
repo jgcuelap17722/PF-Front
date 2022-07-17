@@ -9,6 +9,10 @@ const FavMiniCard = ({ id, name, city, age, img }) => {
   const clickHandler = () => {
     navigate(`/pet-detail/${id}`)
   }
+ 
+  const deleteHandler = ()=>{
+    return
+  }
 
   return (
     <div onClick={clickHandler} className={s.favCardBox}>

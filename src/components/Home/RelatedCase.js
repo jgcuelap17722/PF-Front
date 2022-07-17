@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getAllPets } from "../../redux/petsActions"
-import Card from "../../assets/Card/Card"
+import { SwiperSlide } from 'swiper/react';
 import SwiperCards from "../../assets/Swiper/SwiperCards"
+import Card from "../../assets/Card/Card"
 import s from "../../css/RelatedCase.module.css"
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 const RelatedCase = () => {
@@ -22,32 +22,16 @@ const RelatedCase = () => {
   return (
     <section>
       <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
-      {/* <div className={s.relatedBox}>
-          {
-            dataRelated && dataRelated.map((e, index) => {
-              return (
-                <Card
-                  key={`${e.name}${index}`}
-                  img={e.photos[0].small}
-                  name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
-                  age={e.age}
-                  id={e.id}
-                  cardType='home' />
-              )
-            })
-          }
-      </div> */}
       <SwiperCards>
         {
           dataRelated && dataRelated.map((e, index) => {
             return (
               <SwiperSlide>
                 <Card
-                  key={`${e.name}${index}`}
-                  img={e.photos[0].small}
+                  key={`related${e.name}${index}`}
+                  img={e.photos[0].option_1}
                   name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                  location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
                   id={e.id}
                   cardType='home' />
@@ -62,10 +46,10 @@ const RelatedCase = () => {
           dataViewed && dataViewed.map((e, index) => {
             return (
               <Card
-                key={`${e.name}${index}`}
-                img={e.photos[0].small}
+                key={`vistos_${e.name}${index}`}
+                img={e.photos[0].option_1}
                 name={e.name}
-                location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                location={`${e.contact.address.city}, ${e.contact.address.country}`}
                 age={e.age}
                 id={e.id}
                 cardType='home' />

@@ -1,14 +1,31 @@
 .swiperBox {
-  width: 90%;
+  width: 85%;
   overflow: visible;
 }
 .swiperBox .swiper {
   width: 100%;
-  padding: 20px;
+  padding: 30px;
+  overflow: hidden;
 }
-.swiperBox .swiper .swiper-wraper {
-  color: white;
+.swiperBox .swiperNavPrev,
+.swiperBox .swiperNavNext {
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
-.swiperBox .swiper .swiper-wraper .swiper-button-prev {
-  left: 26px !important;
+.swiperBox .swiperNavPrev {
+  left: -10px;
+  z-index: 20;
+  background-image: url('../assets/icons/back-swiper.svg');
+}
+.swiperBox .swiperNavNext {
+  right: 10px;
+  background-image: url('../assets/icons/foward-swiper.svg');
 }

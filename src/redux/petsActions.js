@@ -1,5 +1,8 @@
 import axios from 'axios'
 import { InfoApi } from "../assets/dataMockups/InfoApi.js";
+import { URL_POST_FAVS, URL_GET_FAVS, URL_DELETE_FAVS, URL_GET_ALL_PETS, URL_TYPE_FILTER, URL_CITY_FILTER } from '../constants/endpoints/routes'
+
+
 // import { user } from '../assets/dataMockups/user.js'
 export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const BREED_FILTER = 'BREED_FILTER'
@@ -24,113 +27,128 @@ export const DELETE_FAV_PET = 'DELETE_FAV_PET'
 
 export function getAllPets() {
   return async function (dispatch) {
-      // var json = await axios.get('http://localhost:3001');
-      return dispatch({
-          type: GET_ALL_PETS,
-          payload: InfoApi
-      })
+    const json = await axios.get(URL_GET_ALL_PETS);
+    const data = json.data
+    return dispatch({
+      type: GET_ALL_PETS,
+      payload: data
+    })
   }
 }
 
 export function getDetail(id) {
   return async function (dispatch) {
-      var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-      const filter = pets.data.animals.filter(el => el.id == id)
-      return dispatch({
+    var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
+    const filter = pets.data.animals.filter(el => el.id == id)
+    return dispatch({
 
-          type: 'GET_DETAIL',
-          payload: filter
+      type: 'GET_DETAIL',
+      payload: filter
 
-      })
+    })
   }
 }
 
-export const getPetFavs =()=>{
-  return{
-    type: GET_ALL_PETS,
+export const getPetFavs = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`${URL_GET_FAVS}${id}`)
+    const data = response.data
+    return dispatch({
+      type: GET_FAV_PETS,
+      payload: data
+    })
   }
 }
 
-export const postFavPet =(value)=>{
-  return{
-    type: POST_FAV_PET,
-    payload: value
-  }
+export const postFavPet = (data) => {
+  return async function () {
+    try {
+      const response = axios.post(`${URL_POST_FAVS}`, data)
+      return response;
+    } catch (error) {
+      throw error
+    }
+  };
 }
 
-export const deletePetFav=(value)=>{
-  console.log('delete', value);
-  return{
-    type: DELETE_FAV_PET,
-    payload: value
-  }
+export const deletePetFav = ({userId, petId}) => { //QUERY
+  console.log('delete', userId, petId);
+  return async function () {
+    try {
+      const response = axios.post(`${URL_DELETE_FAVS}?userId=${userId}&petId=${petId}`)
+      return response;
+    } catch (error) {
+      throw error
+    }
+  };
 }
 
 // SEARCHER FILTERS ------------------------------
 
 export const breedFilter = (value) => {
   return {
-      type: BREED_FILTER,
-      payload: value
+    type: BREED_FILTER,
+    payload: value
   }
 }
 
 export const ageFilter = (value) => {
   return {
-      type: AGE_FILTER,
-      payload: value
+    type: AGE_FILTER,
+    payload: value
   }
 }
 
 export const sizeFilter = (value) => {
   return {
-      type: SIZE_FILTER,
-      payload: value
+    type: SIZE_FILTER,
+    payload: value
   }
 }
 
 export const genreFilter = (value) => {
   return {
-      type: GENRE_FILTER,
-      payload: value
+    type: GENRE_FILTER,
+    payload: value
   }
 }
 
 export const environmentFilter = (value) => {
+  console.log('environment', value);
   return {
-      type: ENVIRONMENT_FILTER,
-      payload: value
+    type: ENVIRONMENT_FILTER,
+    payload: value
   }
 }
 export const coatFilter = (value) => {
   return {
-      type: COAT_FILTER,
-      payload: value
+    type: COAT_FILTER,
+    payload: value
   }
 }
 export const colorFilter = (value) => {
   return {
-      type: COLOR_FILTER,
-      payload: value
+    type: COLOR_FILTER,
+    payload: value
   }
 }
 export const attributesFilter = (value) => {
   return {
-      type: ATTRIBUTES_FILTER,
-      payload: value
+    type: ATTRIBUTES_FILTER,
+    payload: value
   }
 }
 export const daysFilter = (value) => {
   return {
-      type: DAYS_FILTER,
-      payload: value
+    type: DAYS_FILTER,
+    payload: value
   }
 }
 
-export const shelterFilter = (value)=>{
+export const shelterFilter = (value) => {
   return {
-      type: SHELTER_FILTER,
-      payload: value
+    type: SHELTER_FILTER,
+    payload: value
   }
 }
 
@@ -138,48 +156,46 @@ export const shelterFilter = (value)=>{
 
 
 export const typeFilter = (type) => {
-  let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
 
   return async function (dispatch) {
-      try {
-          let response = await axios.get(url);
-          const data = response.data.animals
-          // console.log(data)
-          const json = data.filter(e => e.type === type);
-          return dispatch({
-              type: TYPE_FILTER,
-              payload: json,
-          })
-      } catch (error) {
-          console.log(error);
-      }
+    try {
+      let response = await axios.get(URL_TYPE_FILTER);
+      const data = response.data      
+      const json = data.filter(e => e.type === type);
+      return dispatch({
+        type: TYPE_FILTER,
+        payload: json,
+      })
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
 
 export function cityFilter(obj) {
-  let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
+
   return async function (dispatch) {
-      return await fetch(url)
-          .then(res => res.json())
-          .then(json => {
-              let filtered = json.animals.filter(el => el.contact.address.city.toLowerCase() === obj.city)
-              dispatch({ type: CITY_FILTER, payload: filtered })
-          })
-          .catch(error => console.log(error))
+    return await fetch(URL_CITY_FILTER)
+      .then(res => res.json())
+      .then(json => {
+        let filtered = json.filter(el => el.contact.address.city.toLowerCase() === obj.city)
+        dispatch({ type: CITY_FILTER, payload: filtered })
+      })
+      .catch(error => console.log(error))
   }
 }
 
 export const resetSearch = () => {
   return {
-      type: RESET_SEARCH,
+    type: RESET_SEARCH,
   }
 }
 
 export const resetPetOrder = (orderType) => {
   return {
-      type: RESET_PET_ORDER,
-      payload: orderType
+    type: RESET_PET_ORDER,
+    payload: orderType
   }
 }
 

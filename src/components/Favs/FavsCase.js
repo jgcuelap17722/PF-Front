@@ -44,9 +44,9 @@ const FavsCase = ({ petType, type }) => {
                 <Card
                   key={`${e.name}${index}`}
                   id = {e.id}
-                  img={e.photos[0].small}
+                  img={e.photos[0]}
                   name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                  location={e.city ? `${e.city}` : 'No adress'}
                   age={e.age}
                   cardType='search' />
               )

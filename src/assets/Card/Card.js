@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
+import { capitalize } from '../Helpers/capitalize'
 
 const Card = ({ img, name, location, age, cardType, id }) => {
 
@@ -23,9 +24,9 @@ const Card = ({ img, name, location, age, cardType, id }) => {
         }
       </div>
       <div onClick={onClickHandler} className={s.textContainer}>
-        <p>{name}</p>
-        <p>{location}</p>
-        <p>{age}</p>
+        <p>{capitalize(name)}</p>
+        <p>{capitalize(location)}</p>
+        <p>{capitalize(age)}</p>
       </div>
     </div>
   )

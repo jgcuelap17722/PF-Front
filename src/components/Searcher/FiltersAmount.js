@@ -16,7 +16,7 @@ const FiltersAmount = () => {
             })
           }
         </div>
-        {active.length > 0 && <FilterCard type='Borrar Filtros' reset={true} />}
+        {active.length > 0 && <FilterCard text='Borrar Filtros' reset={true} />}
       </div>
     </>
 

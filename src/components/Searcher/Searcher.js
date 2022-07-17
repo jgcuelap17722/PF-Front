@@ -27,9 +27,9 @@ const Searcher = () => {
   useEffect(() => {
     if (type === 'pet') {
       if(item === 'dog'){
-        dispatch(typeFilter("Dog"))
+        dispatch(typeFilter("perro"))
       } else if (item === 'cat'){
-        dispatch(typeFilter("Cat"))
+        dispatch(typeFilter("gato"))
       } else if(item !== 'dog' && item !=='cat'){
         navigate('/')
       }
