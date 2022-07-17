@@ -3,9 +3,7 @@ import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
 import { capitalize } from '../Helpers/capitalize'
 
-const Card = ({ img, name, location, age, cardType, id }) => {
-
-  //CardType = home, search, care
+const Card = ({ img, name, location, age, cardType, id, fav }) => {
 
   const navigate = useNavigate()
 
@@ -15,7 +13,7 @@ const Card = ({ img, name, location, age, cardType, id }) => {
   
   return (
     <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : cardType === 'care'? s.cards3 : null} >
-      <FavoriteStar id={id} img={img} name={name} location={location} age={age}/>
+      <FavoriteStar petId={id} img={img} name={name} location={location} age={age}/>
       <div onClick={onClickHandler} className={s.cardsImg}>
         {
             img
@@ -27,6 +25,9 @@ const Card = ({ img, name, location, age, cardType, id }) => {
         <p>{capitalize(name)}</p>
         <p>{capitalize(location)}</p>
         <p>{capitalize(age)}</p>
+        {
+          fav === 'favorite' && <button className={s.deleteButton}>Eliminar de Favoritos</button>
+        }
       </div>
     </div>
   )

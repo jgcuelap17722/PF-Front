@@ -15,6 +15,18 @@
 .favsManuBox .linkBox .arrowIcon {
   width: 30px;
 }
+.favsManuBox .empty {
+  width: 100%;
+  height: 50px;
+  color: #4B4D62;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.favsManuBox .empty p {
+  font-size: 14px;
+}
 .favsManuBox .favsMenuList {
   display: flex;
   flex-direction: column;

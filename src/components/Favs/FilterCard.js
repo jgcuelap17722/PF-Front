@@ -1,5 +1,5 @@
 import s from '../../css/FilterCard.module.css'
-import { resetPetOrder, resetFilterCard } from '../../redux/petsActions'
+import { resetPetOrder } from '../../redux/petsActions'
 import { useDispatch } from 'react-redux/es/exports'
 
 

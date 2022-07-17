@@ -1,13 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 import SearcherFilter from './SearcherFilter'
 import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
 import Card from '../../assets/Card/Card'
-
-import { resetSearch } from '../../redux/petsActions'
-
 import s from '../../css/Search.module.css'
 
 
@@ -21,11 +18,6 @@ const FavsCase = ({ petType, type }) => {
   const indexOfLastPet = currentPage * petsPerPage
   const indexOfFirstPet = indexOfLastPet - petsPerPage
   const currentPetsF = petsFav.slice(indexOfFirstPet, indexOfLastPet)
-
-  const dispatch = useDispatch()
-  
-  console.log(('favs en page', petsFav));
-
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -43,12 +35,14 @@ const FavsCase = ({ petType, type }) => {
               return (
                 <Card
                   key={`${e.name}${index}`}
-                  id = {e.id}
+                  id={e.id}
                   img={e.photos[0]}
                   name={e.name}
                   location={e.city ? `${e.city}` : 'No adress'}
                   age={e.age}
-                  cardType='search' />
+                  cardType='search'
+                  fav={true}
+                />
               )
             })
           }

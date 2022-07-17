@@ -11,15 +11,13 @@ import s from '../../css/FavsMenu.module.css'
 const FavsMenu = () => {
 
   const petsFavs = useSelector(state => state.petsReducer.petsFavs)
-  // const petsFavs = []
-  // console.log('favpets', petsFavs);
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getPetFavs(1))
 
-  }, [dispatch, petsFavs])
+  }, [dispatch])
 
 
   return (
@@ -40,7 +38,7 @@ const FavsMenu = () => {
               petsFavs.map(el => {
                 return <FavMiniCard key={`key_${el.id}`} id={el.id} img={el.photos[0]} name={el.name} city={el.city} age={el.age} />
               })
-              : <Spinner />
+              : <div className={s.empty}> <p> No tienes mascotas favoritas</p> </div>
           }
         </div>
         {

@@ -21,6 +21,7 @@ import {
 	GET_FAV_PETS,
 	POST_FAV_PET,
 	DELETE_FAV_PET,
+	IS_FAVORITE,
 } from './petsActions';
 
 
@@ -31,7 +32,9 @@ const initialState = {
 	petsFiltered: [],
 	filterActive: [],
 	filterDisplayed: [],
-	petsFavs: []
+	petsFavs: [],
+	temporary: []
+
 };
 
 export default function petsReducer(state = initialState, action) {
@@ -63,6 +66,24 @@ export default function petsReducer(state = initialState, action) {
 			return {
 				...state,
 				petsFavs: state.petsFavs.filter(e => e.id !== action.payload)
+			}
+		
+		case IS_FAVORITE:
+
+			let  allPetAndFav = []
+
+			for (let i = 0; i < state.allPets.length; i++) {
+				for (let j = 0; j < state.petsFavs.length; j++) {
+					if(i.id === j.id){
+						i = {...i, isFav: true}
+						allPetAndFav = [...allPetAndFav, i]
+					}
+				}
+			}
+
+			return{
+				...state,
+				temporary: allPetAndFav
 			}
 
 		// SEARCHER FILTERS

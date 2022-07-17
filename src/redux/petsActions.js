@@ -24,6 +24,7 @@ export const GET_DETAIL = 'GET_DETAIL'
 export const GET_FAV_PETS = 'GET_FAV_PETS'
 export const POST_FAV_PET = 'POST_FAV_PET'
 export const DELETE_FAV_PET = 'DELETE_FAV_PET'
+export const IS_FAVORITE = 'IS_FAVORITE'
 
 export function getAllPets() {
   return async function (dispatch) {
@@ -61,6 +62,7 @@ export const getPetFavs = (id) => {
 }
 
 export const postFavPet = (data) => {
+  console.log('post', data);
   return async function () {
     try {
       const response = axios.post(`${URL_POST_FAVS}`, data)
@@ -72,15 +74,20 @@ export const postFavPet = (data) => {
 }
 
 export const deletePetFav = ({userId, petId}) => { //QUERY
-  console.log('delete', userId, petId);
   return async function () {
     try {
-      const response = axios.post(`${URL_DELETE_FAVS}?userId=${userId}&petId=${petId}`)
+      const response = axios.delete(`${URL_DELETE_FAVS}?userId=${userId}&petId=${petId}`)
       return response;
     } catch (error) {
       throw error
     }
   };
+}
+
+export const isFavorite= ()=>{
+  return{
+    type: IS_FAVORITE
+  }
 }
 
 // SEARCHER FILTERS ------------------------------

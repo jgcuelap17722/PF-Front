@@ -9,4 +9,4 @@ export const URL_CITY_FILTER = `${baseUrl}/pets/`
 //Favs
 export const URL_GET_FAVS = `${baseUrl}/pets/favourite/`
 export const URL_POST_FAVS = `${baseUrl}/pets/favourite/`
-export const URL_DELETE_FAVS = `${baseUrl}/pets/favourite/`
+export const URL_DELETE_FAVS = `${baseUrl}/pets/favourite`
