@@ -159,9 +159,10 @@ export const typeFilter = (type) => {
 
   return async function (dispatch) {
     try {
-      let response = await axios.get('https://api-rest-adoptame.up.railway.app/api/v1.0/pets/');
+      let response = await axios.get(URL_TYPE_FILTER);
       const data = response.data      
       const json = data.filter(e => e.type === type);
+      console.log('type', json);
       return dispatch({
         type: TYPE_FILTER,
         payload: json,
