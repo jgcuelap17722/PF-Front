@@ -84,7 +84,7 @@ export default function Donations() {
  
                 </div>
             }
-            <Footer />
+           
         </div>
     )
 }

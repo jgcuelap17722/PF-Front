@@ -9,7 +9,7 @@ import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
-import { useNavigate } from 'react-router'
+import { Navigate, useNavigate } from 'react-router'
 
 const PetDetail = () => {
   let { id } = useParams();
@@ -57,6 +57,7 @@ const PetDetail = () => {
   }
   function handleClick(e){
     e.preventDefault();
+    if (!localStorage.token) return navigate('/login')
     localStorage.setItem('petDetail', JSON.stringify(estado));
     navigate(`/sponsor`) 
   }

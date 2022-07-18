@@ -17,6 +17,7 @@ import DashboardUser from './components/Dashboard/DashboardUser.jsx';
 import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx'
 import PwReset from './components/PwReset/PwReset'
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
+import DonationsConfirm from './components/Donations/DonationsConfirm'
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         {/* SEARCHER: SOLO FUNCIONA CON 2 PETTYPE Dog Y Cat */}
         <Route path='/searcher/:petType' element={<Searcher />}/>
         <Route path='/searcher/:type/:item' element={<Searcher />}/>
+        <Route path='/sponsor/confirm' element={<DonationsConfirm />}/>
         <Route path='/sponsor' element={<Donations />}/>
         <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
