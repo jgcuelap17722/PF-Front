@@ -47,8 +47,7 @@ export function getCountries() {
 export function getCitiesByCountry(id) {
     const url = `${REACT_APP_TEST_BACK_URL}/api/v1.0/cities/${id}`;
     return async function (dispatch) {
-        return await fetch(url)
-        .then(response => response.json())
+        return await axios.get(url)
         .then(data => {
             dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data.data })
         })

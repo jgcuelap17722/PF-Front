@@ -3,7 +3,7 @@ import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
 import { capitalize } from '../Helpers/capitalize'
 
-const Card = ({ img, name, location, age, cardType, id, fav, tag }) => {
+const Card = ({ img = '', name, location, age, cardType, id, fav, tag }) => {
 
   // console.log(tag.option_1);
 
@@ -19,7 +19,7 @@ const Card = ({ img, name, location, age, cardType, id, fav, tag }) => {
       <div onClick={onClickHandler} className={s.cardsImg}>
         {
             img
-            ?<img src={img} alt={`${name}_img`} />
+            ?<img src={img} alt='' />
             :<div className={s.cardImgCharging}></div>
         }
       </div>

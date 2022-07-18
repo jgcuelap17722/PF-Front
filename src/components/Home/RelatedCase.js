@@ -5,7 +5,7 @@ import { SwiperSlide } from 'swiper/react';
 import SwiperCards from "../../assets/Swiper/SwiperCards"
 import Card from "../../assets/Card/Card"
 import s from "../../css/RelatedCase.module.css"
-
+import notFound from '../../assets/images/not-found.png'
 
 const RelatedCase = () => {
 
@@ -25,11 +25,12 @@ const RelatedCase = () => {
       <SwiperCards>
         {
           dataRelated && dataRelated.map((e, index) => {
+            let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
             return (
               <SwiperSlide>
                 <Card
                   key={`related${e.name}${index}`}
-                  img={e.photos[0].option_1}
+                  img={photo}
                   name={e.name}
                   location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}

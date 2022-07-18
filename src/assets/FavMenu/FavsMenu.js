@@ -6,6 +6,7 @@ import FavMiniCard from './FavMiniCard'
 import { getPetFavs } from '../../redux/petsActions';
 import arrow from '../../assets/icons/dropdown-arrow.svg'
 import s from '../../css/FavsMenu.module.css'
+import notFound from '../images/not-found.png'
 
 const FavsMenu = () => {
 
@@ -36,11 +37,12 @@ const FavsMenu = () => {
             petsFavs.length > 0
               ?
               petsFavs.map((e, index) => {
+                let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
                 return (
                   <FavMiniCard
                     key={`fav_m${e.name}${index}`}
                     id={e.id}
-                    img={e.photos[0].option_1}
+                    img={photo}
                     name={e.name}
                     city={`${e.contact.address.city}, ${e.contact.address.country}`}
                     age={e.age}

@@ -10,7 +10,7 @@ import { getAllPets, typeFilter, resetSearch } from '../../redux/petsActions'
 
 import s from '../../css/Search.module.css'
 import Spinner from '../../assets/Spinner/Spinner'
-
+import notFound from '../../assets/images/not-found.png'
 
 const SearchCase = ({ petType, type }) => {
 
@@ -46,12 +46,13 @@ const SearchCase = ({ petType, type }) => {
           {
             currentPets
               ? currentPets.map((e, index) => {
+                let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
+
                 return (
                   <Card
                     key={`${e.name}${index}`}
                     id={e.id}
-                    // img={e.photos[0].option_1}
-                    tag = {e.photos[0]}
+                    img={photo}
                     name={e.name}
                     location={`${e.contact.address.city}, ${e.contact.address.country}`}
                     age={e.age}
