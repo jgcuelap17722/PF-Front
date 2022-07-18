@@ -13,7 +13,7 @@ export const POST_PAY = 'POST_PAY';
 export const PW_RESET = 'PW_RESET';
 export const PW_CHANGE = 'PW_CHANGE';
 export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
-const { REACT_APP_BACKEND_URL } = process.env;
+const { REACT_APP_BACKEND_URL } = process.env; 
 
 
 
