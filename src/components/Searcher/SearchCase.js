@@ -50,7 +50,8 @@ const SearchCase = ({ petType, type }) => {
                   <Card
                     key={`${e.name}${index}`}
                     id={e.id}
-                    img={e.photos[0].option_1}
+                    // img={e.photos[0].option_1}
+                    tag = {e.photos[0]}
                     name={e.name}
                     location={`${e.contact.address.city}, ${e.contact.address.country}`}
                     age={e.age}

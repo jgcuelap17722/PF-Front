@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { InfoApi } from "../assets/dataMockups/InfoApi.js";
-import { URL_POST_FAVS, URL_GET_FAVS, URL_DELETE_FAVS, URL_GET_ALL_PETS, URL_TYPE_FILTER, URL_CITY_FILTER } from '../constants/endpoints/routes'
+import { URL_POST_FAVS, URL_GET_FAVS, URL_DELETE_FAVS, URL_GET_ALL_PETS, URL_TYPE_FILTER, URL_CITY_FILTER,URL_GET_PET_DETAIL } from '../constants/endpoints/routes'
 
 
 // import { user } from '../assets/dataMockups/user.js'
@@ -38,14 +38,15 @@ export function getAllPets() {
 }
 
 export function getDetail(id) {
-  return async function (dispatch) {
-    var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-    const filter = pets.data.animals.filter(el => el.id == id)
-    return dispatch({
 
+  console.log('action id', id);
+  return async function (dispatch) {
+    var pets = await axios.get(`${URL_GET_PET_DETAIL}${id}`);
+    const filter = pets.data
+    console.log('response', filter);
+    return dispatch({
       type: 'GET_DETAIL',
       payload: filter
-
     })
   }
 }
@@ -62,7 +63,6 @@ export const getPetFavs = (id) => {
 }
 
 export const postFavPet = (data) => {
-  console.log('post', data);
   return async function () {
     try {
       const response = axios.post(`${URL_POST_FAVS}`, data)
@@ -115,7 +115,6 @@ export const genreFilter = (value) => {
 }
 
 export const environmentFilter = (value) => {
-  console.log('environment', value);
   return {
     type: ENVIRONMENT_FILTER,
     payload: value
@@ -163,6 +162,7 @@ export const typeFilter = (type) => {
       let response = await axios.get(URL_TYPE_FILTER);
       const data = response.data      
       const json = data.filter(e => e.type === type);
+      console.log('type', json);
       return dispatch({
         type: TYPE_FILTER,
         payload: json,

@@ -7,7 +7,7 @@ import ArticlesCase from './ArticlesCase'
 import s from '../../css/Home.module.css'
 import Footer from '../../assets/Footer/Footer'
 import { useDispatch } from 'react-redux/es/exports'
-import { getAllPets, resetSearch, isFavorite } from '../../redux/petsActions'
+import { getAllPets, resetSearch } from '../../redux/petsActions'
 
 const Home = () => {
 
@@ -17,7 +17,6 @@ const Home = () => {
     return () => {
       dispatch(resetSearch())
       dispatch(getAllPets())
-      dispatch(isFavorite())
     }
   }, [dispatch])
 

@@ -1,4 +1,5 @@
-const baseUrl = 'https://restapi-adoptame.up.railway.app/api/v1.0/'
+// const baseUrl = 'https://restapi-adoptame.up.railway.app/api/v1.0/'
+const baseUrl = 'https://api-rest-adoptame.up.railway.app/api/v1.0/'
 
 export const URL_GET_ALL_PETS = `${baseUrl}/pets/`
 export const URL_GET_PET_DETAIL = `${baseUrl}/pets/`

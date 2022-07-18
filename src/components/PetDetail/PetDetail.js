@@ -20,6 +20,7 @@ const PetDetail = () => {
   const [selectImage, setSelectImage] = useState();
   const navigate = useNavigate()
   
+  console.log('detail', estado);
   
   useEffect(() => {
     dispatch(getAllPets())

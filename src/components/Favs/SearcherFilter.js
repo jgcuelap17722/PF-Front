@@ -1,26 +1,24 @@
 import s from '../../css/SearcherFilter.module.css'
 import FilterOption from './FilterOption'
 import { filtersOptionsDogs, filtersOptionsCats } from '../../constants/filterOptions/filtersOptions'
-import { useState } from 'react'
+import { filtersOptionsFavs } from '../../constants/filterOptions/spanishFilterOptions'
 
 const SearcherFilter = ({ petType }) => {
 
-  // const [filtersAmount, SetFiltersAmount] = useState([])
-  const filterType = petType
-  let filtersByType
 
-  // console.log('filterAmount', filtersAmount);
+  // const filterType = petType
+  // let filtersByType
 
-  if (filterType === 'dog') {
-    filtersByType = filtersOptionsDogs
-  } else {
-    filtersByType = filtersOptionsCats
-  }
+  // if (filterType === 'dog') {
+  //   filtersByType = filtersOptionsDogs
+  // } else {
+  //   filtersByType = filtersOptionsCats
+  // }
 
   return (
     <aside className={s.searcherFilterBox}>
       {
-        filtersByType.map((e, id) => {
+        filtersOptionsFavs.map((e, id) => {
           return (
             <FilterOption 
               key={`${e.type}${id}`} 

@@ -3,7 +3,9 @@ import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
 import { capitalize } from '../Helpers/capitalize'
 
-const Card = ({ img, name, location, age, cardType, id, fav }) => {
+const Card = ({ img, name, location, age, cardType, id, fav, tag }) => {
+
+  // console.log(tag.option_1);
 
   const navigate = useNavigate()
 

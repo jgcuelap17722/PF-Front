@@ -34,7 +34,8 @@ const RelatedCase = () => {
                   location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
                   id={e.id}
-                  cardType='home' />
+                  cardType='home'
+                />
               </SwiperSlide>
             )
           })

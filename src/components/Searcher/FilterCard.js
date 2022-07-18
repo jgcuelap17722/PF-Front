@@ -5,8 +5,6 @@ import { capitalize } from '../../assets/Helpers/capitalize'
 
 const FilterCard = ({type, reset, text}) => {
 
-  console.log('type', type);
-
   const dispatch = useDispatch()
 
   const onClickHandler = (e)=>{

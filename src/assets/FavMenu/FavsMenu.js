@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { Link } from 'react-router-dom';
 import FavMiniCard from './FavMiniCard'
-import Spinner from '../Spinner/Spinner';
 import { getPetFavs } from '../../redux/petsActions';
 import arrow from '../../assets/icons/dropdown-arrow.svg'
 import s from '../../css/FavsMenu.module.css'
@@ -17,6 +16,7 @@ const FavsMenu = () => {
   useEffect(() => {
     dispatch(getPetFavs(1))
 
+  // }, [dispatch, petsFavs])
   }, [dispatch])
 
 
@@ -35,8 +35,16 @@ const FavsMenu = () => {
           {
             petsFavs.length > 0
               ?
-              petsFavs.map(el => {
-                return <FavMiniCard key={`key_${el.id}`} id={el.id} img={el.photos[0]} name={el.name} city={el.city} age={el.age} />
+              petsFavs.map((e, index) => {
+                return (
+                  <FavMiniCard
+                    key={`fav_m${e.name}${index}`}
+                    id={e.id}
+                    img={e.photos[0].option_1}
+                    name={e.name}
+                    city={`${e.contact.address.city}, ${e.contact.address.country}`}
+                    age={e.age}
+                  />)
               })
               : <div className={s.empty}> <p> No tienes mascotas favoritas</p> </div>
           }
