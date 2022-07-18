@@ -20,6 +20,7 @@ export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
 export const CREATE_PET = 'CREATE_PET'
 export const BREEDS_BY_PET_TYPE = 'BREEDS_BY_PET_TYPE'
+export const COLORS_BY_PET_TYPE = 'COLORS_BY_PET_TYPE'
 const { REACT_APP_TEST_BACK_URL } = process.env;
 
 
@@ -36,8 +37,8 @@ export function getAllPets() {
 
 export function getDetail(id) {
   return async function (dispatch) {
-      var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-      const filter = pets.data.animals.filter(el => el.id === Number(id))
+      var pets = await axios.get('https://localhost:5000/api/v1.0/pets/'+id);
+      const filter = pets.data.filter(el => el.id === Number(id))
       return dispatch({
 
           type: 'GET_DETAIL',
@@ -174,7 +175,7 @@ export function resetPetDetail() {
 export function createNewPet(data, token){
  
 
-  const url = `https://api-rest-adoptame.up.railway.app/api/v1.0/pets`;
+  const url = `http://localhost:5000/api/v1.0/pets`;
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'Application/json',
@@ -186,7 +187,7 @@ export function createNewPet(data, token){
     return await fetch(url, options)
       .then(response => response.json())
       .then(data => {
-        // console.log(data);
+        console.log(data);
         return dispatch({type: CREATE_PET, payload: data})
       })
   }
@@ -195,7 +196,7 @@ export function createNewPet(data, token){
 
 export function getBreedsByPetType(type){
 
-  const url = `https://api-rest-adoptame.up.railway.app/api/v1.0/breed-pet/${type}`;
+  const url = `http://localhost:5000/api/v1.0/breed-pet/${type}`;
 
   return async function(dispatch){
     return await fetch(url)
@@ -206,4 +207,16 @@ export function getBreedsByPetType(type){
 
   }
 
+}
+
+export function getColorsByPetType(type){
+
+  const url = `http://localhost:5000/api/v1.0/color-pet/${type}`;
+  return async function (dispatch) {
+    return await fetch(url)
+      .then(response => response.json())
+      .then( data => {
+          return dispatch({type: COLORS_BY_PET_TYPE, payload: data})
+      })
+  }
 }

@@ -4,8 +4,7 @@ import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/CreatePet.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { createNewPet, getBreedsByPetType } from '../../redux/petsActions.js';
-import { catColors, dogColors } from './petColors.js';
+import { createNewPet, getBreedsByPetType, getColorsByPetType } from '../../redux/petsActions.js';
 
 export default function CreatePet() {
 
@@ -13,8 +12,8 @@ export default function CreatePet() {
 	let user = localStorage.getItem('user');
 	user = JSON.parse(user);
 	const userId = user.user.id;
-	const breeds = useSelector( state => state.petsReducer.breedsByPetType )
-
+	const breeds = useSelector( state => state.petsReducer.breedsByPetType );
+	const colors = useSelector( state => state.petsReducer.colorsByPetType );
 
 	const { register,
 			handleSubmit, 
@@ -27,6 +26,10 @@ export default function CreatePet() {
 
 		data.userId = userId;
 		data.status = "adoptable";
+
+		if(typeof data.colorId === 'string'){
+			data.colorId = Number(data.colorId);
+		}
 
 		if(data.castrated === 'true')data.castrated = true;
 		else if(data.castrated === 'false')data.castrated = false;
@@ -64,7 +67,6 @@ export default function CreatePet() {
 			cats: data.cats
 		}
 		console.log(data);
-
 		dispatch(createNewPet(data, user.token));
 	}
 
@@ -72,6 +74,7 @@ export default function CreatePet() {
 
 		if(petType){
 			dispatch(getBreedsByPetType(petType));
+			dispatch(getColorsByPetType(petType));
 		}
 
 	}, [petType])
@@ -148,9 +151,8 @@ export default function CreatePet() {
 						<div>
 							<select {...register("colorId", { required: "Selecciona un color" })}>
 								<option value="" disabled selected hidden>Color</option>
-									{/*<option value={31}>Negro</option>*/}
-									{ petType && petType === 'gato' ? catColors.map( (c, index) =>
-											<option value={c}>{c}</option>
+									{ colors && colors.map( (c) =>
+											<option value={c.id}>{c.nameColor}</option>
 									)}
 							</select>
 							{ errors?.colorId && <p className={s.error}>{errors.colorId.message}</p> }
@@ -179,6 +181,10 @@ export default function CreatePet() {
 							<select multiple {...register("tags")}>
 								<option value="amigable">Amigable</option>
 								<option value="cariñoso">Cariñoso</option>
+								<option value="protector">Protector</option>
+								<option value="inteligente">inteligente</option>
+								<option value="divertido">Divertido</option>
+								<option value="tranquilo">Tranquilo</option>
 							</select>
 						</div>
 						<div>
