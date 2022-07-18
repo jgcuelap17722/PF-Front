@@ -13,9 +13,11 @@ const FavsMenu = () => {
   const petsFavs = useSelector(state => state.petsReducer.petsFavs)
 
   const dispatch = useDispatch()
+  let user = localStorage.getItem('user');
+  user = JSON.parse(user);
 
   useEffect(() => {
-    dispatch(getPetFavs(1))
+    dispatch(getPetFavs(user.user.id))
 
   }, [dispatch])
 
@@ -36,7 +38,7 @@ const FavsMenu = () => {
             petsFavs.length > 0
               ?
               petsFavs.map(el => {
-                return <FavMiniCard key={`key_${el.id}`} id={el.id} img={el.photos[0]} name={el.name} city={el.city} age={el.age} />
+                return <FavMiniCard key={`key_${el.id}`} id={el.id} img={el.photos[0]} name={el.name} city={el.city} age={el.age} userId={user.user.id} />
               })
               : <div className={s.empty}> <p> No tienes mascotas favoritas</p> </div>
           }

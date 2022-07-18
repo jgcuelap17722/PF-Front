@@ -12,6 +12,9 @@ const RelatedCase = () => {
   const allPets = useSelector(state => state.petsReducer.allPets)
   const dispatch = useDispatch()
 
+  let user = localStorage.getItem('user');
+  user = JSON.parse(user);
+
   useEffect(() => {
     dispatch(getAllPets())
   }, [dispatch])
@@ -34,7 +37,8 @@ const RelatedCase = () => {
                   location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
                   id={e.id}
-                  cardType='home' />
+                  cardType='home'
+                  userId={user.user.id} />
               </SwiperSlide>
             )
           })

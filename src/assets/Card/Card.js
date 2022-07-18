@@ -3,7 +3,7 @@ import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
 import { capitalize } from '../Helpers/capitalize'
 
-const Card = ({ img, name, location, age, cardType, id, fav }) => {
+const Card = ({ img, name, location, age, cardType, id, fav, userId }) => {
 
   const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ const Card = ({ img, name, location, age, cardType, id, fav }) => {
   
   return (
     <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : cardType === 'care'? s.cards3 : null} >
-      <FavoriteStar petId={id} img={img} name={name} location={location} age={age}/>
+      <FavoriteStar petId={id} img={img} name={name} location={location} age={age} userId={userId}/>
       <div onClick={onClickHandler} className={s.cardsImg}>
         {
             img

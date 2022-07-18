@@ -4,7 +4,7 @@ import { deletePetFav } from '../../redux/petsActions'
 import { useDispatch } from 'react-redux/es/exports'
 import { capitalize } from '../Helpers/capitalize'
 
-const FavMiniCard = ({ id, name, city, age, img }) => {
+const FavMiniCard = ({ id, name, city, age, img, userId }) => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -14,7 +14,7 @@ const FavMiniCard = ({ id, name, city, age, img }) => {
   }
 
   const deleteHandler = () => {
-    dispatch(deletePetFav({ userId: 1, petId: id }))
+    dispatch(deletePetFav({ userId: userId, petId: id }))
   }
 
   return (

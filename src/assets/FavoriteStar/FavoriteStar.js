@@ -6,7 +6,7 @@ import favStarFilled from '../../assets/icons/favstar-filled.svg'
 import s from '../../css/FavoriteStar.module.css'
 
 
-const FavoriteStar = ({petId, userId = 1}) => {
+const FavoriteStar = ({petId, userId}) => {
 
   const [display, setDisplay] = useState(false)
   const dispatch = useDispatch()
