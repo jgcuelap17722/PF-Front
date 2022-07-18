@@ -8,7 +8,7 @@ import SignUp from './components/SignUp/SignUp';
 import PetDetail from './components/PetDetail/PetDetail';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import CreatePet from './components/CreatePet/CreatePet';
-import Donations from './components/Donations/Donations.jsx';
+import Donations from './components/Donations/Donations.js';
 import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';

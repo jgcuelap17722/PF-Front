@@ -10,10 +10,8 @@ import s from '../../css/Donations.module.css'
 export default function Donations() {
     let infoFundacion = localStorage.getItem('petDetail');
     infoFundacion = JSON.parse(infoFundacion)
-    let idMascota = infoFundacion[0].id
     let infoUser = localStorage.getItem('user');
     infoUser = JSON.parse(infoUser)
-    let { name } = infoUser.user
     let userId = localStorage.getItem('userId');
     userId = JSON.parse(userId)
     const dispatch = useDispatch()
@@ -67,21 +65,16 @@ export default function Donations() {
             <NavBar />
             {linkPago?.length > 0 ? window.location.replace(`${linkPago}`) :
                 <div className={s.content}>
-                    <div className={s.component}>
-                        
-                        <div>
-                            <h2>Que buena decisión {name}, estos animalitos...</h2>
-                            <h3>Te necesitan!</h3>
-                        </div>
-                        <div className={s.donation}>
-                            <p>Valor a donar:</p>
-                            <input type='number' name="valor" onChange={handleChange} placeholder='💲'></input>
-                            <button onClick={handleClick}>Pagar</button>
-                        </div>
-                    </div>
 
-                            <button className={s.back} onClick={()=> navigate(`/pet-detail/${idMascota}`)}>Regresar</button>
- 
+                    <Link to='/'>
+                        <button>Home</button>
+                    </Link>
+                    <ul>
+                        <h2>fundacion</h2>
+                    </ul>
+                    <input type='number' name="valor" onChange={handleChange}></input>
+                    <button onClick={handleClick}>Pagar</button>
+
                 </div>
             }
             <Footer />
