@@ -18,27 +18,28 @@ export const TYPE_FILTER = 'TYPE_FILTER'
 export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
+const { REACT_APP_BACKEND_URL } = process.env;
 
 
 
 export function getAllPets() {
   return async function (dispatch) {
-      // var json = await axios.get('http://localhost:3001');
+      var json = await axios.get(`${REACT_APP_BACKEND_URL}/api/v1.0/pets`);
       return dispatch({
           type: GET_ALL_PETS,
-          payload: InfoApi
+          payload: json.data
       })
   }
 }
 
 export function getDetail(id) {
   return async function (dispatch) {
-      var pets = await axios.get('https://pf-api-pets.herokuapp.com/api/v1.0/deploy');
-      const filter = pets.data.animals.filter(el => el.id == id)
+      var pet = await axios.get(`${REACT_APP_BACKEND_URL}/api/v1.0/pets/${id}`);
+      console.log(pet.data);
       return dispatch({
 
           type: 'GET_DETAIL',
-          payload: filter
+          payload: pet.data
 
       })
   }

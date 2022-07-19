@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router'
+import notFound from '../../assets/images/not-found.png';
 
 const PetDetail = () => {
   let { id } = useParams();
@@ -30,28 +31,30 @@ const PetDetail = () => {
     }
   }, [dispatch, id])
 
-  const Api = estado[0]
+  const Api = estado
+
+  // console.log(Api);
 
 
-  const cantidad = Api?.photos.length
+  // const cantidad = Api?.photos.length
   // console.log(cantidad)
-  if (!Array.isArray(Api?.photos) || cantidad === 0) return;
-
-  const ApiCerca = allPets?.filter(el => el.contact.address.country === Api?.contact.address.country && el.id !== Api?.id).slice(0, 5)
-  const ApiOrganization = allPets?.filter(el => el.organization_animal_id === Api?.organization_animal_id && el.id !== Api?.id).slice(6, 11)
+  // if (!Array.isArray(Api?.photos) || cantidad === 0) return;
+// console.log(allPets[0].contact.address.city);
+  const ApiCerca = allPets?.filter(el => el.contact.address.city === Api.contact?.address.city && el.id !== Api?.id).slice(0, 5)
+  // const ApiOrganization = allPets?.filter(el => el.organization_animal_id === Api?.organization_animal_id && el.id !== Api?.id).slice(6, 11)
   // const [preImage, setPrevImage] = useState(Api && Api?.photos[0]?.large);
   // const [nextImage, setNextImage] = useState(Api && Api?.photos[0]?.large);
-
+  console.log(ApiCerca)
 
   // setSelectImage(Api?.photos[0]?.small)
   function previus() {
     const condition = selectIndex > 0;
-    const nextIndex = condition ? selectIndex - 1 : Api.photos.length - 1;
+    const nextIndex = condition ? selectIndex - 1 : Object.keys(Api.photos).length - 1;
     setSelectIndex(nextIndex);
   }
 
   function next() {
-    const condition = selectIndex < Api.photos.length - 1;
+    const condition = selectIndex < Object.keys(Api.photos).length - 1;
     const nextIndex = condition ? selectIndex + 1 : 0;
     setSelectIndex(nextIndex);
   }
@@ -60,14 +63,13 @@ const PetDetail = () => {
     localStorage.setItem('petDetail', JSON.stringify(estado));
     navigate(`/sponsor`) 
   }
-
   return (
     <>
       <div className={s.contenedorPadre}>
         <NavBar />
 
         {
-          estado.length > 0 ?
+          Object.keys(estado).length > 0 ?
 
             <>
               <div className={s.top}>
@@ -79,7 +81,7 @@ const PetDetail = () => {
                   <div className={s.slide}>
                       
                     {selectIndex === index && (
-                      <img key={index} className={s.img} src={el.small} />
+                      <img key={index} className={s.img} src={Api.photos[index] === undefined ? notFound : el.option_1} />
                     )}
                       
                   </div>
@@ -91,12 +93,12 @@ const PetDetail = () => {
                 <div className={s.topRight}>
                   <div className={s.name}>
                       <h3 className={s.h3}>{Api.name}</h3>
-                      <p className={s.p}>{Api.breeds.primary} - {Api.contact.address.city},{Api.contact.address.state}</p>
+                      {<p className={s.p}>{Api.breed} - {Api.contact.address.city},{Api.contact.address.country}</p>}
                     </div>
                     <div className={s.etiquetas}>
-                      <p>{Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.colors.primary}</p>
+                      <p>{Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.color}</p>
                     </div>
-                    {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
+                   {Api.tags && Api.tags ?
                       <div className={s.size}>
                         <h4 className={s.h4}>CARACTERÍSTICAS</h4>
                         <div className={s.sizeTags}>
@@ -113,25 +115,31 @@ const PetDetail = () => {
                  
                   <div className={s.info}>
                     <h3 className={s.h3}>INFORMACIÓN</h3>
-                    
-                    {Api.attributes.house_trained === true ?
+                      <div className={s.size}>
+                        <h4 className={s.h4}>CASTRADO</h4>
+                        <p className={s.p}>{Api.castrated ? 'Si' : 'No'}</p>
+                      </div>
                       <div className={s.size}>
                         <h4 className={s.h4}>ENTRENADO - EN CASA</h4>
-                        <p className={s.p}>Yes</p>
-                      </div> : undefined}
-                    {Api.attributes.shots_current === true && Api.attributes.spayed_neutered ?
+                        <p className={s.p}>{Api.attributes.house_trained ? 'Si' : 'No'}</p>
+                      </div>
                       <div className={s.size}>
-                        <h4 className={s.h4}>DATOS CLÍNICOS</h4>
-                        <p className={s.p}>Vaccinations up to date, spayed / neutered.</p>
-                      </div> : undefined}
-                    <div className={s.size}>
-                      <h4 className={s.h4}>LARGO DEL PELO</h4>
-                      <p className={s.p}>{Api.coat}</p>
-                    
-                    </div>
+                        <h4 className={s.h4}>CUIDADOS ESPECIALES</h4>
+                        <p className={s.p}>{Api.attributes.special_needs ? 'Si' : 'No'}</p>
+                      </div>
+                      <div className={s.size}>
+                        <h4 className={s.h4}>PELO</h4>
+                        <p className={s.p}>{Api.coat}</p>
+                      </div>
+                      <div className={s.size}>
+                        <h4 className={s.h4}>ENTORNO</h4>
+                        <p className={s.p}>{Api.environment.children ? 'Niños: Si' : 'Niños: No'}</p>
+                        <p className={s.p}>{Api.environment.dogs ? 'Perros: Si' : 'Perros: No'}</p>
+                        <p className={s.p}>{Api.environment.cats ? 'Gatos: Si' : 'Gatos: No'}</p>
+                      </div>
                   </div>
                   <div className={s.contenedorMascota}>
-                    <h3 className={s.h3}>Conoce a: {Api.name}</h3>
+                    <h3 className={s.h3}>Conoce a {Api.name}</h3>
                     <p className={s.p}>{Api.description}</p>
                   </div>
                 </div>
@@ -164,11 +172,11 @@ const PetDetail = () => {
                 
               </div>
 
-              {Api.contact.address.city?
+              {/*{Api.contact.address.city?
                 <div className={s.contenedorFundacion}>
                     <div className={s.name}>
                       <h3 className={s.h3}>Adopta un perro</h3>
-                      <h4 className={s.h4}>{Api.contact.address.city},{Api.contact.address.state}</h4>
+                      <h4 className={s.h4}>{Api.contact.address.city},{Api.contact.address.country}</h4>
                     </div>
                     <div className={s.nameImg}>
                       <img className={s.img} src='https://i0.wp.com/soniablanco.es/wp-content/uploads/2014/01/adoptaunperro.jpg?fit=960%2C325&ssl=1' alt="imagen" />
@@ -178,9 +186,8 @@ const PetDetail = () => {
                       <div className={s.direction}>
                         <div className={s.directionInterior}>
                           <h3 className={s.h3}>Dirección de la Fundación</h3>
-                          <p className={s.p}>{Api.contact.address.address1}</p>
-                          <p className={s.p}>{Api.contact.address.city},{Api.contact.address.state},{Api.contact.address.postcode}</p>
-                          <p className={s.p}>San Juan, CP: 2725</p>
+                          <p className={s.p}>{Api.contact.address.address}</p>
+                          <p className={s.p}>{Api.contact.address.city},{Api.contact.address.country},{Api.contact.address.postcode}</p>
                         </div>
                         <div className={s.directionInterior}>
                           <p className={s.p}>{Api.contact.email}</p>
@@ -189,30 +196,29 @@ const PetDetail = () => {
                           <p className={s.p}>{Api.contact.phone}</p>
                         </div>
                       </div>
-
                     </div>
 
-                  </div>:undefined}
+                  </div>:undefined}*/}
               {Api.contact.address.city?
                 <div className={s.mascotasFoundation}>
-                <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>
+                {/*<h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>*/}
                 <div className={s.relatedBox}>
-                  {
+                  {/*{
                     ApiOrganization && ApiOrganization?.map(({ id, photos, name, contact, age }) => {
                       return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id} />
                     })
-                  }
+                  }*/}
                 </div>
 
               </div>: undefined}
               
               
                 <div className={s.mascotasCerca}>
-                <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
+                <h1 className={s.proximityTitle}>Otras Mascotas En Tu Ciudad</h1>
                 <div className={s.relatedBox}>
                   {
-                    ApiCerca && ApiCerca?.map(({ id, photos, name, contact, age }) => {
-                      return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id} />
+                    ApiCerca && ApiCerca?.map(({ id, photos, name, contact, age}) => {
+                      return <Card key={id} img={photos[0].option_1} name={name} location={`${contact.address.city} - ${contact.address.country}`} age={age} cardType='home' id={id} />
                     })
                   }
                 </div>
