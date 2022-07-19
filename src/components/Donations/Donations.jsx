@@ -10,7 +10,7 @@ import s from '../../css/Donations.module.css'
 export default function Donations() {
     let infoFundacion = localStorage.getItem('petDetail');
     infoFundacion = JSON.parse(infoFundacion)
-    let idMascota = infoFundacion[0].id
+    let idMascota = infoFundacion.id
     let infoUser = localStorage.getItem('user');
     infoUser = JSON.parse(infoUser)
     let { name } = infoUser.user
@@ -21,7 +21,7 @@ export default function Donations() {
     const linkPay = useSelector((state) => state.reducer.pay)
     const navigate = useNavigate()
     useEffect(() => {
-
+    console.log(infoUser.user.email);
     }, [dispatch])
     const preference = {
         items: [
@@ -32,7 +32,7 @@ export default function Donations() {
             }
         ],
         payer: {
-            name: 'name',
+            name: infoUser.user.name,
             surname: 'lastname',
             email: 'test_user_83636644@testuser.com',
         },
@@ -84,7 +84,6 @@ export default function Donations() {
  
                 </div>
             }
-            <Footer />
         </div>
     )
 }

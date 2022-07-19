@@ -22,6 +22,7 @@ const PetDetail = () => {
   const navigate = useNavigate()
   
   
+  
   useEffect(() => {
     dispatch(getAllPets())
     dispatch(getDetail(id))
@@ -33,9 +34,6 @@ const PetDetail = () => {
 
   const Api = estado
 
-  // console.log(Api);
-
-
   // const cantidad = Api?.photos.length
   // console.log(cantidad)
   // if (!Array.isArray(Api?.photos) || cantidad === 0) return;
@@ -44,7 +42,6 @@ const PetDetail = () => {
   // const ApiOrganization = allPets?.filter(el => el.organization_animal_id === Api?.organization_animal_id && el.id !== Api?.id).slice(6, 11)
   // const [preImage, setPrevImage] = useState(Api && Api?.photos[0]?.large);
   // const [nextImage, setNextImage] = useState(Api && Api?.photos[0]?.large);
-  console.log(ApiCerca)
 
   // setSelectImage(Api?.photos[0]?.small)
   function previus() {
@@ -60,16 +57,20 @@ const PetDetail = () => {
   }
   function handleClick(e){
     e.preventDefault();
-    localStorage.setItem('petDetail', JSON.stringify(estado));
-    navigate(`/sponsor`) 
+
+    if(localStorage.token){
+      localStorage.setItem('petDetail', JSON.stringify(estado));
+      navigate(`/sponsor`) 
+    }else{
+      alert('Para realizar una donación debes estar logueado');
+      navigate('/login');
+    }
   }
   return (
     <>
       <div className={s.contenedorPadre}>
         <NavBar />
 
-        {
-          Object.keys(estado).length > 0 ?
 
             <>
               <div className={s.top}>
@@ -93,7 +94,7 @@ const PetDetail = () => {
                 <div className={s.topRight}>
                   <div className={s.name}>
                       <h3 className={s.h3}>{Api.name}</h3>
-                      {<p className={s.p}>{Api.breed} - {Api.contact.address.city},{Api.contact.address.country}</p>}
+                      {<p className={s.p}>{Api.breed} | {Api.contact?.address.city} - {Api.contact?.address.country}</p>}
                     </div>
                     <div className={s.etiquetas}>
                       <p>{Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.color}</p>
@@ -121,11 +122,11 @@ const PetDetail = () => {
                       </div>
                       <div className={s.size}>
                         <h4 className={s.h4}>ENTRENADO - EN CASA</h4>
-                        <p className={s.p}>{Api.attributes.house_trained ? 'Si' : 'No'}</p>
+                        <p className={s.p}>{Api.attributes?.house_trained ? 'Si' : 'No'}</p>
                       </div>
                       <div className={s.size}>
                         <h4 className={s.h4}>CUIDADOS ESPECIALES</h4>
-                        <p className={s.p}>{Api.attributes.special_needs ? 'Si' : 'No'}</p>
+                        <p className={s.p}>{Api.attributes?.special_needs ? 'Si' : 'No'}</p>
                       </div>
                       <div className={s.size}>
                         <h4 className={s.h4}>PELO</h4>
@@ -133,9 +134,9 @@ const PetDetail = () => {
                       </div>
                       <div className={s.size}>
                         <h4 className={s.h4}>ENTORNO</h4>
-                        <p className={s.p}>{Api.environment.children ? 'Niños: Si' : 'Niños: No'}</p>
-                        <p className={s.p}>{Api.environment.dogs ? 'Perros: Si' : 'Perros: No'}</p>
-                        <p className={s.p}>{Api.environment.cats ? 'Gatos: Si' : 'Gatos: No'}</p>
+                        <p className={s.p}>{Api.environment?.children ? 'Niños: Si' : 'Niños: No'}</p>
+                        <p className={s.p}>{Api.environment?.dogs ? 'Perros: Si' : 'Perros: No'}</p>
+                        <p className={s.p}>{Api.environment?.cats ? 'Gatos: Si' : 'Gatos: No'}</p>
                       </div>
                   </div>
                   <div className={s.contenedorMascota}>
@@ -199,7 +200,7 @@ const PetDetail = () => {
                     </div>
 
                   </div>:undefined}*/}
-              {Api.contact.address.city?
+              {Api.contact?.address.city?
                 <div className={s.mascotasFoundation}>
                 {/*<h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>*/}
                 <div className={s.relatedBox}>
@@ -212,7 +213,7 @@ const PetDetail = () => {
 
               </div>: undefined}
               
-              
+              {ApiCerca.length > 0 ? 
                 <div className={s.mascotasCerca}>
                 <h1 className={s.proximityTitle}>Otras Mascotas En Tu Ciudad</h1>
                 <div className={s.relatedBox}>
@@ -222,12 +223,11 @@ const PetDetail = () => {
                     })
                   }
                 </div>
-              </div>
+              </div> : null }
             </>
-            : <Card />
+          
 
 
-        }
       </div>
       <Footer />
 

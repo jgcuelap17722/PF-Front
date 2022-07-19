@@ -1,6 +1,11 @@
 import axios from 'axios'
-import { InfoApi } from "../assets/dataMockups/InfoApi.js";
-// import { user } from '../assets/dataMockups/user.js'
+import { URL_POST_FAVS, 
+         URL_GET_FAVS, 
+         URL_DELETE_FAVS, 
+         URL_GET_ALL_PETS, 
+         URL_TYPE_FILTER, 
+         URL_CITY_FILTER, 
+         URL_GET_PET_DETAIL } from '../constants/endpoints/routes';
 export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const BREED_FILTER = 'BREED_FILTER'
 export const AGE_FILTER = 'AGE_FILTER'
@@ -35,7 +40,6 @@ export function getAllPets() {
 export function getDetail(id) {
   return async function (dispatch) {
       var pet = await axios.get(`${REACT_APP_BACKEND_URL}/api/v1.0/pets/${id}`);
-      console.log(pet.data);
       return dispatch({
 
           type: 'GET_DETAIL',
@@ -117,35 +121,32 @@ export const shelterFilter = (value)=>{
 
 
 export const typeFilter = (type) => {
-  let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
 
   return async function (dispatch) {
-      try {
-          let response = await axios.get(url);
-          const data = response.data.animals
-          // console.log(data)
-          const json = data.filter(e => e.type === type);
-          return dispatch({
-              type: TYPE_FILTER,
-              payload: json,
-          })
-      } catch (error) {
-          console.log(error);
-      }
+    try {
+      let response = await axios.get(URL_TYPE_FILTER);
+      const data = response.data
+      const json = data.filter(e => e.type === type);
+      return dispatch({
+        type: TYPE_FILTER,
+        payload: json,
+      })
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
 
 export function cityFilter(obj) {
-  let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
   return async function (dispatch) {
-      return await fetch(url)
-          .then(res => res.json())
-          .then(json => {
-              let filtered = json.animals.filter(el => el.contact.address.city.toLowerCase() === obj.city)
-              dispatch({ type: CITY_FILTER, payload: filtered })
-          })
-          .catch(error => console.log(error))
+    return await fetch(URL_CITY_FILTER)
+      .then(res => res.json())
+      .then(json => {
+        let filtered = json.filter(el => el.contact.address.city.toLowerCase() === obj.city)
+        dispatch({ type: CITY_FILTER, payload: filtered })
+      })
+      .catch(error => console.log(error))
   }
 }
 

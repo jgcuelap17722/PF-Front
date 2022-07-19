@@ -19,8 +19,6 @@ const RelatedCase = () => {
   const dataRelated = allPets.filter((e, index) => index < 5)
   const dataViewed = allPets.filter((e, index) => index < 2)
 
-  console.log(dataRelated);
-
   return (
     <section>
       <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>

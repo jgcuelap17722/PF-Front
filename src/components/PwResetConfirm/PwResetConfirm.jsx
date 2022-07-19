@@ -13,11 +13,13 @@ export default function PwResetConfirm() {
 	const msg = useSelector(state => state.reducer.pwReset)
 	const confirm = useSelector(state => state.reducer.pwChange)
 	const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm();
+	const navigate = useNavigate();
 	const onSubmit = data => {
 		if (data.password1 !== data.password2) return alert('Las claves no coinciden')
 		
 			dispatch(pwChange(data, token)).then(()=>{
 				alert ('La clave ha sido actualizada')
+				navigate('/login');
 			})
 		
 
