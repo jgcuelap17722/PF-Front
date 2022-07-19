@@ -99,6 +99,7 @@
   font-size: 22px;
   line-height: 27px;
   color: #454B54;
+  text-transform: capitalize;
 }
 .cards2 .textContainer p:first-child:hover {
   cursor: pointer;
@@ -110,6 +111,7 @@
   line-height: 27px;
   font-style: italic;
   color: #727A85;
+  text-transform: capitalize;
 }
 .cards2 .textContainer p:hover {
   cursor: pointer;
