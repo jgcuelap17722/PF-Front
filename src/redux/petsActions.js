@@ -23,13 +23,13 @@ export const TYPE_FILTER = 'TYPE_FILTER'
 export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
-const { REACT_APP_BACKEND_URL } = process.env;
+const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 
 
 export function getAllPets() {
   return async function (dispatch) {
-      var json = await axios.get(`${REACT_APP_BACKEND_URL}/api/v1.0/pets`);
+      var json = await axios.get(`${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets`);
       return dispatch({
           type: GET_ALL_PETS,
           payload: json.data
@@ -39,7 +39,7 @@ export function getAllPets() {
 
 export function getDetail(id) {
   return async function (dispatch) {
-      var pet = await axios.get(`${REACT_APP_BACKEND_URL}/api/v1.0/pets/${id}`);
+      var pet = await axios.get(`${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`);
       return dispatch({
 
           type: 'GET_DETAIL',
