@@ -58,7 +58,7 @@ export default function PwReset() {
 						}
 					})} 
 						placeholder='e-mail' autoComplete='off' />
-					{errors.email?.message? <p>{errors.email.message}</p>: msg.msg? <p className={s.msg}>Te hemos enviado un e-mail para cambiar tu contraseña</p>
+					{errors.email?.message? <p>{errors.email.message}</p>: msg.msg? <p className={s.msg}>En unos minutos recibirás un e-mail para cambiar tu contraseña</p>
 					: null}
 					<button type='submit'>Aceptar</button>
 					</form>

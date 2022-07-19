@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router'
 import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
 
-const Card = ({ img, name, location, age, cardType, id = 1 }) => {
+const Card = ({ img, name, location, age, cardType, id }) => {
 
   //CardType = home, search, care
 

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-
+import notFound from '../../assets/images/not-found.png'
 import SearcherFilter from './SearcherFilter'
 import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
@@ -44,13 +44,14 @@ const SearchCase = ({ petType, type }) => {
         <div className={s.cardsBox}>
           {
             currentPets && currentPets.map((e, index) => {
+              let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
               return (
                 <Card
                   key={`${e.name}${index}`}
                   id = {e.id}
-                  img={e.photos[0].small}
+                  img={photo}
                   name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                  location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
                   cardType='search' />
               )

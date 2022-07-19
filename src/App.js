@@ -8,14 +8,15 @@ import SignUp from './components/SignUp/SignUp';
 import PetDetail from './components/PetDetail/PetDetail';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import CreatePet from './components/CreatePet/CreatePet';
-import Donations from './components/Donations/Donations.js';
+import Donations from './components/Donations/Donations.jsx';
+import DonationsConfirm from './components/Donations/DonationsConfirm.jsx';
 import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 import Favorites from './components/Favorites/Favorites.jsx';
 import DashboardUser from './components/Dashboard/DashboardUser.jsx';
-import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx'
-import PwReset from './components/PwReset/PwReset'
+import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx';
+import PwReset from './components/PwReset/PwReset';
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route path='/searcher/:petType' element={<Searcher />}/>
         <Route path='/searcher/:type/:item' element={<Searcher />}/>
         <Route path='/sponsor' element={<Donations />}/>
+        <Route path='/sponsor/confirm' element={<DonationsConfirm />}/>
         <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}

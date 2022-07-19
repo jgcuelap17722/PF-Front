@@ -80,16 +80,19 @@
   flex-direction: column;
   width: 100%;
   padding-bottom: 1rem;
+  text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .name .h3 {
   font-size: 45px;
   color: #FAC942;
   padding-bottom: 0.5rem;
+  text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .name .p {
   margin-top: 10px;
   font-size: 30px;
   color: #F3F3F3;
+  text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .etiquetas {
   display: flex;
@@ -99,6 +102,7 @@
   font-size: 25px;
   color: #DDDDDD;
   padding-bottom: 2rem;
+  text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .size {
   display: flex;
@@ -117,10 +121,12 @@
   font-size: 25px;
   color: #F3F3F3;
   padding-bottom: 0.5rem;
+  text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .size .p {
   font-size: 15px;
   color: #DDDDDD;
+  text-transform: capitalize;
 }
 .contenedorPadre .contenedorMedium {
   display: flex;
@@ -158,6 +164,7 @@
   color: #A1A8B1;
   font-size: 25px;
   gap: 5px;
+  text-transform: capitalize;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .info .salud {
   display: flex;
@@ -252,7 +259,7 @@
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite {
   font-family: 'Inter';
   font-weight: 400;
-  width: 50.005%;
+  width: 50%;
   height: 80px;
   background-color: #FAC942;
   font-size: 30px;

@@ -22,22 +22,6 @@ const RelatedCase = () => {
   return (
     <section>
       <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
-      {/* <div className={s.relatedBox}>
-          {
-            dataRelated && dataRelated.map((e, index) => {
-              return (
-                <Card
-                  key={`${e.name}${index}`}
-                  img={e.photos[0].small}
-                  name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
-                  age={e.age}
-                  id={e.id}
-                  cardType='home' />
-              )
-            })
-          }
-      </div> */}
       <SwiperCards>
         {
           dataRelated && dataRelated.map((e, index) => {
@@ -45,7 +29,7 @@ const RelatedCase = () => {
               <SwiperSlide>
                 <Card
                   key={`${e.name}${index}`}
-                  img={e.photos[0].small}
+                  img={e.photos[0].option_1}
                   name={e.name}
                   location={`${e.contact.address.city}, ${e.contact.address.state}`}
                   age={e.age}
@@ -63,7 +47,7 @@ const RelatedCase = () => {
             return (
               <Card
                 key={`${e.name}${index}`}
-                img={e.photos[0].small}
+                img={e.photos[0].option_1}
                 name={e.name}
                 location={`${e.contact.address.city}, ${e.contact.address.state}`}
                 age={e.age}

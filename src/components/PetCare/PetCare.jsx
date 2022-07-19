@@ -80,7 +80,7 @@ export default function PetCare() {
                 <div className={s.relatedBox}>
                   {
                     allPets && allPets.slice(0,3).map(({ id, photos, name, contact, age }) => {
-                      return <Card key={id} img={photos[0].small} name={name} location={contact.address.address1} age={age} cardType='home' id={id} />
+                      return <Card key={id} img={photos[0].option_1} name={name} location={contact.address.city} age={age} cardType='home' id={id} />
                     })
                   }
                 </div>

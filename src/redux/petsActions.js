@@ -1,6 +1,11 @@
 import axios from 'axios'
-import { InfoApi } from "../assets/dataMockups/InfoApi.js";
-// import { user } from '../assets/dataMockups/user.js'
+import { URL_POST_FAVS, 
+         URL_GET_FAVS, 
+         URL_DELETE_FAVS, 
+         URL_GET_ALL_PETS, 
+         URL_TYPE_FILTER, 
+         URL_CITY_FILTER, 
+         URL_GET_PET_DETAIL } from '../constants/endpoints/routes';
 export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const BREED_FILTER = 'BREED_FILTER'
 export const AGE_FILTER = 'AGE_FILTER'
@@ -18,31 +23,27 @@ export const TYPE_FILTER = 'TYPE_FILTER'
 export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
-export const CREATE_PET = 'CREATE_PET'
-export const BREEDS_BY_PET_TYPE = 'BREEDS_BY_PET_TYPE'
-export const COLORS_BY_PET_TYPE = 'COLORS_BY_PET_TYPE'
-const { REACT_APP_TEST_BACK_URL } = process.env;
+const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 
 
 export function getAllPets() {
   return async function (dispatch) {
-      // var json = await axios.get('http://localhost:3001');
+      var json = await axios.get(`${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets`);
       return dispatch({
           type: GET_ALL_PETS,
-          payload: InfoApi
+          payload: json.data
       })
   }
 }
 
 export function getDetail(id) {
   return async function (dispatch) {
-      var pets = await axios.get('https://localhost:5000/api/v1.0/pets/'+id);
-      const filter = pets.data.filter(el => el.id === Number(id))
+      var pet = await axios.get(`${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`);
       return dispatch({
 
           type: 'GET_DETAIL',
-          payload: filter
+          payload: pet.data
 
       })
   }
@@ -120,35 +121,32 @@ export const shelterFilter = (value)=>{
 
 
 export const typeFilter = (type) => {
-  let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
 
   return async function (dispatch) {
-      try {
-          let response = await axios.get(url);
-          const data = response.data.animals
-          // console.log(data)
-          const json = data.filter(e => e.type === type);
-          return dispatch({
-              type: TYPE_FILTER,
-              payload: json,
-          })
-      } catch (error) {
-          console.log(error);
-      }
+    try {
+      let response = await axios.get(URL_TYPE_FILTER);
+      const data = response.data
+      const json = data.filter(e => e.type === type);
+      return dispatch({
+        type: TYPE_FILTER,
+        payload: json,
+      })
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
 
 export function cityFilter(obj) {
-  let url = 'https://pf-api-pets.herokuapp.com/api/v1.0/deploy'
   return async function (dispatch) {
-      return await fetch(url)
-          .then(res => res.json())
-          .then(json => {
-              let filtered = json.animals.filter(el => el.contact.address.city.toLowerCase() === obj.city)
-              dispatch({ type: CITY_FILTER, payload: filtered })
-          })
-          .catch(error => console.log(error))
+    return await fetch(URL_CITY_FILTER)
+      .then(res => res.json())
+      .then(json => {
+        let filtered = json.filter(el => el.contact.address.city.toLowerCase() === obj.city)
+        dispatch({ type: CITY_FILTER, payload: filtered })
+      })
+      .catch(error => console.log(error))
   }
 }
 
@@ -168,55 +166,4 @@ export const resetPetOrder = (orderType) => {
 
 export function resetPetDetail() {
   return { type: RESET_PET_DETAIL, payload: {} }
-}
-
-// ------------- PETS CRUD -------------
-
-export function createNewPet(data, token){
- 
-
-  const url = `http://localhost:5000/api/v1.0/pets`;
-  const options = {
-    method: 'POST',
-    headers: { 'Content-Type': 'Application/json',
-                'authorization': token 
-            },
-    body: JSON.stringify(data)
-  }
-  return async function (dispatch) {
-    return await fetch(url, options)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        return dispatch({type: CREATE_PET, payload: data})
-      })
-  }
-
-}
-
-export function getBreedsByPetType(type){
-
-  const url = `http://localhost:5000/api/v1.0/breed-pet/${type}`;
-
-  return async function(dispatch){
-    return await fetch(url)
-      .then( response => response.json() )
-      .then( data => {
-        return dispatch({type: BREEDS_BY_PET_TYPE, payload: data})
-      })
-
-  }
-
-}
-
-export function getColorsByPetType(type){
-
-  const url = `http://localhost:5000/api/v1.0/color-pet/${type}`;
-  return async function (dispatch) {
-    return await fetch(url)
-      .then(response => response.json())
-      .then( data => {
-          return dispatch({type: COLORS_BY_PET_TYPE, payload: data})
-      })
-  }
 }
