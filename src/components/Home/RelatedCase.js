@@ -31,7 +31,7 @@ const RelatedCase = () => {
                   key={`${e.name}${index}`}
                   img={e.photos[0].option_1}
                   name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                  location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
                   id={e.id}
                   cardType='home' />
@@ -49,7 +49,7 @@ const RelatedCase = () => {
                 key={`${e.name}${index}`}
                 img={e.photos[0].option_1}
                 name={e.name}
-                location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                location={`${e.contact.address.city}, ${e.contact.address.country}`}
                 age={e.age}
                 id={e.id}
                 cardType='home' />

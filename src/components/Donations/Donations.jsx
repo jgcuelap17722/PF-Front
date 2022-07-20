@@ -21,7 +21,7 @@ export default function Donations() {
     const linkPay = useSelector((state) => state.reducer.pay)
     const navigate = useNavigate()
     useEffect(() => {
-    console.log(infoUser.user.email);
+    window.scrollTo(0,0);
     }, [dispatch])
     const preference = {
         items: [
@@ -84,6 +84,7 @@ export default function Donations() {
  
                 </div>
             }
+            <Footer />
         </div>
     )
 }

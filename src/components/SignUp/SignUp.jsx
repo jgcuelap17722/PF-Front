@@ -168,9 +168,9 @@ export default function SignUp() {
 									type="file" 
 									placeholder="Nombres" 
 									accept="image/png, image/jpeg, image/jpg , .pdf"
-									className={ role === 'fundation' ? s.fileInput : s.displayNone }
+									className={ role === 'foundation' ? s.fileInput : s.displayNone }
 							/> 
-							{ errors?.document && <p className={ role === 'fundation' ? s.fileInput : s.displayNone }>{errors.document.message}</p> }
+							{ errors?.document && <p className={ role === 'foundation' ? s.fileInput : s.displayNone }>{errors.document.message}</p> }
 						</div> : null}
 						
 						<button type="submit">Registrarme</button>
