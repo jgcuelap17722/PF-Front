@@ -18,6 +18,9 @@ import {
 	SHELTER_FILTER,
 	CITY_FILTER,
 	RESET_SEARCH,
+	CREATE_NEW_PET,
+	BREEDS_BY_PET_TYPE,
+	COLORS_BY_PET_TYPE
 } from './petsActions';
 
 
@@ -27,7 +30,10 @@ const initialState = {
 	petsAvailables: [],
 	petsFiltered: [],
 	filterActive: [],
-	filterDisplayed: []
+	filterDisplayed: [],
+	createNewPet: {},
+	breedsByPetType: [],
+	colorsByPetType: []
 };
 
 export default function petsReducer(state = initialState, action) {
@@ -178,6 +184,24 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				petsAvailables: [],
 				petsFiltered: [],
+			}
+
+		case CREATE_NEW_PET:
+			return {
+				...state,
+				createNewPet: action.payload
+			}
+
+		case BREEDS_BY_PET_TYPE:
+			return {
+				...state,
+				breedsByPetType: action.payload
+			}
+
+		case COLORS_BY_PET_TYPE:
+			return{
+				...state,
+				colorsByPetType: action.payload
 			}
 
 		default:
