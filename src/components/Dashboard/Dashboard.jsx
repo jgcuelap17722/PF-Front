@@ -5,7 +5,7 @@ import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { getCountries, getUserInfo, patchUser, getCitiesByCountry } from '../../redux/actions';
+import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
 
 
 
@@ -20,14 +20,16 @@ export default function Dashboard() {
     localStorage.setItem('userDetail', JSON.stringify(detail));
     let userDetail = localStorage.getItem('userDetail');
     userDetail = JSON.parse(userDetail)
-
+    const donations = useSelector(state => state.reducer.donations);
+    localStorage.setItem('donations', JSON.stringify(donations));
+    
     const [value, setValue] = useState({
     })
 
     useEffect(() => {
         dispatch(getUserInfo(userId, token))
         dispatch(getCountries())
-
+        dispatch(getDonations(token))
         if (value.countryId === 'ARG') {
             dispatch(getCitiesByCountry('ARG')).then(() => {
                 dispatch(patchUser(userId, value, token))
@@ -94,7 +96,6 @@ export default function Dashboard() {
     const countryEstado = useSelector((state) => state.reducer.countries)
 
 
-
     return (
         <div>
             <NavBar />
@@ -108,7 +109,10 @@ export default function Dashboard() {
                         <Link className={s.link} to='/dashboard/mascotas'><h3>Mis Mascotas</h3></Link>
                     </div>
                     <div className={s.nonSelected}>
-                    <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>
+                        {userDetail.role === 'fundation'?
+                    <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:
+                    <Link className={s.link} to='/dashboard/donations'><h3>Donaciones  Realizadas</h3></Link>
+                        }
                     </div>
                 </div>
                 <div className={s.infoContainer}>

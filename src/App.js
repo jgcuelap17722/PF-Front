@@ -16,6 +16,7 @@ import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 import Favorites from './components/Favorites/Favorites.jsx';
 import DashboardUser from './components/Dashboard/DashboardUser.jsx';
 import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx';
+import DashboardUserDonations from './components/Dashboard/DashboardUserDonations.jsx'
 import PwReset from './components/PwReset/PwReset';
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
 
@@ -44,6 +45,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/dashboard/mascotas' element={<DashboardUser/>} />
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />
+        <Route path='/dashboard/donations' element={<DashboardUserDonations/>} />
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='/favorites' element={<Favorites />} />

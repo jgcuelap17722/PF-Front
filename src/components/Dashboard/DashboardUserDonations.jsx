@@ -1,5 +1,5 @@
 import React from 'react'
-import s from '../../css/DashboardFundation.module.css';
+import s from '../../css/DashboardUserDonations.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
@@ -11,8 +11,6 @@ export default function Dashboard() {
     donations = JSON.parse(donations)
     let userId = localStorage.getItem('userId');
     let donationsFilter = donations.filter(el => el.fromUserId == userId )
-    console.log(donationsFilter)
-
     return (
         <div>
             <NavBar />
@@ -26,7 +24,7 @@ export default function Dashboard() {
                         <Link to='/dashboard/mascotas' className={s.link}> <h3>Mis Mascotas</h3></Link>
                     </div>
                     <div className={s.selected}>
-                        <h3>Donaciones  Recibidas</h3>
+                        <h3>Donaciones  Realizadas</h3>
                     </div>
                 </div>
                 <div className={s.infoContainer}>
@@ -53,7 +51,7 @@ export default function Dashboard() {
                                             <p className={s.p}>{el.date.split('T')[0]}</p>
                                         </div>
                                         <div>
-                                            <p className={s.p}>{el.fromUserId}</p>
+                                            <p className={s.p}>{el.toUserId}</p>
                                         </div>
                                         <div>
                                             <p className={s.p}>{el.status}</p>
@@ -64,8 +62,7 @@ export default function Dashboard() {
                                     </div>
                             )
                         }):
-                        'No hay donaciones recibidas'
-                    }
+                        'No hay donaciones realizadas'}
                     </div>
                 </div>
             </div>

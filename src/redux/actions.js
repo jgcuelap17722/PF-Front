@@ -13,6 +13,7 @@ export const POST_PAY = 'POST_PAY';
 export const PW_RESET = 'PW_RESET';
 export const PW_CHANGE = 'PW_CHANGE';
 export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
+export const GET_DONATIONS = 'GET_DONATIONS';
 const { REACT_APP_BACKEND_URL_TEST } = process.env; 
 
 
@@ -186,6 +187,23 @@ export function postPay(obj){
             .then(response => response.json())
             .then(data => {
                 dispatch({ type: POST_PAY, payload: data })
+            })
+    }
+}
+
+export function getDonations(token){
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/donations`;
+    const options = {
+        method: 'GET',
+        headers: { 'authorization': token },
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data)
+                dispatch({ type: GET_DONATIONS, payload: data })
             })
     }
 }
