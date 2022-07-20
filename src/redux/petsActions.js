@@ -23,6 +23,9 @@ export const TYPE_FILTER = 'TYPE_FILTER'
 export const RESET_PET_DETAIL = 'RESET_PET_DETAIL'
 export const GET_ALL_PETS = 'GET_ALL_PETS'
 export const GET_DETAIL = 'GET_DETAIL'
+export const CREATE_NEW_PET = 'CREATE_NEW_PET'
+export const BREEDS_BY_PET_TYPE = 'BREEDS_BY_PET_TYPE'
+export const COLORS_BY_PET_TYPE = 'COLORS_BY_PET_TYPE'
 const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 
@@ -166,4 +169,46 @@ export const resetPetOrder = (orderType) => {
 
 export function resetPetDetail() {
   return { type: RESET_PET_DETAIL, payload: {} }
+}
+
+// ------------------- CRUD -------------------------
+
+export function createNewPet(obj){
+  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets`;
+  const options = {
+    method: 'POST',
+    body: obj
+  }
+
+  return async function (dispatch) {
+    return await axios.post(url, obj)
+      .then(data => {
+        return dispatch({type: CREATE_NEW_PET, payload: data.data})
+      })
+      .catch(error =>  console.log(error))
+  }
+}
+
+export function getBreedsByPetType(type){
+  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/breed-pet/${type}`;
+  return async function (dispatch) {
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return dispatch({type: BREEDS_BY_PET_TYPE, payload: data})
+      })
+      .catch(error =>  console.log(error))
+  }
+}
+
+export function getColorsByPetType(type){
+  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/color-pet/${type}`;
+  return async function (dispatch) {
+    return await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        return dispatch({type: COLORS_BY_PET_TYPE, payload: data})
+      })
+      .catch(error =>  console.log(error))
+  }
 }

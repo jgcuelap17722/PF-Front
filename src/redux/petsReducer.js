@@ -18,7 +18,7 @@ import {
 	SHELTER_FILTER,
 	CITY_FILTER,
 	RESET_SEARCH,
-	CREATE_PET,
+	CREATE_NEW_PET,
 	BREEDS_BY_PET_TYPE,
 	COLORS_BY_PET_TYPE
 } from './petsActions';
@@ -31,7 +31,7 @@ const initialState = {
 	petsFiltered: [],
 	filterActive: [],
 	filterDisplayed: [],
-	createPet: {},
+	createNewPet: {},
 	breedsByPetType: [],
 	colorsByPetType: []
 };
@@ -188,10 +188,10 @@ export default function petsReducer(state = initialState, action) {
 				petsFiltered: [],
 			}
 
-		case CREATE_PET:
+		case CREATE_NEW_PET:
 			return {
 				...state,
-				createPet: action.payload
+				createNewPet: action.payload
 			}
 
 		case BREEDS_BY_PET_TYPE:

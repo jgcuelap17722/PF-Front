@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useForm } from "react-hook-form";
+import { useNavigate } from 'react-router';
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/CreatePet.module.css';
@@ -9,6 +10,7 @@ import { createNewPet, getBreedsByPetType, getColorsByPetType } from '../../redu
 export default function CreatePet() {
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	let user = localStorage.getItem('user');
 	user = JSON.parse(user);
 	const userId = user.user.id;
@@ -66,8 +68,16 @@ export default function CreatePet() {
 			dogs: data.dogs,
 			cats: data.cats
 		}
-		console.log(data);
-		dispatch(createNewPet(data, user.token));
+
+		let formData = new FormData();
+		for(let i = 0; i < data.photos.length; i++){
+			formData.append('photos', data.photos[i])
+		}
+		formData.append('data', JSON.stringify(data))
+		dispatch(createNewPet(formData, user.token)).then(() => {
+			alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
+			navigate('/dashboard/mascotas');
+		})
 	}
 
 	useEffect(() => {
@@ -78,8 +88,6 @@ export default function CreatePet() {
 		}
 
 	}, [petType])
-	
-	console.log(errors);
 	
 	return (
 		<div>
@@ -242,7 +250,6 @@ export default function CreatePet() {
 						<div>
       						<input {...register("photos")}
       							   type="file"
-      							   id="photos"
       							   accept="image/png, image/jpeg, image/jpg"
       							   multiple />
       						{ errors?.photos && <p className={s.error}>{errors.photos.message}</p> }
@@ -258,7 +265,6 @@ export default function CreatePet() {
 							placeholder="Ingresa una breve descripción de tu mascota"/>
 							{ errors?.description && <p className={s.error}>{errors.description.message}</p> }
 						</div>
-						
 						<button type='submit'>Crear Mascota</button>
 					</form>
 				</div>					
