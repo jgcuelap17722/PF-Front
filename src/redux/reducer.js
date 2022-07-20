@@ -11,8 +11,10 @@ import {
 	EMAIL_CONFIRMED,
 	PW_RESET,
 	PW_CHANGE,
-  POST_PAY,
-  GET_DONATIONS,
+	POST_PAY,
+	GET_DONATIONS,
+	GET_ALL_PETS_BY_USER,
+	RESET_DASHBOARD_PETS,
 } from './actions';
 
 const initialState = {
@@ -28,6 +30,7 @@ const initialState = {
 	pwReset:{},
 	pwChange:{},
 	donations:[],
+	allPetsByUser: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -123,6 +126,16 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				donations:action.payload
+			}
+		case GET_ALL_PETS_BY_USER:
+			return{
+				...state,
+				allPetsByUser: action.payload
+			}
+		case RESET_DASHBOARD_PETS:
+			return{
+				...state,
+				allPetsByUser: action.payload
 			}
 		default:
 		return state;

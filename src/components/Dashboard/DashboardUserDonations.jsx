@@ -44,7 +44,7 @@ export default function Dashboard() {
                                 <p className={s.p}>Monto</p>
                             </div>
                         </div>
-                        {donationsFilter.length > 1 ? donationsFilter.map((el, index) => {
+                        {donationsFilter.length >= 1 ? donationsFilter.map((el, index) => {
                             return (
                                     <div key={index} className={index % 2 === 1 ? s.detailsOptions : s.detailsOptionsColors}>
                                         <div>
