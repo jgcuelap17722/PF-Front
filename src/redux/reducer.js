@@ -11,7 +11,8 @@ import {
 	EMAIL_CONFIRMED,
 	PW_RESET,
 	PW_CHANGE,
-  POST_PAY
+  POST_PAY,
+  GET_DONATIONS,
 } from './actions';
 
 const initialState = {
@@ -25,7 +26,8 @@ const initialState = {
 	emailConfirmSended: {},
 	emailConfirmed: {},
 	pwReset:{},
-	pwChange:{}
+	pwChange:{},
+	donations:[],
 };
 
 export default function reducer(state = initialState, action) {
@@ -116,6 +118,11 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				pay: action.payload
+			}
+		case GET_DONATIONS:
+			return{
+				...state,
+				donations:action.payload
 			}
 		default:
 		return state;

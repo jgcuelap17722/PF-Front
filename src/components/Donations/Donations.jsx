@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postPay } from "../../redux/actions";
+import { getUserInfo, postPay } from "../../redux/actions";
 import { useNavigate } from 'react-router'
 import { Link } from "react-router-dom";
 import NavBar from "../../assets/NavBar/NavBar";
@@ -8,8 +8,11 @@ import Footer from "../../assets/Footer/Footer";
 import s from '../../css/Donations.module.css'
 
 export default function Donations() {
+    let token = localStorage.getItem('token')
     let infoFundacion = localStorage.getItem('petDetail');
     infoFundacion = JSON.parse(infoFundacion)
+    let detail = localStorage.getItem('userDetail');
+    detail = JSON.parse(detail)
     let idMascota = infoFundacion.id
     let infoUser = localStorage.getItem('user');
     infoUser = JSON.parse(infoUser)
@@ -20,7 +23,10 @@ export default function Donations() {
     const [value, setValue] = useState('')
     const linkPay = useSelector((state) => state.reducer.pay)
     const navigate = useNavigate()
+const fundacion = useSelector((state)=> state.reducer.userDetail)
+
     useEffect(() => {
+    dispatch(getUserInfo(infoFundacion.userId,token ))
     window.scrollTo(0,0);
     }, [dispatch])
     const preference = {
@@ -32,23 +38,24 @@ export default function Donations() {
             }
         ],
         payer: {
-            name: infoUser.user.name,
-            surname: 'lastname',
-            email: 'test_user_83636644@testuser.com',
+            name: detail.name,
+            surname: detail.lastName,
+            email: detail.email,
         },
         metadata: {
             fromUser: {
-                id: 1,
-                country: "PER",
-                typeUser: 'user'
+                id: userId,
+                country: detail.country,
+                typeUser: detail.role
             },
             toUser: {
-                id: 2,
-                country: "PER",
-                typeUser: 'user'
+                id: infoFundacion.userId,
+                country: fundacion.country,
+                typeUser: 'foundation'
             }
         }
     }
+    
     function handleChange(e) {
         e.preventDefault();
         setValue({
@@ -61,7 +68,7 @@ export default function Donations() {
         dispatch(postPay(preference))
     }
     const linkPago = linkPay.urlPreferentialPayment
-    
+
     return (
         <div>
             <NavBar />

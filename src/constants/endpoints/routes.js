@@ -1,4 +1,4 @@
-const { REACT_APP_BACKEND_URL_TEST } = process.env;
+const { REACT_APP_BACKEND_URL_TEST} = process.env;
 const baseUrl = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0`
 
 export const URL_GET_ALL_PETS = `${baseUrl}/pets/`
