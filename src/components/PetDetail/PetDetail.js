@@ -22,8 +22,13 @@ const PetDetail = () => {
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();
   const navigate = useNavigate()
+  const idPetOwner = estado.userId;
+  const idVisitorUser = Number(localStorage.userId);
+
+
   
-  
+  // poder editar informacion de mascota solo si soy el dueño
+
   
   useEffect(() => {
     dispatch(getAllPets())
@@ -95,7 +100,7 @@ const PetDetail = () => {
               <button className={s.buttonRight} onClick={next}>< Arrow /></button>
 
                 <div className={s.topRight}>
-                  <div className={s.updateIcon}>
+                  <div className={idPetOwner === idVisitorUser ? s.updateIcon : s.displayNone}>
                     <FontAwesomeIcon icon={faGear} />
                   </div>
                   <div className={s.name}>
