@@ -75,7 +75,7 @@
 .container main .left form div button:hover {
   background-color: #ffffff;
 }
-.container main .left form .inputFile {
+.container main .left form .fileInput {
   display: block;
 }
 .container main .left form .displayNone {

@@ -1,15 +1,13 @@
 import s from '../../css/SearcherFilter.module.css'
 import FilterOption from './FilterOption'
-import { filtersOptionsDogs, filtersOptionsCats } from '../../constants/filterOptions/filtersOptions'
+import { filtersOptionsDogs, filtersOptionsCats } from '../../constants/filterOptions/spanishFilterOption'
 import { useState } from 'react'
 
 const SearcherFilter = ({ petType }) => {
 
-  // const [filtersAmount, SetFiltersAmount] = useState([])
   const filterType = petType
   let filtersByType
 
-  // console.log('filterAmount', filtersAmount);
 
   if (filterType === 'dog') {
     filtersByType = filtersOptionsDogs
@@ -26,8 +24,6 @@ const SearcherFilter = ({ petType }) => {
               key={`${e.type}${id}`} 
               type={e.type} 
               options={e.options} 
-              // SetFiltersAmount={SetFiltersAmount}
-              // filtersAmount={filtersAmount} 
             />)
         })
       }

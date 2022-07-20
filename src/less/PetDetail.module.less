@@ -101,7 +101,7 @@
                 gap: 10px;
                 flex-direction: row;
                 margin-top: 10px;
-                font-size: 25px;
+                font-size: 20px;
                 color: @lightGray;
                 padding-bottom: 2rem;
                 text-transform: capitalize;
@@ -126,7 +126,7 @@
                     text-transform: capitalize;
                 }
                 .p {
-                    font-size: 15px;
+                    font-size: 20px;
                     color: @lightGray; 
                     text-transform: capitalize;
             }
@@ -146,21 +146,23 @@
             min-height: 35rem;
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 25px;
             padding-bottom: 20px;
             .info {
                 display: flex;
                 flex-direction: column;
                 margin-left: 20px;
-                gap: 50px;
+                gap: 25px;
                 .h3 {
-                    font-size: 35px;
+                    font-size: 30px;
                     color: @primary;
+
                 }
                 .h4{
                     color: @darkGray;
                     font-size: 25px;
                     gap: 5px;
+                    padding-bottom: .5rem;
                 }
                 .p {
                     color: @gray;
@@ -182,18 +184,7 @@
                 }
             }
 
-            .contenedorMascota {
-                margin-left: 20px;
-                .h3 {
-                    font-size: 35px;
-                    color: @primary;
-                }
-                .p {
-                    margin-top: 20px;
-                    font-size: 20px;
-                    color: @gray;
-                }
-            }
+            
         }
         .contenedorAdopcion {
             height: 31.5rem;
@@ -219,9 +210,14 @@
                         font-size: 35px;
                         line-height: 36px;
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
+                        justify-content: center;
                         text-align: center;
                         color: @primary;
+                        span{
+                            text-transform: capitalize;
+                        }
                     }
                 }
 
@@ -284,6 +280,20 @@
             
         }
 
+    }
+    .contenedorMascota {
+        margin-left: 10rem;
+        max-width: 77%;
+        text-align: justify;
+        .h3 {
+            font-size: 30px;
+            color: @primary;
+        }
+        .p {
+            margin-top: 20px;
+            font-size: 20px;
+            color: @gray;
+        }
     }
     .contenedorFundacion {
         display: flex;

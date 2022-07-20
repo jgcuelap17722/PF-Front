@@ -26,6 +26,7 @@ const PetDetail = () => {
   useEffect(() => {
     dispatch(getAllPets())
     dispatch(getDetail(id))
+    window.scrollTo(0,0)
 
     return ()=>{
       dispatch(resetPetDetail())
@@ -97,7 +98,7 @@ const PetDetail = () => {
                       {<p className={s.p}>{Api.breed} | {Api.contact?.address.city} - {Api.contact?.address.country}</p>}
                     </div>
                     <div className={s.etiquetas}>
-                      <p>{Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.color}</p>
+                      <p>• {Api.age}</p> • <p>{Api.gender}</p> • <p>{Api.size}</p> • <p>{Api.color}</p>
                     </div>
                    {Api.tags && Api.tags ?
                       <div className={s.size}>
@@ -139,16 +140,13 @@ const PetDetail = () => {
                         <p className={s.p}>{Api.environment?.cats ? 'Gatos: Si' : 'Gatos: No'}</p>
                       </div>
                   </div>
-                  <div className={s.contenedorMascota}>
-                    <h3 className={s.h3}>Conoce a {Api.name}</h3>
-                    <p className={s.p}>{Api.description}</p>
-                  </div>
+                 
                 </div>
 
                 <div className={s.contenedorAdopcion}>
                     <div className={s.contenedorPrincipalAdopcion}>
                       <div className={s.name}>
-                        <h3 className={s.h3}>{`¿Estás pensando en adoptar a ${Api.name}? `}</h3>
+                        <h3 className={s.h3}>¿Estás pensando en adoptar a<span>{Api.name}?</span></h3>
 
                       </div>
                       <div className={s.contenedorButtons}>
@@ -167,12 +165,15 @@ const PetDetail = () => {
                       </div>
                     </div>
                 </div>
-                  
+           
 
 
                 
               </div>
-
+              <div className={s.contenedorMascota}>
+                    <h3 className={s.h3}>Conoce a {Api.name}</h3>
+                    <p className={s.p}>{Api.description}</p>
+              </div>
               {/*{Api.contact.address.city?
                 <div className={s.contenedorFundacion}>
                     <div className={s.name}>

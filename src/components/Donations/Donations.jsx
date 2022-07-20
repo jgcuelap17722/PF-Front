@@ -27,6 +27,7 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
 
     useEffect(() => {
     dispatch(getUserInfo(infoFundacion.userId,token ))
+    window.scrollTo(0,0);
     }, [dispatch])
     const preference = {
         items: [
@@ -90,6 +91,7 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
  
                 </div>
             }
+            <Footer />
         </div>
     )
 }

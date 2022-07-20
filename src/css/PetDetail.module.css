@@ -99,7 +99,7 @@
   gap: 10px;
   flex-direction: row;
   margin-top: 10px;
-  font-size: 25px;
+  font-size: 20px;
   color: #DDDDDD;
   padding-bottom: 2rem;
   text-transform: capitalize;
@@ -124,7 +124,7 @@
   text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .size .p {
-  font-size: 15px;
+  font-size: 20px;
   color: #DDDDDD;
   text-transform: capitalize;
 }
@@ -142,23 +142,24 @@
   min-height: 35rem;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 25px;
   padding-bottom: 20px;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .info {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  gap: 50px;
+  gap: 25px;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .info .h3 {
-  font-size: 35px;
+  font-size: 30px;
   color: #504F6F;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .info .h4 {
   color: #727A85;
   font-size: 25px;
   gap: 5px;
+  padding-bottom: 0.5rem;
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .info .p {
   color: #A1A8B1;
@@ -176,18 +177,6 @@
 }
 .contenedorPadre .contenedorMedium .contenedorDetalles .info .salud .p {
   font-size: 25px;
-}
-.contenedorPadre .contenedorMedium .contenedorDetalles .contenedorMascota {
-  margin-left: 20px;
-}
-.contenedorPadre .contenedorMedium .contenedorDetalles .contenedorMascota .h3 {
-  font-size: 35px;
-  color: #504F6F;
-}
-.contenedorPadre .contenedorMedium .contenedorDetalles .contenedorMascota .p {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #A1A8B1;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion {
   height: 31.5rem;
@@ -214,9 +203,14 @@
   font-size: 35px;
   line-height: 36px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   color: #504F6F;
+}
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name .h3 span {
+  text-transform: capitalize;
 }
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons {
   display: flex;
@@ -272,6 +266,20 @@
 .contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite:hover {
   background-color: #FAB942;
   color: #ffffff;
+}
+.contenedorPadre .contenedorMascota {
+  margin-left: 10rem;
+  max-width: 77%;
+  text-align: justify;
+}
+.contenedorPadre .contenedorMascota .h3 {
+  font-size: 30px;
+  color: #504F6F;
+}
+.contenedorPadre .contenedorMascota .p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #A1A8B1;
 }
 .contenedorPadre .contenedorFundacion {
   display: flex;
