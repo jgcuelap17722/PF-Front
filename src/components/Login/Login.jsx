@@ -30,7 +30,7 @@ function validate (input) {
 export default function Login() {
 
     const dispatch = useDispatch()
-    const userLogged = useSelector( state => state.userLogged);
+    const userLogged = useSelector( state => state.reducer.userLogged);
     const navigator = useNavigate();
     const { loginWithRedirect } = useAuth0();
 
@@ -42,7 +42,7 @@ export default function Login() {
 
     useEffect(() => {
         
-        
+        window.scrollTo(0,0)
         if(userLogged.Error){
             alert(userLogged.Error);
             dispatch(resetUserLogged());
@@ -54,6 +54,7 @@ export default function Login() {
         }else if(userLogged.token){
             localStorage.setItem('token', userLogged.token);
             localStorage.setItem('userId', userLogged.user.id);
+            localStorage.setItem('user', JSON.stringify(userLogged));
             navigator('/');
             return;
         }
@@ -116,9 +117,15 @@ export default function Login() {
                     <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
                     {/*<button onClick={() => loginWithRedirect()}className={s.button} type='submit'>Iniciar Sesión</button>*/}
 
-                    <Link to='/reset-password'>
-                        <p className={s.forget}>Olvidé mi Contraseña</p>
-                    </Link>
+                    <div className={s.textBox}>
+                        <Link to='/reset'>
+                            <p className={s.forget}>Olvidé mi Contraseña</p>
+                        </Link>
+                        <p>No estás registrado?</p>
+                        <Link to='/register'>
+                            <p className={s.forget}>Regístrate</p>
+                        </Link>
+                    </div>
                 </div>
 
             </form>

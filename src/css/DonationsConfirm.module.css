@@ -1,0 +1,45 @@
+.content {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content .component {
+  margin-top: 3rem;
+  padding-top: 4rem;
+  width: 60%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2rem -1rem;
+}
+.content .component h2 {
+  color: #504F6F;
+  width: 80%;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1.8rem;
+}
+.content .component h3 {
+  color: #FAB942;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  margin-left: 2.5rem;
+}
+.content .component .donation {
+  display: flex;
+  height: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.content .back {
+  margin-top: 2rem;
+  border: none;
+  color: #504F6F;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+.content .back:hover {
+  border-bottom: 3px solid #FAC942;
+  color: #504F6F;
+}

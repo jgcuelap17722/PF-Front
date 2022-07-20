@@ -1,21 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-
+import notFound from '../../assets/images/not-found.png'
 import SearcherFilter from './SearcherFilter'
 import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
 import Card from '../../assets/Card/Card'
 
-import { getAllPets, typeFilter, resetSearch } from '../../redux/actions'
+import { resetSearch } from '../../redux/petsActions'
 
 import s from '../../css/Search.module.css'
 
 
 const SearchCase = ({ petType, type }) => {
 
-  const petsByType = useSelector(state => state.petsFiltered)
-  const petsByCity = useSelector(state => state.petByCityFiltered)
-  const pets = type === 'location'? petsByCity : type === 'pet'? petsByType : null
+  const pets = useSelector(state => state.petsReducer.petsFiltered)
 
   // Paginado
   const [currentPage, setCurrentPage] = useState(1)
@@ -24,15 +22,18 @@ const SearchCase = ({ petType, type }) => {
   const indexOfFirstPet = indexOfLastPet - petsPerPage
   const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet)
 
-  // console.log('petsbyCity', petsByCity);
-  // console.log('pets', pets);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetSearch())
+    }
+  }, [dispatch])
+
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
-
-  
 
   return (
     <section className={s.sectionBox}>
@@ -43,13 +44,14 @@ const SearchCase = ({ petType, type }) => {
         <div className={s.cardsBox}>
           {
             currentPets && currentPets.map((e, index) => {
+              let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
               return (
                 <Card
                   key={`${e.name}${index}`}
-                  id = {e.id}
-                  img={e.photos[0].small}
+                  id={e.id}
+                  img={photo}
                   name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                  location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
                   cardType='search' />
               )

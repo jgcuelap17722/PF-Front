@@ -185,3 +185,13 @@
   font-style: italic;
   color: #727A85;
 }
+.content .donate .relatedBox {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 35px;
+}
+.content .donate .relatedBox .card {
+  text-decoration: none;
+}

@@ -6,15 +6,12 @@ import s from '../../css/Searcher.module.css'
 import { useNavigate, useParams } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { getAllPets, typeFilter, cityFilter, resetSearch } from '../../redux/actions'
+import { getAllPets, typeFilter, cityFilter, resetSearch } from '../../redux/petsActions'
 
 const Searcher = () => {
 
-  // const { type, case } = useParams();
   const { type, item } = useParams();
   const navigate = useNavigate()
-  // console.log(type, item);
-
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,16 +20,16 @@ const Searcher = () => {
   
   useEffect(() => {
     return () => {
-      // resetSearch()
+      dispatch(resetSearch())
     }
-  }, [type])
+  }, [dispatch, type])
 
   useEffect(() => {
     if (type === 'pet') {
       if(item === 'dog'){
-        dispatch(typeFilter("Dog"))
+        dispatch(typeFilter("perro"))
       } else if (item === 'cat'){
-        dispatch(typeFilter("Cat"))
+        dispatch(typeFilter("gato"))
       } else if(item !== 'dog' && item !=='cat'){
         navigate('/')
       }

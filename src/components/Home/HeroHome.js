@@ -22,15 +22,15 @@ const HeroHome = () => {
 
       <div className={s.filtersBox}>
         {
-          filtersInfo && filtersInfo.map(({ icon, type  }) => {
-            return <Filter icon={icon} type={type}  />
+          filtersInfo && filtersInfo.map(({ icon, type  }, index) => {
+            return <Filter icon={icon} type={type} key={`key${index}`} />
           })
         }
       </div>
 
       {/* <div className={s.sponsorBox}> */}
         <h1 className={s.sponsor}>Apadrina Mascotas</h1>
-        <h4 className={s.sponsorBanner}>También puedes apadrinar una mascotas</h4>
+        <h4 className={s.sponsorBanner}>También puedes apadrinar una mascota</h4>
       {/* </div> */}
 
 

@@ -70,14 +70,19 @@
 .content .form a {
   text-decoration: none;
 }
-.content .form .forget {
-  position: relative;
-  bottom: 20px;
+.content .form .textBox {
+  display: flex;
+}
+.content .form .textBox .forget {
   color: #ffffff;
   right: 0px;
 }
-.content .form .forget:hover {
+.content .form .textBox .forget:hover {
   color: #FAC942;
+}
+.content .form .textBox p {
+  font-size: 15px;
+  padding: 0 2px 0 10px;
 }
 .content .form .error {
   color: #FAC942;

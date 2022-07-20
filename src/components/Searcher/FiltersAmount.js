@@ -1,32 +1,26 @@
 import s from '../../css/FiltersAmount.module.css'
 import FilterCard from './FilterCard'
-import { useDispatch, useSelector } from 'react-redux/es/exports'
-import { useEffect } from 'react'
-import { resetFilterCard } from '../../redux/actions'
+import { useSelector } from 'react-redux/es/exports'
 
 const FiltersAmount = () => {
-  const active = useSelector(state => state.filterActive)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    
-    return () => {
-      dispatch(resetFilterCard())
-    }
-  }, [dispatch])
-  
-  
+  const active = useSelector(state => state.petsReducer.filterDisplayed)
 
   return (
-    <div className={s.filterAmountBox}>
-      <div className={s.filtersCardsBox}>
-        {
-          active && active.map((e, index)=>{
-            return <FilterCard key={`id_${index}${e}`} type={e}/>
-          })
-        }
+    <>
+      <div className={s.filterAmountBox}>
+        <p>Filtros activos: </p>
+        <div className={s.filtersCardsBox}>
+          {
+            active && active.map((e, index) => {
+              return <FilterCard key={`id_${index}${e}`} type={e} />
+            })
+          }
+        </div>
+        {active.length > 0 && <FilterCard type='Borrar Filtros' reset={true} />}
       </div>
-    </div>
+    </>
+
+
   )
 }
 

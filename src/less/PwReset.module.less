@@ -1,0 +1,118 @@
+@import "variables";
+
+.container{
+	border: .1rem solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+
+	.notification{
+		// border: .1rem solid @lightPrimary;
+		width: 48%;
+		height: 75%;
+		display: flex;
+		flex-direction: column;
+		border-radius: .5rem;	
+		overflow: hidden;
+		font-size: 1.2rem;
+		background-color: @white;
+		box-shadow: 0 0 2rem -1rem;
+		
+
+		.logo{
+			background-color: @darkPrimary;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img{
+				width: 50%;
+			}
+		}
+
+		.notificationBottom{
+
+		background-image: url('https://i.postimg.cc/pTWC58xR/Gracias-5.png');
+		background-repeat:no-repeat;
+		background-size:cover;
+		height: 100%;
+		padding: 0 0 0 0;
+		display: flex;
+		flex-direction: column;
+		padding-top: 2rem;
+		align-items: center;
+        h2{
+            color: @primary;
+
+        }
+
+			p{
+				color: @lightPrimary;
+				padding: 0.5rem 3rem;
+				text-align: justify;
+				margin-bottom: 1rem;
+
+
+				a{	
+					text-decoration: none;
+					color: @third;
+					font-weight: 600;
+
+					&:hover{
+						color: @lightThird;
+					}
+
+				}
+			}
+
+			p:last-of-type{
+				font-weight: bold;
+			}
+			form{
+				display: flex;
+				flex-direction: column;
+				padding-top: 2rem;
+				align-items: center;
+				input{
+					margin-bottom: 1rem;
+					width: 30rem;
+					height: 2rem;
+					border-radius: .3rem;
+					outline: none;
+					font-family: 'Inter';
+					color: @third;
+					border: none;
+					border: 1px solid @primary;
+				}
+				.msg{
+					color: "primary";
+					text-shadow: 2px;
+					width: 100%;
+					font-size: 16px;
+					padding: 0;
+					text-align: center;
+					font-style: italic;
+				}
+				button{
+					height: 3rem;
+					width: 100%;
+					border: none;
+					color: @white;
+					background-color: @primary;
+					border-radius: .3rem;
+		
+					&:hover{
+						background-color: @third;
+						color: @lightGray;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		
+
+	}
+}

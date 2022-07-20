@@ -9,19 +9,20 @@
   align-items: center;
   justify-content: space-between;
   width: fit-content;
-  height: 40px;
+  height: 37px;
   border-radius: 3px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #D9D9D9;
   gap: 10px;
 
   p{
-    margin-left: 13px;
+    // margin-left: 13px;
+    padding: 0 15px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
-    // line-height: 29px;
+    text-transform: capitalize;
     color: @darkBlack;
   }
   button{
@@ -43,5 +44,12 @@
       background-color: @white;
       border: none;
     }
+  }
+  
+  &:hover{
+    color: @white;
+    background-color: @secondary;
+    border: none;
+    cursor: pointer;
   }
 }
