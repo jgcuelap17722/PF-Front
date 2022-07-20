@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapLocationDot, faLocationDot, faEnvelope, faSquarePhone } from '@fortawesome/free-solid-svg-icons';
 import s from '../../css/PetDetail.module.css'
 import NavBar from "../../assets/NavBar/NavBar.jsx";
 import Footer from '../../assets/Footer/Footer.js'
@@ -11,11 +13,14 @@ import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router'
 import notFound from '../../assets/images/not-found.png';
+import { getAllFoundations } from "../../redux/foundationsActions";
 
 const PetDetail = () => {
   let { id } = useParams();
   const allPets = useSelector((state) => state.petsReducer.allPets)
   const estado = useSelector((state) => state.petsReducer.petDetail)
+  const foundations = useSelector(state => state.foundationsReducer.allFoundations)
+  const foundation =foundations.find(f => f.id === estado.id)
   const dispatch = useDispatch();
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();
@@ -26,6 +31,7 @@ const PetDetail = () => {
   useEffect(() => {
     dispatch(getAllPets())
     dispatch(getDetail(id))
+    dispatch(getAllFoundations())
     window.scrollTo(0,0)
 
     return ()=>{
@@ -171,14 +177,16 @@ const PetDetail = () => {
                 
               </div>
               <div className={s.contenedorMascota}>
-                    <h3 className={s.h3}>Conoce a {Api.name}</h3>
+                <div className={s.title}>
+                    <h3 className={s.h3}>Conoce a </h3> <h3 className={s.petName}>{Api.name}</h3>
+                </div>
                     <p className={s.p}>{Api.description}</p>
+                    
               </div>
-              {/*{Api.contact.address.city?
+              {foundation?
                 <div className={s.contenedorFundacion}>
                     <div className={s.name}>
-                      <h3 className={s.h3}>Adopta un perro</h3>
-                      <h4 className={s.h4}>{Api.contact.address.city},{Api.contact.address.country}</h4>
+                      <h3 className={s.h3}>{foundation.name}</h3>
                     </div>
                     <div className={s.nameImg}>
                       <img className={s.img} src='https://i0.wp.com/soniablanco.es/wp-content/uploads/2014/01/adoptaunperro.jpg?fit=960%2C325&ssl=1' alt="imagen" />
@@ -187,20 +195,23 @@ const PetDetail = () => {
                     <div className={s.contenedorDirection}>
                       <div className={s.direction}>
                         <div className={s.directionInterior}>
-                          <h3 className={s.h3}>Dirección de la Fundación</h3>
-                          <p className={s.p}>{Api.contact.address.address}</p>
-                          <p className={s.p}>{Api.contact.address.city},{Api.contact.address.country},{Api.contact.address.postcode}</p>
+                          <h3 className={s.h3}>Información Fundación</h3>
+                          {foundation.address?
+                          <p className={s.p}><FontAwesomeIcon icon={faLocationDot} className={s.addressIcon}/>{foundation.address}</p>
+                          :null
+                          }
+                          <p className={s.p}><FontAwesomeIcon icon={faMapLocationDot} className={s.addressIcon}/>{foundation.cityId} - {foundation.countryId}</p>
                         </div>
                         <div className={s.directionInterior}>
-                          <p className={s.p}>{Api.contact.email}</p>
+                          <p className={s.p}><FontAwesomeIcon icon={faEnvelope} className={s.addressIcon}/>{Api.contact.email}</p>
                         </div>
                         <div className={s.directionInterior}>
-                          <p className={s.p}>{Api.contact.phone}</p>
+                          <p className={s.p}><FontAwesomeIcon icon={faSquarePhone} className={s.addressIcon}/>{Api.contact.phone}</p>
                         </div>
                       </div>
                     </div>
 
-                  </div>:undefined}*/}
+                  </div>:undefined}
               {Api.contact?.address.city?
                 <div className={s.mascotasFoundation}>
                 {/*<h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>*/}
