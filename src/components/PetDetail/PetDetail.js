@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
 import s from '../../css/PetDetail.module.css'
 import NavBar from "../../assets/NavBar/NavBar.jsx";
 import Footer from '../../assets/Footer/Footer.js'
@@ -93,6 +95,9 @@ const PetDetail = () => {
               <button className={s.buttonRight} onClick={next}>< Arrow /></button>
 
                 <div className={s.topRight}>
+                  <div className={s.updateIcon}>
+                    <FontAwesomeIcon icon={faGear} />
+                  </div>
                   <div className={s.name}>
                       <h3 className={s.h3}>{Api.name}</h3>
                       {<p className={s.p}>{Api.breed} | {Api.contact?.address.city} - {Api.contact?.address.country}</p>}
