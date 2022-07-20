@@ -5,7 +5,6 @@ import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry } from '../../redux/actions';
-import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
