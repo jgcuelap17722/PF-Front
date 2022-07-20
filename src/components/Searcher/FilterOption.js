@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import s from '../../css/FilterOption.module.css'
-import { 
-  breedFilter, 
-  ageFilter, 
-  sizeFilter, 
-  genreFilter, 
+import {
+  breedFilter,
+  ageFilter,
+  sizeFilter,
+  genreFilter,
   environmentFilter,
   coatFilter,
   colorFilter,
@@ -16,38 +16,35 @@ import {
 
 const FilterOption = ({ type, options, SetFiltersAmount, filtersAmount }) => {
 
-  const filterActive = useSelector(state => state.petsReducer.filterActive)
-
   const dispatch = useDispatch()
 
   const onClickHandler = (e) => {
-    
+
     switch (type) {
       case 'Raza':
         e.target.value.length && dispatch(breedFilter(e.target.value))
         break;
       case 'Edad':
-        e.target.value.length && dispatch(ageFilter(e.target.value))
+        e.target.value.length && dispatch(ageFilter(e.target.value.toLowerCase()))
         break
       case 'Tamaño':
-        e.target.value.length && dispatch(sizeFilter(e.target.value.split(' ')[0]))
+        e.target.value.length && dispatch(sizeFilter(e.target.value.split(' ')[0].toLowerCase()))
         break
       case 'Sexo':
-        e.target.value.length && dispatch(genreFilter(e.target.value))
+        e.target.value.length && dispatch(genreFilter(e.target.value.toLowerCase()))
         break
       case 'Afinidad con':
-        console.log('afinidad', e.target.value);
-        const environment = e.target.value === 'Kids' ? 'children' : e.target.value === 'Dogs' ? 'dogs' : 'cats'
+        const environment = e.target.value === 'Niños' ? 'children' : e.target.value === 'Perros' ? 'dogs' : 'cats'
         e.target.value.length && dispatch(environmentFilter(environment))
         break
       case 'Pelaje':
-        e.target.value.length && dispatch(coatFilter(e.target.value))
+        e.target.value.length && dispatch(coatFilter(e.target.value.toLowerCase()))
         break
       case 'Color':
         e.target.value.length && dispatch(colorFilter(e.target.value))
         break
       case 'Cuidado y Comportamiento':
-        const attributes = e.target.value === 'House-trained' ? 'house_trained' : e.target.value === 'Declawed' ? 'declawed' : 'special_needs'
+        const attributes = e.target.value === 'Hogareño' ? 'house_trained' : 'special_needs'
         e.target.value.length && dispatch(attributesFilter(attributes))
         break
       case 'Tiempo en Adopción':

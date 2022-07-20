@@ -29,7 +29,7 @@ const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 export function getAllPets() {
   return async function (dispatch) {
-      var json = await axios.get(`${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets`);
+      var json = await axios.get(URL_GET_ALL_PETS);
       return dispatch({
           type: GET_ALL_PETS,
           payload: json.data
@@ -39,7 +39,7 @@ export function getAllPets() {
 
 export function getDetail(id) {
   return async function (dispatch) {
-      var pet = await axios.get(`${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`);
+      var pet = await axios.get(`${URL_GET_PET_DETAIL}${id}`);
       return dispatch({
 
           type: 'GET_DETAIL',
