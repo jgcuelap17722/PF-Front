@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2'
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
@@ -37,7 +39,7 @@ export default function Login() {
         password:''
     })
     const [error, setError] = useState({})
-
+    let inputPass = document.getElementsByName('password')
     useEffect(() => {
         
         window.scrollTo(0,0)
@@ -69,7 +71,7 @@ export default function Login() {
             return;
         }
 
-    }, [input, userLogged])
+    }, [input, userLogged, inputPass])
 
     function handleChange (e) {
         setInput({
@@ -81,6 +83,7 @@ export default function Login() {
             [e.target.name]: e.target.value
         }))
     }
+    
     function showPassword (e){
         e.preventDefault(e)
         let inputPass = document.getElementsByName('password')
@@ -119,28 +122,31 @@ export default function Login() {
                             />   
                             {error.email && <p className={s.error}>{error.email}</p>}
                     </div>
-                    <div className={s.inputGroup}>
-                        <input 
-                            className={s.input}
-                            id={error.password} 
-                            type="password" 
-                            name='password'
-                            placeholder='Contraseña'
-                            onChange={(e) => handleChange(e)}
-                            />
-                            <button id='inputBtn'onClick={showPassword}>👁</button>
-                            {/* <img src={img} alt="img" />  */}
-                            {error.password && <p className={s.error}>{error.password}</p>}
-                    </div>
+                    <form>
+                        <div className={s.inputGroup}>
+                            <input 
+                                className={s.input}
+                                id={error.password} 
+                                type="password" 
+                                name='password'
+                                placeholder='Contraseña'
+                                onChange={(e) => handleChange(e)}
+                                />
+                                <button id='inputBtn'onClick={showPassword}><FontAwesomeIcon icon={faEye}/></button>
+                                {error.password && <p className={s.error}>{error.password}</p>}
+                        </div>
+                    </form>
                     <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
                     <div className={s.textBox}>
                         <Link to='/reset'>
                             <p className={s.forget}>Olvidé mi Contraseña</p>
                         </Link>
-                        <p>No estás registrado?</p>
-                        <Link to='/register'>
-                            <p className={s.forget}>Regístrate</p>
-                        </Link>
+                        <div className={s.registrate}>
+                            <p>No estás registrado?</p>
+                            <Link to='/register'>
+                                <p className={s.forget}>Regístrate</p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
 

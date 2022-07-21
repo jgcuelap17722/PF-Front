@@ -267,6 +267,22 @@
   background-color: #FAB942;
   color: #ffffff;
 }
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2 {
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 100%;
+  height: 80px;
+  background-color: #FAC942;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
+  color: #504F6F;
+  transition: all 0.3s ease;
+}
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2:hover {
+  background-color: #FAB942;
+  color: #ffffff;
+}
 .contenedorPadre .contenedorMascota {
   margin-left: 10rem;
   max-width: 77%;
