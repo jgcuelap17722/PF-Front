@@ -285,15 +285,28 @@
         margin-left: 10rem;
         max-width: 77%;
         text-align: justify;
-        .h3 {
-            font-size: 30px;
-            color: @primary;
+        .title{
+            display: flex;
+            .h3 {
+                font-size: 30px;
+                color: @primary;
+                display: flex;
+            }
+            .petName{
+                font-size: 30px;
+                color: @primary;
+                text-transform: capitalize;
+                margin-left: .8rem;
+            }
         }
+        
         .p {
             margin-top: 20px;
             font-size: 20px;
             color: @gray;
+            padding-bottom: 2rem;
         }
+       
     }
     .contenedorFundacion {
         display: flex;
@@ -330,7 +343,8 @@
                 display: flex;
                 align-items: center;
                 text-align: center;
-                color: @primary;
+                color: @gray;
+                
             }
         }
 
@@ -353,6 +367,11 @@
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: center;
+                .addressIcon{
+                    margin-right: .5rem;
+                    font-size: 2rem;
+                    color: @gray;
+                }
                 .directionInterior {
                     display: flex;
                     flex-direction: column;
