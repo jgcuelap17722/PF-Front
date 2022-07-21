@@ -21,6 +21,9 @@ import {
 	CREATE_NEW_PET,
 	BREEDS_BY_PET_TYPE,
 	COLORS_BY_PET_TYPE,
+	GET_FAV_PETS,
+	POST_FAV_PET,
+	DELETE_FAV_PET,
 } from './petsActions';
 
 
@@ -33,7 +36,8 @@ const initialState = {
 	filterDisplayed: [],
 	createNewPet: {},
 	breedsByPetType: [],
-	colorsByPetType: []
+	colorsByPetType: [],
+	petsFavs: [],
 };
 
 export default function petsReducer(state = initialState, action) {
@@ -48,6 +52,21 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				petDetail: action.payload,
 			}
+			case GET_FAV_PETS:
+				return {
+					...state,
+					petsFavs: action.payload
+				}
+			case POST_FAV_PET:
+				return {
+					...state,
+					petsFavs: [...state.petsFavs, action.payload]
+				}
+			case DELETE_FAV_PET:
+				return {
+					...state,
+					petsFavs: state.petsFavs.filter(e => e.id !== action.payload)
+				}
 
 		// SEARCHER FILTERS
 		case BREED_FILTER:

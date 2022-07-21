@@ -26,6 +26,9 @@ export const GET_DETAIL = 'GET_DETAIL'
 export const CREATE_NEW_PET = 'CREATE_NEW_PET'
 export const BREEDS_BY_PET_TYPE = 'BREEDS_BY_PET_TYPE'
 export const COLORS_BY_PET_TYPE = 'COLORS_BY_PET_TYPE'
+export const GET_FAV_PETS = 'GET_FAV_PETS'
+export const POST_FAV_PET = 'POST_FAV_PET'
+export const DELETE_FAV_PET = 'DELETE_FAV_PET'
 const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 
@@ -51,6 +54,53 @@ export function getDetail(id) {
       })
   }
 }
+
+// FAVORITES
+
+export const getPetFavs = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`${URL_GET_FAVS}${id}`)
+    const data = response.data
+    return dispatch({
+      type: GET_FAV_PETS,
+      payload: data
+    })
+  }
+}
+
+export const postFavPet = (data) => {
+  return async function () {
+    try {
+      const response = axios.post(`${URL_POST_FAVS}`, data)
+      return response;
+    } catch (error) {
+      console.log(error); 
+    }
+  };
+}
+
+export const deletePetFav = ({userId, petId}) => { //QUERY
+  return async function () {
+    try {
+      const response = axios.delete(`${URL_DELETE_FAVS}?userId=${userId}&petId=${petId}`)
+      return response;
+    } catch (error) {
+      throw error
+    }
+  };
+}
+
+export const isFavorite = (id)=>{
+  return async function () {
+    try {
+      const response = axios.post(`${URL_POST_FAVS}`, data)
+      return response;
+    } catch (error) {
+      console.log(error); 
+    }
+  };
+}
+
 
 // SEARCHER FILTERS ------------------------------
 

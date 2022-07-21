@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as Favorites } from '../Favoritos.svg';
 import { resetUserLogged } from '../../redux/actions.js';
 import { useDispatch } from 'react-redux';
+import FavsMenu from '../FavMenu/FavsMenu';
 
 export default function NavBar() {
 
 	const token = localStorage.getItem('token');
+	const userId = localStorage.getItem('userId');
 	const dispatch = useDispatch();
 
 	function closeSesion(){
@@ -46,6 +48,11 @@ export default function NavBar() {
 					<Link to={'/login'}>
 						<p onClick={closeSesion}>{token ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
 					</Link>
+					{
+						token
+							? <FavsMenu userId={userId}	/>
+							: null
+					}
 				</div>
 			</div>
 			<div className={s.navBottom}>
