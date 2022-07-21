@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2'
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/Login.module.css';
@@ -41,11 +42,23 @@ export default function Login() {
         
         window.scrollTo(0,0)
         if(userLogged.Error){
-            alert(userLogged.Error);
+            Swal.fire({
+                title: userLogged.Error,
+                text: 'Dale click para corregir',
+                icon: 'warning',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
             dispatch(resetUserLogged());
             return;
         }else if(userLogged.error){
-            alert(userLogged.error);
+            Swal.fire({
+                title: userLogged.error,
+                text: 'Dale click para corregir',
+                icon: 'warning',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
             dispatch(resetUserLogged());
             return;
         }else if(userLogged.token){
@@ -75,7 +88,15 @@ export default function Login() {
     }
     function handleSubmit (e){
         e.preventDefault(e)
-        if (error.email || error.password || !input.email || !input.password) alert (`Ingresa toda la información`)
+        if (error.email || error.password || !input.email || !input.password) {
+            Swal.fire({
+                title: 'Por favor ingresa los datos completos',
+                text: 'Dale click a continuar para completar',
+                icon: 'error',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
+        }
         else dispatch(loginUser(input));
     }
 
