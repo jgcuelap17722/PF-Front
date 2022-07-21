@@ -280,19 +280,46 @@
   background-color: #FAB942;
   color: #ffffff;
 }
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2 {
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 100%;
+  height: 80px;
+  background-color: #FAC942;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
+  color: #504F6F;
+  transition: all 0.3s ease;
+}
+.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2:hover {
+  background-color: #FAB942;
+  color: #ffffff;
+}
 .contenedorPadre .contenedorMascota {
   margin-left: 10rem;
   max-width: 77%;
   text-align: justify;
 }
-.contenedorPadre .contenedorMascota .h3 {
+.contenedorPadre .contenedorMascota .title {
+  display: flex;
+}
+.contenedorPadre .contenedorMascota .title .h3 {
   font-size: 30px;
   color: #504F6F;
+  display: flex;
+}
+.contenedorPadre .contenedorMascota .title .petName {
+  font-size: 30px;
+  color: #504F6F;
+  text-transform: capitalize;
+  margin-left: 0.8rem;
 }
 .contenedorPadre .contenedorMascota .p {
   margin-top: 20px;
   font-size: 20px;
   color: #A1A8B1;
+  padding-bottom: 2rem;
 }
 .contenedorPadre .contenedorFundacion {
   display: flex;
@@ -329,7 +356,7 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #504F6F;
+  color: #A1A8B1;
 }
 .contenedorPadre .contenedorFundacion .nameImg {
   width: 100%;
@@ -350,6 +377,11 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+.contenedorPadre .contenedorFundacion .contenedorDirection .direction .addressIcon {
+  margin-right: 0.5rem;
+  font-size: 2rem;
+  color: #A1A8B1;
 }
 .contenedorPadre .contenedorFundacion .contenedorDirection .direction .directionInterior {
   display: flex;
