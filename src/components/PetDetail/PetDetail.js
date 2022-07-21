@@ -20,7 +20,7 @@ const PetDetail = () => {
   const allPets = useSelector((state) => state.petsReducer.allPets)
   const estado = useSelector((state) => state.petsReducer.petDetail)
   const foundations = useSelector(state => state.foundationsReducer.allFoundations)
-  const foundation =foundations.find(f => f.id === estado.id)
+  const foundation =foundations.find(f => f.id === estado.userId)
   const dispatch = useDispatch();
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();
@@ -64,7 +64,7 @@ const PetDetail = () => {
   }
   function handleClick(e){
     e.preventDefault();
-
+    
     if(localStorage.token){
       localStorage.setItem('petDetail', JSON.stringify(estado));
       navigate(`/sponsor`) 
@@ -164,9 +164,12 @@ const PetDetail = () => {
                         </Link>
                       </div>
                       <div>
+                        {foundation?
                           <button className={s.buttonSponsor} onClick={handleClick}>Donar</button>
+                          :null
+                        }
                         <Link to='/favorites'>
-                          <button className={s.buttonFavorite}>★ Favoritos</button>
+                          <button className={foundation? s.buttonFavorite : s.buttonFavorite2}> {foundation? '★ Favoritos': '★ Agregar a Favoritos'}</button>
                         </Link>
                       </div>
                     </div>
