@@ -56,7 +56,7 @@ export default function NavBar() {
 					<Link to='/pet-care'>
 						<p>Cuidado Animal</p>
 					</Link>|
-					<Link to='/donations'>
+					<Link to='/foundations'>
 						<p>Donaciones</p>
 					</Link>|
 					<Link to='/faqs'>

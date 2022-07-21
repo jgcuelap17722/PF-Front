@@ -146,7 +146,7 @@
             }
             .donarButton{
                 margin: 0 auto;
-                width: 90%;
+                width: 10rem;
                 height: 52.98px;
                 color: @white;
                 background: @primary;
@@ -156,6 +156,12 @@
                 font-weight: 700;
                 font-size: 22px;
                 line-height: 27px;
+                cursor: pointer;
+                transition: all .3s ease;
+                &:hover{
+                    background-color: @third;
+                    color: @white;
+                }
             }
         }
         .cards{
