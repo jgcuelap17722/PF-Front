@@ -1,0 +1,113 @@
+.showModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(0 0 0 / 0.85);
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+}
+.showModal form {
+  background-color: #DDDDDD;
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 20rem;
+  height: 80vh;
+}
+@media (max-width: 1400px) {
+  .showModal form {
+    width: 70vw;
+    height: auto;
+  }
+}
+@media (max-width: 1023px) {
+  .showModal form {
+    background-color: blue;
+  }
+}
+@media (max-width: 1023px) {
+  .showModal form {
+    background-color: green;
+  }
+}
+@media (max-width: 767px) {
+  .showModal form {
+    background-color: orange;
+    width: 50%;
+  }
+}
+@media (max-width: 360px) {
+  .showModal form {
+    background-color: pink;
+  }
+}
+.showModal form h1 {
+  text-align: center;
+  color: #454B54;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.showModal form div {
+  border: 0.1rem solid green;
+  height: 4rem;
+}
+.showModal form input,
+.showModal form select {
+  width: 100%;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #504F6F;
+  color: #504F6F;
+  outline: none;
+  height: 2rem;
+}
+.showModal form input {
+  height: 2.2rem;
+  width: 98%;
+}
+.showModal form select {
+  height: 2.6rem;
+}
+.showModal form div[id="environment"] {
+  border: 0.1rem solid #504F6F;
+  padding: 1rem;
+}
+.showModal form textarea {
+  width: 98%;
+  border-radius: 0.5rem;
+  border: none;
+  border: 0.1rem solid #504F6F;
+}
+.showModal form input,
+.showModal form textarea {
+  outline: none;
+}
+.showModal form button {
+  height: 2.6rem;
+  width: 100%;
+  background-color: #504F6F;
+  border: none;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+.showModal form button:hover {
+  background-color: #4992AB;
+  color: #DDDDDD;
+  cursor: pointer;
+}
+.hiddenModal {
+  display: none;
+}
+.closeModalIcon {
+  color: #DDDDDD;
+  font-size: 3rem;
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+}
+.closeModalIcon:hover {
+  cursor: pointer;
+}

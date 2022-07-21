@@ -1,0 +1,128 @@
+@import "variables";
+
+.showModal{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	background-color: rgba(0 0 0 / .85);
+	height: 100vh;
+	width: 100vw;
+	z-index: 10;
+
+	form{
+		background-color: @lightGray;
+		border-radius: 1rem;
+		padding: 3rem 4rem;
+		width: 20rem;
+		height: 80vh;
+
+		@media @normalDesktop{
+			width: 70vw;
+			height: auto;
+		}
+
+		@media @horizontalTablet{
+			background-color: blue;
+		}
+
+		@media @verticalTablet{
+			background-color: green;
+		}
+
+		@media @phone{
+			background-color: orange;
+			width: 50%;
+		}
+
+		@media @smallPhone{
+			background-color: pink;
+		}
+
+		h1{
+			text-align: center;
+			color: @black;
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+
+		div{
+			border: .1rem solid green;
+			height: 4rem;
+		}
+
+		input,
+		select{
+			width: 100%;
+			background-color: @white;
+			border: none;
+			border-radius: .2rem;
+			border: .1rem solid @primary;
+			color: @primary;
+			outline: none;
+			height: 2rem;
+		}
+
+		input{
+			height: 2.2rem;
+			width: 98%;
+		}
+
+		select{
+			height: 2.6rem;
+		}
+
+		div[id="environment"]{
+			border: .1rem solid @primary;
+			padding: 1rem;
+		}
+
+		textarea{
+			width: 98%;
+			border-radius: .5rem;
+			border: none;
+			border: .1rem solid @primary;
+		}
+
+		input,
+		textarea{
+			outline: none;
+		}
+
+		button{
+			height: 2.6rem;
+			width: 100%;
+			background-color: @primary;
+			border: none;
+			border-radius: .2rem;
+			color: @white;
+			font-weight: 600;
+
+			&:hover{
+				background-color: @third;
+				color: @lightGray;
+				cursor: pointer;
+			}
+		}
+
+
+	}
+
+
+}
+
+.hiddenModal{
+	display: none;
+}
+
+.closeModalIcon{
+	color: @lightGray;
+	font-size: 3rem;
+	position: absolute;
+	right: 3rem;
+	top: 3rem;
+
+	&:hover{
+		cursor: pointer;
+	}
+}

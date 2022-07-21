@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import s from '../../css/PetDetail.module.css'
 import NavBar from "../../assets/NavBar/NavBar.jsx";
-import Footer from '../../assets/Footer/Footer.js'
-import Card from '../../assets/Card/Card.js'
+import Footer from '../../assets/Footer/Footer.js';
+import Card from '../../assets/Card/Card.js';
+import UpdateModalForm from './UpdateModalForm.jsx';
 import { InfoApi } from "../../assets/dataMockups/InfoApi";
 import { Link } from "react-router-dom";
-import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
-import { useDispatch, useSelector } from 'react-redux'
+import { ReactComponent as Arrow } from '../../assets/Arrow.svg';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router'
@@ -21,24 +22,28 @@ const PetDetail = () => {
   const dispatch = useDispatch();
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();
+  const [modalState, setModalState] = useState(false);
   const navigate = useNavigate()
   const idPetOwner = estado.userId;
   const idVisitorUser = Number(localStorage.userId);
 
-
   
-  // poder editar informacion de mascota solo si soy el dueño
-
   
   useEffect(() => {
     dispatch(getAllPets())
     dispatch(getDetail(id))
     window.scrollTo(0,0)
 
+    if(modalState){
+      document.body.style.overflow = 'hidden';
+    }else{
+       document.body.style.overflow = 'visible';
+    }
+
     return ()=>{
       dispatch(resetPetDetail())
     }
-  }, [dispatch, id])
+  }, [dispatch, id, modalState])
 
   const Api = estado
 
@@ -74,12 +79,22 @@ const PetDetail = () => {
       navigate('/login');
     }
   }
+
+  function handleUpdateClick(){
+    console.log('abriendo formulario modal...');
+    setModalState(true);
+  }
+
+  function closeModal(){
+    setModalState(false);
+  }
+
   return (
     <>
       <div className={s.contenedorPadre}>
+        <UpdateModalForm modalState={modalState} closeModal={closeModal} />
         <NavBar />
-
-
+          
             <>
               <div className={s.top}>
               <button className={s.buttonLeft} onClick={previus}> < Arrow /> </button>
@@ -101,7 +116,7 @@ const PetDetail = () => {
 
                 <div className={s.topRight}>
                   <div className={idPetOwner === idVisitorUser ? s.updateIcon : s.displayNone}>
-                    <FontAwesomeIcon icon={faGear} />
+                    <FontAwesomeIcon onClick={handleUpdateClick} icon={faGear} />
                   </div>
                   <div className={s.name}>
                       <h3 className={s.h3}>{Api.name}</h3>
