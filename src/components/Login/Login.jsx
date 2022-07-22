@@ -100,7 +100,24 @@ export default function Login() {
                 confirmButtonColor: '#66668F',
               })
         }
-        else dispatch(loginUser(input));
+        else dispatch(loginUser(input)).then(() => {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Has iniciado sesión'
+              })
+        });
     }
 
   return (
