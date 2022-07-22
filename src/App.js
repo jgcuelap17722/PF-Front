@@ -19,7 +19,11 @@ import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx';
 import DashboardUserDonations from './components/Dashboard/DashboardUserDonations.jsx'
 import PwReset from './components/PwReset/PwReset';
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
+<<<<<<< HEAD
 import Review  from './components/ReviewComponent/ReviewComponent.jsx'
+=======
+import Foundations from './components/Foundations/Foundations'
+>>>>>>> dev
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
@@ -50,6 +54,7 @@ function App() {
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='/favorites' element={<Favorites />} />
+        <Route path='/foundations' element={<Foundations />} />
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
