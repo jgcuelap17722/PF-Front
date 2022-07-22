@@ -1,0 +1,109 @@
+.content {
+  background-image: url(../assets/images/wave.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 80rem;
+  padding-bottom: 7rem;
+}
+.content h1 {
+  color: #504F6F;
+  text-align: center;
+  margin: 0 13rem;
+  padding: 4rem 0 2rem 0;
+}
+.content .subtitle {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  color: #A1A8B1;
+}
+.content .subtitle p {
+  margin-left: 0.3rem;
+  font-size: 1.3rem;
+}
+.content .subtitle .link {
+  text-decoration: none;
+  color: #504F6F;
+  text-decoration: underline;
+}
+.content .formContent {
+  display: flex;
+  flex-direction: column;
+  margin: 0 28rem 0 28rem;
+  margin-bottom: 10rem;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 12px 2px rgba(0, 0, 0, 0.66);
+  padding-bottom: 3rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.content .formContent .topForm {
+  background-image: url(../assets/images/quizz.png);
+  background-size: cover;
+  background-position: center;
+  height: 15rem;
+}
+.content .formContent form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 1rem;
+}
+.content .formContent form .textContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border: 1px solid rgba(128, 128, 128, 0.094);
+  border-radius: 0.3rem;
+  background-color: #ffffff;
+  color: #727A85;
+  margin: 1rem 3rem 1rem 3rem;
+}
+.content .formContent form .textContainer label {
+  margin-top: 0.2rem;
+  padding-bottom: 0.5rem;
+  text-indent: 22px;
+  font-size: large;
+}
+.content .formContent form .textContainer select {
+  appearance: none;
+  outline: none;
+  padding: 0 1em 0 0;
+  text-indent: 20px;
+  border: none;
+  color: #504F6F;
+  font-style: oblique;
+  display: grid;
+  width: 90%;
+  border-bottom: 2px solid #66668F;
+  margin-left: 2rem;
+}
+.content .formContent form .textContainer select *,
+.content .formContent form .textContainer select *::before,
+.content .formContent form .textContainer select *::after {
+  box-sizing: border-box;
+}
+.content .formContent form .textContainer select::-ms-expand {
+  display: none;
+}
+.content .formContent form .textContainer option {
+  width: 50%;
+}
+.content .formContent form input {
+  background-color: #66668F;
+  color: #ffffff;
+  height: 3rem;
+  margin: 0 5rem 0 5rem;
+  margin-top: 2rem;
+  border: none;
+  box-shadow: 0px 5px 12px 2px rgba(0, 0, 0, 0.66);
+  border-radius: 0.3rem;
+}
+.content .formContent form input:hover {
+  background-color: #4992AB;
+  cursor: pointer;
+  color: #DDDDDD;
+}

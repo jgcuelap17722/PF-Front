@@ -20,6 +20,7 @@ import DashboardUserDonations from './components/Dashboard/DashboardUserDonation
 import PwReset from './components/PwReset/PwReset';
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
 import Foundations from './components/Foundations/Foundations'
+import MatchTestQuizz from './components/MatchTestQuizz/MatchTestQuizz'
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
@@ -52,6 +53,7 @@ function App() {
         <Route path='/foundations' element={<Foundations />} />
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
+        <Route path='/quizz' element={<MatchTestQuizz />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>
