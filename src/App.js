@@ -19,7 +19,7 @@ import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx';
 import DashboardUserDonations from './components/Dashboard/DashboardUserDonations.jsx'
 import PwReset from './components/PwReset/PwReset';
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
-
+import Review  from './components/ReviewComponent/ReviewComponent.jsx'
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
@@ -42,6 +42,7 @@ function App() {
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={user || Object.keys(usuario).length > 0? <CreatePet />: <Navigate replace to="/login"/>} /> 
         {/* <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} /> */}
+        <Route path='/review' element={<Review/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/dashboard/mascotas' element={<DashboardUser/>} />
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />

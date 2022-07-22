@@ -16,7 +16,7 @@ export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
 export const GET_DONATIONS = 'GET_DONATIONS';
 export const GET_ALL_PETS_BY_USER = 'GET_ALL_PETS_BY_USER';
 export const RESET_DASHBOARD_PETS = 'RESET_DASHBOARD_PETS';
-
+export const POST_REVIEW = 'POST_REVIEW'
 const { REACT_APP_BACKEND_URL_TEST } = process.env; 
 
 
@@ -225,4 +225,20 @@ export function getAllPetsByUser(id){
 }
 export function resetDashboardPets() {
     return { type: RESET_DASHBOARD_PETS, payload: [] }
+}
+
+export function postReview(obj, token) {
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/start`
+    const options = {
+        method: 'POST',
+        headers: { 'authorization': token, 'Content-Type': 'Application/json'},
+        body: JSON.stringify(obj),
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: POST_REVIEW, payload: data })
+        })
+    }
 }

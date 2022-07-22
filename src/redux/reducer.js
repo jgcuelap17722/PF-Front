@@ -15,6 +15,7 @@ import {
 	GET_DONATIONS,
 	GET_ALL_PETS_BY_USER,
 	RESET_DASHBOARD_PETS,
+	POST_REVIEW,
 } from './actions';
 
 const initialState = {
@@ -136,6 +137,10 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				allPetsByUser: action.payload
+			}
+		case POST_REVIEW:
+			return{
+				...state
 			}
 		default:
 		return state;
