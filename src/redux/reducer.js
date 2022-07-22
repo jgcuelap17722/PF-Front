@@ -16,6 +16,7 @@ import {
 	GET_ALL_PETS_BY_USER,
 	RESET_DASHBOARD_PETS,
 	POST_ADOPTER_PROFILE,
+	RESET_ADOPTER_PROFILE,
 } from './actions';
 
 const initialState = {
@@ -140,6 +141,11 @@ export default function reducer(state = initialState, action) {
 				allPetsByUser: action.payload
 			}
 		case POST_ADOPTER_PROFILE:
+			return{
+				...state,
+				adopterProfile: action.payload
+			}
+		case RESET_ADOPTER_PROFILE:
 			return{
 				...state,
 				adopterProfile: action.payload

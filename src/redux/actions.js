@@ -17,6 +17,7 @@ export const GET_DONATIONS = 'GET_DONATIONS';
 export const GET_ALL_PETS_BY_USER = 'GET_ALL_PETS_BY_USER';
 export const RESET_DASHBOARD_PETS = 'RESET_DASHBOARD_PETS';
 export const POST_ADOPTER_PROFILE = 'POST_ADOPTER_PROFILE';
+export const RESET_ADOPTER_PROFILE = 'RESET_ADOPTER_PROFILE';
 
 const { REACT_APP_BACKEND_URL_TEST } = process.env; 
 
@@ -95,6 +96,7 @@ export function loginUser(obj) {
         .then(data => {
             dispatch({ type: LOGIN_USER, payload: data })
         })
+        .catch(error => console.log(error))
     }
 }
 
@@ -239,10 +241,12 @@ export function postAdopterProfile(obj, token){
         return await fetch(url, options)
             .then(response => response.json())
             .then(data => {
-                console.log('data', data)
                 dispatch({ type: POST_ADOPTER_PROFILE, payload: data })
             })
             .catch(error => console.log(error))
     
     }
+}
+export function resetAdopterProfile() {
+    return { type: RESET_ADOPTER_PROFILE, payload: {} }
 }
