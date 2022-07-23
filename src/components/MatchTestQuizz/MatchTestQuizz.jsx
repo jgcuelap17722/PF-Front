@@ -48,7 +48,6 @@ export default function MatchTestQuizz() {
 
         useEffect(() => {
             if(adopterProfile?.message) {
-                console.log('entré al dispatch')
                 Swal.fire({
                 icon: 'success',
                 title: 'Hemos guardado tus preferencias',
