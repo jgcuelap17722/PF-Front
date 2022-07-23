@@ -14,12 +14,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function MatchTestQuizz() {
     const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
     const adopterProfile = useSelector( state => state.reducer.adopterProfile)
     const Navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch()
-    console.log(adopterProfile)
-    
 
         useEffect(() => {
           if(!token){
@@ -42,12 +41,10 @@ export default function MatchTestQuizz() {
               })
           }
           
-
-        
           return () => {
-            dispatch(resetAdopterProfile())
-          }
-        }, [dispatch])
+                dispatch(resetAdopterProfile())
+                }
+            }, [dispatch])
 
         useEffect(() => {
             if(adopterProfile?.message) {
@@ -58,28 +55,28 @@ export default function MatchTestQuizz() {
                 showConfirmButton: false,
                 timer: 3500
             })
+            }
             if (adopterProfile?.error){
                 Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Algo salió mal!...por favor intenta de nuevo',
-                confirmButtonText: 'Continuar',
+                text: 'Ya tienes tus Match actualizados. Si quieres editarlos lo puedes hacer en tu perfil',
+                showCancelButton: true,
+                confirmButtonText: 'Ir al perfil',
                 confirmButtonColor: '#66668F',
-                })
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        Navigate('/dashboard')
+                    } 
+                  })
             }
-                    
-
-            }
-
         }, [adopterProfile])
-        
         
         const onSubmit = data => {
 
             if(token){
-                dispatch(postAdopterProfile(data, token)).then(()=>{
-                    console.log('dispatch',adopterProfile)
-                })
+                dispatch(postAdopterProfile(data, token, userId))
             }
             else{
             Swal.fire({

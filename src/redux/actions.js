@@ -229,8 +229,8 @@ export function getAllPetsByUser(id){
 export function resetDashboardPets() {
     return { type: RESET_DASHBOARD_PETS, payload: [] }
 }
-export function postAdopterProfile(obj, token){
-    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/match`;
+export function postAdopterProfile(obj, token, userId){
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/match/${userId}`;
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'Application/json', 'authorization': token },
