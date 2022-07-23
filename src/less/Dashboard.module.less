@@ -1,142 +1,190 @@
 @import 'variables';
 
 .content{
-    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    background-color: @white;
     h1{
         color: @primary;
-        margin:20px 0 0 -500px;
-    }
+        margin: 3rem 0 2rem 0;
 
-    .datos{
-        margin-top: 20px;
-        padding-top: 15px;
-        width: 50%;
-        height: 30px;
-        display: flex;
-        justify-content: space-evenly;
-        border-top: 2px solid @primary;
-        border-left: 2px solid @primary;
-        border-right: 2px solid @primary;
-        border-radius: 15px 15px 0 0;
-        .link{
-            text-decoration: none;
-        }
-        h3{
+    }
+    .dash{
+        width: 90%;
+        box-shadow: 0px 13px 26px 1px rgba(0,0,0,0.85);
+        margin-bottom: 4rem;
+        border-radius: .5rem;
+
+        .datos{
             margin-top: 5px;
-            font-weight: 500;
-        }
-        
-        .selected{
-            color: @black;
-            background-color: @secondary;
-            padding: 0 20px;
-            border-radius: 15px 15px 0 0;
-
-        }
-        .nonSelected{
-            color: @black;
-        }
-    }
-    .infoContainer{
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        height: 380px;
-        border: 2px solid @primary;
-        border-radius:  0 0 15px 15px;
-
-        h2{
-            color: @darkGray;
-            padding-left: 60px;
-            padding-top: 20px;
-        }
-        .inputContainer{
+            padding-top: 15px;
+            margin: 0 5rem 0 5rem;
+            height: 30px;
             display: flex;
-            padding-top: 25px;            
-            justify-content: center;
-            select{
-                border: none;
-                border: 2px solid @lightPrimary;
-                border-radius: 5px;
-                height: 36px;
-                width: 232px;
-                outline:none;
-                margin-bottom: 10px;
-                        &:hover{
-                            border: 2px solid @third;
+            justify-content:flex-start ;
+    
+            .link{
+                text-decoration: none;
+                color: @darkGray;
+            }
+            h3{
+                margin-top: 5px;
+                font-weight: 400;
+
+            }
+            
+            .selected{
+                color: @black;
+                background-color: @secondary;
+                padding: 0 20px;
+                border-radius: 15px 15px 0 0;
+                margin-right: 2rem;
+    
+            }
+            .nonSelected{
+                color: @black;
+                margin-right: 2rem;
+            }
+        }
+        .infoContainer{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom: 2rem;
+            margin-bottom: 4rem;
+            border-top: 2px solid rgba(128, 128, 128, 0.341);
+            background-color: @white;
+            h2{
+                color: @darkGray;
+                padding-left: 5rem;
+                padding-top: 20px;
+                font-weight: 200;
+            }
+            .inputContainer{
+                display: flex;
+                padding-top: 25px;            
+                background-color: @white;
+                select{
+                    border: none;
+                    border: 2px solid @lightPrimary;
+                    border-radius: 5px;
+                    height: 36px;
+                    width: 232px;
+                    outline:none;
+                    margin-bottom: 10px;
+                            &:hover{
+                                border: 2px solid @third;
+                            }
+                }
+
+                .left{
+                    width: 45%;
+                    margin-left: 5rem;
+                    background-color: @white;
+
+                    .name:first-child{
+
+                        input{
+                            text-indent: 0;
                         }
-            }
-            #lastInput{
-                margin-bottom: 0;
-                height: 50%;
-                background-color: aqua;
-            }
-            .left{
-                .divPhone{
-                    button{
-                        margin-bottom: 20px;
-                        margin-top: 5px;
-                        border: none;
-                        border: 2px solid @lightPrimary;
-                        border-radius: 5px;
-                        height: 36px;
-                        outline:none;
-                        &:hover{
-                            border: 2px solid @third;
+
+                    }
+                    .name{
+                        width: 90%;
+                        height: 4rem;
+                        padding-top: .5rem;
+                        margin-bottom: .5rem;
+                        border: 1px solid @lightGray;
+                        border-radius: .5rem;
+                        text-indent: 1rem;
+
+                        input{
+                            width: 90%;
+                            border: none;
+                            text-indent: 1rem;
+                            color: @lightPrimary;
+                        }
+                        select{
+                            width: 90%;
+                            border: none;
+                            text-indent: 1rem;
+                            color: @lightPrimary;
                         }
                     }
                 }
-            }
-            .right{
-                padding-left: 50px;
-                
-            }
+                .right{
+                    width: 45%;
+                    background-color: @white;
+                    .apellido{
+                        width: 90%;
+                        height: 4rem;
+                        padding-top: .5rem;
+                        margin-bottom: .5rem;
+                        border: 1px solid @lightGray;
+                        border-radius: .5rem;
+                        text-indent: 1rem;
 
+                        input{
+                            width: 90%;
+                            border: none;
+                            text-indent: 1rem;
+                            color: @lightPrimary;
+                        }
+                        select{
+                            width: 90%;
+                            border: none;
+                            text-indent: 1rem;
+                            color: @lightPrimary;
+                        }
+                    }
+                }
+    
+                h4{
+                    color: @darkGray;
+                }
+                input{
+                    text-transform: capitalize;
+                    margin-bottom: 20px;
+                    margin-top: 5px;
+                    border: none;
+                    border: 2px solid @lightPrimary;
+                    border-radius: 5px;
+                    height: 30px;
+                    outline:none;
+                    &:focus{
+                        border: 2px solid @third;
+                    }
+                }
 
-            h4{
-                color: @darkGray;
+    
             }
-            input{
-                text-transform: capitalize;
-                margin-bottom: 20px;
-                margin-top: 5px;
+            .button{
+                width: 100%;
+                height: 40px;
+                margin-top: 2rem;
+                align-self: center;
                 border: none;
-                border: 2px solid @lightPrimary;
+                background-color: @primary;
+                color: @secondary;
                 border-radius: 5px;
-                height: 30px;
-                outline:none;
-                &:focus{
-                    border: 2px solid @third;
+                cursor: pointer;
+                &:hover{
+                    color: @white;
+                    background-color: @third;
                 }
             }
-
-        }
-        .button{
-            width: 100%;
-            height: 40px;
-            align-self: center;
-            border: none;
-            background-color: @primary;
-            color: @secondary;
-            border-radius: 5px;
-            cursor: pointer;
-            &:hover{
-                color: @white;
-                background-color: @third;
+            .link{
+                display: flex;
+                align-self: center;
+                width: 83%;
             }
+            a{
+                text-decoration: none;
+            }
+    
         }
-        .link{
-            display: flex;
-            align-self: center;
-            width: 83%;
-        }
-        a{
-            text-decoration: none;
-        }
-
     }
+
+    
 }

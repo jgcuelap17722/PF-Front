@@ -1,60 +1,67 @@
 .content {
-  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #ffffff;
 }
 .content h1 {
   color: #504F6F;
-  margin: 20px 0 0 -500px;
+  margin: 3rem 0 2rem 0;
 }
-.content .datos {
-  margin-top: 20px;
+.content .dash {
+  width: 90%;
+  box-shadow: 0px 13px 26px 1px rgba(0, 0, 0, 0.85);
+  margin-bottom: 4rem;
+  border-radius: 0.5rem;
+}
+.content .dash .datos {
+  margin-top: 5px;
   padding-top: 15px;
-  width: 50%;
+  margin: 0 5rem 0 5rem;
   height: 30px;
   display: flex;
-  justify-content: space-evenly;
-  border-top: 2px solid #504F6F;
-  border-left: 2px solid #504F6F;
-  border-right: 2px solid #504F6F;
-  border-radius: 15px 15px 0 0;
+  justify-content: flex-start;
 }
-.content .datos .link {
+.content .dash .datos .link {
   text-decoration: none;
+  color: #727A85;
 }
-.content .datos h3 {
+.content .dash .datos h3 {
   margin-top: 5px;
-  font-weight: 500;
+  font-weight: 400;
 }
-.content .datos .selected {
+.content .dash .datos .selected {
   color: #454B54;
   background-color: #FAC942;
   padding: 0 20px;
   border-radius: 15px 15px 0 0;
+  margin-right: 2rem;
 }
-.content .datos .nonSelected {
+.content .dash .datos .nonSelected {
   color: #454B54;
+  margin-right: 2rem;
 }
-.content .infoContainer {
+.content .dash .infoContainer {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  height: 380px;
-  border: 2px solid #504F6F;
-  border-radius: 0 0 15px 15px;
+  width: 100%;
+  padding-bottom: 2rem;
+  margin-bottom: 4rem;
+  border-top: 2px solid rgba(128, 128, 128, 0.341);
+  background-color: #ffffff;
 }
-.content .infoContainer h2 {
+.content .dash .infoContainer h2 {
   color: #727A85;
-  padding-left: 60px;
+  padding-left: 5rem;
   padding-top: 20px;
+  font-weight: 200;
 }
-.content .infoContainer .inputContainer {
+.content .dash .infoContainer .inputContainer {
   display: flex;
   padding-top: 25px;
-  justify-content: center;
+  background-color: #ffffff;
 }
-.content .infoContainer .inputContainer select {
+.content .dash .infoContainer .inputContainer select {
   border: none;
   border: 2px solid #66668F;
   border-radius: 5px;
@@ -63,33 +70,67 @@
   outline: none;
   margin-bottom: 10px;
 }
-.content .infoContainer .inputContainer select:hover {
+.content .dash .infoContainer .inputContainer select:hover {
   border: 2px solid #4992AB;
 }
-.content .infoContainer .inputContainer #lastInput {
-  margin-bottom: 0;
-  height: 50%;
-  background-color: aqua;
+.content .dash .infoContainer .inputContainer .left {
+  width: 45%;
+  margin-left: 5rem;
+  background-color: #ffffff;
 }
-.content .infoContainer .inputContainer .left .divPhone button {
-  margin-bottom: 20px;
-  margin-top: 5px;
+.content .dash .infoContainer .inputContainer .left .name:first-child input {
+  text-indent: 0;
+}
+.content .dash .infoContainer .inputContainer .left .name {
+  width: 90%;
+  height: 4rem;
+  padding-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5rem;
+  text-indent: 1rem;
+}
+.content .dash .infoContainer .inputContainer .left .name input {
+  width: 90%;
   border: none;
-  border: 2px solid #66668F;
-  border-radius: 5px;
-  height: 36px;
-  outline: none;
+  text-indent: 1rem;
+  color: #66668F;
 }
-.content .infoContainer .inputContainer .left .divPhone button:hover {
-  border: 2px solid #4992AB;
+.content .dash .infoContainer .inputContainer .left .name select {
+  width: 90%;
+  border: none;
+  text-indent: 1rem;
+  color: #66668F;
 }
-.content .infoContainer .inputContainer .right {
-  padding-left: 50px;
+.content .dash .infoContainer .inputContainer .right {
+  width: 45%;
+  background-color: #ffffff;
 }
-.content .infoContainer .inputContainer h4 {
+.content .dash .infoContainer .inputContainer .right .apellido {
+  width: 90%;
+  height: 4rem;
+  padding-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5rem;
+  text-indent: 1rem;
+}
+.content .dash .infoContainer .inputContainer .right .apellido input {
+  width: 90%;
+  border: none;
+  text-indent: 1rem;
+  color: #66668F;
+}
+.content .dash .infoContainer .inputContainer .right .apellido select {
+  width: 90%;
+  border: none;
+  text-indent: 1rem;
+  color: #66668F;
+}
+.content .dash .infoContainer .inputContainer h4 {
   color: #727A85;
 }
-.content .infoContainer .inputContainer input {
+.content .dash .infoContainer .inputContainer input {
   text-transform: capitalize;
   margin-bottom: 20px;
   margin-top: 5px;
@@ -99,12 +140,13 @@
   height: 30px;
   outline: none;
 }
-.content .infoContainer .inputContainer input:focus {
+.content .dash .infoContainer .inputContainer input:focus {
   border: 2px solid #4992AB;
 }
-.content .infoContainer .button {
+.content .dash .infoContainer .button {
   width: 100%;
   height: 40px;
+  margin-top: 2rem;
   align-self: center;
   border: none;
   background-color: #504F6F;
@@ -112,15 +154,15 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.content .infoContainer .button:hover {
+.content .dash .infoContainer .button:hover {
   color: #ffffff;
   background-color: #4992AB;
 }
-.content .infoContainer .link {
+.content .dash .infoContainer .link {
   display: flex;
   align-self: center;
   width: 83%;
 }
-.content .infoContainer a {
+.content .dash .infoContainer a {
   text-decoration: none;
 }
