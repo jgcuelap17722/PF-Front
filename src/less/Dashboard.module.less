@@ -110,6 +110,7 @@
                             border: none;
                             text-indent: 1rem;
                             color: @lightPrimary;
+                            
                         }
                     }
                 }
@@ -188,3 +189,12 @@
 
     
 }
+@supports (-moz-appearance:none) {
+    select
+    {
+    -moz-appearance:none !important;
+    background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
+    background-position: calc(100% - 5px) center !important;
+    }
+  }
+  
