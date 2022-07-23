@@ -38,6 +38,9 @@ export default function Dashboard() {
                             <h3>Mis Mascotas</h3>
                         </div>
                         <div className={s.nonSelected}>
+                                <Link className={s.link} to='/dashboard/mascotas'><h3>Perfil Adoptante</h3></Link>
+                            </div>
+                        <div className={s.nonSelected}>
                         {userDetail.role === 'fundation'?
                         <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:
                         <Link className={s.link} to='/dashboard/donations'><h3>Donaciones  Realizadas</h3></Link>
