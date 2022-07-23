@@ -176,7 +176,7 @@ export default function MatchTestQuizz() {
                                     <option value="extra grande">Extra Grande (101 lbs o más)</option>
                                 </select>
                         </div>              
-                        <input className={s.input}type="submit" />
+                        <input className={s.input}type="submit" value='Guardar datos'/>
                         
                     </form>
                 </div>

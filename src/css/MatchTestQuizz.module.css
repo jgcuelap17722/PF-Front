@@ -80,6 +80,7 @@
   width: 90%;
   border-bottom: 2px solid #66668F;
   margin-left: 2rem;
+  background-color: #ffffff;
 }
 .content .formContent form .textContainer select *,
 .content .formContent form .textContainer select *::before,
