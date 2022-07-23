@@ -37,7 +37,7 @@ export default function SignUp() {
 	}
 	
 	useEffect( () => {
-
+		window.scrollTo(0,0)
 		if(selectCountry){
 			dispatch(getCitiesByCountry(selectCountry));
 		}

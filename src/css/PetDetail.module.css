@@ -1,7 +1,6 @@
 .contenedorPadre {
-  max-width: 100%;
-  max-height: 3500px;
   background: #FFFFFF;
+  padding-bottom: 4rem;
 }
 .contenedorPadre .top {
   display: flex;
