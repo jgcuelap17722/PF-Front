@@ -18,6 +18,8 @@ import {
 	POST_REVIEW,
 	RESET_POST_REVIEW,
 	GET_REVIEW,
+	POST_ADOPTER_PROFILE,
+	RESET_ADOPTER_PROFILE,
 } from './actions';
 
 const initialState = {
@@ -35,6 +37,8 @@ const initialState = {
 	donations:[],
 	allPetsByUser: [],
 	review:[],
+	allPetsByUser:[],
+	adopterProfile:{},
 };
 
 export default function reducer(state = initialState, action) {
@@ -154,6 +158,16 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				review: action.payload
+			}
+		case POST_ADOPTER_PROFILE:
+			return{
+				...state,
+				adopterProfile: action.payload
+			}
+		case RESET_ADOPTER_PROFILE:
+			return{
+				...state,
+				adopterProfile: action.payload
 			}
 		default:
 		return state;

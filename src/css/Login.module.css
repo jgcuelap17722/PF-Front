@@ -51,12 +51,14 @@
   border: none;
   border-radius: 5px;
   text-indent: 22px;
+  color: #A1A8B1;
 }
 .content .form .input[name='password'] {
   max-width: 370px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   text-indent: 22px;
+  color: #A1A8B1;
 }
 .content .form .button {
   width: 420px;
