@@ -226,7 +226,7 @@ const PetDetail = () => {
                       <h3 className={s.h3}>{foundation.name}</h3>
                     </div>
                     <div className={s.nameImg}>
-                      <img className={s.img} src='https://i0.wp.com/soniablanco.es/wp-content/uploads/2014/01/adoptaunperro.jpg?fit=960%2C325&ssl=1' alt="imagen" />
+                      <img className={s.img} src={foundation.photo} alt="imagen" />
                     </div>
 
                     <div className={s.contenedorDirection}>

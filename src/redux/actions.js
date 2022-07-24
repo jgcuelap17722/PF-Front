@@ -16,6 +16,8 @@ export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
 export const GET_DONATIONS = 'GET_DONATIONS';
 export const GET_ALL_PETS_BY_USER = 'GET_ALL_PETS_BY_USER';
 export const RESET_DASHBOARD_PETS = 'RESET_DASHBOARD_PETS';
+export const POST_ADOPTER_PROFILE = 'POST_ADOPTER_PROFILE';
+export const RESET_ADOPTER_PROFILE = 'RESET_ADOPTER_PROFILE';
 
 const { REACT_APP_BACKEND_URL_TEST } = process.env; 
 
@@ -94,6 +96,7 @@ export function loginUser(obj) {
         .then(data => {
             dispatch({ type: LOGIN_USER, payload: data })
         })
+        .catch(error => console.log(error))
     }
 }
 
@@ -225,4 +228,25 @@ export function getAllPetsByUser(id){
 }
 export function resetDashboardPets() {
     return { type: RESET_DASHBOARD_PETS, payload: [] }
+}
+export function postAdopterProfile(obj, token, userId){
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/match/${userId}`;
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'Application/json', 'authorization': token },
+        body: JSON.stringify(obj),
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: POST_ADOPTER_PROFILE, payload: data })
+            })
+            .catch(error => console.log(error))
+    
+    }
+}
+export function resetAdopterProfile() {
+    return { type: RESET_ADOPTER_PROFILE, payload: {} }
 }
