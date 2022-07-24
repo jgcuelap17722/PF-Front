@@ -121,20 +121,18 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 		setCurrentPhotos( currentPhotos?.filter( (p, index) => index !== i )) 
 	}
    	
-   	
 	return (
 		<main className={ modalState ? s.showModal : s.hiddenModal} >
-				<FontAwesomeIcon icon={faXmark} className={s.closeModalIcon} onClick={closeModal} />
-				<div className={s.blur}></div>
+			<FontAwesomeIcon icon={faXmark} className={s.closeModalIcon} onClick={closeModal} />
 			<form onSubmit={handleSubmit(onSubmit)}>
 					<div>
-						<p id={s.generalEdition}>{`Edicion General`}</p>
+						<p id={s.generalEdition}>{`Edición General`}</p>
 					</div>
 					<div>
 						<div className={s.left}>
 							<div>
 								<select {...register("breedId", {required: "Selecciona un tipo de raza"})}>
-										<option value={breed?.id}  disabled selected hidden>{storagePetDetail.breed ? storagePetDetail.breed : breed?.nameBreed }</option>
+										<option value={breed?.id} selected hidden>{storagePetDetail.breed ? storagePetDetail.breed : breed?.nameBreed }</option>
 										{breeds && breeds.map( b =>  
 											<option value={b.id}>{b.nameBreed}</option>
 										)}
