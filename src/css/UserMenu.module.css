@@ -1,0 +1,136 @@
+.userManuBox {
+  position: relative;
+}
+.userManuBox .linkBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+}
+.userManuBox .linkBox a {
+  text-decoration: none;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.userManuBox .linkBox a:hover {
+  color: #DDDDDD;
+}
+.userManuBox .linkBox .arrowIcon {
+  width: 30px;
+}
+.userManuBox .linkBox .userImgBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.userManuBox .linkBox .userImgBox img {
+  object-fit: cover;
+  height: 100%;
+}
+.userManuBox .empty {
+  width: 100%;
+  height: 50px;
+  color: #4B4D62;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.userManuBox .empty p {
+  font-size: 14px;
+}
+.userManuBox .favsMenuList {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  width: 350px;
+  max-height: 420px;
+  z-index: 10;
+  left: -165px;
+  top: 53px;
+  color: #454B54;
+  transition: all 300ms ease;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.userManuBox .favsMenuList .favsMenuListTitle {
+  min-height: 45px;
+  max-height: 45px;
+  border-bottom: solid 1px #DDDDDD;
+  display: flex;
+  align-items: center;
+}
+.userManuBox .favsMenuList .favsMenuListTitle p {
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #3C3B53;
+}
+.userManuBox .favsMenuList .listBox {
+  overflow: auto;
+}
+.userManuBox .favsMenuList .listBox .userOptions {
+  width: 100%;
+  height: 50px;
+  border-bottom: solid 1px #DDDDDD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.userManuBox .favsMenuList .listBox .userOptions a {
+  text-decoration: none;
+  color: #DDDDDD;
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #3C3B53;
+}
+.userManuBox .favsMenuList .listBox .userOptions:hover {
+  background-color: #FAC942;
+}
+.userManuBox .favsMenuList .listBox .userOptions:hover a {
+  color: #ffffff;
+  font-weight: 500;
+}
+.userManuBox .favsMenuList .favsMenuLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 45px;
+  max-height: 45px;
+  bottom: 0;
+  border-top: solid 1px #DDDDDD;
+  transition: all 300ms ease;
+  background-color: #ffffff;
+}
+.userManuBox .favsMenuList .favsMenuLink a {
+  text-decoration: none;
+  color: #504F6F;
+  font-size: 15px;
+  font-weight: 400;
+}
+.userManuBox .favsMenuList .favsMenuLink:hover {
+  background-color: #FAC942;
+}
+.userManuBox .favsMenuList .favsMenuLink:hover a {
+  color: #ffffff;
+  font-weight: 500;
+}
+.userManuBox:hover .favsMenuList {
+  visibility: visible;
+  opacity: 1;
+}

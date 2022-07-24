@@ -10,7 +10,7 @@ import s from '../../css/Search.module.css'
 
 const FavsCase = ({ petType, type }) => {
 
-  const petsFav = useSelector(state => state.petsReducer.petsFavs)
+  const petsFav = useSelector(state => state.petsReducer.petsFiltered)
 
 
   // Paginado
@@ -41,6 +41,7 @@ const FavsCase = ({ petType, type }) => {
                   name={e.name}
                   location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
+                  isFav={true}
                   cardType='search'
                   fav={true}
                 />

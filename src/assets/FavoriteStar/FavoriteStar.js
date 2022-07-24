@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux/es/exports'
 import { postFavPet, deletePetFav, getPetFavs } from '../../redux/petsActions'
 import favStarAvoid from '../../assets/icons/favstar-avoid.svg'
 import favStarFilled from '../../assets/icons/favstar-filled.svg'
 import s from '../../css/FavoriteStar.module.css'
 
-const FavoriteStar = ({ userId , petId }) => {
+const FavoriteStar = ({ userId , petId, isFav }) => {
 
   const userRef = parseInt(userId)
   const petRef = parseInt(petId)
@@ -14,12 +14,19 @@ const FavoriteStar = ({ userId , petId }) => {
 
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    if (isFav) {
+      setDisplay(true)
+    }
+  }, [isFav])
+  
+
+
   const clickHandler = async (e) => {
     if (display) {
       if(userId){
         setDisplay(false)
         const response = await dispatch(deletePetFav({userId: userRef, petId}))
-        console.log('delete', response);
       } else{
         alert('No has iniciado sesión')
       }
@@ -28,7 +35,6 @@ const FavoriteStar = ({ userId , petId }) => {
       setDisplay(true)
       const response = await dispatch(postFavPet({userId: userRef, petId}))
       dispatch(getPetFavs())
-      console.log('post', response);
     }
   }
 

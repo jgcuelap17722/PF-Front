@@ -5,9 +5,9 @@ import { useState } from 'react'
 
 const SearcherFilter = ({ petType }) => {
 
-  const [filterType, setFilterType] = useState({})
+  // const [filterType, setFilterType] = useState({})
 
-  console.log('objeto', filterType);
+  // console.log('objeto', filterType);
 
 
   return (
@@ -19,8 +19,8 @@ const SearcherFilter = ({ petType }) => {
               key={`${e.type}${id}`} 
               type={e.type} 
               options={e.options}
-              setFilterType={setFilterType}
-              filterType={filterType}
+              // setFilterType={setFilterType}
+              // filterType={filterType}
             />)
         })
       }

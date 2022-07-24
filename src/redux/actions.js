@@ -17,7 +17,7 @@ export const GET_DONATIONS = 'GET_DONATIONS';
 export const GET_ALL_PETS_BY_USER = 'GET_ALL_PETS_BY_USER';
 export const RESET_DASHBOARD_PETS = 'RESET_DASHBOARD_PETS';
 
-const { REACT_APP_BACKEND_URL_TEST } = process.env; 
+const { REACT_APP_BACKEND_URL_TEST, REACT_APP_MAPS_API_KEY } = process.env; 
 
 
 
@@ -225,4 +225,18 @@ export function getAllPetsByUser(id){
 }
 export function resetDashboardPets() {
     return { type: RESET_DASHBOARD_PETS, payload: [] }
+}
+
+export const getLocation =({lat, lng})=>{
+    return async function(dispatch){
+        return await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${REACT_APP_MAPS_API_KEY}`)
+            .then(response => response.json())
+            .then(json =>{
+                const locationInfo = {
+                    city: json.results[0].address_components[2].long_name,
+                    country: json.results[6].address_components[2].long_name
+                }
+                return locationInfo
+            })
+    }
 }

@@ -24,6 +24,8 @@ import {
 	GET_FAV_PETS,
 	POST_FAV_PET,
 	DELETE_FAV_PET,
+	GET_ALL_PETS_AND_FAVS,
+	SEARCH_IN_FAVS,
 } from './petsActions';
 
 
@@ -52,21 +54,33 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				petDetail: action.payload,
 			}
-			case GET_FAV_PETS:
-				return {
-					...state,
-					petsFavs: action.payload
-				}
-			case POST_FAV_PET:
-				return {
-					...state,
-					petsFavs: [...state.petsFavs, action.payload]
-				}
-			case DELETE_FAV_PET:
-				return {
-					...state,
-					petsFavs: state.petsFavs.filter(e => e.id !== action.payload)
-				}
+		case GET_FAV_PETS:
+			return {
+				...state,
+				petsFavs: action.payload
+			}
+		case POST_FAV_PET:
+			return {
+				...state,
+				petsFavs: [...state.petsFavs, action.payload]
+			}
+		case DELETE_FAV_PET:
+			return {
+				...state,
+				petsFavs: state.petsFavs.filter(e => e.id !== action.payload)
+			}
+		case GET_ALL_PETS_AND_FAVS:
+			return {
+				...state,
+				petsAvailables: action.payload,
+				allPets: action.payload
+			}
+		case SEARCH_IN_FAVS: 
+			return{
+				...state,
+				petsAvailables: action.payload,
+				petsFiltered: action.payload
+			}
 
 		// SEARCHER FILTERS
 		case BREED_FILTER:
@@ -218,7 +232,7 @@ export default function petsReducer(state = initialState, action) {
 			}
 
 		case COLORS_BY_PET_TYPE:
-			return{
+			return {
 				...state,
 				colorsByPetType: action.payload
 			}

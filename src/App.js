@@ -34,7 +34,7 @@ function App() {
         <Route path='/login' element={<Login  />} />
         {/* SEARCHER: SOLO FUNCIONA CON 2 PETTYPE Dog Y Cat */}
         <Route path='/searcher/:petType' element={<Searcher />}/>
-        <Route path='/searcher/:type/:item' element={<Searcher />}/>
+        <Route path='/searcher/:type/:item/:subItem' element={<Searcher />}/>
         <Route path='/sponsor' element={<Donations />}/>
         <Route path='/sponsor/confirm' element={<DonationsConfirm />}/>
         <Route path='/pet-care' element={<PetCare />} />
