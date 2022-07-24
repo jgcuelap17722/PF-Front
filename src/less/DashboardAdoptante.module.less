@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     background-color: @white;
+   
     h1{
         color: @primary;
         margin: 3rem 0 2rem 0;
@@ -52,7 +53,7 @@
             flex-direction: column;
             width: 100%;
             padding-bottom: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             border-top: 2px solid rgba(128, 128, 128, 0.341);
             background-color: @white;
             h2{
@@ -65,53 +66,39 @@
                 display: flex;
                 padding-top: 25px;            
                 background-color: @white;
-                select{
-                    border: none;
-                    border: 2px solid @lightPrimary;
-                    border-radius: 5px;
-                    height: 36px;
-                    width: 232px;
-                    outline:none;
-                    margin-bottom: 10px;
-                            &:hover{
-                                border: 2px solid @third;
-                            }
-                }
 
                 .left{
                     width: 45%;
                     margin-left: 5rem;
                     background-color: @white;
 
-                    .name:first-child{
-
-                        input{
-                            text-indent: 0;
-                        }
-
-                    }
+                   
                     .name{
                         width: 90%;
                         height: 4rem;
-                        padding-top: .5rem;
-                        margin-bottom: .5rem;
+                        padding-top: 1rem;
+                        margin-bottom: 1rem;
                         border: 1px solid @lightGray;
                         border-radius: .5rem;
                         text-indent: 1rem;
 
+
                         input{
                             width: 90%;
-                            border: none;
+                            border: none; 
                             text-indent: 1rem;
                             color: @lightPrimary;
                         }
-                        select{
-                            width: 90%;
-                            border: none;
-                            text-indent: 1rem;
+                        p{
+                            margin-top: .8rem;
+                            text-transform: capitalize;
+                            text-indent: 2rem;
                             color: @lightPrimary;
-                            
+                            font-size: 1.4rem;
+                            font-style: oblique;
+                            font-family: 'Inter';
                         }
+
                     }
                 }
                 .right{
@@ -120,8 +107,8 @@
                     .apellido{
                         width: 90%;
                         height: 4rem;
-                        padding-top: .5rem;
-                        margin-bottom: .5rem;
+                        padding-top: 1rem;
+                        margin-bottom: 1rem;
                         border: 1px solid @lightGray;
                         border-radius: .5rem;
                         text-indent: 1rem;
@@ -137,6 +124,15 @@
                             border: none;
                             text-indent: 1rem;
                             color: @lightPrimary;
+                        }
+                        p{
+                            margin-top: .8rem;
+                            text-transform: capitalize;
+                            text-indent: 2rem;
+                            color: @lightPrimary;
+                            font-size: 1.4rem;
+                            font-style: oblique;
+                            font-family: 'Inter';
                         }
                     }
                 }
@@ -183,18 +179,36 @@
             a{
                 text-decoration: none;
             }
-    
+            
         }
+       
     }
+   
+    .infoError{
+        display: flex;
+        border-top: 2px solid rgba(128, 128, 128, 0.341);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
 
+        h2{
+            margin-left: 6rem;
+            padding-right: 2rem;
+            color: @gray;
+        }
+        .send{
+            font-weight: 500;
+            margin-left: 3rem;
+        }
+        button{
+            color: @primary;
+            border: none;
+            font-weight: 800;
+            background-color: @white;
+            font-size: 1.5rem;
+            text-decoration: underline;
+        }
+
+        
+    }
     
 }
-@supports (-moz-appearance:none) {
-    select
-    {
-    -moz-appearance:none !important;
-    background: transparent url('data:image/gif;base64,R0lGODlhBgAGAKEDAFVVVX9/f9TU1CgmNyH5BAEKAAMALAAAAAAGAAYAAAIODA4hCDKWxlhNvmCnGwUAOw==') right center no-repeat !important;
-    background-position: calc(100% - 5px) center !important;
-    }
-  }
-  

@@ -48,13 +48,13 @@ export default function MatchTestQuizz() {
 
         useEffect(() => {
             if(adopterProfile?.message) {
-                console.log('entré al dispatch')
                 Swal.fire({
                 icon: 'success',
                 title: 'Hemos guardado tus preferencias',
                 showConfirmButton: false,
                 timer: 3500
             })
+            Navigate('/dashboard/adoptante')
             }
             if (adopterProfile?.error){
                 Swal.fire({
@@ -67,7 +67,7 @@ export default function MatchTestQuizz() {
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                        Navigate('/dashboard')
+                        Navigate('/dashboard/adoptante')
                     } 
                   })
             }
@@ -161,7 +161,7 @@ export default function MatchTestQuizz() {
                                     <option value="sin pelo">Sin pelo</option>
                                     <option value="corto">Corto</option>
                                     <option value="mediano">Mediano</option>
-                                    <option value="largo">largo</option>
+                                    <option value="largo">Largo</option>
                                     <option value="ondulado">Ondulado</option>
                                     <option value="rizado">Rizado</option>
                                 </select>
