@@ -53,7 +53,6 @@ const PetDetail = () => {
 
     return ()=>{
       dispatch(resetPetDetail())
-      // localStorage.removeItem('petDetail');
     }
   }, [dispatch, id, modalState])
 
@@ -158,7 +157,7 @@ const PetDetail = () => {
                         <p className={s.p}>{Api.castrated ? 'Si' : 'No'}</p>
                       </div>
                       <div className={s.size}>
-                        <h4 className={s.h4}>ENTRENADO - EN CASA</h4>
+                        <h4 className={s.h4}>ENTRENADO EN CASA</h4>
                         <p className={s.p}>{Api.attributes?.house_trained ? 'Si' : 'No'}</p>
                       </div>
                       <div className={s.size}>

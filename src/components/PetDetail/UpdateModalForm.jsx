@@ -34,7 +34,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 
 		if(data.children === '') data.children = null;
 		else if(data.children === 'true') data.children = true;
-		else if(data.house_trained === 'false') data.children = false;
+		else if(data.children === 'false') data.children = false;
 
 		if(data.dogs === '') data.dogs = null; 
 		else if(data.dogs === 'true') data.dogs = true;
@@ -62,6 +62,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 			formData.append('photos', data.photos[i])
 		}
 		formData.append('data', JSON.stringify(data))
+		console.log(data);
 		dispatch(updatePetById(formData, storagePetDetail.id, token)).then(() => {
 			setValue('photos', '');
 			return closeModal()
