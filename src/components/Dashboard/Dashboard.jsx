@@ -67,7 +67,7 @@ export default function Dashboard() {
 
 
     function handleBlur(e) {
-        e.preventDefault(e)
+        e.preventDefault(e) 
         if (e.target.blur) {
             dispatch(patchUser(userId, value, token))
                 .then(() => {
