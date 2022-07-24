@@ -16,9 +16,12 @@ import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 import Favorites from './components/Favorites/Favorites.jsx';
 import DashboardUser from './components/Dashboard/DashboardUser.jsx';
 import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx';
+import DashboardUserDonations from './components/Dashboard/DashboardUserDonations.jsx'
+import DashboardAdoptante from './components/Dashboard/DashboardAdoptante.jsx'
 import PwReset from './components/PwReset/PwReset';
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
-
+import Foundations from './components/Foundations/Foundations'
+import MatchTestQuizz from './components/MatchTestQuizz/MatchTestQuizz'
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
@@ -44,11 +47,15 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/dashboard/mascotas' element={<DashboardUser/>} />
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />
+        <Route path='/dashboard/donations' element={<DashboardUserDonations/>} />
+        <Route path='/dashboard/adoptante' element={<DashboardAdoptante/>} />
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='/favorites' element={<Favorites />} />
+        <Route path='/foundations' element={<Foundations />} />
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
+        <Route path='/quizz' element={<MatchTestQuizz />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>

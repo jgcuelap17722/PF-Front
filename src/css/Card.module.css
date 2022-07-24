@@ -7,7 +7,7 @@
   border-radius: 15px;
   overflow: hidden;
   justify-content: center;
-  transition: bottom ease 0.2s;
+  transition: bottom 0.2s ease;
   bottom: 0;
 }
 .cards:hover {
@@ -46,6 +46,7 @@
   font-size: 22px;
   line-height: 27px;
   color: #454B54;
+  text-transform: capitalize;
 }
 .cards .textContainer p:first-child:hover {
   cursor: pointer;
@@ -57,6 +58,7 @@
   line-height: 27px;
   font-style: italic;
   color: #727A85;
+  text-transform: capitalize;
 }
 .cards .textContainer p:hover {
   cursor: pointer;
@@ -99,6 +101,7 @@
   font-size: 22px;
   line-height: 27px;
   color: #454B54;
+  text-transform: capitalize;
 }
 .cards2 .textContainer p:first-child:hover {
   cursor: pointer;
@@ -110,11 +113,12 @@
   line-height: 27px;
   font-style: italic;
   color: #727A85;
+  text-transform: capitalize;
 }
 .cards2 .textContainer p:hover {
   cursor: pointer;
 }
-.cards3 {
+.cards2 .cards3 {
   position: relative;
   width: 273px;
   height: 367.18px;
@@ -124,21 +128,21 @@
   overflow: hidden;
   justify-content: center;
 }
-.cards3:hover {
+.cards2 .cards3:hover {
   position: relative;
   bottom: 5px;
   transition: 1 ease;
 }
-.cards3 .cardsImg {
+.cards2 .cards3 .cardsImg {
   width: 100%;
   height: 255px;
   background-position: center;
 }
-.cards3 .cardsImg img {
+.cards2 .cards3 .cardsImg img {
   height: 100%;
   object-fit: cover;
 }
-.cards3 .textContainer {
+.cards2 .cards3 .textContainer {
   width: 227px;
   height: 96px;
   bottom: 10px;
@@ -146,7 +150,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.cards3 .textContainer p:first-child {
+.cards2 .cards3 .textContainer p:first-child {
   margin-top: 15px;
   margin-left: 20px;
   font-weight: bold;
@@ -154,12 +158,14 @@
   font-size: 22px;
   line-height: 27px;
   color: #454B54;
+  text-transform: capitalize;
 }
-.cards3 .textContainer p {
+.cards2 .cards3 .textContainer p {
   margin-left: 20px;
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
   font-style: italic;
   color: #727A85;
+  text-transform: capitalize;
 }

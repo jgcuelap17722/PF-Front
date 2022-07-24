@@ -34,12 +34,15 @@
   padding: 23px 0 0 0;
 }
 .content .form .inputGroup button {
+  position: relative;
   height: 52px;
   border: none;
   cursor: pointer;
   background-color: #ffffff;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
+  color: #A1A8B1;
+  font-size: 1rem;
 }
 .content .form .input {
   width: 400px;
@@ -47,12 +50,15 @@
   outline: none;
   border: none;
   border-radius: 5px;
-  padding-left: 20px;
+  text-indent: 22px;
+  color: #A1A8B1;
 }
 .content .form .input[name='password'] {
   max-width: 370px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  text-indent: 22px;
+  color: #A1A8B1;
 }
 .content .form .button {
   width: 420px;
@@ -63,7 +69,7 @@
   color: #ffffff;
 }
 .content .form .button:hover {
-  background-color: #4B4D62;
+  background-color: #4992AB;
   cursor: pointer;
   color: #DDDDDD;
 }
@@ -72,17 +78,28 @@
 }
 .content .form .textBox {
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .content .form .textBox .forget {
   color: #ffffff;
-  right: 0px;
 }
 .content .form .textBox .forget:hover {
   color: #FAC942;
 }
 .content .form .textBox p {
   font-size: 15px;
-  padding: 0 2px 0 10px;
+  padding-top: 1rem;
+}
+.content .form .textBox p:last-of-type {
+  font-size: 15px;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+.content .form .textBox .registrate {
+  display: flex;
+  padding-left: 9rem;
+  color: #FAC942;
 }
 .content .form .error {
   color: #FAC942;

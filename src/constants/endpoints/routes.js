@@ -1,5 +1,5 @@
-// const baseUrl = 'https://restapi-adoptame.up.railway.app/api/v1.0/'
-const baseUrl = 'https://api-adoptame.herokuapp.com/api/v1.0'
+const { REACT_APP_BACKEND_URL_TEST} = process.env;
+const baseUrl = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0`
 
 export const URL_GET_ALL_PETS = `${baseUrl}/pets/`
 export const URL_GET_PET_DETAIL = `${baseUrl}/pets/`

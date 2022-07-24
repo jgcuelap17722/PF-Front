@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2'
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/Login.module.css';
@@ -36,16 +39,28 @@ export default function Login() {
         password:''
     })
     const [error, setError] = useState({})
-
+    let inputPass = document.getElementsByName('password')
     useEffect(() => {
         
-        
+        window.scrollTo(0,0)
         if(userLogged.Error){
-            alert(userLogged.Error);
+            Swal.fire({
+                title: userLogged.Error,
+                text: 'Dale click para corregir',
+                icon: 'warning',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
             dispatch(resetUserLogged());
             return;
         }else if(userLogged.error){
-            alert(userLogged.error);
+            Swal.fire({
+                title: userLogged.error,
+                text: 'Dale click para corregir',
+                icon: 'warning',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
             dispatch(resetUserLogged());
             return;
         }else if(userLogged.token){
@@ -53,10 +68,26 @@ export default function Login() {
             localStorage.setItem('userId', userLogged.user.id);
             localStorage.setItem('user', JSON.stringify(userLogged));
             navigator('/');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Has iniciado sesión'
+              })
             return;
         }
 
-    }, [input, userLogged])
+    }, [input, userLogged, inputPass])
 
     function handleChange (e) {
         setInput({
@@ -68,6 +99,7 @@ export default function Login() {
             [e.target.name]: e.target.value
         }))
     }
+    
     function showPassword (e){
         e.preventDefault(e)
         let inputPass = document.getElementsByName('password')
@@ -75,8 +107,16 @@ export default function Login() {
     }
     function handleSubmit (e){
         e.preventDefault(e)
-        if (error.email || error.password || !input.email || !input.password) alert (`Ingresa toda la información`)
-        else dispatch(loginUser(input));
+        if (error.email || error.password || !input.email || !input.password) {
+            Swal.fire({
+                title: 'Por favor ingresa los datos completos',
+                text: 'Dale click a continuar para completar',
+                icon: 'error',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
+        }
+        else dispatch(loginUser(input))
     }
 
   return (
@@ -98,28 +138,31 @@ export default function Login() {
                             />   
                             {error.email && <p className={s.error}>{error.email}</p>}
                     </div>
-                    <div className={s.inputGroup}>
-                        <input 
-                            className={s.input}
-                            id={error.password} 
-                            type="password" 
-                            name='password'
-                            placeholder='Contraseña'
-                            onChange={(e) => handleChange(e)}
-                            />
-                            <button id='inputBtn'onClick={showPassword}>👁</button>
-                            {/* <img src={img} alt="img" />  */}
-                            {error.password && <p className={s.error}>{error.password}</p>}
-                    </div>
+                    <form>
+                        <div className={s.inputGroup}>
+                            <input 
+                                className={s.input}
+                                id={error.password} 
+                                type="password" 
+                                name='password'
+                                placeholder='Contraseña'
+                                onChange={(e) => handleChange(e)}
+                                />
+                                <button id='inputBtn'onClick={showPassword}><FontAwesomeIcon icon={faEye}/></button>
+                                {error.password && <p className={s.error}>{error.password}</p>}
+                        </div>
+                    </form>
                     <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
                     <div className={s.textBox}>
                         <Link to='/reset'>
                             <p className={s.forget}>Olvidé mi Contraseña</p>
                         </Link>
-                        <p>No estás registrado?</p>
-                        <Link to='/register'>
-                            <p className={s.forget}>Regístrate</p>
-                        </Link>
+                        <div className={s.registrate}>
+                            <p>No estás registrado?</p>
+                            <Link to='/register'>
+                                <p className={s.forget}>Regístrate</p>
+                            </Link>
+                        </div>
                     </div>
                 </div>
 

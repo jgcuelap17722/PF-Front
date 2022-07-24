@@ -11,7 +11,12 @@ import {
 	EMAIL_CONFIRMED,
 	PW_RESET,
 	PW_CHANGE,
-  POST_PAY
+	POST_PAY,
+	GET_DONATIONS,
+	GET_ALL_PETS_BY_USER,
+	RESET_DASHBOARD_PETS,
+	POST_ADOPTER_PROFILE,
+	RESET_ADOPTER_PROFILE,
 } from './actions';
 
 const initialState = {
@@ -25,7 +30,10 @@ const initialState = {
 	emailConfirmSended: {},
 	emailConfirmed: {},
 	pwReset:{},
-	pwChange:{}
+	pwChange:{},
+	donations:[],
+	allPetsByUser:[],
+	adopterProfile:{},
 };
 
 export default function reducer(state = initialState, action) {
@@ -116,6 +124,31 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				pay: action.payload
+			}
+		case GET_DONATIONS:
+			return{
+				...state,
+				donations:action.payload
+			}
+		case GET_ALL_PETS_BY_USER:
+			return{
+				...state,
+				allPetsByUser: action.payload
+			}
+		case RESET_DASHBOARD_PETS:
+			return{
+				...state,
+				allPetsByUser: action.payload
+			}
+		case POST_ADOPTER_PROFILE:
+			return{
+				...state,
+				adopterProfile: action.payload
+			}
+		case RESET_ADOPTER_PROFILE:
+			return{
+				...state,
+				adopterProfile: action.payload
 			}
 		default:
 		return state;

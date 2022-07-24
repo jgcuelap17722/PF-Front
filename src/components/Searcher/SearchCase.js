@@ -6,7 +6,7 @@ import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
 import Card from '../../assets/Card/Card'
 
-import { getAllPets, typeFilter, resetSearch } from '../../redux/petsActions'
+import { resetSearch } from '../../redux/petsActions'
 
 import s from '../../css/Search.module.css'
 
@@ -23,7 +23,7 @@ const SearchCase = ({ petType, type }) => {
   const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet)
 
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     return () => {
       dispatch(resetSearch())
@@ -48,7 +48,7 @@ const SearchCase = ({ petType, type }) => {
               return (
                 <Card
                   key={`${e.name}${index}`}
-                  id = {e.id}
+                  id={e.id}
                   img={photo}
                   name={e.name}
                   location={`${e.contact.address.city}, ${e.contact.address.country}`}

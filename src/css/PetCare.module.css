@@ -136,7 +136,7 @@
 }
 .content .donate .card1 .donarButton {
   margin: 0 auto;
-  width: 90%;
+  width: 10rem;
   height: 52.98px;
   color: #ffffff;
   background: #504F6F;
@@ -146,6 +146,12 @@
   font-weight: 700;
   font-size: 22px;
   line-height: 27px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.content .donate .card1 .donarButton:hover {
+  background-color: #4992AB;
+  color: #ffffff;
 }
 .content .donate .cards {
   width: 273px;
