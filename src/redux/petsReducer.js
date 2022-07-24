@@ -21,6 +21,8 @@ import {
 	CREATE_NEW_PET,
 	BREEDS_BY_PET_TYPE,
 	COLORS_BY_PET_TYPE,
+	UPDATE_PET_BY_ID,
+	RESET_UPDATE_MSG,
 } from './petsActions';
 
 
@@ -33,7 +35,8 @@ const initialState = {
 	filterDisplayed: [],
 	createNewPet: {},
 	breedsByPetType: [],
-	colorsByPetType: []
+	colorsByPetType: [],
+	petUpdated: {},
 };
 
 export default function petsReducer(state = initialState, action) {
@@ -203,6 +206,18 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				colorsByPetType: action.payload
 			}
+
+		case UPDATE_PET_BY_ID:
+			return{
+				...state,
+				petUpdated: action.payload
+			}
+
+		case RESET_UPDATE_MSG:
+			return{
+				...state,
+				petUpdated: action.payload
+			}	
 
 		default:
 			return state;
