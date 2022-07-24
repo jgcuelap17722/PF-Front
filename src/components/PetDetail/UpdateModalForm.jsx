@@ -131,13 +131,12 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 					<div>
 						<div className={s.left}>
 							<div>
-								<select {...register("breedId", {required: "Selecciona un tipo de raza"})}>
+								<select {...register("breedId")}>
 										<option value={breed?.id} selected hidden>{storagePetDetail.breed ? storagePetDetail.breed : breed?.nameBreed }</option>
 										{breeds && breeds.map( b =>  
 											<option value={b.id}>{b.nameBreed}</option>
 										)}
 								</select>
-								{ errors?.breedId && <p className={s.error}>{errors.breedId.message}</p> }
 							</div>
 							<div>
 								<input {...register("name", { 
