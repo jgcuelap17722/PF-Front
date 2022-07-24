@@ -72,7 +72,7 @@ export default function Dashboard() {
                                     <Link to={`/pet-detail/${el.id}`} key={index} className={s.link} >
                                         <div key={index} className={index % 2 === 1 ? s.detailsOptions : s.detailsOptionsColors}>
                                             <div className={s.detailImg}>
-                                                <img src={el.photos[0].option_1} />
+                                                <img src={el.photos[0]?.option_1} />
                                             </div>
                                             <div>
                                                 <p className={s.p}>{el.name}</p>

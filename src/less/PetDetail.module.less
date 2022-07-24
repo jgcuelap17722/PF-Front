@@ -77,6 +77,22 @@
             padding-left: 2rem;
             width: 800px;
             align-self: center;
+
+            .updateIcon{
+                position: absolute;
+                right: 2rem;
+                font-size: 1.6rem;
+                color: @lightGray;
+                transition: all .3s ease;
+                background-color: rgba( 0 0 0 / 0);
+
+                &:hover{
+                    transform: rotate(90deg);
+                    cursor: pointer;
+                    color: @secondary;
+                }
+            }
+
             .name{
                 flex-direction: column;
                 width: 100%;
@@ -478,4 +494,8 @@
     }
     }
 
+}
+
+.displayNone{
+    display: none;
 }
