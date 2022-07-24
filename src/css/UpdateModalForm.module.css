@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  background-color: rgba(0 0 0 / 0.85);
+  background-color: rgba(0 0 0 / 0.76);
   height: 100vh;
   width: 100vw;
   z-index: 10;
@@ -12,81 +12,124 @@
   background-color: #DDDDDD;
   border-radius: 1rem;
   padding: 3rem 4rem;
-  width: 20rem;
-  height: 80vh;
+  width: 75%;
+  height: 70vh;
+  z-index: 7;
 }
-@media (max-width: 1400px) {
-  .showModal form {
-    width: 70vw;
-    height: auto;
-  }
-}
-@media (max-width: 1023px) {
-  .showModal form {
-    background-color: blue;
-  }
-}
-@media (max-width: 1023px) {
-  .showModal form {
-    background-color: green;
-  }
-}
-@media (max-width: 767px) {
-  .showModal form {
-    background-color: orange;
-    width: 50%;
-  }
-}
-@media (max-width: 360px) {
-  .showModal form {
-    background-color: pink;
-  }
-}
-.showModal form h1 {
-  text-align: center;
+.showModal form #generalEdition {
   color: #454B54;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 1rem;
+  font-weight: bold;
+}
+.showModal form #generalEdition:hover {
+  cursor: pointer;
+  color: #4992AB;
+}
+.showModal form p:first-of-type {
+  margin-right: 10%;
 }
 .showModal form div {
-  border: 0.1rem solid green;
-  height: 4rem;
+  display: flex;
 }
-.showModal form input,
-.showModal form select {
-  width: 100%;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 0.2rem;
-  border: 0.1rem solid #504F6F;
-  color: #504F6F;
-  outline: none;
-  height: 2rem;
+.showModal form div .left {
+  width: 50%;
+  height: 60vh;
+  flex-direction: column;
 }
-.showModal form input {
-  height: 2.2rem;
-  width: 98%;
+.showModal form div .left div {
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
 }
-.showModal form select {
+.showModal form div .left select {
   height: 2.6rem;
-}
-.showModal form div[id="environment"] {
+  width: 25rem;
+  text-transform: capitalize;
   border: 0.1rem solid #504F6F;
-  padding: 1rem;
+  border-radius: 0.3rem;
 }
-.showModal form textarea {
-  width: 98%;
-  border-radius: 0.5rem;
-  border: none;
+.showModal form div .left select:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .left input {
+  height: 2.2rem;
+  width: 24.65rem;
+  text-transform: capitalize;
   border: 0.1rem solid #504F6F;
-}
-.showModal form input,
-.showModal form textarea {
+  border-radius: 0.3rem;
   outline: none;
+}
+.showModal form div .left input:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .right {
+  width: 50%;
+  height: 60vh;
+  flex-direction: column;
+}
+.showModal form div .right div {
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.showModal form div .right div textarea {
+  height: 7rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  width: 24.6rem;
+  border: 0.1rem solid #504F6F;
+  resize: none;
+}
+.showModal form div .right div textarea:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .right div div {
+  margin-top: 1.3rem;
+  height: 10vh;
+}
+.showModal form div .right select {
+  height: 2.6rem;
+  width: 25rem;
+  border: 0.1rem solid #504F6F;
+  border-radius: 0.3rem;
+}
+.showModal form div .right select:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .right .images {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+  top: 10rem;
+}
+.showModal form div .right .images .deleteImgIcon {
+  color: red;
+  position: absolute;
+  z-index: 25;
+  font-size: 2rem;
+  height: 30%;
+  transition: all 0.3s ease;
+  margin-left: 3.5rem;
+}
+.showModal form div .right .images .deleteImgIcon:hover {
+  cursor: pointer;
+}
+.showModal form div .right .images img {
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 1.6rem -0.5rem;
+  object-fit: cover;
 }
 .showModal form button {
   height: 2.6rem;
-  width: 100%;
+  width: 20%;
   background-color: #504F6F;
   border: none;
   border-radius: 0.2rem;
@@ -107,6 +150,7 @@
   position: absolute;
   right: 3rem;
   top: 3rem;
+  z-index: 15;
 }
 .closeModalIcon:hover {
   cursor: pointer;

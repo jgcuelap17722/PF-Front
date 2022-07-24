@@ -34,7 +34,9 @@ const PetDetail = () => {
   const idPetOwner = estado.userId;
   const idVisitorUser = Number(localStorage.userId);
 
-  
+  if(estado){
+      localStorage.setItem('petDetail', JSON.stringify(estado))
+  }
   
   useEffect(() => {
     dispatch(getAllPets())
@@ -48,8 +50,10 @@ const PetDetail = () => {
        document.body.style.overflow = 'visible';
     }
 
+
     return ()=>{
       dispatch(resetPetDetail())
+      // localStorage.removeItem('petDetail');
     }
   }, [dispatch, id, modalState])
 
@@ -88,8 +92,7 @@ const PetDetail = () => {
     }
   }
 
-  function handleUpdateClick(){
-    console.log('abriendo formulario modal...');
+  function openModal(){
     setModalState(true);
   }
 
@@ -100,7 +103,7 @@ const PetDetail = () => {
   return (
     <>
       <div className={s.contenedorPadre}>
-        <UpdateModalForm modalState={modalState} closeModal={closeModal} />
+        <UpdateModalForm modalState={modalState} closeModal={closeModal} petDetail={Api} />
         <NavBar />
           
             <>
@@ -124,7 +127,7 @@ const PetDetail = () => {
 
                 <div className={s.topRight}>
                   <div className={idPetOwner === idVisitorUser ? s.updateIcon : s.displayNone}>
-                    <FontAwesomeIcon onClick={handleUpdateClick} icon={faGear} />
+                    <FontAwesomeIcon onClick={openModal} icon={faGear} />
                   </div>
                   <div className={s.name}>
                       <h3 className={s.h3}>{Api.name}</h3>
@@ -151,7 +154,7 @@ const PetDetail = () => {
                   <div className={s.info}>
                     <h3 className={s.h3}>INFORMACIÓN</h3>
                       <div className={s.size}>
-                        <h4 className={s.h4}>CASTRADO</h4>
+                        <h4 className={s.h4}>{Api.gender === 'hembra' ? 'ESTERILIZADA' : 'CASTRADO'}</h4>
                         <p className={s.p}>{Api.castrated ? 'Si' : 'No'}</p>
                       </div>
                       <div className={s.size}>
@@ -165,6 +168,10 @@ const PetDetail = () => {
                       <div className={s.size}>
                         <h4 className={s.h4}>PELO</h4>
                         <p className={s.p}>{Api.coat}</p>
+                      </div>
+                      <div className={s.size}>
+                        <h4 className={s.h4}>DATOS MÉDICOS</h4>
+                        <p className={s.p}>{Api.health}</p>
                       </div>
                       <div className={s.size}>
                         <h4 className={s.h4}>ENTORNO</h4>
