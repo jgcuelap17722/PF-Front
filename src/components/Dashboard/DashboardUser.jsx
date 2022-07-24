@@ -60,6 +60,9 @@ export default function Dashboard() {
                                 <div>
                                     <p className={s.p}>Tipo</p>
                                 </div>
+                                {/* <div>
+                                    <p className={s.p}>Estado</p>
+                                </div> */}
                                 <div>
                                     <p className={s.p}>Fecha</p>
                                 </div>

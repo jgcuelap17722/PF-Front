@@ -2,7 +2,8 @@ import React from 'react'
 import s from '../../css/DashboardAdoptante.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
-import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
@@ -15,6 +16,7 @@ export default function DashboardAdoptante() {
     const userId = localStorage.getItem('userId');
     const detail = useSelector((state) => state.reducer.userDetail)
     const dispatch = useDispatch()
+    const Navigate = useNavigate()
     let userDetail = localStorage.getItem('userDetail');
     userDetail = JSON.parse(userDetail)
 
@@ -22,9 +24,26 @@ export default function DashboardAdoptante() {
     useEffect(() => {
         dispatch(getUserInfo(userId, token))
 
-
+        if (!userDetail.match){
+            Swal.fire({
+            icon: 'info',
+            title: `Sabes ${detail.name}!`,
+            text: 'No has hecho aún el test...Quieres hacerlo?',
+            showCancelButton: true,
+            confirmButtonText: 'Hacer el test',
+            confirmButtonColor: '#66668F',
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Navigate('/quizz')
+                } 
+              })
+        }
 
     }, [])
+    function handleClick(){
+        return Navigate('/quizz')
+    }
 
 
     return (
@@ -91,8 +110,12 @@ export default function DashboardAdoptante() {
                                 <button className={s.button}>Agregar Mascota</button>
                             </Link> */}
                         </div>
-                        :<div className={s.infoContainer}>
-                            <h2>No tienes mascota ideal</h2> //Reemplazar por sweet alert
+                        :<div className={s.infoError}>
+                            <h2>{userDetail.name} no tienes mascota ideal! ...quieres hacer el test?</h2>
+                            <div >
+                            <button classname={s.send} onClick={handleClick}>Ok</button>
+
+                            </div>
                         </div>
                         }
                 </div>
