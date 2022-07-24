@@ -133,7 +133,7 @@ export default function Dashboard() {
                                         <input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name="phone" value={value.phone ? value.phone : ` ${userDetail.phone ? userDetail.phone : ' '}`} type="text" />
                                     </div>
                                     <div className={s.name}>
-                                        <h4>Ciudad</h4>
+                                        <h4>País</h4>
                                         <select value={value.countryId ? value.countryId : userDetail.country} name="countryId" onSelect={handleSelect} onChange={(e) => handleValue(e)}  >
                                             {countryEstado && countryEstado.map((c,index) =>
                                                 <option key={index} value={c.id}>{c.name}</option>
