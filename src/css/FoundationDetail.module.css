@@ -1,12 +1,12 @@
 .contenedorPadre {
   max-width: 100%;
-  max-height: 3500px;
+  max-height: 4000px;
   background: #FFFFFF;
 }
 .contenedorPadre .top {
   display: flex;
   width: 100%;
-  background-color: #66668F;
+  background-color: #FAC942;
 }
 .contenedorPadre .top .buttonLeft {
   margin-left: 2rem;
@@ -38,7 +38,7 @@
   background-color: #00000000;
   object-fit: cover;
   border-radius: 20%;
-  border: 10px solid #FAC942;
+  border: 10px solid #504F6F;
   overflow: hidden;
   box-shadow: 0 0 2rem -1rem;
   margin: 2rem 2rem;
@@ -84,14 +84,14 @@
 }
 .contenedorPadre .top .topRight .name .h3 {
   font-size: 45px;
-  color: #FAC942;
+  color: #504F6F;
   padding-bottom: 0.5rem;
   text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .name .p {
   margin-top: 10px;
   font-size: 30px;
-  color: #F3F3F3;
+  color: #504F6F;
   text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .etiquetas {
@@ -100,7 +100,7 @@
   flex-direction: row;
   margin-top: 10px;
   font-size: 20px;
-  color: #DDDDDD;
+  color: #504F6F;
   padding-bottom: 2rem;
   text-transform: capitalize;
 }
@@ -119,16 +119,21 @@
 }
 .contenedorPadre .top .topRight .size .h4 {
   font-size: 25px;
-  color: #F3F3F3;
+  color: #504F6F;
   padding-bottom: 0.5rem;
   text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .size .p {
   font-size: 20px;
-  color: #DDDDDD;
+  color: #504F6F;
   text-transform: capitalize;
 }
-.contenedorPadre .contenedorMedium {
+.contenedorPadre .medium {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.contenedorPadre .medium .contenedorMedium {
   display: flex;
   margin-top: 50px;
   gap: 20px;
@@ -136,7 +141,7 @@
   margin-bottom: 20px;
   justify-content: center;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles {
   background-color: #ffffff;
   width: 40rem;
   min-height: 35rem;
@@ -145,40 +150,40 @@
   gap: 25px;
   padding-bottom: 20px;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles .info {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles .info {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
   gap: 25px;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles .info .h3 {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles .info .h3 {
   font-size: 30px;
   color: #504F6F;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles .info .h4 {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles .info .h4 {
   color: #727A85;
   font-size: 25px;
   gap: 5px;
   padding-bottom: 0.5rem;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles .info .p {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles .info .p {
   color: #A1A8B1;
   font-size: 25px;
   gap: 5px;
   text-transform: capitalize;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles .info .salud {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles .info .salud {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles .info .salud .h4 {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles .info .salud .h4 {
   font-size: 30px;
 }
-.contenedorPadre .contenedorMedium .contenedorDetalles .info .salud .p {
+.contenedorPadre .medium .contenedorMedium .contenedorDetalles .info .salud .p {
   font-size: 25px;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion {
   height: 31.5rem;
   display: flex;
   flex-direction: column;
@@ -186,15 +191,15 @@
   border-radius: 20px;
   overflow: hidden;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion {
   border-radius: 15px;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name .h3 {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name .h3 {
   width: 400.01px;
   height: 200px;
   font-family: 'Inter';
@@ -209,10 +214,10 @@
   text-align: center;
   color: #504F6F;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name .h3 span {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .name .h3 span {
   text-transform: capitalize;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -220,7 +225,7 @@
   height: 230px;
   gap: 10px;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons .buttonAdoptar {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons .buttonAdoptar {
   width: 380.44px;
   height: 80px;
   font-size: 30px;
@@ -230,11 +235,11 @@
   cursor: pointer;
   border: none;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons .buttonAdoptar:hover {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .contenedorButtons .buttonAdoptar:hover {
   background-color: #4992AB;
   color: #DDDDDD;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor {
   width: 50%;
   height: 80px;
   background-color: #FAC942;
@@ -246,11 +251,11 @@
   color: #504F6F;
   transition: all 0.3s ease;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor:hover {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor:hover {
   background-color: #FAB942;
   color: #ffffff;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite {
   font-family: 'Inter';
   font-weight: 400;
   width: 50%;
@@ -263,11 +268,11 @@
   color: #504F6F;
   transition: all 0.3s ease;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite:hover {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite:hover {
   background-color: #FAB942;
   color: #ffffff;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2 {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2 {
   font-family: 'Inter';
   font-weight: 400;
   width: 100%;
@@ -279,9 +284,38 @@
   color: #504F6F;
   transition: all 0.3s ease;
 }
-.contenedorPadre .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2:hover {
+.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2:hover {
   background-color: #FAB942;
   color: #ffffff;
+}
+.contenedorPadre .medium .contenedorDeComentarios {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.contenedorPadre .medium .contenedorDeComentarios .componentComent {
+  margin-top: 3rem;
+  padding-top: 4rem;
+  margin-left: 2rem;
+  margin-bottom: auto;
+  padding-bottom: 4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 2rem -1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.contenedorPadre .medium .contenedorDeComentarios .componentComent h3 {
+  margin: 20px;
+}
+.contenedorPadre .medium .contenedorDeComentarios .componentComent .puntuacion {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin: 20px;
+}
+.contenedorPadre .medium .contenedorDeComentarios .componentComent .comentario {
+  margin: 20px;
 }
 .contenedorPadre .contenedorMascota {
   margin-left: 10rem;
@@ -435,8 +469,5 @@
   gap: 35px;
 }
 .contenedorPadre .mascotasFoundation .relatedBox .card {
-  text-decoration: none;
-}
-.link {
   text-decoration: none;
 }

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from "react-redux";
 import { postReview } from "../../redux/actions";
 import { getAllFoundations } from "../../redux/foundationsActions";
-
+import { useParams } from "react-router-dom";
 
 const colors = {
   orange: "#FFBA5A",
@@ -23,6 +23,7 @@ export function validate(input) {
 }
 
 const ReviewComponent = () => {
+  let { id } = useParams();
   const userId = localStorage.getItem('userId');
   const token = localStorage.getItem('token');
   const [hoverValue, setHoverValue] = useState(undefined);
@@ -34,7 +35,7 @@ const ReviewComponent = () => {
     point: 0
   })
   let fundacion = useSelector((state) => state.foundationsReducer.allFoundations)
-  fundacion = fundacion?.filter(el => el.id === 1)
+  fundacion = fundacion?.filter(el => el.id == id)
 
   const [errors, setErrors] = useState({
     coment:'Por favor ingrese un comentario'
@@ -43,6 +44,8 @@ const ReviewComponent = () => {
 
   useEffect(() => {
     dispatch(getAllFoundations())
+
+    
   }, [])
 
   const obj = {
@@ -50,7 +53,7 @@ const ReviewComponent = () => {
       coment: input.coment,
       point: input.point
     },
-    id: 1,
+    id: id,
     userId: userId  
   }
   const handleClick = value => {
@@ -84,7 +87,10 @@ const ReviewComponent = () => {
   function handleSubmit(e) {
   e.preventDefault();
   dispatch(postReview(obj, token))
-  }
+  .then(()=> alert("Comentario exitoso"))
+  .then(()=> navigate(`/foundation/${id}`))
+  } 
+
 
   return (
     <div >
@@ -131,12 +137,12 @@ const ReviewComponent = () => {
             </div>
             <div>
 
-              <img src={fundacion[0].photo}></img>
+              <img className={s.imagenFundacion} src={fundacion[0].photo}></img>
             </div>
 
 
           </div>
-          <button className={s.back} onClick={() => navigate(``)}>Regresar</button>
+          <button className={s.back} onClick={()=> navigate(`/foundation/${id}`)}>Regresar</button>
         </div>
         : null
       }
