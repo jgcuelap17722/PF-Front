@@ -22,7 +22,6 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 
 	const onSubmit = data => {
 
-
 		if(typeof data.breedId === 'string') data.breedId = Number(data.breedId);
 
 		if(data.castrated === 'true') data.castrated = true;
@@ -93,8 +92,6 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 
 			setCurrentPhotos(storagePetDetail.photos) 
 			
-
-			
 			if(msg.message){
 		      	Swal.fire({
 				  icon: 'success',
@@ -136,7 +133,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 						<div className={s.left}>
 							<div>
 								<select {...register("breedId", {required: "Selecciona un tipo de raza"})}>
-										<option value={breed?.id}  disabled selected hidden>{breed?.nameBreed}</option>
+										<option value={breed?.id}  disabled selected hidden>{storagePetDetail.breed ? storagePetDetail.breed : breed?.nameBreed }</option>
 										{breeds && breeds.map( b =>  
 											<option value={b.id}>{b.nameBreed}</option>
 										)}
@@ -195,14 +192,14 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 												}
 								})}
 								placeholder="Ingresa una breve descripción de tu mascota"/>
-								{/*{ errors?.description && <p className={s.error}>{errors.description.message}</p> }*/}
+								{ errors?.description && <p className={s.error}>{errors.description.message}</p> }
 							</div>
 
 							<div id="environment">
 								<div id="environment_children">
 									<select {...register("children")}>
 										<option value="">{
-											storagePetDetail.environment?.children 
+											storagePetDetail.environment?.children === true
 											? 'Niños: Si' 
 											: 'Niños: No' 
 											|| storagePetDetail.environment?.children === null 
@@ -216,7 +213,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 								<div>
 									<select {...register("dogs")}>
 										<option value="">{
-											storagePetDetail.environment?.dogs 
+											storagePetDetail.environment?.dogs === true
 											? 'Perros: Si' 
 											: 'Perros: No' 
 											|| storagePetDetail.environment?.dogs === null 
@@ -230,7 +227,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 								<div>
 									<select {...register("cats")}>
 										<option value="" selected disabled>{
-											storagePetDetail.environment?.cats 
+											storagePetDetail.environment?.cats === true
 											? 'Gatos: Si' 
 											: 'Gatos No' 
 											|| storagePetDetail.environment?.cats === null 
