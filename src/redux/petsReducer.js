@@ -20,7 +20,7 @@ import {
 	RESET_SEARCH,
 	CREATE_NEW_PET,
 	BREEDS_BY_PET_TYPE,
-	COLORS_BY_PET_TYPE
+	COLORS_BY_PET_TYPE,
 } from './petsActions';
 
 

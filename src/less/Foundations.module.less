@@ -1,0 +1,39 @@
+@import 'variables.less';
+
+.content{
+    background-color: @white;
+    // height: auto;
+
+
+    .topBar{
+        display: flex;
+        height: 10rem;
+        background-image: url('https://i.postimg.cc/rmtqLwsQ/Disen-o-sin-ti-tulo-31.png');
+        background-size: cover;
+        align-items: center;
+        justify-content: center;
+        color: @white;
+        font-family: 'Inter';
+        font-weight: 600;
+        font-size: 2rem;
+        box-shadow: 0px 8px 20px 0px @secondary;
+    }
+    .subTitle{
+        padding-top: 4rem;
+        color: @lightPrimary;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .cardsContainer{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 15rem;
+        justify-content: space-around;
+        padding-top: 4rem;
+        .cardFoundation{
+            padding-bottom: 5rem;
+            
+        }
+
+    }
+}

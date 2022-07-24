@@ -1,16 +1,29 @@
-import React from 'react'
+import { useEffect } from 'react'
 import s from '../../css/DashboardUser.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllPetsByUser, resetDashboardPets } from '../../redux/actions';
 
 
 export default function Dashboard() {
 
+    const dispatch = useDispatch()
+    const pets = useSelector(state => state.reducer.allPetsByUser)
     let userDetail = localStorage.getItem('userDetail');
+    let userId = localStorage.getItem('userId');
     userDetail = JSON.parse(userDetail)
-    console.log(userDetail)
+    useEffect(() => {
+        dispatch(getAllPetsByUser(userId))
+        window.scrollTo(0,0)
+        
+        return ()=>{
+            dispatch(resetDashboardPets())
+        }
+      
+    }, [dispatch])
+    
     return (
         <div>
             <NavBar />
@@ -47,18 +60,18 @@ export default function Dashboard() {
                                 <p className={s.p}>Fecha</p>
                             </div>
                         </div>
-                        {userDetail.pets.length > 1 ? userDetail.pets.map((el, index) => {
+                        {pets?.length >= 1 ? pets.map((el, index) => {
                             return (
                                 <Link to={`/pet-detail/${el.id}`} key={index} className={s.link} >
                                     <div key={index} className={index % 2 === 1 ? s.detailsOptions : s.detailsOptionsColors}>
                                         <div className={s.detailImg}>
-                                            <img src={el.photos[0]} />
+                                            <img src={el.photos[0].option_1} />
                                         </div>
                                         <div>
                                             <p className={s.p}>{el.name}</p>
                                         </div>
                                         <div>
-                                            <p className={s.p}>{el.typeId}</p>
+                                            <p className={s.p}>{el.type}</p>
                                         </div>
                                         <div>
                                             <p className={s.p}>{el.published_at.split('T')[0]}</p>

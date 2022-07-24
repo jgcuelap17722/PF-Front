@@ -20,6 +20,8 @@ export default function NavBar() {
 			localStorage.removeItem('token');
 			localStorage.removeItem('userId');
 			localStorage.removeItem('user');
+			localStorage.removeItem('userDetail');
+			localStorage.removeItem('email');
 			dispatch(resetUserLogged());
 			return;
 		}
@@ -61,7 +63,7 @@ export default function NavBar() {
 					<Link to='/pet-care'>
 						<p>Cuidado Animal</p>
 					</Link>|
-					<Link to='/donations'>
+					<Link to='/foundations'>
 						<p>Donaciones</p>
 					</Link>|
 					<Link to='/faqs'>
