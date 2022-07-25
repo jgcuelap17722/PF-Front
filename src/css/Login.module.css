@@ -67,6 +67,9 @@
   border-radius: 5px;
   border: none;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content .form .button:hover {
   background-color: #4992AB;
@@ -104,4 +107,9 @@
 .content .form .error {
   color: #FAC942;
   font-size: smaller;
+}
+.faGoogle {
+  fill: white;
+  height: 1rem;
+  margin-right: 1rem;
 }

@@ -95,7 +95,7 @@ export default function Dashboard() {
 
 
     const countryEstado = useSelector((state) => state.reducer.countries)
-
+    console.log(user);
 
     return (
         <div>
@@ -103,8 +103,7 @@ export default function Dashboard() {
                 <div className={s.content}>
                     <h1>Mi Dashboard</h1>
                      {isAuthenticated && 
-                    <div>
-                        <img src={user.picture} alt={user.name} />
+                    <div className={s.auth0}>
                         <h2>{user.name}</h2>
                         <p>{user.email}</p>
                     </div>

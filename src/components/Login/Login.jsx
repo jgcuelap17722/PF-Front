@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2'
+import { faEye, faEyeSlash, faTwitter } from '@fortawesome/free-solid-svg-icons';
+import { ReactComponent as FaGoogle } from '../../assets/icons/google.svg';
+import Swal from 'sweetalert2';
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/Login.module.css';
@@ -35,7 +36,7 @@ export default function Login() {
     const dispatch = useDispatch()
     const userLogged = useSelector( state => state.reducer.userLogged);
     const navigator = useNavigate();
-    const { loginWithRedirect } = useAuth0();
+    const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
     const [input, setInput] = useState({
         email:'',
@@ -43,9 +44,13 @@ export default function Login() {
     })
     const [error, setError] = useState({})
     let inputPass = document.getElementsByName('password')
+
     useEffect(() => {
         
         window.scrollTo(0,0)
+
+        
+
         if(userLogged.Error){
             Swal.fire({
                 title: userLogged.Error,
@@ -155,8 +160,10 @@ export default function Login() {
                                 {error.password && <p className={s.error}>{error.password}</p>}
                         </div>
                     </form>
-                    <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
-                    {/*<button onClick={() => loginWithRedirect()}className={s.button} type='submit'>Iniciar Sesión</button>*/}
+                    <button onClick={(e)=>handleSubmit(e)} className={s.button} type='submit'>Iniciar Sesión</button>
+                    <button onClick={() => loginWithRedirect()} className={s.button} type='submit'>{<FaGoogle className={s.faGoogle} />} Iniciar Sesión usando Google</button>
+                    
+                    {/*<button className={s.button} type='submit'>Iniciar Sesión</button>*/}
 
                     <div className={s.textBox}>
                         <Link to='/reset'>

@@ -126,7 +126,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 			<FontAwesomeIcon icon={faXmark} className={s.closeModalIcon} onClick={closeModal} />
 			<form onSubmit={handleSubmit(onSubmit)}>
 					<div>
-						<p id={s.generalEdition}>{`Edición General`}</p>
+						<p id={s.generalEdition}>Edición General</p>
 					</div>
 					<div>
 						<div className={s.left}>
