@@ -26,6 +26,8 @@ import {
 	DELETE_FAV_PET,
 	GET_ALL_PETS_AND_FAVS,
 	SEARCH_IN_FAVS,
+	UPDATE_PET_BY_ID,
+	RESET_UPDATE_MSG,
 } from './petsActions';
 
 
@@ -40,6 +42,7 @@ const initialState = {
 	breedsByPetType: [],
 	colorsByPetType: [],
 	petsFavs: [],
+	petUpdated: {},
 };
 
 export default function petsReducer(state = initialState, action) {
@@ -236,6 +239,18 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				colorsByPetType: action.payload
 			}
+
+		case UPDATE_PET_BY_ID:
+			return{
+				...state,
+				petUpdated: action.payload
+			}
+
+		case RESET_UPDATE_MSG:
+			return{
+				...state,
+				petUpdated: action.payload
+			}	
 
 		default:
 			return state;

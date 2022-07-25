@@ -23,6 +23,8 @@ export default function NavBar() {
 			localStorage.removeItem('token');
 			localStorage.removeItem('userId');
 			localStorage.removeItem('user');
+			localStorage.removeItem('userDetail');
+			localStorage.removeItem('email');
 			dispatch(resetUserLogged());
 			return;
 		}

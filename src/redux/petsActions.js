@@ -34,6 +34,8 @@ export const POST_FAV_PET = 'POST_FAV_PET'
 export const DELETE_FAV_PET = 'DELETE_FAV_PET'
 export const GET_ALL_PETS_AND_FAVS = 'GET_ALL_PETS_AND_FAVS'
 export const SEARCH_IN_FAVS = 'SEARCH_IN_FAVS'
+export const UPDATE_PET_BY_ID = 'UPDATE_PET_BY_ID'
+export const RESET_UPDATE_MSG = 'RESET_UPDATE_MSG'
 const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 
@@ -244,15 +246,14 @@ export function resetPetDetail() {
 
 // ------------------- CRUD -------------------------
 
-export function createNewPet(obj) {
+export function createNewPet(obj, token){
   const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets`;
   const options = {
-    method: 'POST',
-    body: obj
+    headers: { Authorization: `Bearer ${token}`},
   }
 
   return async function (dispatch) {
-    return await axios.post(url, obj)
+    return await axios.post(url, obj, options)
       .then(data => {
         return dispatch({ type: CREATE_NEW_PET, payload: data.data })
       })
@@ -282,4 +283,23 @@ export function getColorsByPetType(type) {
       })
       .catch(error => console.log(error))
   }
+}
+
+export function updatePetById(obj, id, token){
+  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`;
+  const options = {
+    headers: { 'authorization': token }
+  }
+   return async function (dispatch) {
+    return await axios.put(url, obj, options)
+      .then(data => {
+        return dispatch({type: UPDATE_PET_BY_ID, payload: data.data})
+      })
+      .catch(error =>  console.log(error))
+  }
+
+}
+
+export function resetUpdateMsg(){
+  return { type: RESET_UPDATE_MSG, payload: {}}
 }

@@ -67,7 +67,7 @@ export default function Dashboard() {
 
 
     function handleBlur(e) {
-        e.preventDefault(e)
+        e.preventDefault(e) 
         if (e.target.blur) {
             dispatch(patchUser(userId, value, token))
                 .then(() => {
@@ -99,66 +99,72 @@ export default function Dashboard() {
     return (
         <div>
             <NavBar />
-            <div className={s.content}>
-                <h1>Mi Dashboard</h1>
-                <div className={s.datos}>
-                    <div className={s.selected}>
-                        <h3>Sobre Mí</h3>
-                    </div>
-                    <div className={s.nonSelected}>
-                        <Link className={s.link} to='/dashboard/mascotas'><h3>Mis Mascotas</h3></Link>
-                    </div>
-                    <div className={s.nonSelected}>
-                        {userDetail.role === 'fundation'?
-                    <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:
-                    <Link className={s.link} to='/dashboard/donations'><h3>Donaciones  Realizadas</h3></Link>
-                        }
-                    </div>
-                </div>
-                <div className={s.infoContainer}>
-                    <h2>Info</h2>
-                    <div className={s.inputContainer}>
-                        <div className={s.left}>
-                            <div>
-                                <h4>Nombre</h4>
-                                <input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name="name" value={value.name ? value.name : ` ${userDetail.name}`} type="text" />
+            
+                <div className={s.content}>
+                    <h1>Mi Dashboard</h1>
+                    <div className={s.dash}>
+                        <div className={s.datos}>
+                            <div className={s.selected}>
+                                <h3>Sobre Mí</h3>
                             </div>
-                            <div className={s.divPhone}>
-                                <h4>Teléfono</h4>
-                                <input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name="phone" value={value.phone ? value.phone : ` ${userDetail.phone ? userDetail.phone : ' '}`} type="text" />
+                            <div className={s.nonSelected}>
+                                <Link className={s.link} to='/dashboard/mascotas'><h3>Mis Mascotas</h3></Link>
                             </div>
-                            <div>
-                                <h4>Ciudad</h4>
-                                <select value={value.countryId ? value.countryId : userDetail.country} name="countryId" onSelect={handleSelect} onChange={(e) => handleValue(e)}  >
-                                    {countryEstado && countryEstado.map((c,index) =>
-                                        <option key={index} value={c.id}>{c.name}</option>
-                                    )}
-                                </select>
+                            <div className={s.nonSelected}>
+                                <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
+                            </div>
+                            <div className={s.nonSelected}>
+                                {userDetail.role === 'fundation'?
+                            <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:
+                            <Link className={s.link} to='/dashboard/donations'><h3>Donaciones  Realizadas</h3></Link>
+                                }
                             </div>
                         </div>
-                        <div className={s.right}>
-                            <div>
-                                <h4>Apellido</h4>
-                                <input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name='lastName' value={value.lastName ? value.lastName : ` ${userDetail.lastName}`} type="text" />
+                        <div className={s.infoContainer}>
+                            <h2>Información Personal</h2>
+                            <div className={s.inputContainer}>
+                                <div className={s.left}>
+                                    <div className={s.name}>
+                                        <h4>Nombres</h4>
+                                        <input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name="name" value={value.name ? value.name : ` ${userDetail.name}`} type="text" />
+                                    </div>
+                                    <div className={s.name}>
+                                        <h4>Teléfono</h4>
+                                        <input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name="phone" value={value.phone ? value.phone : ` ${userDetail.phone ? userDetail.phone : ' '}`} type="text" />
+                                    </div>
+                                    <div className={s.name}>
+                                        <h4>País</h4>
+                                        <select value={value.countryId ? value.countryId : userDetail.country} name="countryId" onSelect={handleSelect} onChange={(e) => handleValue(e)}  >
+                                            {countryEstado && countryEstado.map((c,index) =>
+                                                <option key={index} value={c.id}>{c.name}</option>
+                                            )}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className={s.right}>
+                                    <div className={s.apellido}>
+                                        <h4>Apellidos</h4>
+                                        <input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name='lastName' value={value.lastName ? value.lastName : ` ${userDetail.lastName}`} type="text" />
+                                    </div>
+                                    <div className={s.apellido}>
+                                        <h4>Email</h4>
+                                        <input value={userDetail.email} type="text" />
+                                    </div>
+                                    <div className={s.apellido}>
+                                        <h4>Ciudad</h4>
+                                        <select value={detail.city ? detail.city : userDetail.city} name="cityId" onSelect={handleSelect} onChange={(e) => handleValue(e)} >
+                                            <option value={detail.city ? detail.city : userDetail.city}>{patch.cityId ? patch.cityId : userDetail.city}</option>
+                                            {cities?.map((c, index) =>
+                                                <option key={index} value={c.id}>{c.name}</option>
+                                            )}
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h4>Email</h4>
-                                <input value={userDetail.email} type="text" />
-                            </div>
-                            <div id='lastInput'>
-                                <h4>Ciudad</h4>
-                                <select value={detail.city ? detail.city : userDetail.city} name="cityId" onSelect={handleSelect} onChange={(e) => handleValue(e)} >
-                                    <option value={detail.city ? detail.city : userDetail.city}>{patch.cityId ? patch.cityId : userDetail.city}</option>
-                                    {cities && cities.map((c, index) =>
-                                        <option key={index} value={c.id}>{c.name}</option>
-                                    )}
-                                </select>
-                            </div>
+                            <Link to='/create-pet' className={s.link}>
+                                <button className={s.button}>Agregar Mascota</button>
+                            </Link>
                         </div>
-                    </div>
-                    <Link to='/create-pet' className={s.link}>
-                        <button className={s.button}>Agregar Mascota</button>
-                    </Link>
                 </div>
             </div>
             <Footer />

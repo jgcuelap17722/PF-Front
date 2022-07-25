@@ -1,7 +1,6 @@
 .contenedorPadre {
-  max-width: 100%;
-  max-height: 3500px;
   background: #FFFFFF;
+  padding-bottom: 4rem;
 }
 .contenedorPadre .top {
   display: flex;
@@ -75,6 +74,19 @@
   padding-left: 2rem;
   width: 800px;
   align-self: center;
+}
+.contenedorPadre .top .topRight .updateIcon {
+  position: absolute;
+  right: 2rem;
+  font-size: 1.6rem;
+  color: #DDDDDD;
+  transition: all 0.3s ease;
+  background-color: rgba(0 0 0 / 0);
+}
+.contenedorPadre .top .topRight .updateIcon:hover {
+  transform: rotate(90deg);
+  cursor: pointer;
+  color: #FAC942;
 }
 .contenedorPadre .top .topRight .name {
   flex-direction: column;
@@ -436,4 +448,7 @@
 }
 .contenedorPadre .mascotasFoundation .relatedBox .card {
   text-decoration: none;
+}
+.displayNone {
+  display: none;
 }

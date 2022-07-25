@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapLocationDot, faLocationDot, faEnvelope, faSquarePhone } from '@fortawesome/free-solid-svg-icons';
+import { faMapLocationDot, 
+         faLocationDot, 
+         faEnvelope, 
+         faSquarePhone, 
+         faGear } from '@fortawesome/free-solid-svg-icons';
 import s from '../../css/PetDetail.module.css'
 import NavBar from "../../assets/NavBar/NavBar.jsx";
-import Footer from '../../assets/Footer/Footer.js'
-import Card from '../../assets/Card/Card.js'
+import Footer from '../../assets/Footer/Footer.js';
+import Card from '../../assets/Card/Card.js';
+import UpdateModalForm from './UpdateModalForm.jsx';
 import { InfoApi } from "../../assets/dataMockups/InfoApi";
 import { Link } from "react-router-dom";
-import { ReactComponent as Arrow } from '../../assets/Arrow.svg'
-import { useDispatch, useSelector } from 'react-redux'
+import { ReactComponent as Arrow } from '../../assets/Arrow.svg';
+import { useDispatch, useSelector } from 'react-redux';
 import { getAllPets, getDetail, resetPetDetail } from "../../redux/petsActions";
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router'
@@ -24,9 +29,14 @@ const PetDetail = () => {
   const dispatch = useDispatch();
   const [selectIndex, setSelectIndex] = useState(0);
   const [selectImage, setSelectImage] = useState();
+  const [modalState, setModalState] = useState(false);
   const navigate = useNavigate()
-  
-  
+  const idPetOwner = estado.userId;
+  const idVisitorUser = Number(localStorage.userId);
+
+  if(estado){
+      localStorage.setItem('petDetail', JSON.stringify(estado))
+  }
   
   useEffect(() => {
     dispatch(getAllPets())
@@ -34,10 +44,17 @@ const PetDetail = () => {
     dispatch(getAllFoundations())
     window.scrollTo(0,0)
 
+    if(modalState){
+      document.body.style.overflow = 'hidden';
+    }else{
+       document.body.style.overflow = 'visible';
+    }
+
+
     return ()=>{
       dispatch(resetPetDetail())
     }
-  }, [dispatch, id])
+  }, [dispatch, id, modalState])
 
   const Api = estado
 
@@ -73,12 +90,21 @@ const PetDetail = () => {
       navigate('/login');
     }
   }
+
+  function openModal(){
+    setModalState(true);
+  }
+
+  function closeModal(){
+    setModalState(false);
+  }
+
   return (
     <>
       <div className={s.contenedorPadre}>
+        <UpdateModalForm modalState={modalState} closeModal={closeModal} petDetail={Api} />
         <NavBar />
-
-
+          
             <>
               <div className={s.top}>
               <button className={s.buttonLeft} onClick={previus}> < Arrow /> </button>
@@ -99,6 +125,9 @@ const PetDetail = () => {
               <button className={s.buttonRight} onClick={next}>< Arrow /></button>
 
                 <div className={s.topRight}>
+                  <div className={idPetOwner === idVisitorUser ? s.updateIcon : s.displayNone}>
+                    <FontAwesomeIcon onClick={openModal} icon={faGear} />
+                  </div>
                   <div className={s.name}>
                       <h3 className={s.h3}>{Api.name}</h3>
                       {<p className={s.p}>{Api.breed} | {Api.contact?.address.city} - {Api.contact?.address.country}</p>}
@@ -124,11 +153,11 @@ const PetDetail = () => {
                   <div className={s.info}>
                     <h3 className={s.h3}>INFORMACIÓN</h3>
                       <div className={s.size}>
-                        <h4 className={s.h4}>CASTRADO</h4>
+                        <h4 className={s.h4}>{Api.gender === 'hembra' ? 'ESTERILIZADA' : 'CASTRADO'}</h4>
                         <p className={s.p}>{Api.castrated ? 'Si' : 'No'}</p>
                       </div>
                       <div className={s.size}>
-                        <h4 className={s.h4}>ENTRENADO - EN CASA</h4>
+                        <h4 className={s.h4}>ENTRENADO EN CASA</h4>
                         <p className={s.p}>{Api.attributes?.house_trained ? 'Si' : 'No'}</p>
                       </div>
                       <div className={s.size}>
@@ -138,6 +167,10 @@ const PetDetail = () => {
                       <div className={s.size}>
                         <h4 className={s.h4}>PELO</h4>
                         <p className={s.p}>{Api.coat}</p>
+                      </div>
+                      <div className={s.size}>
+                        <h4 className={s.h4}>DATOS MÉDICOS</h4>
+                        <p className={s.p}>{Api.health}</p>
                       </div>
                       <div className={s.size}>
                         <h4 className={s.h4}>ENTORNO</h4>
@@ -192,7 +225,7 @@ const PetDetail = () => {
                       <h3 className={s.h3}>{foundation.name}</h3>
                     </div>
                     <div className={s.nameImg}>
-                      <img className={s.img} src='https://i0.wp.com/soniablanco.es/wp-content/uploads/2014/01/adoptaunperro.jpg?fit=960%2C325&ssl=1' alt="imagen" />
+                      <img className={s.img} src={foundation.photo} alt="imagen" />
                     </div>
 
                     <div className={s.contenedorDirection}>
