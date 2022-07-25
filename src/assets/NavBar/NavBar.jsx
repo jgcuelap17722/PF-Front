@@ -47,12 +47,12 @@ export default function NavBar() {
 						<Favorites className={s.favorites} />
 					</Link>
 
-					{/* <Link to={token ? '/dashboard' : '/register'}>
+					<Link to={token ? '/dashboard' : '/register'}>
 						<p>{token ? 'Mi Perfil' : 'Registro'}</p>
 					</Link>
 					<Link to={'/login'}>
 						<p onClick={closeSesion}>{token ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
-					</Link> */}
+					</Link>
 					{
 						token
 							? <UserMenu name={data.user.name} lastName={data.user.lastName} />

@@ -23,19 +23,22 @@ const FavoriteStar = ({ userId , petId, isFav }) => {
 
 
   const clickHandler = async (e) => {
-    if (display) {
-      if(userId){
-        setDisplay(false)
-        const response = await dispatch(deletePetFav({userId: userRef, petId}))
-      } else{
-        alert('No has iniciado sesión')
+    if(userId){
+      if (display) {
+        if(userId){
+          setDisplay(false)
+          const response = await dispatch(deletePetFav({userId: userRef, petId}))
+        } 
+      } else {
+        setDisplay(true)
+        const response = await dispatch(postFavPet({userId: userRef, petId}))
+        dispatch(getPetFavs())
       }
-
-    } else {
-      setDisplay(true)
-      const response = await dispatch(postFavPet({userId: userRef, petId}))
-      dispatch(getPetFavs())
+    }else{
+      alert('No has iniciado sesión')
     }
+
+
   }
 
   return (
