@@ -220,6 +220,7 @@ const PetDetail = () => {
                     
               </div>
               {foundation?
+                <Link className={s.link} to={`/foundation/${foundation.id}`}>
                 <div className={s.contenedorFundacion}>
                     <div className={s.name}>
                       <h3 className={s.h3}>{foundation.name}</h3>
@@ -247,7 +248,8 @@ const PetDetail = () => {
                       </div>
                     </div>
 
-                  </div>:undefined}
+                  </div></Link>
+                  :undefined}
               {Api.contact?.address.city?
                 <div className={s.mascotasFoundation}>
                 {/*<h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en la misma fundacion</h1>*/}

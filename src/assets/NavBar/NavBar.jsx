@@ -15,8 +15,6 @@ export default function NavBar() {
 	const data = JSON.parse(userData)
 	const dispatch = useDispatch();
 
-	console.log(data);
-
 	function closeSesion() {
 
 		if (token) {
