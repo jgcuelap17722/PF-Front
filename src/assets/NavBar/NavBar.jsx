@@ -9,20 +9,24 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Favorites } from '../Favoritos.svg';
 import { resetUserLogged } from '../../redux/actions.js';
 import { useDispatch } from 'react-redux';
+import FavsMenu from '../FavMenu/FavsMenu';
+import UserMenu from '../UserMenu/UserMenu';
 import { useAuth0 } from '@auth0/auth0-react';
-
 
 export default function NavBar() {
 
 	const token = localStorage.getItem('token');
+	const userId = localStorage.getItem('userId');
+	const userData = localStorage.getItem('user')
+	const data = JSON.parse(userData)
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [ subMenu, setSubMenu ] = useState(false);
     const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
-	function closeSesion(){
+	function closeSesion() {
 
-		if(token){
+		if (token) {
 			localStorage.removeItem('token');
 			localStorage.removeItem('userId');
 			localStorage.removeItem('user');
@@ -33,7 +37,7 @@ export default function NavBar() {
 		}
 	}
 
-	function favs(e){
+	function favs(e) {
 		e.preventDefault();
 		const favAlert = alert('Debes iniciar sesión para ver tus favoritos');
 		return favAlert;
@@ -49,6 +53,8 @@ export default function NavBar() {
 		}
 	}
 
+	console.log(user);
+
 	return (
 		<nav>
 			<div className={s.navTop}>
@@ -60,6 +66,7 @@ export default function NavBar() {
 				<Arrow className={subMenu ? s.subMenuArrowUp : s.subMenuArrow} onClick={showSubMenu} />
 				<div className={s.registerLogin}>
 					{/*<Link to='/favorites' onClick={ token ? '/favorites' : favs }>
+					<Link to='/favorites' onClick={token ? '/favorites' : favs}>
 						<Favorites className={s.favorites} />
 					</Link>*/}
 
@@ -70,6 +77,17 @@ export default function NavBar() {
 					<Link to={!token && !isAuthenticated  ? '/login' : '/login'}>
 						<p onClick={isAuthenticated ? () => logout({returnTo: 'http://localhost:3000/login'}) : closeSesion}>{token || isAuthenticated ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
 					</Link>
+					{
+						token || isAuthenticated
+							? <FavsMenu userId={userId} />
+							: null
+					}
+					{
+						token || isAuthenticated
+							? <UserMenu name={token ? data.user.name : user.given_name} lastName={token ? data.user.lastName : user.family_name} />
+							: null
+					}
+					
 				</div>
 			</div>
 			<div className={subMenu ? s.navBottom : s.displayNone}>

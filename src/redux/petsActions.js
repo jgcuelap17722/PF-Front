@@ -1,11 +1,14 @@
 import axios from 'axios'
-import { URL_POST_FAVS, 
-         URL_GET_FAVS, 
-         URL_DELETE_FAVS, 
-         URL_GET_ALL_PETS, 
-         URL_TYPE_FILTER, 
-         URL_CITY_FILTER, 
-         URL_GET_PET_DETAIL } from '../constants/endpoints/routes';
+import {
+  URL_POST_FAVS,
+  URL_GET_FAVS,
+  URL_DELETE_FAVS,
+  URL_GET_ALL_PETS,
+  URL_TYPE_FILTER,
+  URL_CITY_FILTER,
+  URL_GET_PET_DETAIL,
+  URL_GET_ALL_AND_FAVS
+} from '../constants/endpoints/routes';
 export const RESET_PET_ORDER = 'RESET_PET_ORDER'
 export const BREED_FILTER = 'BREED_FILTER'
 export const AGE_FILTER = 'AGE_FILTER'
@@ -26,6 +29,11 @@ export const GET_DETAIL = 'GET_DETAIL'
 export const CREATE_NEW_PET = 'CREATE_NEW_PET'
 export const BREEDS_BY_PET_TYPE = 'BREEDS_BY_PET_TYPE'
 export const COLORS_BY_PET_TYPE = 'COLORS_BY_PET_TYPE'
+export const GET_FAV_PETS = 'GET_FAV_PETS'
+export const POST_FAV_PET = 'POST_FAV_PET'
+export const DELETE_FAV_PET = 'DELETE_FAV_PET'
+export const GET_ALL_PETS_AND_FAVS = 'GET_ALL_PETS_AND_FAVS'
+export const SEARCH_IN_FAVS = 'SEARCH_IN_FAVS'
 export const UPDATE_PET_BY_ID = 'UPDATE_PET_BY_ID'
 export const RESET_UPDATE_MSG = 'RESET_UPDATE_MSG'
 const { REACT_APP_BACKEND_URL_TEST } = process.env;
@@ -34,23 +42,83 @@ const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 export function getAllPets() {
   return async function (dispatch) {
-      var json = await axios.get(URL_GET_ALL_PETS);
-      return dispatch({
-          type: GET_ALL_PETS,
-          payload: json.data
-      })
+    var json = await axios.get(URL_GET_ALL_PETS);
+    return dispatch({
+      type: GET_ALL_PETS,
+      payload: json.data
+    })
   }
 }
 
 export function getDetail(id) {
   return async function (dispatch) {
-      var pet = await axios.get(`${URL_GET_PET_DETAIL}${id}`);
+    var pet = await axios.get(`${URL_GET_PET_DETAIL}${id}`);
+    return dispatch({
+
+      type: 'GET_DETAIL',
+      payload: pet.data
+
+    })
+  }
+}
+
+// FAVORITES
+
+export const getPetFavs = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`${URL_GET_FAVS}${id}`)
+    const data = response.data
+    return dispatch({
+      type: GET_FAV_PETS,
+      payload: data
+    })
+  }
+}
+
+export const postFavPet = (data) => {
+  return async function () {
+    try {
+      const response = await axios.post(`${URL_POST_FAVS}`, data)
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const deletePetFav = ({ userId, petId }) => { //QUERY
+  return async function () {
+    try {
+      const response = await axios.delete(`${URL_DELETE_FAVS}?userId=${userId}&petId=${petId}`)
+      return response;
+    } catch (error) {
+      throw error
+    }
+  };
+}
+
+export const getAllPetsWithFavs = (userId) => {
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`${URL_GET_ALL_AND_FAVS}?userId=${userId}`)
       return dispatch({
-
-          type: 'GET_DETAIL',
-          payload: pet.data
-
+        type: GET_ALL_PETS_AND_FAVS,
+        payload: response.data
       })
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export const searchInFavs = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`${URL_GET_FAVS}${id}`)
+    const data = response.data
+    return dispatch({
+      type: SEARCH_IN_FAVS,
+      payload: data
+    })
   }
 }
 
@@ -58,80 +126,83 @@ export function getDetail(id) {
 
 export const breedFilter = (value) => {
   return {
-      type: BREED_FILTER,
-      payload: value
+    type: BREED_FILTER,
+    payload: value
   }
 }
 
 export const ageFilter = (value) => {
+  console.log('action', value);
   return {
-      type: AGE_FILTER,
-      payload: value
+    type: AGE_FILTER,
+    payload: value
   }
 }
 
 export const sizeFilter = (value) => {
   return {
-      type: SIZE_FILTER,
-      payload: value
+    type: SIZE_FILTER,
+    payload: value
   }
 }
 
 export const genreFilter = (value) => {
   return {
-      type: GENRE_FILTER,
-      payload: value
+    type: GENRE_FILTER,
+    payload: value
   }
 }
 
 export const environmentFilter = (value) => {
   return {
-      type: ENVIRONMENT_FILTER,
-      payload: value
+    type: ENVIRONMENT_FILTER,
+    payload: value
   }
 }
 export const coatFilter = (value) => {
   return {
-      type: COAT_FILTER,
-      payload: value
+    type: COAT_FILTER,
+    payload: value
   }
 }
 export const colorFilter = (value) => {
   return {
-      type: COLOR_FILTER,
-      payload: value
+    type: COLOR_FILTER,
+    payload: value
   }
 }
 export const attributesFilter = (value) => {
   return {
-      type: ATTRIBUTES_FILTER,
-      payload: value
+    type: ATTRIBUTES_FILTER,
+    payload: value
   }
 }
 export const daysFilter = (value) => {
   return {
-      type: DAYS_FILTER,
-      payload: value
+    type: DAYS_FILTER,
+    payload: value
   }
 }
 
-export const shelterFilter = (value)=>{
+export const shelterFilter = (value) => {
   return {
-      type: SHELTER_FILTER,
-      payload: value
+    type: SHELTER_FILTER,
+    payload: value
   }
 }
 
 //------------------------------------------------
 
 
-export const typeFilter = (type) => {
+export const typeFilter = ({ petType, userId }) => {
 
+  const url = userId ? `${URL_TYPE_FILTER}?userId=${userId}` : `${URL_TYPE_FILTER}`
+  // console.log('url', url);
   return async function (dispatch) {
     try {
-      let response = await axios.get(URL_TYPE_FILTER);
+      let response = await axios.get(url);
       const data = response.data
-      const json = data.filter(e => e.type === type);
+      const json = data.filter(e => e.type === petType);
       return dispatch({
         type: TYPE_FILTER,
         payload: json,
@@ -143,13 +214,13 @@ export const typeFilter = (type) => {
 }
 
 
-export function cityFilter(obj) {
+export function cityFilter(location, userId) {
+  const url = userId ? `${URL_CITY_FILTER}${location.locationType}=${location.value}&userId=${userId}` : `${URL_CITY_FILTER}${location.locationType}=${location.value}`
   return async function (dispatch) {
-    return await fetch(URL_CITY_FILTER)
+    return await fetch(url)
       .then(res => res.json())
       .then(json => {
-        let filtered = json.filter(el => el.contact.address.city.toLowerCase() === obj.city)
-        dispatch({ type: CITY_FILTER, payload: filtered })
+        dispatch({ type: CITY_FILTER, payload: json })
       })
       .catch(error => console.log(error))
   }
@@ -157,14 +228,14 @@ export function cityFilter(obj) {
 
 export const resetSearch = () => {
   return {
-      type: RESET_SEARCH,
+    type: RESET_SEARCH,
   }
 }
 
 export const resetPetOrder = (orderType) => {
   return {
-      type: RESET_PET_ORDER,
-      payload: orderType
+    type: RESET_PET_ORDER,
+    payload: orderType
   }
 }
 
@@ -184,33 +255,33 @@ export function createNewPet(obj, token){
   return async function (dispatch) {
     return await axios.post(url, obj, options)
       .then(data => {
-        return dispatch({type: CREATE_NEW_PET, payload: data.data})
+        return dispatch({ type: CREATE_NEW_PET, payload: data.data })
       })
-      .catch(error =>  console.log(error))
+      .catch(error => console.log(error))
   }
 }
 
-export function getBreedsByPetType(type){
+export function getBreedsByPetType(type) {
   const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/breed-pet/${type}`;
   return async function (dispatch) {
     return await fetch(url)
       .then(response => response.json())
       .then(data => {
-        return dispatch({type: BREEDS_BY_PET_TYPE, payload: data})
+        return dispatch({ type: BREEDS_BY_PET_TYPE, payload: data })
       })
-      .catch(error =>  console.log(error))
+      .catch(error => console.log(error))
   }
 }
 
-export function getColorsByPetType(type){
+export function getColorsByPetType(type) {
   const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/color-pet/${type}`;
   return async function (dispatch) {
     return await fetch(url)
       .then(response => response.json())
       .then(data => {
-        return dispatch({type: COLORS_BY_PET_TYPE, payload: data})
+        return dispatch({ type: COLORS_BY_PET_TYPE, payload: data })
       })
-      .catch(error =>  console.log(error))
+      .catch(error => console.log(error))
   }
 }
 

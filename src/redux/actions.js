@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { user } from '../assets/dataMockups/user.js'
 export const GET_USER_INFO = 'GET_USER_INFO';
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
@@ -16,10 +15,13 @@ export const EMAIL_CONFIRMED = 'EMAIL_CONFIRMED';
 export const GET_DONATIONS = 'GET_DONATIONS';
 export const GET_ALL_PETS_BY_USER = 'GET_ALL_PETS_BY_USER';
 export const RESET_DASHBOARD_PETS = 'RESET_DASHBOARD_PETS';
+export const POST_REVIEW = 'POST_REVIEW';
+export const RESET_POST_REVIEW = 'RESET_POST_REVIEW';
+export const GET_REVIEW = 'GET_REVIEW';
 export const POST_ADOPTER_PROFILE = 'POST_ADOPTER_PROFILE';
 export const RESET_ADOPTER_PROFILE = 'RESET_ADOPTER_PROFILE';
 
-const { REACT_APP_BACKEND_URL_TEST } = process.env; 
+const { REACT_APP_BACKEND_URL_TEST, REACT_APP_MAPS_API_KEY } = process.env; 
 
 
 
@@ -229,6 +231,54 @@ export function getAllPetsByUser(id){
 export function resetDashboardPets() {
     return { type: RESET_DASHBOARD_PETS, payload: [] }
 }
+
+export const getLocation =({lat, lng})=>{
+    return async function(dispatch){
+        return await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${REACT_APP_MAPS_API_KEY}`)
+            .then(response => response.json())
+            .then(json =>{
+                const locationInfo = {
+                    city: json.results[0].address_components[2].long_name,
+                    country: json.results[6].address_components[2].long_name
+                }
+                return locationInfo
+            })
+    }
+}
+
+export function postReview(obj, token) {
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/start`
+    const options = {
+        method: 'POST',
+        headers: { 'authorization': token, 'Content-Type': 'Application/json'},
+        body: JSON.stringify(obj),
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: POST_REVIEW, payload: data })
+        })
+    }
+}
+
+export function resetPostReview() {
+    return { type: RESET_POST_REVIEW, payload: [] }
+}
+
+export function getReview(id) {
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/start/${id}`
+    const options = {
+        method: 'GET',
+    }
+    return async function (dispatch) {
+        return await fetch(url, options)
+        .then(response => response.json())
+        .then(data => {
+            dispatch({ type: GET_REVIEW, payload: data })
+        })
+    }
+}
 export function postAdopterProfile(obj, token, userId){
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/match/${userId}`;
     const options = {
@@ -247,6 +297,7 @@ export function postAdopterProfile(obj, token, userId){
     
     }
 }
+
 export function resetAdopterProfile() {
     return { type: RESET_ADOPTER_PROFILE, payload: {} }
 }
