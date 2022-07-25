@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { user } from '../assets/dataMockups/user.js'
 export const GET_USER_INFO = 'GET_USER_INFO';
 export const GET_COUNTRIES = 'GET_COUNTRIES';
 export const GET_CITIES_BY_COUNTRY = 'GET_CITIES_BY_COUNTRY';
@@ -22,7 +21,7 @@ export const GET_REVIEW = 'GET_REVIEW';
 export const POST_ADOPTER_PROFILE = 'POST_ADOPTER_PROFILE';
 export const RESET_ADOPTER_PROFILE = 'RESET_ADOPTER_PROFILE';
 
-const { REACT_APP_BACKEND_URL_TEST } = process.env; 
+const { REACT_APP_BACKEND_URL_TEST, REACT_APP_MAPS_API_KEY } = process.env; 
 
 
 
@@ -233,6 +232,20 @@ export function resetDashboardPets() {
     return { type: RESET_DASHBOARD_PETS, payload: [] }
 }
 
+export const getLocation =({lat, lng})=>{
+    return async function(dispatch){
+        return await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${REACT_APP_MAPS_API_KEY}`)
+            .then(response => response.json())
+            .then(json =>{
+                const locationInfo = {
+                    city: json.results[0].address_components[2].long_name,
+                    country: json.results[6].address_components[2].long_name
+                }
+                return locationInfo
+            })
+    }
+}
+
 export function postReview(obj, token) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/start`
     const options = {
@@ -284,6 +297,7 @@ export function postAdopterProfile(obj, token, userId){
     
     }
 }
+
 export function resetAdopterProfile() {
     return { type: RESET_ADOPTER_PROFILE, payload: {} }
 }

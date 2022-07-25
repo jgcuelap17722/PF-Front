@@ -13,7 +13,7 @@ import DonationsConfirm from './components/Donations/DonationsConfirm.jsx';
 import Searcher from './components/Searcher/Searcher';
 import EmailConfirm from './components/EmailConfirm/EmailConfirm';
 import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
-import Favorites from './components/Favorites/Favorites.jsx';
+import Favorites from './components/Favorites/index.jsx';
 import DashboardUser from './components/Dashboard/DashboardUser.jsx';
 import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx';
 import DashboardUserDonations from './components/Dashboard/DashboardUserDonations.jsx'
@@ -38,7 +38,7 @@ function App() {
         <Route path='/login' element={<Login  />} />
         {/* SEARCHER: SOLO FUNCIONA CON 2 PETTYPE Dog Y Cat */}
         <Route path='/searcher/:petType' element={<Searcher />}/>
-        <Route path='/searcher/:type/:item' element={<Searcher />}/>
+        <Route path='/searcher/:type/:item/:subItem' element={<Searcher />}/>
         <Route path='/sponsor' element={<Donations />}/>
         <Route path='/sponsor/confirm' element={<DonationsConfirm />}/>
         <Route path='/pet-care' element={<PetCare />} />
