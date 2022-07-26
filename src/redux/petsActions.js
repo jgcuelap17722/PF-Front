@@ -37,6 +37,7 @@ export const SEARCH_IN_FAVS = 'SEARCH_IN_FAVS'
 export const UPDATE_PET_BY_ID = 'UPDATE_PET_BY_ID'
 export const RESET_UPDATE_MSG = 'RESET_UPDATE_MSG'
 export const GET_PET_DETAIL_FAV = 'GET_PET_DETAIL_FAV'
+export const RESERT_SEARCH = 'RESERT_SEARCH'
 const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 
@@ -66,7 +67,6 @@ export function getDetail(id) {
 // FAVORITES
 
 export const getPetFavs = (id) => {
-  console.log('action');
   return async function (dispatch) {
     const response = await axios.get(`${URL_GET_FAVS}${id}`)
     const data = response.data
@@ -242,12 +242,13 @@ export function cityFilter(location, userId) {
 }
 
 export const resetSearch = () => {
+  console.log('reset');
   return {
     type: RESET_SEARCH,
   }
 }
 
-export const resetPetOrder = (orderType) => {
+export const resetPetOrder = (orderType = '1') => {
   return {
     type: RESET_PET_ORDER,
     payload: orderType

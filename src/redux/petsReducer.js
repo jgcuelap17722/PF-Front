@@ -28,7 +28,8 @@ import {
 	SEARCH_IN_FAVS,
 	UPDATE_PET_BY_ID,
 	RESET_UPDATE_MSG,
-	GET_PET_DETAIL_FAV
+	GET_PET_DETAIL_FAV,
+	RESERT_SEARCH
 } from './petsActions';
 
 
@@ -209,6 +210,7 @@ export default function petsReducer(state = initialState, action) {
 			}
 
 		// RESET FILTERS
+
 		case RESET_PET_ORDER:
 			return {
 				...state,
@@ -227,6 +229,8 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				petsAvailables: [],
 				petsFiltered: [],
+				filterActive: [],
+				filterDisplayed: []
 			}
 
 		case CREATE_NEW_PET:

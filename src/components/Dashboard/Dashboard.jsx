@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
+import Spinner from '../../assets/Spinner/Spinner';
 
 
 
@@ -22,7 +23,7 @@ export default function Dashboard() {
     userDetail = JSON.parse(userDetail)
     const donations = useSelector(state => state.reducer.donations);
     localStorage.setItem('donations', JSON.stringify(donations));
-    
+
     const [value, setValue] = useState({
     })
 
@@ -67,7 +68,7 @@ export default function Dashboard() {
 
 
     function handleBlur(e) {
-        e.preventDefault(e) 
+        e.preventDefault(e)
         if (e.target.blur) {
             dispatch(patchUser(userId, value, token))
                 .then(() => {
@@ -99,28 +100,31 @@ export default function Dashboard() {
     return (
         <div>
             <NavBar />
-            
-                <div className={s.content}>
-                    <h1>Mi Dashboard</h1>
-                    <div className={s.dash}>
-                        <div className={s.datos}>
-                            <div className={s.selected}>
-                                <h3>Sobre Mí</h3>
-                            </div>
-                            <div className={s.nonSelected}>
-                                <Link className={s.link} to='/dashboard/mascotas'><h3>Mis Mascotas</h3></Link>
-                            </div>
-                            <div className={s.nonSelected}>
-                                <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
-                            </div>
-                            <div className={s.nonSelected}>
-                                {userDetail.role === 'fundation'?
-                            <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:
-                            <Link className={s.link} to='/dashboard/donations'><h3>Donaciones  Realizadas</h3></Link>
-                                }
-                            </div>
+
+            <div className={s.content}>
+                <h1>Mi Dashboard</h1>
+                <div className={s.dash}>
+                    <div className={s.datos}>
+                        <div className={s.selected}>
+                            <h3>Sobre Mí</h3>
                         </div>
-                        <div className={s.infoContainer}>
+                        <div className={s.nonSelected}>
+                            <Link className={s.link} to='/dashboard/mascotas'><h3>Mis Mascotas</h3></Link>
+                        </div>
+                        <div className={s.nonSelected}>
+                            <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
+                        </div>
+                        <div className={s.nonSelected}>
+                            {userDetail.role === 'fundation' ?
+                                <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link> :
+                                <Link className={s.link} to='/dashboard/donations'><h3>Donaciones  Realizadas</h3></Link>
+                            }
+                        </div>
+                    </div>
+                    {
+                        Object.keys(userDetail).length > 0 ?
+
+                        (<div className={s.infoContainer}>
                             <h2>Información Personal</h2>
                             <div className={s.inputContainer}>
                                 <div className={s.left}>
@@ -135,7 +139,7 @@ export default function Dashboard() {
                                     <div className={s.name}>
                                         <h4>País</h4>
                                         <select value={value.countryId ? value.countryId : userDetail.country} name="countryId" onSelect={handleSelect} onChange={(e) => handleValue(e)}  >
-                                            {countryEstado && countryEstado.map((c,index) =>
+                                            {countryEstado && countryEstado.map((c, index) =>
                                                 <option key={index} value={c.id}>{c.name}</option>
                                             )}
                                         </select>
@@ -164,7 +168,9 @@ export default function Dashboard() {
                             <Link to='/create-pet' className={s.link}>
                                 <button className={s.button}>Agregar Mascota</button>
                             </Link>
-                        </div>
+                        </div>)
+                        : <Spinner message='No hay información de usuario disponible' />
+                    }
                 </div>
             </div>
             <Footer />

@@ -20,7 +20,7 @@ const SearchCase = ({ petType, type }) => {
   const [petsPerPage, setPetsPerPage] = useState(9)
   const indexOfLastPet = currentPage * petsPerPage
   const indexOfFirstPet = indexOfLastPet - petsPerPage
-  const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet)
+  const currentPets = pets.length > 0 ? pets.slice(indexOfFirstPet, indexOfLastPet) : []
 
   const dispatch = useDispatch()
 
@@ -59,7 +59,7 @@ const SearchCase = ({ petType, type }) => {
                     cardType='search' />
                 )
               })
-              : <Spinner />
+              : <Spinner message={'No hay mascotas disponibles para tu búsqueda'}/>
           }
         </div>
 
