@@ -118,7 +118,6 @@ export function patchUser(id, obj, token){
         return await fetch(url, options)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 dispatch({ type: PATCH_USER, payload: data })
             })
     }
