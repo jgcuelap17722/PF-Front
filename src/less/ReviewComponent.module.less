@@ -1,0 +1,125 @@
+@import 'variables.less';
+.content{
+    min-height: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .contentImg{
+        width: 400px;
+        height: 300px;
+        img{
+            width: 370px;
+            height: 270px;
+            object-fit: cover;
+        }
+    }
+    .component{
+        margin-top: 3rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        width: 80%;
+        border-radius: .5rem;
+        box-shadow: 0 0 2rem -1rem;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-around;
+        .componentGlobal{
+            width: 400px;
+            min-height: 425px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            .error{
+                margin-top: 10px;
+                color: red;
+                font-family: 'Inter';
+            }
+        }
+        h1{
+            color: @primary;
+            font-size:1.5rem;
+            margin-left: 1.8rem;
+            margin-bottom: 30px;
+        }
+        h2{
+            color: @primary;
+            font-size:1.5rem;
+            margin-left: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .contentStars{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 335px;
+            height: 100px;
+            h2{
+                width: 335px;   
+            }
+            .stars{
+                width: 60px;
+                font-size: 30px;
+            }
+        }
+        .contentInput{
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            h3{
+                color: @primary;
+                font-size:1.7rem;
+                margin-bottom: 1rem;
+            }
+            textarea{
+                max-height: 80px;
+                min-height: 40px;
+                min-width: 335px;
+                max-width: 350px;
+                border: none;
+                border-radius: .5rem;
+                outline: none;
+                font-family: 'Inter';
+                color: @gray;
+                
+            }
+        }
+        button{
+            margin-top: 10px;
+            width: 8rem;
+            height: 2rem;
+            background-color: @primary;
+            border: none;
+            border-radius: .5rem;
+            color: @white;
+            cursor: pointer;
+            &:hover{
+                background-color: @secondary;
+                color: @primary;
+            }
+        }
+    }
+    .back{
+        margin-top: 2rem;
+        border: none;
+        color: @primary;
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, 0);
+        cursor: pointer;
+        &:hover{
+            border-bottom: 3px solid @secondary;
+            color: @primary;
+        }   
+
+    }
+}
+.imagenFundacion{
+    max-width: 400px;
+    max-height: 300px;
+}

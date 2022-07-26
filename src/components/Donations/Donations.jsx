@@ -44,14 +44,14 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
         },
         metadata: {
             fromUser: {
+                name: detail.name + ' ' + detail.lastName,
                 id: userId,
-                country: detail.country,
-                typeUser: detail.role
+                email: detail.email
             },
             toUser: {
+                name: infoFundacion.contact.name,
                 id: infoFundacion.userId,
-                country: fundacion.country,
-                typeUser: 'foundation'
+                email: infoFundacion.contact.email
             }
         }
     }

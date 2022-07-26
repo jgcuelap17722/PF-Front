@@ -15,6 +15,9 @@ import {
 	GET_DONATIONS,
 	GET_ALL_PETS_BY_USER,
 	RESET_DASHBOARD_PETS,
+	POST_REVIEW,
+	RESET_POST_REVIEW,
+	GET_REVIEW,
 	POST_ADOPTER_PROFILE,
 	RESET_ADOPTER_PROFILE,
 	ADOPTION_START,
@@ -34,6 +37,8 @@ const initialState = {
 	pwReset:{},
 	pwChange:{},
 	donations:[],
+	allPetsByUser: [],
+	review:[],
 	allPetsByUser:[],
 	adopterProfile:{},
 	adoptionStart:[],
@@ -142,6 +147,20 @@ export default function reducer(state = initialState, action) {
 			return{
 				...state,
 				allPetsByUser: action.payload
+			}
+		case POST_REVIEW:
+			return{
+				...state
+			}
+		case RESET_POST_REVIEW:
+			return{
+				...state,
+				review: action.payload
+			}
+		case GET_REVIEW:
+			return{
+				...state,
+				review: action.payload
 			}
 		case POST_ADOPTER_PROFILE:
 			return{

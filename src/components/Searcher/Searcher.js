@@ -10,7 +10,9 @@ import { getAllPets, typeFilter, cityFilter, resetSearch } from '../../redux/pet
 
 const Searcher = () => {
 
-  const { type, item } = useParams();
+  const { type, item, subItem } = useParams();
+  const userId = localStorage.getItem('userId');
+  const location = {locationType:item, value: subItem}
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -25,17 +27,22 @@ const Searcher = () => {
   }, [dispatch, type])
 
   useEffect(() => {
+    let petType = item === 'dog' ? "perro" : 'gato'
     if (type === 'pet') {
       if(item === 'dog'){
-        dispatch(typeFilter("perro"))
+        dispatch(typeFilter({petType, userId}))
       } else if (item === 'cat'){
-        dispatch(typeFilter("gato"))
+        dispatch(typeFilter({petType, userId}))
       } else if(item !== 'dog' && item !=='cat'){
         navigate('/')
       }
     }
     if(type === 'location'){
-      dispatch(cityFilter({city:item}))
+      if(userId){
+        dispatch(cityFilter(location, userId))
+      }else {
+        dispatch(cityFilter(location))
+      }
     }
   }, [dispatch, navigate, type, item])
 

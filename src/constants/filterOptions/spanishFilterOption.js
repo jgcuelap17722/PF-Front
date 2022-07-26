@@ -107,7 +107,7 @@ export const filtersOptionsFavs = [
   },
   {
     type: 'Tamaño',
-    options: ['Pequeño (0-6 lbs)', 'Mediano (7-11 lbs)', 'Grande (12-16 lbs)', 'Extra Grande (17 lbs o más)'],
+    options: ['Pequeño', 'Mediano', 'Grande', 'Extra Grande'],
   },
   {
     type: 'Sexo',
