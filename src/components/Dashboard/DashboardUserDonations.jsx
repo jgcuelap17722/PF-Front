@@ -3,6 +3,7 @@ import s from '../../css/DashboardUserDonations.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Dashboard() {
     let userDetail = localStorage.getItem('userDetail');
@@ -11,6 +12,8 @@ export default function Dashboard() {
     donations = JSON.parse(donations)
     let userId = localStorage.getItem('userId');
     let donationsFilter = donations.filter(el => el.fromUserId == userId )
+    
+    
     return (
         <div>
             <NavBar />

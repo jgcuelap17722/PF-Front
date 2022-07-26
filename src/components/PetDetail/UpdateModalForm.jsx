@@ -129,49 +129,46 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 		<main className={modalState ? s.showModal : s.hiddenModal} >
 			<FontAwesomeIcon icon={faXmark} className={s.closeModalIcon} onClick={closeModal} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div>
-					<p id={s.generalEdition}>{`Edición General`}</p>
-				</div>
-				<div>
-					<div className={s.left}>
-						<div>
-							<select {...register("breedId", { required: "Selecciona un tipo de raza" })}>
-								<option value={breed?.id} selected hidden>{storagePetDetail.breed ? storagePetDetail.breed : breed?.nameBreed}</option>
-								{breeds && breeds.map(b =>
-									<option value={b.id}>{b.nameBreed}</option>
-								)}
-							</select>
-							{errors?.breedId && <p className={s.error}>{errors.breedId.message}</p>}
-						</div>
-						<div>
-							<input {...register("name", {
-								required: "Debes ingresar un nombre",
-								maxLength: {
-									value: 20,
-									message: "El nombre no puede contener más de 20 caracteres"
-								}
-							})} placeholder="Nombre de tu mascota" />
-
-							{errors?.name && <p className={s.error}>{errors.name.message}</p>}
-						</div>
-						<div>
-							<select {...register("health", { required: "error en este input" })}>
-								<option value={storagePetDetail.health} disabled selected hidden>{storagePetDetail.health}</option>
-								<option value="vacunas al dia">Vacunas al día</option>
-								<option value="no vacunado">No vacunado</option>
-							</select>
-							{errors?.health && <p className={s.error}>{errors.health.message}</p>}
-						</div>
-						<div>
-							<select {...register("castrated", { required: "error en este input" })}>
-								<option disabled selected hidden>{
-									storagePetDetail.castrated === false && storagePetDetail.gender === 'hembra' ? 'No Esterilizada'
-										: storagePetDetail.castrated === true && storagePetDetail.gender === 'hembra' ? 'Esterilizada' : ''
-											|| storagePetDetail.castrated === false && storagePetDetail.gender === 'macho'
-											? 'No Castrado'
-											: 'Castrado'}</option>
-								<option value="true">Si</option>
-								<option value="false">No</option>
+					<div>
+						<p id={s.generalEdition}>Edición General</p>
+					</div>
+					<div>
+						<div className={s.left}>
+							<div>
+								<select {...register("breedId")}>
+										<option value={breed?.id} selected hidden>{storagePetDetail.breed ? storagePetDetail.breed : breed?.nameBreed }</option>
+										{breeds && breeds.map( b =>  
+											<option value={b.id}>{b.nameBreed}</option>
+										)}
+								</select>
+							</div>
+							<div>
+								<input {...register("name", { 
+																			required: "Debes ingresar un nombre",
+																			maxLength: {
+																				value: 20,
+																				message: "El nombre no puede contener más de 20 caracteres"
+																			}
+											 })} placeholder="Nombre de tu mascota" />
+											
+								{ errors?.name && <p className={s.error}>{errors.name.message}</p> }
+							</div>
+							<div>
+								<select {...register("health", { required: "error en este input" })}>
+									<option value={storagePetDetail.health} disabled selected hidden>{storagePetDetail.health}</option>
+									<option value="vacunas al dia">Vacunas al día</option>
+									<option value="no vacunado">No vacunado</option>
+								</select>
+								{ errors?.health && <p className={s.error}>{errors.health.message}</p> }
+							</div>
+							<div>
+								<select {...register("castrated", { required: "error en este input" })}>
+									<option  disabled selected hidden>{
+									storagePetDetail.castrated === false && storagePetDetail.gender === 'hembra' ? 'No Esterilizada' 
+									: storagePetDetail.castrated === true && storagePetDetail.gender === 'hembra' ? 'Esterilizada' : ''
+									|| storagePetDetail.castrated === false && storagePetDetail.gender === 'macho'
+									? 'No Castrado'
+									: 'Castrado'}</option>
 							</select>
 							{errors?.castrated && <p className={s.error}>{errors.castrated.message}</p>}
 						</div>
@@ -253,8 +250,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 				<div className={s.conteinerButtons}>
 					<button className={s.button} type='submit'>Guardar Cambios</button>
 					<div className={s.conteinerButtonAndIcon}>
-						<button className={s.buttonSecondary} onClick={handleDisablePet} >Eliminar Mascota</button>
-						<FontAwesomeIcon icon={faTrashCan} className={s.icon}/>
+						<button className={s.buttonSecondary} onClick={handleDisablePet} >Eliminar Mascota <FontAwesomeIcon icon={faTrashCan} className={s.icon}/></button>
 					</div>
 				</div>
 			</form>

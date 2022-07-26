@@ -31,7 +31,7 @@
 }
 .content .form .inputGroup p {
   text-align: left;
-  padding: 23px 0 0 0;
+  padding: 5px 0 0 0;
 }
 .content .form .inputGroup button {
   position: relative;
@@ -60,6 +60,9 @@
   border-radius: 5px;
   border: none;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content .form .button:hover {
   background-color: #4992AB;
@@ -98,10 +101,15 @@
   color: #FAC942;
   font-size: smaller;
 }
+.faGoogle {
+  fill: white;
+  height: 1rem;
+  margin-right: 1rem;
+}
 .eye {
   position: relative;
   right: 12rem;
-  top: 13.6rem;
+  top: 11.7rem;
   width: 2rem;
   height: 2rem;
   background-color: transparent;
