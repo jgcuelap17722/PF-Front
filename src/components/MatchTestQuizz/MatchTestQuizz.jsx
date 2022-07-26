@@ -54,7 +54,7 @@ export default function MatchTestQuizz() {
                 showConfirmButton: false,
                 timer: 3500
             })
-            Navigate('/dashboard/adoptante')
+            Navigate('/')
             }
             if (adopterProfile?.error){
                 Swal.fire({

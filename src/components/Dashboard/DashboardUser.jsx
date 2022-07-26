@@ -87,7 +87,7 @@ export default function Dashboard() {
                                     </Link>
                                 )
                             }):
-                            'No tienes mascotas en adopción'}
+                            null}
                             
                         </div>
                     </div>

@@ -18,6 +18,9 @@ export const GET_ALL_PETS_BY_USER = 'GET_ALL_PETS_BY_USER';
 export const RESET_DASHBOARD_PETS = 'RESET_DASHBOARD_PETS';
 export const POST_ADOPTER_PROFILE = 'POST_ADOPTER_PROFILE';
 export const RESET_ADOPTER_PROFILE = 'RESET_ADOPTER_PROFILE';
+export const ADOPTION_START = 'ADOPTION_START';
+export const RESET_ADOPTION_START = 'RESET_ADOPTION_START';
+
 
 const { REACT_APP_BACKEND_URL_TEST } = process.env; 
 
@@ -249,4 +252,22 @@ export function postAdopterProfile(obj, token, userId){
 }
 export function resetAdopterProfile() {
     return { type: RESET_ADOPTER_PROFILE, payload: {} }
+}
+export function adoptionStart(petId, userId, token){
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/adoption/sendSoli/${petId}/${userId}`;
+    const options = {
+        method: 'GET',
+        headers: { 'authorization': token },
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: ADOPTION_START, payload: data })
+            })
+    }
+}
+export function resetAdoptionStart() {
+    return { type: RESET_ADOPTION_START, payload: [] }
 }
