@@ -15,8 +15,9 @@ const FavsMenu = ({ userId }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getPetFavs(userId))
-
+    if(userId){
+      dispatch(getPetFavs(userId))
+    }
   // }, [dispatch, petsFavs])
   }, [dispatch])
 

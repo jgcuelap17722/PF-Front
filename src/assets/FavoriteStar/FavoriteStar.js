@@ -5,7 +5,7 @@ import favStarAvoid from '../../assets/icons/favstar-avoid.svg'
 import favStarFilled from '../../assets/icons/favstar-filled.svg'
 import s from '../../css/FavoriteStar.module.css'
 
-const FavoriteStar = ({ userId , petId, isFav }) => {
+const FavoriteStar = ({ userId , petId, isFav, btn, setFav }) => {
 
   const userRef = parseInt(userId)
   const petRef = parseInt(petId)
@@ -18,9 +18,11 @@ const FavoriteStar = ({ userId , petId, isFav }) => {
     if (isFav) {
       setDisplay(true)
     }
-  }, [isFav])
+    if(setFav){
+      clickHandler()
+    }
+  }, [isFav, setFav])
   
-
 
   const clickHandler = async (e) => {
     if(userId){
