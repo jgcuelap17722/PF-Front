@@ -39,11 +39,6 @@ export default function NavBar() {
 		}
 	}
 
-	
-
-	// console.log(user);
-	// console.log(auth0User);
-
 	return (
 		<nav>
 			<div className={s.navTop}>
@@ -54,18 +49,6 @@ export default function NavBar() {
 				</div>
 				<Arrow className={subMenu ? s.subMenuArrowUp : s.subMenuArrow} onClick={showSubMenu} />
 				<div className={s.registerLogin}>
-					{/*<Link to='/favorites' onClick={ token ? '/favorites' : favs }>
-					<Link to='/favorites' onClick={token ? '/favorites' : favs}>
-						<Favorites className={s.favorites} />
-					</Link>*/}
-
-
-					{/*<Link to={token || isAuthenticated ? '/dashboard' : '/register' }>
-						<p>{token ? <FontAwesomeIcon icon={faUser} className={s.userIcon} /> : isAuthenticated ? <div className={s.imgAuth0}><img src={user.picture} referrerpolicy="no-referrer" /></div> : 'Registro'}</p>
-					</Link>*/}
-					{/*<Link to={!token && !isAuthenticated  ? '/login' : '/login'}>
-						<p onClick={isAuthenticated ? () => logout({returnTo: 'http://localhost:3000/login'}) : closeSesion}>{token || isAuthenticated ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
-					</Link>*/}
 					{
 						token || isAuthenticated
 							? <FavsMenu userId={userId} />
@@ -79,7 +62,6 @@ export default function NavBar() {
 						<p>Iniciar Sesión</p>
 					  </Link>							
 					}
-					
 				</div>
 			</div>
 			<div className={subMenu ? s.navBottom : s.displayNone}>

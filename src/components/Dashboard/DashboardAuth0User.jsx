@@ -8,7 +8,6 @@ export default function DashboardAuth0User() {
 
 	let auth0User = localStorage.getItem('userDetail');
     auth0User = JSON.parse(auth0User);
-    // console.log(document.cookie.split(';'));
 
 	return (
 		<div>
@@ -27,7 +26,6 @@ export default function DashboardAuth0User() {
                                 <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
                             </div>
                             <div className={s.nonSelected}>
-                            {/*<Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:*/}
                             <Link className={s.link} to='/dashboard/donations'><h3>Donaciones  Realizadas</h3></Link>
                             </div>
                         </div>
@@ -41,7 +39,6 @@ export default function DashboardAuth0User() {
                                     </div>
                                     <div className={s.name}>
                                         <h4>Teléfono</h4>
-                                        {/*<input onChange={(e) => handleValue(e)} onBlur={(e) => handleBlur(e)} name="phone" value={value.phone ? value.phone : ` ${.phone ? .phone : ' '}`} type="text" />*/}
                                     </div>
                                     <div className={s.name}>
                                         <h4>País</h4>

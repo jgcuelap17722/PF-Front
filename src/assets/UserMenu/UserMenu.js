@@ -27,7 +27,6 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
     dispatch(getPetFavs(userId))
 
     if(isAuthenticated && localStorage.userDetail){
-      console.log('creando usuario auth0');
       dispatch(createAuth0User(auth0User, accessToken));
     }
 
@@ -89,7 +88,6 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
     }
   }
 
-// console.log(user);
   return (
     <div className={s.userManuBox}>
       <div className={s.linkBox}>
@@ -99,8 +97,6 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
           </Link>
           
         </div>
-        {/*<Link to={'#'} >{name} {lastName}</Link>*/}
-        {/*<img className={s.arrowIcon} src={arrow} alt="" />*/}
       </div>
 
       <div className={s.favsMenuList}>
