@@ -169,6 +169,7 @@ export default function reducer(state = initialState, action) {
 				...state,
 				adopterProfile: action.payload
 			}
+		
 		default:
 		return state;
 	}

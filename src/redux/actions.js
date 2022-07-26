@@ -21,7 +21,8 @@ export const GET_REVIEW = 'GET_REVIEW';
 export const POST_ADOPTER_PROFILE = 'POST_ADOPTER_PROFILE';
 export const RESET_ADOPTER_PROFILE = 'RESET_ADOPTER_PROFILE';
 
-const { REACT_APP_BACKEND_URL_TEST, REACT_APP_MAPS_API_KEY } = process.env; 
+
+const { REACT_APP_BACKEND_URL_TEST, REACT_APP_MAPS_API_KEY } = process.env;
 
 
 
@@ -34,10 +35,10 @@ export function getUserInfo(id, token) {
     return async function (dispatch) {
 
         return await fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
-            dispatch({ type: GET_USER_INFO, payload: data })
-        })
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: GET_USER_INFO, payload: data })
+            })
     }
 }
 
@@ -45,10 +46,10 @@ export function getCountries() {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/countries`;
     return async function (dispatch) {
         return await fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            dispatch({ type: GET_COUNTRIES, payload: data })
-        })
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: GET_COUNTRIES, payload: data })
+            })
     }
 }
 
@@ -56,9 +57,9 @@ export function getCitiesByCountry(id) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/cities/${id}`;
     return async function (dispatch) {
         return await axios.get(url)
-        .then(data => {
-            dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data.data })
-        })
+            .then(data => {
+                dispatch({ type: GET_CITIES_BY_COUNTRY, payload: data.data })
+            })
 
     }
 
@@ -66,17 +67,12 @@ export function getCitiesByCountry(id) {
 
 export function createNewUser(obj) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/user`;
-    const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'Application/json' },
-        body: JSON.stringify(obj)
-    }
     return async function (dispatch) {
-        return await fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
-            dispatch({ type: CREATE_NEW_USER, payload: data })
-        })
+        return await axios.post(url, obj)
+            .then(data => {
+                return dispatch({ type: CREATE_NEW_USER, payload: data.data })
+            })
+            .catch(error => console.log(error))
     }
 }
 
@@ -94,11 +90,11 @@ export function loginUser(obj) {
     }
     return async function (dispatch) {
         return await fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
-            dispatch({ type: LOGIN_USER, payload: data })
-        })
-        .catch(error => console.log(error))
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: LOGIN_USER, payload: data })
+            })
+            .catch(error => console.log(error))
     }
 }
 
@@ -106,11 +102,11 @@ export function resetUserLogged() {
     return { type: RESET_USER_LOGGED, payload: {} }
 }
 
-export function patchUser(id, obj, token){
+export function patchUser(id, obj, token) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/user/${id}`;
     const options = {
         method: 'PATCH',
-        headers: { 'authorization': token,  'Content-Type': 'Application/json' },
+        headers: { 'authorization': token, 'Content-Type': 'Application/json' },
         body: JSON.stringify(obj),
     }
     return async function (dispatch) {
@@ -123,7 +119,7 @@ export function patchUser(id, obj, token){
     }
 }
 
-export function sendEmailConfirm(obj){
+export function sendEmailConfirm(obj) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/verify`;
     const options = {
         method: 'POST',
@@ -134,23 +130,23 @@ export function sendEmailConfirm(obj){
         return await fetch(url, options)
             .then(response => response.json())
             .then(data => {
-                dispatch({ type: CONFIRM_EMAIL, payload: data})
+                dispatch({ type: CONFIRM_EMAIL, payload: data })
             })
     }
 }
 
-export function emailConfirmed(tok){
-	const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/verify/tk/${tok}`;
-	return async function (dispatch) {
-		return await fetch(url)
-			.then(response => response.json())
-			.then(data => {
-				dispatch({ type: EMAIL_CONFIRMED, payload: data})
-			})
-	}
+export function emailConfirmed(tok) {
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/verify/tk/${tok}`;
+    return async function (dispatch) {
+        return await fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: EMAIL_CONFIRMED, payload: data })
+            })
+    }
 }
 
-export function pwReset(obj){
+export function pwReset(obj) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/verify/recpass`;
     const options = {
         method: 'POST',
@@ -161,11 +157,11 @@ export function pwReset(obj){
         return await fetch(url, options)
             .then(response => response.json())
             .then(data => {
-                dispatch({ type: PW_RESET, payload: data})
+                dispatch({ type: PW_RESET, payload: data })
             })
     }
 }
-export function pwChange(obj, tak){
+export function pwChange(obj, tak) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/verify/modpass/${tak}`;
     const options = {
         method: 'PUT',
@@ -176,16 +172,16 @@ export function pwChange(obj, tak){
         return await fetch(url, options)
             .then(response => response.json())
             .then(data => {
-                dispatch({ type: PW_CHANGE, payload: data})
+                dispatch({ type: PW_CHANGE, payload: data })
             })
     }
 }
 
-export function postPay(obj){
+export function postPay(obj) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/donations/urlPreferential`;
     const options = {
         method: 'POST',
-        headers: {'Content-Type': 'Application/json'},
+        headers: { 'Content-Type': 'Application/json' },
         body: JSON.stringify(obj),
     }
     return async function (dispatch) {
@@ -198,7 +194,7 @@ export function postPay(obj){
     }
 }
 
-export function getDonations(token){
+export function getDonations(token) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/donations`;
     const options = {
         method: 'GET',
@@ -214,7 +210,7 @@ export function getDonations(token){
             })
     }
 }
-export function getAllPetsByUser(id){
+export function getAllPetsByUser(id) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/user/${id}`;
 
     return async function (dispatch) {
@@ -231,11 +227,11 @@ export function resetDashboardPets() {
     return { type: RESET_DASHBOARD_PETS, payload: [] }
 }
 
-export const getLocation =({lat, lng})=>{
-    return async function(dispatch){
+export const getLocation = ({ lat, lng }) => {
+    return async function (dispatch) {
         return await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${REACT_APP_MAPS_API_KEY}`)
             .then(response => response.json())
-            .then(json =>{
+            .then(json => {
                 const locationInfo = {
                     city: json.results[0].address_components[2].long_name,
                     country: json.results[6].address_components[2].long_name
@@ -249,15 +245,15 @@ export function postReview(obj, token) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/start`
     const options = {
         method: 'POST',
-        headers: { 'authorization': token, 'Content-Type': 'Application/json'},
+        headers: { 'authorization': token, 'Content-Type': 'Application/json' },
         body: JSON.stringify(obj),
     }
     return async function (dispatch) {
         return await fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
-            dispatch({ type: POST_REVIEW, payload: data })
-        })
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: POST_REVIEW, payload: data })
+            })
     }
 }
 
@@ -272,13 +268,13 @@ export function getReview(id) {
     }
     return async function (dispatch) {
         return await fetch(url, options)
-        .then(response => response.json())
-        .then(data => {
-            dispatch({ type: GET_REVIEW, payload: data })
-        })
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: GET_REVIEW, payload: data })
+            })
     }
 }
-export function postAdopterProfile(obj, token, userId){
+export function postAdopterProfile(obj, token, userId) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/match/${userId}`;
     const options = {
         method: 'POST',
@@ -293,10 +289,12 @@ export function postAdopterProfile(obj, token, userId){
                 dispatch({ type: POST_ADOPTER_PROFILE, payload: data })
             })
             .catch(error => console.log(error))
-    
+
     }
 }
 
 export function resetAdopterProfile() {
     return { type: RESET_ADOPTER_PROFILE, payload: {} }
 }
+
+
