@@ -39,7 +39,7 @@ export default function SignUp() {
 	}
 	
 	useEffect( () => {
-		window.scrollTo(0,0)
+		
 		if(selectCountry){
 			dispatch(getCitiesByCountry(selectCountry));
 		}
@@ -75,11 +75,18 @@ export default function SignUp() {
 		}
 
 	}, [selectCountry, watchPass, confirmPass, newUser])
+
+	useEffect(() => {
+		window.scrollTo(0,0)
+	}, [])
+	
 	
 	function showPassword(e){
 		e.preventDefault(e);
 		let inputPassword = document.getElementsByName('password');
 		inputPassword[0].type === 'password' ? inputPassword[0].type = 'text' : inputPassword[0].type = 'password'
+		let inputPassword2 = document.getElementsByName('confirmPassword');
+		inputPassword2[0].type === 'password' ? inputPassword2[0].type = 'text' : inputPassword2[0].type = 'password'
 	}
 
 	return (
@@ -153,7 +160,7 @@ export default function SignUp() {
 										}})} 
 									type="password" 
 									placeholder="Contraseña"
-							/><button onClick={showPassword} id='inputBtn'><FontAwesomeIcon icon={faEye}/></button>
+							/>
 							{ errors?.password && <p>{errors.password.message}</p> }
 						</div>
 
@@ -177,6 +184,7 @@ export default function SignUp() {
 						
 						<button type="submit">Registrarme</button>
 					</form>
+					<button onClick={showPassword} className={s.eye}><FontAwesomeIcon icon={faEye}/></button>
 				</div>
 				<div className={s.right}>
 					<div className={s.overflow}></div>
