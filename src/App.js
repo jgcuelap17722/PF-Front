@@ -16,20 +16,23 @@ import EmailConfirmed from './components/EmailConfirmed/EmailConfirmed';
 import Favorites from './components/Favorites/index.jsx';
 import DashboardUser from './components/Dashboard/DashboardUser.jsx';
 import DashboardFoundation from './components/Dashboard/DashboardFundation.jsx';
-import DashboardUserDonations from './components/Dashboard/DashboardUserDonations.jsx'
-import DashboardAdoptante from './components/Dashboard/DashboardAdoptante.jsx'
+import DashboardUserDonations from './components/Dashboard/DashboardUserDonations.jsx';
+import DashboardAdoptante from './components/Dashboard/DashboardAdoptante.jsx';
+import DashboardAuth0User from './components/Dashboard/DashboardAuth0User.jsx';
 import PwReset from './components/PwReset/PwReset';
 import PwResetConfirm from './components/PwResetConfirm/PwResetConfirm';
-import Review  from './components/ReviewComponent/ReviewComponent.jsx'
-import Foundations from './components/Foundations/Foundations'
-import FoundationsDetail from './components/FoundationDetail/FoundationDetail.jsx'
-import MatchTestQuizz from './components/MatchTestQuizz/MatchTestQuizz'
+import Review  from './components/ReviewComponent/ReviewComponent.jsx';
+import Foundations from './components/Foundations/Foundations';
+import FoundationsDetail from './components/FoundationDetail/FoundationDetail.jsx';
+import MatchTestQuizz from './components/MatchTestQuizz/MatchTestQuizz';
 import Adoption from './components/Adoption/Adoption.jsx';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
   const usuario = useSelector((state)=> state.reducer.userLogged)
+  const { isAuthenticated } = useAuth0();
 
   return (
     <div>
@@ -46,7 +49,7 @@ function App() {
         <Route path='/pet-care' element={<PetCare />} />
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
-        <Route path='/create-pet' element={user || Object.keys(usuario).length > 0? <CreatePet />: <Navigate replace to="/login"/>} /> 
+        <Route path='/create-pet' element={user || Object.keys(usuario).length > 0 || isAuthenticated ? <CreatePet />: <Navigate replace to="/login"/>} /> 
         {/* <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} /> */}
         <Route path='/review/:id' element={<Review/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
@@ -54,6 +57,7 @@ function App() {
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />
         <Route path='/dashboard/donations' element={<DashboardUserDonations/>} />
         <Route path='/dashboard/adoptante' element={<DashboardAdoptante/>} />
+        <Route path='/dashboard/auth0' element={<DashboardAuth0User/>} />
         <Route path='/email-confirmed/api/v1.0/verify/tk/:token' element={<EmailConfirmed />} />
         <Route path='/email-confirm' element={<EmailConfirm />} />
         <Route path='/favorites' element={<Favorites />} />
