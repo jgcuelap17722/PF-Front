@@ -7,13 +7,14 @@
   display: flex;
   width: 100%;
   background-color: #FAC942;
+  gap: 3rem;
 }
 .contenedorPadre .top .buttonLeft {
+  display: none;
   margin-left: 2rem;
   pointer-events: all;
-  background-color: #504F6F;
+  background-color: #FAC942;
   border: none;
-  cursor: pointer;
   outline: none;
   width: 3.125rem;
   height: 100%;
@@ -23,10 +24,9 @@
   padding: 10px 0 8px 0;
   border-radius: 3px;
 }
-.contenedorPadre .top .buttonLeft:hover {
-  background: #4992AB;
-  fill: #4B4D62;
-  scale: 105%;
+.contenedorPadre .top .buttonLeft .arrow {
+  fill: #FAC942;
+  color: #FAC942;
 }
 .contenedorPadre .top .contenedorImg {
   width: 20rem;
@@ -51,10 +51,10 @@
   object-fit: cover;
 }
 .contenedorPadre .top .buttonRight {
+  display: none;
   pointer-events: all;
-  background-color: #504F6F;
+  background-color: #FAC942;
   border: none;
-  cursor: pointer;
   outline: none;
   width: 3.125rem;
   height: 100%;
@@ -64,15 +64,13 @@
   padding: 11px 0 7px 0;
   border-radius: 3px;
   transform: rotate(180deg);
-  fill: black;
+  fill: #FAC942;
 }
-.contenedorPadre .top .buttonRight:hover {
-  background: #4992AB;
-  fill: #4B4D62;
-  scale: 105%;
+.contenedorPadre .top .buttonRight .arrow {
+  fill: #FAC942;
+  color: #FAC942;
 }
 .contenedorPadre .top .topRight {
-  padding-left: 2rem;
   width: 800px;
   align-self: center;
 }
@@ -81,6 +79,9 @@
   width: 100%;
   padding-bottom: 1rem;
   text-transform: capitalize;
+}
+.contenedorPadre .top .topRight .name .contenedorStars {
+  display: flex;
 }
 .contenedorPadre .top .topRight .name .h3 {
   font-size: 45px;
@@ -240,7 +241,7 @@
   color: #DDDDDD;
 }
 .contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonSponsor {
-  width: 50%;
+  width: 100%;
   height: 80px;
   background-color: #FAC942;
   font-size: 30px;
@@ -255,43 +256,10 @@
   background-color: #FAB942;
   color: #ffffff;
 }
-.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite {
-  font-family: 'Inter';
-  font-weight: 400;
-  width: 50%;
-  height: 80px;
-  background-color: #FAC942;
-  font-size: 30px;
-  cursor: pointer;
-  border: none;
-  border-left: 4px solid #FFFFFF;
-  color: #504F6F;
-  transition: all 0.3s ease;
-}
-.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite:hover {
-  background-color: #FAB942;
-  color: #ffffff;
-}
-.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2 {
-  font-family: 'Inter';
-  font-weight: 400;
-  width: 100%;
-  height: 80px;
-  background-color: #FAC942;
-  font-size: 30px;
-  cursor: pointer;
-  border: none;
-  color: #504F6F;
-  transition: all 0.3s ease;
-}
-.contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion .buttonFavorite2:hover {
-  background-color: #FAB942;
-  color: #ffffff;
-}
 .contenedorPadre .medium .contenedorDeComentarios {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent {
   margin-top: 3rem;
@@ -307,6 +275,8 @@
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent h3 {
   margin: 20px;
+  color: #504F6F;
+  text-transform: capitalize;
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent .puntuacion {
   display: flex;
@@ -316,6 +286,12 @@
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent .comentario {
   margin: 20px;
+  color: #504F6F;
+}
+.contenedorPadre .medium .contenedorDeComentarios .componentComent .contenedorStars {
+  margin-left: 20px;
+  display: flex;
+  gap: 5px;
 }
 .contenedorPadre .contenedorMascota {
   margin-left: 10rem;
@@ -470,4 +446,8 @@
 }
 .contenedorPadre .mascotasFoundation .relatedBox .card {
   text-decoration: none;
+}
+.arrow {
+  fill: #FAC942;
+  color: #FAC942;
 }

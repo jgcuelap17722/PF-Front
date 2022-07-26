@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import s from '../../css/PwResetConfirm.module.css';
 import { useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,9 +23,15 @@ export default function PwResetConfirm() {
 				alert ('La clave ha sido actualizada')
 				navigate('/login');
 			})
-		
-
 	};
+	function showPassword (e){
+        e.preventDefault(e)
+        let inputPass = document.getElementsByName('password1')
+        inputPass[0].type === 'password'? inputPass[0].type = 'text': inputPass[0].type = 'password'
+        let inputPass2 = document.getElementsByName('password2')
+        inputPass2[0].type === 'password'? inputPass2[0].type = 'text': inputPass2[0].type = 'password'
+    }
+	
 
 	
     return (
@@ -36,19 +44,22 @@ export default function PwResetConfirm() {
 					<div className={s.right}>
                         <h2>Cambia tu contraseña</h2>				
                         <form onSubmit={handleSubmit(onSubmit)}>
-							<input type='password' 
-								{...register('password1', {
-									required: 'Debes ingresar tu nueva clave',
-									pattern: {
-										value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&_])[A-Za-z\d$@$!%*?&_]{4,50}$/,
-										message: 'Min 8, Mayúscula, Minúscula, Número y Especial'
-									}
-									})} placeholder='Contraseña' />
+								
+									<input type='password' 
+									{...register('password1', {
+										required: 'Debes ingresar tu nueva clave',
+										pattern: {
+											value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&_])[A-Za-z\d$@$!%*?&_]{4,50}$/,
+											message: 'Min 8, Mayúscula, Minúscula, Número y Especial'
+										}
+										})} placeholder='Contraseña' />
+										
 									<p>{errors.password1?.message}</p>
 							<input type='password' {...register('password2', {required: 'La clave debe ser igual'})} placeholder='Confirma tu contraseña' />					
 							<button>Aceptar</button>
 						</form>
-
+						<button className={s.eye} onClick={showPassword}><FontAwesomeIcon icon={faEye}/></button>
+								
                     </div>
 				</div>
 				

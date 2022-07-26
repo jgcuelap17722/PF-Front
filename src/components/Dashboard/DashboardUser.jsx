@@ -41,9 +41,11 @@ export default function Dashboard() {
                         <div className={s.selected}>
                             <h3>Mis Mascotas</h3>
                         </div>
+                        {userDetail?.role === 'user'?
                         <div className={s.nonSelected}>
-                                <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
-                            </div>
+                            <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
+                        </div>
+                        :null}
                         <div className={s.nonSelected}>
                         {userDetail.role === 'fundation'?
                         <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:
@@ -91,7 +93,7 @@ export default function Dashboard() {
                                     </Link>
                                 )
                             }):
-                            'No tienes mascotas en adopción'}
+                            null}
                             
                         </div>
                     </div>

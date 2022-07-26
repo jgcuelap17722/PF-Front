@@ -32,27 +32,27 @@ export default function Dashboard() {
         dispatch(getUserInfo(userId, token))
         dispatch(getCountries())
         dispatch(getDonations(token))
-        if (value.countryId === 'ARG') {
+        if (value.countryId === 'ARG'|| userDetail.country === 'Argentina') {
             dispatch(getCitiesByCountry('ARG')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'CHL') {
+        if (value.countryId === 'CHL'|| userDetail.country === 'Chile') {
             dispatch(getCitiesByCountry('CHL')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'COL') {
+        if (value.countryId === 'COL'|| userDetail.country === 'Colombia') {
             dispatch(getCitiesByCountry('COL')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'ECU') {
+        if (value.countryId === 'ECU'|| userDetail.country === 'Ecuador') {
             dispatch(getCitiesByCountry('ECU')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'PER') {
+        if (value.countryId === 'PER'|| userDetail.country === 'Peru') {
             dispatch(getCitiesByCountry('PER')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
@@ -93,10 +93,7 @@ export default function Dashboard() {
             })
         return cities;
     }
-
-
     const countryEstado = useSelector((state) => state.reducer.countries)
-    // console.log(user);
 
     return (
         <div>
@@ -111,9 +108,11 @@ export default function Dashboard() {
                             <div className={s.nonSelected}>
                                 <Link className={s.link} to='/dashboard/mascotas'><h3>Mis Mascotas</h3></Link>
                             </div>
+                            {userDetail?.role === 'user'?
                             <div className={s.nonSelected}>
                                 <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
                             </div>
+                            :null}
                             <div className={s.nonSelected}>
                                 {userDetail.role === 'fundation'?
                             <Link className={s.link} to='/dashboard/foundation'><h3>Donaciones  Recibidas</h3></Link>:
@@ -153,11 +152,12 @@ export default function Dashboard() {
                                     </div>
                                     <div className={s.apellido}>
                                         <h4>Ciudad</h4>
-                                        <select value={detail.city ? detail.city : userDetail.city} name="cityId" onSelect={handleSelect} onChange={(e) => handleValue(e)} >
+                                        <select value={value.cityId ? value.cityId : userDetail.city} name="cityId" onSelect={handleSelect} onChange={(e) => handleValue(e)} >
                                             <option value={detail.city ? detail.city : userDetail.city}>{patch.cityId ? patch.cityId : userDetail.city}</option>
-                                            {cities?.map((c, index) =>
+                                            {cities.length > 0 ?  cities?.map((c, index) =>
                                                 <option key={index} value={c.id}>{c.name}</option>
-                                            )}
+                                            ):
+                                            null}
                                         </select>
                                     </div>
                                 </div>

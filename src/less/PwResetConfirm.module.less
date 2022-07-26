@@ -80,10 +80,15 @@
 				width: 90%;
 				align-self: flex-end;
 				margin-right: 2rem;
+				
 				input{
-
+					outline: none;
+					width: 100%;
 					height: 2rem;
 					border-radius: .3rem;
+					border: none;
+					color: @darkGray;
+					text-indent: 1rem;
 				}
 				button{
 					margin-top: 2.5rem;
@@ -94,6 +99,7 @@
 					background-color: @secondary;
 					border-radius: .3rem;
 					font-size: larger;
+
 		
 					&:hover{
 						background-color: @third;
@@ -101,10 +107,23 @@
 						cursor: pointer;
 					}
 			}
+			
 			}
 		}
 
 		
 
 	}
+}
+.eye{
+	position: relative;
+	right: -16rem;
+	bottom: 7.5rem;
+	width: 2rem;
+	height: 2rem;
+	background-color: transparent;
+	font-size: medium;
+	color: @gray;
+	border: none;
+	cursor: pointer;
 }

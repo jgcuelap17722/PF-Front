@@ -156,7 +156,7 @@ export default function Login() {
                                 placeholder='Contraseña'
                                 onChange={(e) => handleChange(e)}
                                 />
-                                <button id='inputBtn'onClick={showPassword}><FontAwesomeIcon icon={faEye}/></button>
+                                
                                 {error.password && <p className={s.error}>{error.password}</p>}
                         </div>
                     </form>
@@ -179,6 +179,7 @@ export default function Login() {
                 </div>
 
             </form>
+            <button className={s.eye}onClick={showPassword}><FontAwesomeIcon icon={faEye}/></button>
         </div>
         <Footer />
     </div>
