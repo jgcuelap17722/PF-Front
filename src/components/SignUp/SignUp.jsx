@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -151,7 +153,7 @@ export default function SignUp() {
 										}})} 
 									type="password" 
 									placeholder="Contraseña"
-							/><button onClick={showPassword}>👁️</button>
+							/><button onClick={showPassword} id='inputBtn'><FontAwesomeIcon icon={faEye}/></button>
 							{ errors?.password && <p>{errors.password.message}</p> }
 						</div>
 

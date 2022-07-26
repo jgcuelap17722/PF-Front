@@ -43,11 +43,6 @@
   color: #504F6F;
   text-align: left;
 }
-.container main .left form div input:focus,
-.container main .left form div select:focus {
-  border: 0.1rem solid #4992AB;
-  color: #4992AB;
-}
 .container main .left form div p {
   color: #FAB942;
   font-weight: bold;
@@ -55,14 +50,14 @@
   padding-top: 0.2rem;
 }
 .container main .left form div input[name="password"] {
-  width: 92%;
+  width: 91.98%;
   border-right: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 .container main .left form div button {
   width: 6.5%;
-  height: 2.4rem;
+  height: 2.5rem;
   position: relative;
   bottom: -0.05rem;
   background-color: #ffffff;
@@ -71,6 +66,7 @@
   border-right: 0.1rem solid #504F6F;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  color: #A1A8B1;
 }
 .container main .left form div button:hover {
   background-color: #ffffff;
