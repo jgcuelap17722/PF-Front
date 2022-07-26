@@ -5,7 +5,7 @@ import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPetsByUser, resetDashboardPets } from '../../redux/actions';
-
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Dashboard() {
 
@@ -14,6 +14,10 @@ export default function Dashboard() {
     let userDetail = localStorage.getItem('userDetail');
     let userId = localStorage.getItem('userId');
     userDetail = JSON.parse(userDetail)
+    const { isAuthenticated } = useAuth0();
+
+
+
     useEffect(() => {
         dispatch(getAllPetsByUser(userId))
         window.scrollTo(0,0)
@@ -31,7 +35,7 @@ export default function Dashboard() {
                 <h1>Mi Dashboard</h1>
                 <div className={s.dash}>
                     <div className={s.datos}>
-                        <Link className={s.link} to='/dashboard'><div className={s.nonSelected}>
+                        <Link className={s.link} to={ isAuthenticated ? '/dashboard/auth0' : 'dashboard' }><div className={s.nonSelected}>
                             <h3>Sobre Mí</h3>
                         </div></Link>
                         <div className={s.selected}>

@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
-
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 
@@ -19,6 +19,7 @@ export default function DashboardAdoptante() {
     const Navigate = useNavigate()
     let userDetail = localStorage.getItem('userDetail');
     userDetail = JSON.parse(userDetail)
+    const { isAuthenticated } = useAuth0();
 
     
     useEffect(() => {
@@ -55,7 +56,7 @@ export default function DashboardAdoptante() {
                     <div className={s.dash}>
                         <div className={s.datos}>
                             <div className={s.nonSelected}>
-                                <Link className={s.link} to='/dashboard'><h3>Sobre Mí</h3></Link>
+                                <Link className={s.link} to={ isAuthenticated ? '/dashboard/auth0' : '/dashboard' }><h3>Sobre Mí</h3></Link>
                             </div>
                             <div className={s.nonSelected}>
                                 <Link className={s.link} to='/dashboard/mascotas'><h3>Mis Mascotas</h3></Link>

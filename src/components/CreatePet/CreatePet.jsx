@@ -13,7 +13,7 @@ export default function CreatePet() {
 	const navigate = useNavigate();
 	let user = localStorage.getItem('user');
 	user = JSON.parse(user);
-	const userId = user.user.id;
+	const userId = user?.user.id;
 	const breeds = useSelector( state => state.petsReducer.breedsByPetType );
 	const colors = useSelector( state => state.petsReducer.colorsByPetType );
 
