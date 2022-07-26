@@ -1,6 +1,6 @@
 .contenedorPadre {
   max-width: 100%;
-  max-height: 4000px;
+  padding-bottom: 4rem;
   background: #FFFFFF;
 }
 .contenedorPadre .top {
@@ -191,6 +191,7 @@
   border: 3px solid #FAC942;
   border-radius: 20px;
   overflow: hidden;
+  margin-right: 5rem;
 }
 .contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion {
   border-radius: 15px;
@@ -259,15 +260,15 @@
 .contenedorPadre .medium .contenedorDeComentarios {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent {
   margin-top: 3rem;
   padding-top: 4rem;
-  margin-left: 2rem;
+  margin-left: 5rem;
   margin-bottom: auto;
   padding-bottom: 4rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   box-shadow: 0 0 2rem -1rem;
   display: flex;
   flex-direction: column;
