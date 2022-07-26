@@ -16,6 +16,7 @@ export default function Dashboard() {
             <NavBar />
             <div className={s.content}>
                 <h1>Mi Dashboard</h1>
+                <div className={s.dash}>
                 <div className={s.datos}>
                     <div className={s.nonSelected}>
                     <Link className={s.link} to='/dashboard'><h3>Sobre Mí</h3></Link>
@@ -23,12 +24,17 @@ export default function Dashboard() {
                     <div className={s.nonSelected}>
                         <Link to='/dashboard/mascotas' className={s.link}> <h3>Mis Mascotas</h3></Link>
                     </div>
+                    {userDetail?.role === 'user'?
+                        <div className={s.nonSelected}>
+                            <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
+                        </div>
+                        :null}
                     <div className={s.selected}>
                         <h3>Donaciones  Realizadas</h3>
                     </div>
                 </div>
                 <div className={s.infoContainer}>
-                    <h2>Donaciones  Recibidas</h2>
+                    <h2>Donaciones  Realizadas</h2>
                     <div className={s.inputContainer}>
                         <div className={s.detailsOptions1}>
                             <div>
@@ -64,6 +70,7 @@ export default function Dashboard() {
                         }):
                         'No hay donaciones realizadas'}
                     </div>
+                </div>
                 </div>
             </div>
             <Footer />

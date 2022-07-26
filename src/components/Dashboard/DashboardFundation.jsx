@@ -18,6 +18,7 @@ export default function Dashboard() {
             <NavBar />
             <div className={s.content}>
                 <h1>Mi Dashboard</h1>
+                <div className={s.dash}>
                 <div className={s.datos}>
                     <div className={s.nonSelected}>
                     <Link className={s.link} to='/dashboard'><h3>Sobre Mí</h3></Link>
@@ -64,10 +65,11 @@ export default function Dashboard() {
                                     </div>
                             )
                         }):
-                        'No hay donaciones recibidas'
+                        null
                     }
                     </div>
                 </div>
+            </div>
             </div>
             <Footer />
         </div>

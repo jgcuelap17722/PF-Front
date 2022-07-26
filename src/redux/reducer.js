@@ -22,6 +22,7 @@ import {
 	RESET_ADOPTER_PROFILE,
 	ADOPTION_START,
 	RESET_ADOPTION_START,
+	RESET_STATE_PW_RESET,
 } from './actions';
 
 const initialState = {
@@ -109,6 +110,11 @@ export default function reducer(state = initialState, action) {
 			...state,
 			pwReset: action.payload
 		}
+		case RESET_STATE_PW_RESET:
+		return {
+			...state,
+			pwReset: action.payload
+		}
 
 		case PW_CHANGE:
 		return {
@@ -167,11 +173,6 @@ export default function reducer(state = initialState, action) {
 				...state,
 				adopterProfile: action.payload
 			}
-		case RESET_ADOPTER_PROFILE:
-			return{
-				...state,
-				adopterProfile: action.payload
-			}
 		case ADOPTION_START:
 			return{
 				...state,
@@ -182,6 +183,7 @@ export default function reducer(state = initialState, action) {
 				...state,
 				adoptionStart: action.payload
 			}
+		
 		default:
 		return state;
 	}
