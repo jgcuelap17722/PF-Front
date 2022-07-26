@@ -4,6 +4,7 @@ nav{
 	background-color: @darkPrimary2;
 	color: @white;
 	width: 100%;
+	box-shadow: 2rem 0 2rem 1rem;
 
 	a{
 		text-decoration: none;
@@ -18,20 +19,77 @@ nav{
 	.navTop{
 		display: flex;
 		justify-content: space-between;
-		padding: 0 6rem;
+		padding: 0 3rem 0 6rem;
+		height: 6rem;
 
 		.logo{
+			// position: relative;
+			// height: 6rem;
+			// bottom: -.8rem;
+			width: 15rem;
+		}
+
+		.subMenuArrow{
+			transform: rotate(270deg);
+			height: 1rem;
 			position: relative;
-			height: 6rem;
-			bottom: -.8rem;
+			top: 6rem;
+			z-index: 10;
+			transition: all .3s ease;
+
+			&:hover{
+				cursor: pointer;
+			}
+		}
+
+		.subMenuArrowUp{
+			transform: rotate(90deg);
+			height: 1rem;
+			position: relative;
+			top: 8.4rem;
+			z-index: 10;
+
+			&:hover{
+				cursor: pointer;
+			}
 		}
 
 		.registerLogin{
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			width: 20rem;
+			width: 15rem;
 			font-size: 1.2rem;
+
+			@media @phone{
+				flex-direction: column;
+				justify-content: space-evenly;
+				margin-left: 2rem;
+			}
+
+			@media @smallPhone{
+				display: none;
+			}
+
+			.userIcon{
+				padding: .5rem;
+				border-radius: 100%;
+				border: .1rem solid @white;
+			}
+
+			.imgAuth0{
+				img{
+					height: 2.5rem;
+					width: 2.5rem;
+					border-radius: 100%;
+					border: .1rem solid @secondary;
+
+					&:hover{
+						border: .1rem solid @lightSecondary;
+						filter: brightness(.9);
+					}
+				}
+			}
 
 			.favorites{
 				height: 2.2rem;
@@ -47,14 +105,38 @@ nav{
 	.navBottom{
 		display: flex;
 		justify-content: center;
-		background-image: linear-gradient(180deg, @darkPrimary2, #363A40);
-		padding-bottom: .5rem;
+		background-color: @secondary;
+		padding: .6rem 0;
+		color: black;
+		transition: all .3s ease;
 
 		.links{
 			display: flex;
 			justify-content: space-between;
 			width: 50%;
+			color: black;
+
+			@media @verticalTablet{
+				width: 70%;
+			}
+
+			@media @smallPhone{
+				flex-direction: column;
+				align-items: center;
+				gap: .5rem;
+			}
+
+			p{
+				color: black;
+
+				&:hover{
+					color: @black;
+				}
+			}
 		}
 	}
 }
 
+.displayNone{
+	display: none;
+}

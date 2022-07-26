@@ -9,12 +9,13 @@
         display: flex;
         width: 100%;
         background-color: @secondary;
+        gap: 3rem;
         .buttonLeft {
+            display: none;
             margin-left: 2rem;
             pointer-events: all;
-            background-color: @primary;
+            background-color: @secondary;
             border: none;
-            cursor: pointer;
             outline: none;
             width: 3.125rem;
             height: 100%;
@@ -23,10 +24,9 @@
             align-self: center;
             padding: 10px 0 8px 0;
             border-radius: 3px;
-            &:hover {
-                background: @third;
-                fill: @darkPrimary;
-                scale: 105%;
+            .arrow{
+                fill:@secondary;
+                color: @secondary;
             }
         }
         .contenedorImg {
@@ -52,10 +52,10 @@
             }
         }
             .buttonRight {
+                display: none;
                 pointer-events: all;
-                background-color: @primary;
+                background-color: @secondary;
                 border: none;
-                cursor: pointer;
                 outline: none;
                 width: 3.125rem;
                 height: 100%;
@@ -65,15 +65,14 @@
                 padding: 11px 0 7px 0;
                 border-radius: 3px;
                 transform: rotate(180deg);
-                fill: black;
-                &:hover {
-                    background: @third;
-                    fill: @darkPrimary;
-                    scale: 105%;
+                fill: @secondary;
+                .arrow{
+                    fill:@secondary;
+                    color: @secondary;
                 }
         }
         .topRight{
-            padding-left: 2rem;
+            // padding-left: 4rem;
             width: 800px;
             align-self: center;
             .name{
@@ -81,6 +80,10 @@
                 width: 100%;
                 padding-bottom: 1rem;
                 text-transform: capitalize;
+                .contenedorStars{
+                    display: flex;
+                    // margin-top: 30px;
+                }
                 .h3{
                     font-size: 45px;
                     color: @primary;
@@ -248,48 +251,14 @@
                         }
                     }
                     .buttonSponsor {
-                        width: 50%;
-                        height: 80px;
-                        background-color: @secondary;
-                        font-size: 30px;
-                        font-family: 'Inter';
-                        font-weight: 400;
-                        cursor: pointer;
-                        border: none;
-                        color: @primary;
-                        transition: all .3s ease;
-                        &:hover{
-                            background-color: @darkSecondary;
-                            color: @white;
-                        }
-                    }
-                    .buttonFavorite {
-                        font-family: 'Inter';
-                        font-weight: 400;
-                        width: 50%;
-                        height: 80px;
-                        background-color: @secondary;
-                        font-size: 30px;
-                        cursor: pointer;
-                        border: none;
-                        border-left: 4px solid #FFFFFF;
-                        color: @primary;
-                        transition: all .3s ease;
-                        &:hover{
-                            background-color: @darkSecondary;
-                            color: @white;
-                        }
-                    }
-                    .buttonFavorite2 {
-                        font-family: 'Inter';
-                        font-weight: 400;
                         width: 100%;
                         height: 80px;
                         background-color: @secondary;
                         font-size: 30px;
+                        font-family: 'Inter';
+                        font-weight: 400;
                         cursor: pointer;
                         border: none;
-    
                         color: @primary;
                         transition: all .3s ease;
                         &:hover{
@@ -297,6 +266,7 @@
                             color: @white;
                         }
                     }
+                    
                 }
                 
             }
@@ -305,7 +275,7 @@
         .contenedorDeComentarios{
 display: flex;
 flex-direction: column;
-width: 100%;
+width: 60%;
             .componentComent{
                 margin-top: 3rem;
                 padding-top: 4rem;
@@ -321,15 +291,24 @@ width: 100%;
                 // justify-content: space-around;
                 h3{
                     margin: 20px;
+                    color: @primary;
+                    text-transform: capitalize;
                 }
                 .puntuacion{
                     display: flex;
                     flex-direction: row;
                     gap: 5px;
                     margin: 20px;
+                    
                 }
                 .comentario{
                     margin: 20px;
+                    color: @primary;
+                }
+                .contenedorStars{
+                    margin-left: 20px;
+                    display: flex;
+                    gap: 5px;
                 }
             }
         }
@@ -515,4 +494,8 @@ width: 100%;
     }
     }
 
+}
+.arrow{
+    fill:@secondary;
+    color: @secondary;
 }

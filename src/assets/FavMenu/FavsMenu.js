@@ -1,5 +1,6 @@
-import React from 'react'
 import { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { Link } from 'react-router-dom';
 import FavMiniCard from './FavMiniCard'
@@ -25,8 +26,8 @@ const FavsMenu = ({ userId }) => {
   return (
     <div className={s.favsManuBox}>
       <div className={s.linkBox}>
-        <Link to={'#'} >Favoritos</Link>
-        <img className={s.arrowIcon} src={arrow} alt="" />
+        <Link to={'/favorites'} ><FontAwesomeIcon icon={faStar} className={s.favStar} /></Link>
+        {/*<img className={s.arrowIcon} src={arrow} alt="" />*/}
       </div>
 
       <div className={s.favsMenuList}>

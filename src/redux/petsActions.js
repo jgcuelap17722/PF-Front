@@ -38,6 +38,7 @@ export const UPDATE_PET_BY_ID = 'UPDATE_PET_BY_ID'
 export const RESET_UPDATE_MSG = 'RESET_UPDATE_MSG'
 export const GET_PET_DETAIL_FAV = 'GET_PET_DETAIL_FAV'
 export const RESERT_SEARCH = 'RESERT_SEARCH'
+export const DISABLE_PET = 'DISABLE_PET'
 const { REACT_APP_BACKEND_URL_TEST } = process.env;
 
 
@@ -313,9 +314,22 @@ export function updatePetById(obj, id, token){
       })
       .catch(error =>  console.log(error))
   }
-
 }
 
 export function resetUpdateMsg(){
   return { type: RESET_UPDATE_MSG, payload: {}}
+}
+
+export function disablePet( id, token){
+  // const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`;
+  const options = {
+    headers: { 'authorization': token }
+  }
+   return async function (dispatch) {
+    return await axios.put(url, obj, options)
+      .then(data => {
+        return dispatch({type: DISABLE_PET, payload: data.data})
+      })
+      .catch(error =>  console.log(error))
+  }
 }

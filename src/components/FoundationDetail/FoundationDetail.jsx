@@ -11,8 +11,17 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router'
 import { getAllFoundations } from "../../redux/foundationsActions";
 import { getReview } from "../../redux/actions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
+const colors = {
+    orange: "#FFBA5A",
+    grey: "#a9a9a9",
+    primary: "#504F6F"
+};
 
 const PetDetail = () => {
+    const token = localStorage.token;
     let { id } = useParams();
     const allPets = useSelector((state) => state.petsReducer.allPets)
     const estado = useSelector((state) => state.petsReducer.petDetail)
@@ -23,7 +32,7 @@ const PetDetail = () => {
     const [selectIndex, setSelectIndex] = useState(0);
     const [selectImage, setSelectImage] = useState();
     const navigate = useNavigate()
-
+    const stars = Array(5).fill(0)
 
 
     useEffect(() => {
@@ -43,7 +52,6 @@ const PetDetail = () => {
         const nextIndex = condition ? selectIndex - 1 : Object.keys(Api.photos).length - 1;
         setSelectIndex(nextIndex);
     }
-    // console.log(estado)
 
     function next() {
         const condition = selectIndex < Object.keys(Api.photos).length - 1;
@@ -53,36 +61,46 @@ const PetDetail = () => {
     function handleClick(e) {
         e.preventDefault();
 
-        if (localStorage.token) {
-            localStorage.setItem('petDetail', JSON.stringify(estado));
-            navigate(`/sponsor`)
-        } else {
-            alert('Para realizar una donación debes estar logueado');
+        if (!localStorage.token)  {
+            alert('Para realizar un comentario debes estar logueado');
             navigate('/login');
+        }else{
+            navigate(`/review/${foundation?.id}`)
         }
     }
-console.log(review)
-
+    
     return (
         <>
             <div className={s.contenedorPadre}>
                 <NavBar />
                 <>
                     <div className={s.top}>
-                        <button className={s.buttonLeft} onClick={previus}> < Arrow /> </button>
+                        <button className={s.buttonLeft} onClick={previus}> < Arrow className={s.arrow} /> </button>
                         <div className={s.contenedorImg}>
                             <div className={s.slide}>
                                 <img className={s.img} src={foundation?.photo} />
                             </div>
                         </div>
-                        <button className={s.buttonRight} onClick={next}>< Arrow /></button>
+                        <button className={s.buttonRight} onClick={next}><Arrow className={s.arrow} /></button>
                         <div className={s.topRight}>
                             <div className={s.name}>
                                 <h3 className={s.h3}>{foundation?.name}</h3>
-                                {<p className={s.p}> {foundation?.city} - {foundation?.country}</p>}
+                                {<p className={s.p}> {foundation?.city.name} - {foundation?.country}</p>}
                                 {<p className={s.p}> {foundation?.email}</p>}
                                 {<p className={s.p}> {foundation?.phone}</p>}
-                                {review.puntuacion > 0 && <p className={s.p}>Promedio {review.puntuacion}</p>}
+                                <div className={s.contenedorStars}>
+                                    {foundation && foundation?.stars?.length > 0 ? stars?.map((_, index) => {
+                                        return (
+                                            <FontAwesomeIcon
+                                                icon={faStar}
+                                                key={index}
+                                                color={(foundation?.stars[0]) > index ? colors.primary : colors.grey}
+                                                className={s.stars}
+                                            />
+                                        )
+                                    }):
+                                    null}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,9 +115,9 @@ console.log(review)
 
                                     </div>
                                     <div className={s.contenedorButtons}>
-                                        <Link to={`/review/${foundation?.id}`}>
-                                            <button className={s.buttonAdoptar} >Deja tu comentario</button>
-                                        </Link>
+                                        
+                                            <button onClick={handleClick} className={s.buttonAdoptar} >Deja tu comentario</button>
+                                        
                                         <Link to='/faqs'>
                                             <button className={s.buttonAdoptar}>Preguntas frecuentes</button>
                                         </Link>
@@ -109,32 +127,40 @@ console.log(review)
                                             <button className={s.buttonSponsor} onClick={handleClick}>Donar</button>
                                             : null
                                         }
-                                        <Link to='/favorites'>
-                                            <button className={foundation ? s.buttonFavorite : s.buttonFavorite2}> {foundation ? '★ Favoritos' : '★ Agregar a Favoritos'}</button>
-                                        </Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                            <div className={s.contenedorDeComentarios}>
 
-                                {review?.comentarios?.length > 0?  review.comentarios.map((el) => {
-                                    return (
-                                        <div className={s.componentComent}>
-                                            <div><h3>{el.name}</h3></div>
+                        <div className={s.contenedorDeComentarios}>
 
-                                            <div className={s.comentario}>
-                                                <span>{el.coment}</span>
-                                            </div>
+                            {review?.comentarios?.length > 0 ? review.comentarios.map((el) => {
+                                return (
+                                    <div className={s.componentComent}>
+                                        <div><h3>{el.name}</h3></div>
+                                        <div className={s.contenedorStars}>
+                                            {stars?.map((_, index) => {
+                                                return (
+                                                    <FontAwesomeIcon
+                                                        icon={faStar}
+                                                        key={index}
+                                                        color={(review?.comentarios[0].start) > index ? colors.orange : colors.grey}
+                                                        className={s.stars}
+                                                    />
+                                                )
+                                            })}
                                         </div>
-                                    )
-                                }):
+                                        <div className={s.comentario}>
+                                            <span>{el.coment}</span>
+                                        </div>
+                                    </div>
+                                )
+                            }) :
                                 <div className={s.componentComent}>
-                                            <h3>No hay comentarios de esta fundacion</h3>
-                                        </div>}
-                            </div>
-                        
+                                    <h3>No hay comentarios de esta fundacion</h3>
+                                </div>}
+                        </div>
+
                     </div>
 
 

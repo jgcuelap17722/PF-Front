@@ -200,7 +200,7 @@ const PetDetail = () => {
 
                       </div>
                       <div className={s.contenedorButtons}>
-                        <Link to='/adopcion'>
+                        <Link to='/adoption'>
                           <button className={s.buttonAdoptar}>Adoptar</button>
                         </Link>
                         <Link to='/faqs'>

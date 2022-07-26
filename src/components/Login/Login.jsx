@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2'
+import { faEye, faEyeSlash, faTwitter } from '@fortawesome/free-solid-svg-icons';
+import { ReactComponent as FaGoogle } from '../../assets/icons/google.svg';
+import Swal from 'sweetalert2';
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/Login.module.css';
@@ -9,6 +10,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { loginUser, resetUserLogged } from '../../redux/actions.js';
 import { useDispatch, useSelector } from 'react-redux';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 function validate (input) {
     let error = {};
@@ -22,8 +25,6 @@ function validate (input) {
     }
     if (!input.password){
         error.password = 'El Password es requerido';
-    }else if (!regexPass.test(input.password)) {
-        error.password = 'Min 8, Mayúscula, Minúscula, Número y Especial'
     }
     return error;
 }
@@ -33,6 +34,7 @@ export default function Login() {
     const dispatch = useDispatch()
     const userLogged = useSelector( state => state.reducer.userLogged);
     const navigator = useNavigate();
+    const { loginWithRedirect, isAuthenticated, user, loginWithPopup } = useAuth0();
 
     const [input, setInput] = useState({
         email:'',
@@ -40,9 +42,13 @@ export default function Login() {
     })
     const [error, setError] = useState({})
     let inputPass = document.getElementsByName('password')
+
     useEffect(() => {
         
         window.scrollTo(0,0)
+
+        
+
         if(userLogged.Error){
             Swal.fire({
                 title: userLogged.Error,
@@ -119,6 +125,8 @@ export default function Login() {
         else dispatch(loginUser(input))
     }
 
+    
+
   return (
     <div>
         <NavBar />
@@ -148,11 +156,15 @@ export default function Login() {
                                 placeholder='Contraseña'
                                 onChange={(e) => handleChange(e)}
                                 />
-                                <button id='inputBtn'onClick={showPassword}><FontAwesomeIcon icon={faEye}/></button>
+                                
                                 {error.password && <p className={s.error}>{error.password}</p>}
                         </div>
                     </form>
-                    <button onClick={(e)=>handleSubmit(e)}className={s.button} type='submit'>Iniciar Sesión</button>
+                    <button onClick={(e)=>handleSubmit(e)} className={s.button} type='submit'>Iniciar Sesión</button>
+                    <button onClick={() => loginWithRedirect()} className={s.button} type='submit'>{<FaGoogle className={s.faGoogle} />} Iniciar Sesión usando Google</button>
+                    
+                    {/*<button className={s.button} type='submit'>Iniciar Sesión</button>*/}
+
                     <div className={s.textBox}>
                         <Link to='/reset'>
                             <p className={s.forget}>Olvidé mi Contraseña</p>
@@ -167,6 +179,7 @@ export default function Login() {
                 </div>
 
             </form>
+            <button className={s.eye}onClick={showPassword}><FontAwesomeIcon icon={faEye}/></button>
         </div>
         <Footer />
     </div>

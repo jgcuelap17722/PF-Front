@@ -20,6 +20,9 @@ import {
 	GET_REVIEW,
 	POST_ADOPTER_PROFILE,
 	RESET_ADOPTER_PROFILE,
+	ADOPTION_START,
+	RESET_ADOPTION_START,
+	RESET_STATE_PW_RESET,
 } from './actions';
 
 const initialState = {
@@ -39,6 +42,7 @@ const initialState = {
 	review:[],
 	allPetsByUser:[],
 	adopterProfile:{},
+	adoptionStart:[],
 };
 
 export default function reducer(state = initialState, action) {
@@ -106,6 +110,11 @@ export default function reducer(state = initialState, action) {
 			...state,
 			pwReset: action.payload
 		}
+		case RESET_STATE_PW_RESET:
+		return {
+			...state,
+			pwReset: action.payload
+		}
 
 		case PW_CHANGE:
 		return {
@@ -164,11 +173,17 @@ export default function reducer(state = initialState, action) {
 				...state,
 				adopterProfile: action.payload
 			}
-		case RESET_ADOPTER_PROFILE:
+		case ADOPTION_START:
 			return{
 				...state,
-				adopterProfile: action.payload
+				adoptionStart: action.payload
 			}
+		case RESET_ADOPTION_START:
+			return{
+				...state,
+				adoptionStart: action.payload
+			}
+		
 		default:
 		return state;
 	}
