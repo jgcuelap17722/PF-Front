@@ -24,6 +24,8 @@ import Review  from './components/ReviewComponent/ReviewComponent.jsx'
 import Foundations from './components/Foundations/Foundations'
 import FoundationsDetail from './components/FoundationDetail/FoundationDetail.jsx'
 import MatchTestQuizz from './components/MatchTestQuizz/MatchTestQuizz'
+import Adoption from './components/Adoption/Adoption.jsx';
+
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
@@ -60,6 +62,7 @@ function App() {
         <Route path='/reset' element={<PwReset />} />
         <Route path='/reset/confirm/api/v1.0/verify/modpass/:token' element={<PwResetConfirm />} />
         <Route path='/quizz' element={<MatchTestQuizz />} />
+        <Route path='/adoption' element={<Adoption />} />
         <Route path='*' element={<Navigate replace to="/"/>} />
       </Routes>
     </div>

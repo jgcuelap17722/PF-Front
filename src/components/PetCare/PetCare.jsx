@@ -17,6 +17,7 @@ export default function PetCare() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        window.scrollTo(0,0)
         dispatch(getAllPets());
 
     }, [dispatch])

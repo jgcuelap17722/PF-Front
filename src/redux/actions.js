@@ -20,6 +20,10 @@ export const RESET_POST_REVIEW = 'RESET_POST_REVIEW';
 export const GET_REVIEW = 'GET_REVIEW';
 export const POST_ADOPTER_PROFILE = 'POST_ADOPTER_PROFILE';
 export const RESET_ADOPTER_PROFILE = 'RESET_ADOPTER_PROFILE';
+export const ADOPTION_START = 'ADOPTION_START';
+export const RESET_ADOPTION_START = 'RESET_ADOPTION_START';
+export const RESET_STATE_PW_RESET = 'RESET_STATE_PW_RESET';
+
 
 
 const { REACT_APP_BACKEND_URL_TEST, REACT_APP_MAPS_API_KEY } = process.env;
@@ -159,9 +163,13 @@ export function pwReset(obj) {
             .then(data => {
                 dispatch({ type: PW_RESET, payload: data })
             })
+            .catch(error => console.log(error))
     }
 }
-export function pwChange(obj, tak) {
+export function resetStatePwReset() {
+    return { type: RESET_STATE_PW_RESET, payload: {} }
+}
+export function pwChange(obj, tak){
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/verify/modpass/${tak}`;
     const options = {
         method: 'PUT',
@@ -174,6 +182,7 @@ export function pwChange(obj, tak) {
             .then(data => {
                 dispatch({ type: PW_CHANGE, payload: data })
             })
+            .catch(error => console.log(error))
     }
 }
 
@@ -296,5 +305,21 @@ export function postAdopterProfile(obj, token, userId) {
 export function resetAdopterProfile() {
     return { type: RESET_ADOPTER_PROFILE, payload: {} }
 }
+export function adoptionStart(petId, userId, token){
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/adoption/sendSoli/${petId}/${userId}`;
+    const options = {
+        method: 'GET',
+        headers: { 'authorization': token },
+    }
+    return async function (dispatch) {
 
-
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: ADOPTION_START, payload: data })
+            })
+    }
+}
+export function resetAdoptionStart() {
+    return { type: RESET_ADOPTION_START, payload: [] }
+}
