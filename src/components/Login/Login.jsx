@@ -25,8 +25,6 @@ function validate (input) {
     }
     if (!input.password){
         error.password = 'El Password es requerido';
-    }else if (!regexPass.test(input.password)) {
-        error.password = 'Min 8, Mayúscula, Minúscula, Número y Especial'
     }
     return error;
 }
@@ -36,7 +34,7 @@ export default function Login() {
     const dispatch = useDispatch()
     const userLogged = useSelector( state => state.reducer.userLogged);
     const navigator = useNavigate();
-    const { loginWithRedirect, isAuthenticated, user } = useAuth0();
+    const { loginWithRedirect, isAuthenticated, user, loginWithPopup } = useAuth0();
 
     const [input, setInput] = useState({
         email:'',
@@ -126,6 +124,8 @@ export default function Login() {
         }
         else dispatch(loginUser(input))
     }
+
+    
 
   return (
     <div>

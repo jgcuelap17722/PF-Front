@@ -24,6 +24,7 @@ export default function Dashboard() {
     const donations = useSelector(state => state.reducer.donations);
     localStorage.setItem('donations', JSON.stringify(donations));
     
+    
     const [value, setValue] = useState({
     })
 
@@ -95,19 +96,13 @@ export default function Dashboard() {
 
 
     const countryEstado = useSelector((state) => state.reducer.countries)
-    console.log(user);
+    // console.log(user);
 
     return (
         <div>
             <NavBar />
                 <div className={s.content}>
                     <h1>Mi Dashboard</h1>
-                     {isAuthenticated && 
-                    <div className={s.auth0}>
-                        <h2>{user.name}</h2>
-                        <p>{user.email}</p>
-                    </div>
-                    }
                     <div className={s.dash}>
                         <div className={s.datos}>
                             <div className={s.selected}>
@@ -171,8 +166,8 @@ export default function Dashboard() {
                                 <button className={s.button}>Agregar Mascota</button>
                             </Link>
                         </div>
+                    </div>
                 </div>
-            </div>
             <Footer />
         </div>
     )

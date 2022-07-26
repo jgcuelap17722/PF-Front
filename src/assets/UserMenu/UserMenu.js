@@ -1,36 +1,98 @@
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import FavMiniCard from '../FavMenu/FavMiniCard'
 import { getPetFavs } from '../../redux/petsActions';
+import { resetUserLogged, createNewUser } from '../../redux/actions';
 import arrow from '../../assets/icons/dropdown-arrow.svg'
 import s from '../../css/UserMenu.module.css'
 import notFound from '../images/not-found.png'
 import userDefault from '../images/userDefault.jpg'
+import { useAuth0 } from '@auth0/auth0-react';
 
 const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName }) => {
 
   const petsFavs = useSelector(state => state.petsReducer.petsFavs)
   const token = localStorage.getItem('token');
+  const { loginWithRedirect, logout, isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+  const [ accessToken, setAccessToken ] = useState(null);
+  const dispatch = useDispatch();
+  const Navigate = useNavigate();
 
-  const dispatch = useDispatch()
+
 
   useEffect(() => {
     dispatch(getPetFavs(userId))
 
-    // }, [dispatch, petsFavs])
+    if(isAuthenticated){
+      console.log('creando usuario auth0');
+      dispatch(createNewUser(auth0User, accessToken));
+    }
+
   }, [dispatch])
 
+  const getAccessToken = async () => {
+    const domain = "dev-s-kmhkyz.us.auth0.com";
+    try {
+      const accessToken = await getAccessTokenSilently({
+        audience: `https://${domain}/api/v2/`,
+        scope: "read:current_user",
+      });
+      setAccessToken(accessToken);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
+  useEffect(() => {
+   
+    getAccessToken();
+  }, [getAccessToken, user?.sub]);
+
+  const auth0User = {
+    role: 'user',
+    name: user?.given_name,
+    lastName: user?.family_name,
+    countryId: user?.['https://example.com/country_id'],
+    cityId: user?.['https://example.com/city'],
+    email: user?.email,
+    auth0: true,
+    countryName: user?.['https://example.com/country_name'],
+    userId: user?.sub,
+    password: Number(new Date()).toString()
+  }
+
+  localStorage.setItem('userDetail', JSON.stringify(auth0User));
+
+  function closeSesion() {
+    if (token) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+      localStorage.removeItem('user');
+      localStorage.removeItem('userDetail');
+      localStorage.removeItem('email');
+      dispatch(resetUserLogged())
+
+      setTimeout( () => {
+        Navigate('/login');
+      },1000)
+    }
+  }
+
+// console.log(user);
   return (
     <div className={s.userManuBox}>
       <div className={s.linkBox}>
         <div className={s.userImgBox}>
-          <img src={photo} alt="" />
+          <Link to={token ? '/dashboard' : isAuthenticated ? '/dashboard/auth0' : '/register' }>
+            <p>{token ? <img src={photo} alt="" /> : isAuthenticated ? <div className={s.imgAuth0}><img src={user.picture} referrerpolicy="no-referrer" /></div> : 'Registro'}</p>
+          </Link>
+          
         </div>
-        <Link to={'#'} >{name} {lastName}</Link>
-        <img className={s.arrowIcon} src={arrow} alt="" />
+        {/*<Link to={'#'} >{name} {lastName}</Link>*/}
+        {/*<img className={s.arrowIcon} src={arrow} alt="" />*/}
       </div>
 
       <div className={s.favsMenuList}>
@@ -40,13 +102,15 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
         <div className={s.listBox}>
 
           <div className={s.userOptions}>
-            <Link to={'/dashboard'}>Mi Perfil</Link>
+            <Link to={isAuthenticated ? '/dashboard/auth0' : '/dashboard'}>Mi Perfil</Link>
           </div>
           <div className={s.userOptions}>
-            <Link to={'/dashboard'}>Dar en Adopción una Mascota</Link>
+            <Link to={'/create-pet'}>Dar en Adopción una Mascota</Link>
           </div>
           <div className={s.userOptions}>
-            <Link to={'/login'}>Cerrar Sesión</Link>
+            <Link to="#">
+              <p onClick={isAuthenticated ? () => logout() : token ? () => closeSesion() : null}>{token || isAuthenticated ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
+            </Link>
           </div>
         </div>
       </div>

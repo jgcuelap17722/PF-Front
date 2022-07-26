@@ -64,12 +64,12 @@ export function getCitiesByCountry(id) {
 
 }
 
-export function createNewUser(obj) {
+export function createNewUser(obj, token) {
     const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/user`;
     const options = {
         method: 'POST',
-        headers: { 'Content-Type': 'Application/json' },
-        body: JSON.stringify(obj)
+        headers: { 'Content-Type': 'Application/json' , 'authorization': token, 'auth0': true },
+        body: JSON.stringify(obj),
     }
     return async function (dispatch) {
         return await fetch(url, options)
@@ -77,6 +77,7 @@ export function createNewUser(obj) {
         .then(data => {
             dispatch({ type: CREATE_NEW_USER, payload: data })
         })
+        .catch(error => console.log(error))
     }
 }
 

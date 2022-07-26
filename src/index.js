@@ -16,6 +16,8 @@ root.render(
 	    domain="dev-s-kmhkyz.us.auth0.com"
 	    clientId="v6rjwQ03QA4xbeAbWc4tG9aRDh4sNH5Q"
 	    redirectUri={window.location.origin}
+      audience="https://dev-s-kmhkyz.us.auth0.com/api/v2/"
+      scope="read:current_user update:current_user_metadata"
   	>
     	<Provider store={store}>
       	<BrowserRouter>

@@ -4,10 +4,7 @@ import s from '../../css/NavBar.module.css';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Favorites } from '../Favoritos.svg';
-import { resetUserLogged } from '../../redux/actions.js';
 import { useDispatch } from 'react-redux';
 import FavsMenu from '../FavMenu/FavsMenu';
 import UserMenu from '../UserMenu/UserMenu';
@@ -22,20 +19,7 @@ export default function NavBar() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [ subMenu, setSubMenu ] = useState(false);
-    const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-
-	function closeSesion() {
-
-		if (token) {
-			localStorage.removeItem('token');
-			localStorage.removeItem('userId');
-			localStorage.removeItem('user');
-			localStorage.removeItem('userDetail');
-			localStorage.removeItem('email');
-			dispatch(resetUserLogged());
-			return;
-		}
-	}
+    const { isAuthenticated, user } = useAuth0();
 
 	function favs(e) {
 		e.preventDefault();
@@ -44,16 +28,17 @@ export default function NavBar() {
 	}
 
 	function showSubMenu(){
-		console.log('mostrando sub menu...');
 		setSubMenu(true);
 
 		if(subMenu){
-			console.log('ocultando mostrando sub menu...');
 			setSubMenu(false);
 		}
 	}
 
-	console.log(user);
+	
+
+	// console.log(user);
+	// console.log(auth0User);
 
 	return (
 		<nav>
@@ -71,21 +56,24 @@ export default function NavBar() {
 					</Link>*/}
 
 
-					<Link to={token || isAuthenticated ? '/dashboard' : '/register' }>
+					{/*<Link to={token || isAuthenticated ? '/dashboard' : '/register' }>
 						<p>{token ? <FontAwesomeIcon icon={faUser} className={s.userIcon} /> : isAuthenticated ? <div className={s.imgAuth0}><img src={user.picture} referrerpolicy="no-referrer" /></div> : 'Registro'}</p>
-					</Link>
-					<Link to={!token && !isAuthenticated  ? '/login' : '/login'}>
+					</Link>*/}
+					{/*<Link to={!token && !isAuthenticated  ? '/login' : '/login'}>
 						<p onClick={isAuthenticated ? () => logout({returnTo: 'http://localhost:3000/login'}) : closeSesion}>{token || isAuthenticated ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
-					</Link>
+					</Link>*/}
 					{
 						token || isAuthenticated
 							? <FavsMenu userId={userId} />
-							: null
+							: <Link to="/register" >
+								<p>Registro</p>
+							  </Link>
 					}
-					{
-						token || isAuthenticated
-							? <UserMenu name={token ? data.user.name : user.given_name} lastName={token ? data.user.lastName : user.family_name} />
-							: null
+					{token || isAuthenticated
+					? <UserMenu name={token ? data.user.name : user.given_name} lastName={token ? data.user.lastName : user.family_name} />
+					: <Link to="/login" >
+						<p>Iniciar Sesión</p>
+					  </Link>							
 					}
 					
 				</div>

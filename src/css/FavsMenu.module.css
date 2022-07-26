@@ -1,9 +1,17 @@
 .favsManuBox {
   position: relative;
+  margin-right: 2rem;
 }
 .favsManuBox .linkBox {
   display: flex;
   align-items: center;
+}
+.favsManuBox .linkBox .favStar {
+  color: #DDDDDD;
+  font-size: 2rem;
+}
+.favsManuBox .linkBox .favStar:hover {
+  color: #FAC942;
 }
 .favsManuBox .linkBox a {
   text-decoration: none;
@@ -37,8 +45,8 @@
   width: 350px;
   max-height: 420px;
   z-index: 10;
-  left: -240px;
-  top: 40px;
+  right: 0;
+  top: 48px;
   color: #454B54;
   transition: all 300ms ease;
   border-radius: 10px;
