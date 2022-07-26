@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function DashboardAuth0User() {
 
-	let auth0User = localStorage.getItem('auth0User');
+	let auth0User = localStorage.getItem('userDetail');
     auth0User = JSON.parse(auth0User);
     // console.log(document.cookie.split(';'));
 

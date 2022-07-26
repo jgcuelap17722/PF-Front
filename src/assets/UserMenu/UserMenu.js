@@ -26,7 +26,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
   useEffect(() => {
     dispatch(getPetFavs(userId))
 
-    if(isAuthenticated){
+    if(isAuthenticated && localStorage.userDetail){
       console.log('creando usuario auth0');
       dispatch(createAuth0User(auth0User, accessToken));
     }

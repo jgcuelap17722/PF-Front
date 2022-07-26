@@ -21,6 +21,10 @@ export default function NavBar() {
 	const [ subMenu, setSubMenu ] = useState(false);
     const { isAuthenticated, user } = useAuth0();
 
+    if(!isAuthenticated){
+    	localStorage.removeItem('auth0User');
+    }
+
 	function favs(e) {
 		e.preventDefault();
 		const favAlert = alert('Debes iniciar sesión para ver tus favoritos');
