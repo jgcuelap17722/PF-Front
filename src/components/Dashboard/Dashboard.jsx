@@ -32,27 +32,27 @@ export default function Dashboard() {
         dispatch(getUserInfo(userId, token))
         dispatch(getCountries())
         dispatch(getDonations(token))
-        if (value.countryId === 'ARG'|| userDetail.country === 'Argentina') {
+        if (value.countryId === 'ARG'|| patch.country === 'Argentina') {
             dispatch(getCitiesByCountry('ARG')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'CHL'|| userDetail.country === 'Chile') {
+        if (value.countryId === 'CHL'|| patch.country === 'Chile') {
             dispatch(getCitiesByCountry('CHL')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'COL'|| userDetail.country === 'Colombia') {
+        if (value.countryId === 'COL'|| patch.country === 'Colombia') {
             dispatch(getCitiesByCountry('COL')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'ECU'|| userDetail.country === 'Ecuador') {
+        if (value.countryId === 'ECU'|| patch.country === 'Ecuador') {
             dispatch(getCitiesByCountry('ECU')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
         }
-        if (value.countryId === 'PER'|| userDetail.country === 'Peru') {
+        if (value.countryId === 'PER'|| patch.country == 'Peru') {
             dispatch(getCitiesByCountry('PER')).then(() => {
                 dispatch(patchUser(userId, value, token))
             })
@@ -135,6 +135,7 @@ export default function Dashboard() {
                                     <div className={s.name}>
                                         <h4>País</h4>
                                         <select value={value.countryId ? value.countryId : userDetail.country} name="countryId" onSelect={handleSelect} onChange={(e) => handleValue(e)}  >
+                                        <option value={patch.country ? patch.country : userDetail.country}>{patch.country ? patch.country : userDetail.country}</option>
                                             {countryEstado && countryEstado.map((c,index) =>
                                                 <option key={index} value={c.id}>{c.name}</option>
                                             )}
@@ -153,7 +154,7 @@ export default function Dashboard() {
                                     <div className={s.apellido}>
                                         <h4>Ciudad</h4>
                                         <select value={value.cityId ? value.cityId : userDetail.city} name="cityId" onSelect={handleSelect} onChange={(e) => handleValue(e)} >
-                                            <option value={detail.city ? detail.city : userDetail.city}>{patch.cityId ? patch.cityId : userDetail.city}</option>
+                                            <option value={patch.city ? patch.city : userDetail.city}>{patch.city ? patch.city : userDetail.city}</option>
                                             {cities.length > 0 ?  cities?.map((c, index) =>
                                                 <option key={index} value={c.id}>{c.name}</option>
                                             ):

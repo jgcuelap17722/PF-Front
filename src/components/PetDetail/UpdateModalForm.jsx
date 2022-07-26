@@ -2,46 +2,46 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import s from '../../css/UpdateModalForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
-import { getBreedsByPetType, updatePetById, resetUpdateMsg } from '../../redux/petsActions.js';
+import { getBreedsByPetType, updatePetById, resetUpdateMsg, disablePet } from '../../redux/petsActions.js';
 
 export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 
-	const { register, 
-					handleSubmit, 
-					formState: { errors }, 
-					watch,
-					setValue
-					} = useForm();
+	const { register,
+		handleSubmit,
+		formState: { errors },
+		watch,
+		setValue
+	} = useForm();
 
-	if(localStorage.petDetail){
+	if (localStorage.petDetail) {
 		var storagePetDetail = JSON.parse(localStorage.petDetail);
 	}
 
 	const onSubmit = data => {
 
-		if(typeof data.breedId === 'string') data.breedId = Number(data.breedId);
+		if (typeof data.breedId === 'string') data.breedId = Number(data.breedId);
 
-		if(data.castrated === 'true') data.castrated = true;
-		else if(data.castrated === 'false') data.castrated = false;
-		else if(data.castrated === 'No Castrado') data.castrated = false;
-		else if(data.castrated === 'Castrado') data.castrated = true;
+		if (data.castrated === 'true') data.castrated = true;
+		else if (data.castrated === 'false') data.castrated = false;
+		else if (data.castrated === 'No Castrado') data.castrated = false;
+		else if (data.castrated === 'Castrado') data.castrated = true;
 
 
 		/* ENVIRONMENT */
 
-		if(data.children === '') data.children = null;
-		else if(data.children === 'true') data.children = true;
-		else if(data.children === 'false') data.children = false;
+		if (data.children === '') data.children = null;
+		else if (data.children === 'true') data.children = true;
+		else if (data.children === 'false') data.children = false;
 
-		if(data.dogs === '') data.dogs = null; 
-		else if(data.dogs === 'true') data.dogs = true;
+		if (data.dogs === '') data.dogs = null;
+		else if (data.dogs === 'true') data.dogs = true;
 		else if (data.dogs === 'false') data.dogs = false;
 
-		if(data.cats === '') data.cats = null;
-		else if(data.cats === 'true') data.cats = true;
+		if (data.cats === '') data.cats = null;
+		else if (data.cats === 'true') data.cats = true;
 		else if (data.cats === 'false') data.cats = false;
 
 		data.environment = {
@@ -52,77 +52,81 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 
 		data.petId = petDetail.id;
 
-		data.urlPhotosDb = currentPhotos?.map( p => {
+		data.urlPhotosDb = currentPhotos?.map(p => {
 			return p.option_1;
 		})
-		
+
 
 		let formData = new FormData();
-		for(let i = 0; i < data.photos.length; i++){
+		for (let i = 0; i < data.photos.length; i++) {
 			formData.append('photos', data.photos[i])
 		}
 		formData.append('data', JSON.stringify(data))
-		console.log(data);
 		dispatch(updatePetById(formData, storagePetDetail.id, token)).then(() => {
 			setValue('photos', '');
 			return closeModal()
 		})
-		
+
 
 	}
 
 	const dispatch = useDispatch();
 	const token = localStorage.token;
-	const breeds = useSelector( state => state.petsReducer.breedsByPetType );
-	const breed = breeds?.find( b => b.nameBreed === storagePetDetail.breed);
-	const msg = useSelector( state => state.petsReducer.petUpdated );
-	let [currentPhotos, setCurrentPhotos ] = useState(storagePetDetail.photos);
+	const breeds = useSelector(state => state.petsReducer.breedsByPetType);
+	const breed = breeds?.find(b => b.nameBreed === storagePetDetail.breed);
+	const msg = useSelector(state => state.petsReducer.petUpdated);
+	let [currentPhotos, setCurrentPhotos] = useState(storagePetDetail.photos);
 
 	useEffect(() => {
 
-			if(storagePetDetail.type === 'gato'){
-				dispatch(getBreedsByPetType('gato'));
-			}else if (storagePetDetail.type === 'perro') {
-				dispatch(getBreedsByPetType('perro'));
-			}
+		if (storagePetDetail.type === 'gato') {
+			dispatch(getBreedsByPetType('gato'));
+		} else if (storagePetDetail.type === 'perro') {
+			dispatch(getBreedsByPetType('perro'));
+		}
 
-			setValue('breedId', breed?.id)
-			setValue('name', storagePetDetail.name);
-			setValue('health', storagePetDetail.health);
-			setValue('description', storagePetDetail.description);
+		setValue('breedId', breed?.id)
+		setValue('name', storagePetDetail.name);
+		setValue('health', storagePetDetail.health);
+		setValue('description', storagePetDetail.description);
 
-			setCurrentPhotos(storagePetDetail.photos) 
-			
-			if(msg.message){
-		      	Swal.fire({
-				  icon: 'success',
-				  title: 'Cambios Guardados Correctamente!',
-				  showConfirmButton: false,
-				  timer: 3500
-				})
-		      	return;
-		    }else if(msg.error){
-		      	Swal.fire({
-				  icon: 'error',
-				  title: 'Oops! ha ocurrido un error.',
-				  showConfirmButton: false,
-				  timer: 3500
-				})
-		      	return;
-		    }
 
-			return () => {
-				dispatch(resetUpdateMsg());
-			}
+		setCurrentPhotos(storagePetDetail.photos)
+
+		if (msg.message) {
+			Swal.fire({
+				icon: 'success',
+				title: 'Cambios Guardados Correctamente!',
+				showConfirmButton: false,
+				timer: 3500
+			})
+			return;
+		} else if (msg.error) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops! ha ocurrido un error.',
+				showConfirmButton: false,
+				timer: 3500
+			})
+			return;
+		}
+
+		return () => {
+			dispatch(resetUpdateMsg());
+		}
 
 	}, [dispatch, modalState])
 
-	function handlePhotoDelete(i){
-		setCurrentPhotos( currentPhotos?.filter( (p, index) => index !== i )) 
+	function handlePhotoDelete(i) {
+		setCurrentPhotos(currentPhotos?.filter((p, index) => index !== i))
 	}
-   	
+	function handleDisablePet(e){
+		e.preventDefault();
+		// dispatch(disablePet(id, token))
+	}
+
 	return (
-		<main className={ modalState ? s.showModal : s.hiddenModal} >
+		<main className={modalState ? s.showModal : s.hiddenModal} >
 			<FontAwesomeIcon icon={faXmark} className={s.closeModalIcon} onClick={closeModal} />
 			<form onSubmit={handleSubmit(onSubmit)}>
 					<div>
@@ -165,88 +169,91 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 									|| storagePetDetail.castrated === false && storagePetDetail.gender === 'macho'
 									? 'No Castrado'
 									: 'Castrado'}</option>
+							</select>
+							{errors?.castrated && <p className={s.error}>{errors.castrated.message}</p>}
+						</div>
+						<div>
+							<input {...register("photos")}
+								type="file"
+								accept="image/png, image/jpeg, image/jpg"
+								multiple />
+							{errors?.photos && <p className={s.error}>{errors.photos.message}</p>}
+						</div>
+					</div>
+
+					<div className={s.right}>
+
+						<div id="textarea">
+							<textarea {...register("description", {
+								required: "Debes ingresar una descripción de tu mascota",
+								minLength: {
+									value: 100,
+									message: "Ingresa minimo 100 caracteres"
+								}
+							})}
+								placeholder="Ingresa una breve descripción de tu mascota" />
+							{errors?.description && <p className={s.error}>{errors.description.message}</p>}
+						</div>
+
+						<div id="environment">
+							<div id="environment_children">
+								<select {...register("children")}>
+									<option value="">{
+										storagePetDetail.environment?.children === true
+											? 'Niños: Si'
+											: 'Niños: No'
+												|| storagePetDetail.environment?.children === null
+												? 'Niños: No Definido'
+												: null}
+									</option>
 									<option value="true">Si</option>
 									<option value="false">No</option>
 								</select>
-								{ errors?.castrated && <p className={s.error}>{errors.castrated.message}</p> }
 							</div>
 							<div>
-      						<input {...register("photos")}
-      							   type="file"
-      							   accept="image/png, image/jpeg, image/jpg"
-      							   multiple />
-      						{ errors?.photos && <p className={s.error}>{errors.photos.message}</p> }
+								<select {...register("dogs")}>
+									<option value="">{
+										storagePetDetail.environment?.dogs === true
+											? 'Perros: Si'
+											: 'Perros: No'
+												|| storagePetDetail.environment?.dogs === null
+												? 'Perros: No Definido'
+												: null}
+									</option>
+									<option value="true">Si</option>
+									<option value="false">No</option>
+								</select>
+							</div>
+							<div>
+								<select {...register("cats")}>
+									<option value="" selected disabled>{
+										storagePetDetail.environment?.cats === true
+											? 'Gatos: Si'
+											: 'Gatos No'
+												|| storagePetDetail.environment?.cats === null
+												? 'Gatos: No Definido'
+												: null}
+									</option>
+									<option value="true">Si</option>
+									<option value="false">No</option>
+								</select>
 							</div>
 						</div>
-
-						<div className={s.right}>
-
-							<div id="textarea">
-								<textarea {...register("description", { 
-												required: "Debes ingresar una descripción de tu mascota", 
-												minLength: {
-													value: 100,
-													message: "Ingresa minimo 100 caracteres"
-												}
-								})}
-								placeholder="Ingresa una breve descripción de tu mascota"/>
-								{ errors?.description && <p className={s.error}>{errors.description.message}</p> }
-							</div>
-
-							<div id="environment">
-								<div id="environment_children">
-									<select {...register("children")}>
-										<option value="">{
-											storagePetDetail.environment?.children === true
-											? 'Niños: Si' 
-											: 'Niños: No' 
-											|| storagePetDetail.environment?.children === null 
-											? 'Niños: No Definido' 
-											: null}
-										</option>
-										<option value="true">Si</option>
-										<option value="false">No</option>
-									</select>
-								</div>
-								<div>
-									<select {...register("dogs")}>
-										<option value="">{
-											storagePetDetail.environment?.dogs === true
-											? 'Perros: Si' 
-											: 'Perros: No' 
-											|| storagePetDetail.environment?.dogs === null 
-											? 'Perros: No Definido' 
-											: null}
-										</option>
-										<option value="true">Si</option>
-										<option value="false">No</option>
-									</select>
-								</div>
-								<div>
-									<select {...register("cats")}>
-										<option value="" selected disabled>{
-											storagePetDetail.environment?.cats === true
-											? 'Gatos: Si' 
-											: 'Gatos No' 
-											|| storagePetDetail.environment?.cats === null 
-											? 'Gatos: No Definido' 
-											: null}
-										</option>
-										<option value="true">Si</option>
-										<option value="false">No</option>
-									</select>
-								</div>
-							</div>
-							<div className={s.images}>
-								{currentPhotos?.map( (p, index) =>
-									<div key={index}><FontAwesomeIcon onClick={ () => handlePhotoDelete(index)} icon={faXmark} className={s.deleteImgIcon}/><img  src={p.option_1} alt={`pet image n°${index+1}`} /></div>
-								)}
-							</div>
-
+						<div className={s.images}>
+							{currentPhotos?.map((p, index) =>
+								<div key={index}><FontAwesomeIcon onClick={() => handlePhotoDelete(index)} icon={faXmark} className={s.deleteImgIcon} /><img src={p.option_1} alt={`pet image n°${index + 1}`} /></div>
+							)}
 						</div>
+
 					</div>
-						<button type='submit'>Guardar Cambios</button>
-					</form>
+				</div>
+				<div className={s.conteinerButtons}>
+					<button className={s.button} type='submit'>Guardar Cambios</button>
+					<div className={s.conteinerButtonAndIcon}>
+						<button className={s.buttonSecondary} onClick={handleDisablePet} >Eliminar Mascota <FontAwesomeIcon icon={faTrashCan} className={s.icon}/></button>
+					</div>
+				</div>
+			</form>
 		</main>
 	)
 }

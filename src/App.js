@@ -25,6 +25,7 @@ import Review  from './components/ReviewComponent/ReviewComponent.jsx';
 import Foundations from './components/Foundations/Foundations';
 import FoundationsDetail from './components/FoundationDetail/FoundationDetail.jsx';
 import MatchTestQuizz from './components/MatchTestQuizz/MatchTestQuizz';
+import Adoption from './components/Adoption/Adoption.jsx';
 import { useAuth0 } from '@auth0/auth0-react';
 
 

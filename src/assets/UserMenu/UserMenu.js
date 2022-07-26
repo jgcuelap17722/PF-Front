@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import FavMiniCard from '../FavMenu/FavMiniCard'
 import { getPetFavs } from '../../redux/petsActions';
-import { resetUserLogged, createNewUser } from '../../redux/actions';
+import { resetUserLogged, createAuth0User } from '../../redux/actions';
 import arrow from '../../assets/icons/dropdown-arrow.svg'
 import s from '../../css/UserMenu.module.css'
 import notFound from '../images/not-found.png'
@@ -28,7 +28,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
 
     if(isAuthenticated){
       console.log('creando usuario auth0');
-      dispatch(createNewUser(auth0User, accessToken));
+      dispatch(createAuth0User(auth0User, accessToken));
     }
 
   }, [dispatch])
@@ -45,6 +45,13 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
       console.log(e.message);
     }
   };
+
+  useEffect(() => {
+    if(isAuthenticated){
+      console.log('creando usuario auth0');
+      dispatch(createAuth0User(auth0User, accessToken));
+    }
+  }, [])
 
   useEffect(() => {
    
@@ -65,6 +72,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
   }
 
   localStorage.setItem('userDetail', JSON.stringify(auth0User));
+  localStorage.setItem('accessToken', accessToken);
 
   function closeSesion() {
     if (token) {
