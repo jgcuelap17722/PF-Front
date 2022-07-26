@@ -304,14 +304,15 @@ export function resetUpdateMsg(){
   return { type: RESET_UPDATE_MSG, payload: {}}
 }
 
-export function disablePet( id, token){
-  // const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`;
+export function disablePet(obj, id, token){
+  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`;
   const options = {
     headers: { 'authorization': token }
   }
    return async function (dispatch) {
-    return await axios.put(url, obj, options)
+    return await axios.patch(url, obj, options)
       .then(data => {
+        console.log(data)
         return dispatch({type: DISABLE_PET, payload: data.data})
       })
       .catch(error =>  console.log(error))

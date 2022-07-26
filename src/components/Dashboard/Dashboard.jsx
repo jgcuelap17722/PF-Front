@@ -92,8 +92,6 @@ export default function Dashboard() {
         return cities;
     }
     const countryEstado = useSelector((state) => state.reducer.countries)
-    console.log(value)
-    console.log(patch)
     return (
         <div>
             <NavBar />

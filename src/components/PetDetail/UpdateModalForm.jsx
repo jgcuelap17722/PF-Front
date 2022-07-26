@@ -6,8 +6,11 @@ import { faXmark, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import { getBreedsByPetType, updatePetById, resetUpdateMsg, disablePet } from '../../redux/petsActions.js';
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
+	let { id } = useParams();
+	const navigate = useNavigate()
 
 	const { register,
 		handleSubmit,
@@ -120,9 +123,31 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 	function handlePhotoDelete(i) {
 		setCurrentPhotos(currentPhotos?.filter((p, index) => index !== i))
 	}
-	function handleDisablePet(e){
+	const obj = { "status": "inactivo" }
+	function handleDisablePet(e) {
 		e.preventDefault();
-		// dispatch(disablePet(id, token))
+		Swal.fire({
+			icon: 'info',
+			title: 'Estas seguro que deseas eliminar esta mascota?',
+			showDenyButton: true,
+			confirmButtonText: 'Si',
+			confirmButtonColor: '#504F6F',
+			denyButtonText: 'No',
+			denyButtonColor: '#4992AB',
+		}).then((result) => {
+			/* Read more about isConfirmed, isDenied below */
+			if (result.isConfirmed) {
+				Swal.fire(
+					'Tu mascota fue eliminada', '', 'success'
+				)
+				.then(()=>{
+					dispatch(disablePet(obj, id, token)),
+					navigate(`/dashboard`)
+				})
+			} else if (result.isDenied) {
+				Swal.fire('Tu mascota no fue eliminada')
+			}
+		})
 	}
 
 	return (
@@ -254,7 +279,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 					<button className={s.button} type='submit'>Guardar Cambios</button>
 					<div className={s.conteinerButtonAndIcon}>
 						<button className={s.buttonSecondary} onClick={handleDisablePet} >Eliminar Mascota</button>
-						<FontAwesomeIcon icon={faTrashCan} className={s.icon}/>
+						<FontAwesomeIcon icon={faTrashCan} className={s.icon} />
 					</div>
 				</div>
 			</form>
