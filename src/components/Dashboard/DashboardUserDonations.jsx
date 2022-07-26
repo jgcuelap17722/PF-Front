@@ -68,7 +68,7 @@ export default function Dashboard() {
                                     </div>
                             )
                         }):
-                        'No hay donaciones realizadas'}
+                        null}
                     </div>
                 </div>
                 </div>
