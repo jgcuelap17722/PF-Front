@@ -21,6 +21,7 @@ const colors = {
 };
 
 const PetDetail = () => {
+    const token = localStorage.token;
     let { id } = useParams();
     const allPets = useSelector((state) => state.petsReducer.allPets)
     const estado = useSelector((state) => state.petsReducer.petDetail)
@@ -60,14 +61,14 @@ const PetDetail = () => {
     function handleClick(e) {
         e.preventDefault();
 
-        if (localStorage.token) {
-            localStorage.setItem('petDetail', JSON.stringify(estado));
-            navigate(`/sponsor`)
-        } else {
-            alert('Para realizar una donación debes estar logueado');
+        if (!localStorage.token)  {
+            alert('Para realizar un comentario debes estar logueado');
             navigate('/login');
+        }else{
+            navigate(`/review/${foundation?.id}`)
         }
     }
+    
     return (
         <>
             <div className={s.contenedorPadre}>
@@ -84,7 +85,7 @@ const PetDetail = () => {
                         <div className={s.topRight}>
                             <div className={s.name}>
                                 <h3 className={s.h3}>{foundation?.name}</h3>
-                                {<p className={s.p}> {foundation?.city} - {foundation?.country}</p>}
+                                {<p className={s.p}> {foundation?.city.name} - {foundation?.country}</p>}
                                 {<p className={s.p}> {foundation?.email}</p>}
                                 {<p className={s.p}> {foundation?.phone}</p>}
                                 <div className={s.contenedorStars}>
@@ -114,9 +115,9 @@ const PetDetail = () => {
 
                                     </div>
                                     <div className={s.contenedorButtons}>
-                                        <Link to={`/review/${foundation?.id}`}>
-                                            <button className={s.buttonAdoptar} >Deja tu comentario</button>
-                                        </Link>
+                                        
+                                            <button onClick={handleClick} className={s.buttonAdoptar} >Deja tu comentario</button>
+                                        
                                         <Link to='/faqs'>
                                             <button className={s.buttonAdoptar}>Preguntas frecuentes</button>
                                         </Link>

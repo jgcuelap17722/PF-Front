@@ -103,7 +103,7 @@ const ReviewComponent = () => {
               <div >
                 <h1>{fundacion[0].name} </h1>
                 <h2><FontAwesomeIcon icon={faEnvelope} />{fundacion[0].email}</h2>
-                <h2><FontAwesomeIcon icon={faLocationDot} /> {fundacion[0].country} {fundacion[0].city}</h2>
+                <h2><FontAwesomeIcon icon={faLocationDot} /> {fundacion[0].country} {fundacion[0].city.name}</h2>
                 <h2><FontAwesomeIcon icon={faSquarePhone} /> {fundacion[0].phone}  </h2>
               </div>
 

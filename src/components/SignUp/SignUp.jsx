@@ -31,9 +31,14 @@ export default function SignUp() {
 
 	const onSubmit = data => {
 			const emailObj = {email: email};
-			dispatch(createNewUser(data)).then( () => {
-				dispatch(sendEmailConfirm(emailObj));
-			});
+			let formData = new FormData();
+		
+		formData.append('document', data.document[0])
+		
+		formData.append('data', JSON.stringify(data))
+		dispatch(createNewUser(formData)).then( () => {
+			dispatch(sendEmailConfirm(emailObj));
+		});
 			localStorage.setItem('email', email);
 			return;
 	}
