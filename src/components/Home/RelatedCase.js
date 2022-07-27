@@ -28,7 +28,7 @@ const RelatedCase = () => {
 
   return (
     <section>
-      <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
+      <h1 className={s.proximityTitle}>Algunas Mascotas Para Adoptar</h1>
       <SwiperCards>
         {
           dataRelated && dataRelated.map((e, index) => {
