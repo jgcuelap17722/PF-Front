@@ -11,7 +11,6 @@ export default function Dashboard() {
     donations = JSON.parse(donations)
     let userId = localStorage.getItem('userId');
     let donationsFilter = donations.filter(el => el.toUserId == userId )
-    console.log(donationsFilter)
 
     return (
         <div>

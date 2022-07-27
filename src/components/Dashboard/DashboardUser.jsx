@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPetsByUser, resetDashboardPets } from '../../redux/actions';
 import { useAuth0 } from '@auth0/auth0-react';
+import Spinner from '../../assets/Spinner/Spinner.js';
 
 export default function Dashboard() {
 
@@ -92,7 +93,7 @@ export default function Dashboard() {
                                     </Link>
                                 )
                             }):
-                            null}
+                            <Spinner  message={'No tienes mascotas en adopción'} />}
                             
                         </div>
                     </div>
