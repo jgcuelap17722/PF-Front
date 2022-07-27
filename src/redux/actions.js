@@ -228,7 +228,7 @@ export function getAllPetsByUser(id) {
         return await fetch(url)
             .then(response => response.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
                 dispatch({ type: GET_ALL_PETS_BY_USER, payload: data })
             })
     }
@@ -339,5 +339,21 @@ export function createAuth0User(obj, token){
             dispatch({ type: CREATE_NEW_USER, payload: data })
         })
         .catch(error => console.log(error))
+    }
+}
+
+export function getAuth0UserInfo(id, token) {
+    const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/user/${id}`
+    const options = {
+        method: 'GET',
+        headers: { 'authorization': token, 'auth0': true },
+    }
+    return async function (dispatch) {
+
+        return await fetch(url, options)
+            .then(response => response.json())
+            .then(data => {
+                dispatch({ type: GET_USER_INFO, payload: data })
+            })
     }
 }

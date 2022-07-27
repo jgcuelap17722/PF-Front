@@ -23,6 +23,7 @@ export default function NavBar() {
 
     if(!isAuthenticated){
     	localStorage.removeItem('auth0User');
+    	localStorage.removeItem('accessToken');
     }
 
 	function favs(e) {
