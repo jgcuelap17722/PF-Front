@@ -70,6 +70,8 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
         dispatch(postPay(preference))
     }
     const linkPago = linkPay.urlPreferentialPayment
+    console.log(detail)
+    console.log(preference)
     return (
         <div>
             <NavBar />

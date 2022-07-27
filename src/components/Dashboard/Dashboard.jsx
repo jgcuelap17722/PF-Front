@@ -56,6 +56,7 @@ export default function Dashboard() {
                 dispatch(patchUser(userId, value, token))
             })
         }
+        document.body.style.overflow = 'visible';
 
     }, [dispatch, value])
 

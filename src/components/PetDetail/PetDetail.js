@@ -113,7 +113,7 @@ const PetDetail = () => {
   return (
     <>
       <div className={s.contenedorPadre}>
-        <UpdateModalForm modalState={modalState} closeModal={closeModal} petDetail={Api} />
+        <UpdateModalForm modalState={modalState} closeModal={closeModal} petDetail={Api} openModal={openModal}/>
         <NavBar />
           
             <>

@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import { getBreedsByPetType, updatePetById, resetUpdateMsg, disablePet } from '../../redux/petsActions.js';
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
+export default function UpdateModalForm({ modalState, closeModal, petDetail , openModal}) {
 	let { id } = useParams();
 	const navigate = useNavigate()
 
@@ -137,6 +137,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 		}).then((result) => {
 			/* Read more about isConfirmed, isDenied below */
 			if (result.isConfirmed) {
+				// openModal()
 				Swal.fire(
 					'Tu mascota fue eliminada', '', 'success'
 				)
