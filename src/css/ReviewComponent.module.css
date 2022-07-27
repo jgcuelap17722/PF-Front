@@ -1,36 +1,33 @@
 .content {
-  min-height: 780px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.content .contentImg {
-  width: 400px;
-  height: 300px;
-}
-.content .contentImg img {
-  width: 370px;
-  height: 270px;
-  object-fit: cover;
 }
 .content .component {
   margin-top: 3rem;
-  padding-top: 4rem;
   padding-bottom: 4rem;
-  width: 80%;
+  width: 40%;
   border-radius: 0.5rem;
   box-shadow: 0 0 2rem -1rem;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+}
+.content .component .imgContainer {
+  width: 50%;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+.content .component .imgContainer img {
+  object-fit: contain;
+  border: 5px solid #504F6F;
+  border-radius: 100%;
 }
 .content .component .componentGlobal {
-  width: 400px;
-  min-height: 425px;
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -42,13 +39,11 @@
 .content .component h1 {
   color: #504F6F;
   font-size: 1.5rem;
-  margin-left: 1.8rem;
   margin-bottom: 30px;
 }
 .content .component h2 {
-  color: #504F6F;
+  color: #727A85;
   font-size: 1.5rem;
-  margin-left: 1.8rem;
   margin-bottom: 10px;
 }
 .content .component .contentStars {
@@ -58,9 +53,6 @@
   align-items: center;
   width: 335px;
   height: 100px;
-}
-.content .component .contentStars h2 {
-  width: 335px;
 }
 .content .component .contentStars .stars {
   width: 60px;
@@ -72,7 +64,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 120px;
 }
 .content .component .contentInput h3 {
   color: #504F6F;
@@ -84,11 +75,14 @@
   min-height: 40px;
   min-width: 335px;
   max-width: 350px;
+  text-indent: 1rem;
   border: none;
   border-radius: 0.5rem;
   outline: none;
   font-family: 'Inter';
   color: #A1A8B1;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
 }
 .content .component button {
   margin-top: 10px;
@@ -106,6 +100,8 @@
 }
 .content .back {
   margin-top: 2rem;
+  margin-bottom: 3rem;
+  height: 2rem;
   border: none;
   color: #504F6F;
   font-size: 1rem;

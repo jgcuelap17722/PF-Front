@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/CreatePet.module.css';
@@ -78,8 +79,14 @@ export default function CreatePet() {
 
 		// if(!loginAuth){
 		dispatch(createNewPet(formData, user.token)).then(() => {
-			alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
-			navigate('/dashboard/mascotas');
+			Swal.fire({
+				position: 'center',
+				icon: 'success',
+				title: 'Tu mascota ha sido creada correctamente!. Si alguien está interesado en adoptarla recibirás un email con información al respecto.',
+				showConfirmButton: false,
+				timer: 6000
+			  }).then(()=>navigate('/dashboard/mascotas'))
+			;
 		})
 		// }else{
 			// dispatch(createNewPetAuth0(formData, user.token)).then(() => {

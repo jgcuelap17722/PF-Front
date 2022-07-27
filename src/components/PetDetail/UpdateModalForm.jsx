@@ -208,17 +208,7 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 
 					<div className={s.right}>
 
-						<div id="textarea">
-							<textarea {...register("description", {
-								required: "Debes ingresar una descripción de tu mascota",
-								minLength: {
-									value: 100,
-									message: "Ingresa minimo 100 caracteres"
-								}
-							})}
-								placeholder="Ingresa una breve descripción de tu mascota" />
-							{errors?.description && <p className={s.error}>{errors.description.message}</p>}
-						</div>
+						
 
 						<div id="environment">
 							<div id="environment_children">
@@ -263,6 +253,17 @@ export default function UpdateModalForm({ modalState, closeModal, petDetail }) {
 									<option value="false">No</option>
 								</select>
 							</div>
+							<div id="textarea">
+							<textarea {...register("description", {
+								required: "Debes ingresar una descripción de tu mascota",
+								minLength: {
+									value: 100,
+									message: "Ingresa minimo 100 caracteres"
+								}
+							})}
+								placeholder="Ingresa una breve descripción de tu mascota" />
+							{errors?.description && <p className={s.error}>{errors.description.message}</p>}
+						</div>
 						</div>
 						<div className={s.images}>
 							{currentPhotos?.map((p, index) =>

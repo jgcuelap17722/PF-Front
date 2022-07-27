@@ -6,8 +6,8 @@
 .contenedorPadre .top {
   display: flex;
   width: 100%;
-  background-color: #FAC942;
-  gap: 3rem;
+  box-shadow: 0px 17px 22px -8px rgba(80, 80, 80, 0.74);
+  gap: 5rem;
 }
 .contenedorPadre .top .buttonLeft {
   display: none;
@@ -29,25 +29,23 @@
   color: #FAC942;
 }
 .contenedorPadre .top .contenedorImg {
-  width: 20rem;
-  height: 20rem;
+  width: 15rem;
+  height: 15rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #00000000;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 20%;
   border: 10px solid #504F6F;
   overflow: hidden;
   box-shadow: 0 0 2rem -1rem;
   margin: 2rem 2rem;
+  margin-left: 7rem;
 }
 .contenedorPadre .top .contenedorImg .img {
   display: flex;
-  width: 100%;
-  height: 28rem;
-  vertical-align: top;
   object-fit: cover;
 }
 .contenedorPadre .top .buttonRight {
@@ -71,7 +69,7 @@
   color: #FAC942;
 }
 .contenedorPadre .top .topRight {
-  width: 800px;
+  padding-left: 1rem;
   align-self: center;
 }
 .contenedorPadre .top .topRight .name {
@@ -82,6 +80,8 @@
 }
 .contenedorPadre .top .topRight .name .contenedorStars {
   display: flex;
+  font-size: 2rem;
+  margin-top: 1rem;
 }
 .contenedorPadre .top .topRight .name .h3 {
   font-size: 45px;
@@ -92,7 +92,7 @@
 .contenedorPadre .top .topRight .name .p {
   margin-top: 10px;
   font-size: 30px;
-  color: #504F6F;
+  color: #A1A8B1;
   text-transform: capitalize;
 }
 .contenedorPadre .top .topRight .etiquetas {
@@ -191,6 +191,7 @@
   border: 3px solid #FAC942;
   border-radius: 20px;
   overflow: hidden;
+  margin-right: 5rem;
 }
 .contenedorPadre .medium .contenedorMedium .contenedorAdopcion .contenedorPrincipalAdopcion {
   border-radius: 15px;
@@ -259,23 +260,27 @@
 .contenedorPadre .medium .contenedorDeComentarios {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  margin-bottom: 50px;
+  width: 50%;
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent {
   margin-top: 3rem;
-  padding-top: 4rem;
-  margin-left: 2rem;
+  padding-top: 2rem;
+  margin-left: 5rem;
+  min-height: 10rem;
+  min-width: 600px;
   margin-bottom: auto;
-  padding-bottom: 4rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 2rem -1rem;
+  padding-bottom: 2rem;
+  border-radius: 70px 50px 70px 0px;
+  box-shadow: 0px 8px 15px -5px rgba(0, 0, 0, 0.86);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+.contenedorPadre .medium .contenedorDeComentarios .componentComent .compName {
+  width: 90%;
+}
 .contenedorPadre .medium .contenedorDeComentarios .componentComent h3 {
-  margin: 20px;
+  margin: 5px 30px;
   color: #504F6F;
   text-transform: capitalize;
 }
@@ -283,41 +288,23 @@
   display: flex;
   flex-direction: row;
   gap: 5px;
-  margin: 20px;
+  margin-left: 10rem;
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent .comentario {
   margin: 20px;
-  color: #504F6F;
+  padding-top: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: #727A85;
+  text-align: justify;
+  border-top: 1px solid #DDDDDD;
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent .contenedorStars {
-  margin-left: 20px;
+  margin-top: 1rem;
+  margin-left: 35px;
   display: flex;
   gap: 5px;
-}
-.contenedorPadre .contenedorMascota {
-  margin-left: 10rem;
-  max-width: 77%;
-  text-align: justify;
-}
-.contenedorPadre .contenedorMascota .title {
-  display: flex;
-}
-.contenedorPadre .contenedorMascota .title .h3 {
-  font-size: 30px;
-  color: #504F6F;
-  display: flex;
-}
-.contenedorPadre .contenedorMascota .title .petName {
-  font-size: 30px;
-  color: #504F6F;
-  text-transform: capitalize;
-  margin-left: 0.8rem;
-}
-.contenedorPadre .contenedorMascota .p {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #A1A8B1;
-  padding-bottom: 2rem;
+  font-size: 1.2rem;
 }
 .contenedorPadre .contenedorFundacion {
   display: flex;

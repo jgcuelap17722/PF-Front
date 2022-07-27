@@ -358,11 +358,12 @@
   color: #A1A8B1;
 }
 .contenedorPadre .contenedorFundacion .nameImg {
-  width: 100%;
+  width: 50%;
 }
 .contenedorPadre .contenedorFundacion .nameImg .img {
-  width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border: 3px solid #A1A8B1;
+  border-radius: 100%;
 }
 .contenedorPadre .contenedorFundacion .contenedorDirection {
   display: flex;
