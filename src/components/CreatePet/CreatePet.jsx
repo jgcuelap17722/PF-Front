@@ -76,17 +76,17 @@ export default function CreatePet() {
 		}
 		formData.append('data', JSON.stringify(data))
 
-		if(!loginAuth){
-			dispatch(createNewPet(formData, user.token)).then(() => {
-				alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
-				navigate('/dashboard/mascotas');
-			})
-		}else{
-			dispatch(createNewPetAuth0(formData, user.token)).then(() => {
-				alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
-				navigate('/dashboard/mascotas');
-			})
-		}
+		// if(!loginAuth){
+		dispatch(createNewPet(formData, user.token)).then(() => {
+			alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
+			navigate('/dashboard/mascotas');
+		})
+		// }else{
+			// dispatch(createNewPetAuth0(formData, user.token)).then(() => {
+			// 	alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
+			// 	navigate('/dashboard/mascotas');
+			// })
+		// }
 	}
 
 	useEffect(() => {

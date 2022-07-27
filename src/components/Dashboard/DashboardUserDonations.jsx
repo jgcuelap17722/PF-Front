@@ -13,6 +13,7 @@ export default function Dashboard() {
     donations = JSON.parse(donations)
     let userId = localStorage.getItem('userId');
     let donationsFilter = donations.filter(el => el.fromUserId == userId )
+    const { isAuthenticated } = useAuth0();
     
     
     return (
@@ -23,7 +24,7 @@ export default function Dashboard() {
                 <div className={s.dash}>
                 <div className={s.datos}>
                     <div className={s.nonSelected}>
-                    <Link className={s.link} to='/dashboard'><h3>Sobre Mí</h3></Link>
+                    <Link className={s.link} to={ isAuthenticated ? '/dashboard/auth0' : '/dashboard' }><h3>Sobre Mí</h3></Link>
                     </div>
                     <div className={s.nonSelected}>
                         <Link to='/dashboard/mascotas' className={s.link}> <h3>Mis Mascotas</h3></Link>

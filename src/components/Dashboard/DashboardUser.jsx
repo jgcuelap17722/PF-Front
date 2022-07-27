@@ -12,7 +12,6 @@ export default function Dashboard() {
     const dispatch = useDispatch()
     const pets = useSelector(state => state.reducer.allPetsByUser)
     let userDetail = localStorage.getItem('userDetail');
-    console.log(userDetail);
     let auth0User = localStorage.getItem('loginAuth');
     auth0User = JSON.parse(auth0User)
     let userId = localStorage.getItem('userId') || auth0User.user.id;
@@ -20,7 +19,7 @@ export default function Dashboard() {
     const { isAuthenticated } = useAuth0();
 
     useEffect(() => {
-        dispatch(getAllPetsByUser(userId))
+        dispatch(getAllPetsByUser(Number(userId)))
         window.scrollTo(0,0)
         
         return ()=>{
