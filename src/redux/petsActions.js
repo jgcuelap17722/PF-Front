@@ -39,7 +39,7 @@ export const RESET_UPDATE_MSG = 'RESET_UPDATE_MSG'
 export const GET_PET_DETAIL_FAV = 'GET_PET_DETAIL_FAV'
 export const RESERT_SEARCH = 'RESERT_SEARCH'
 export const DISABLE_PET = 'DISABLE_PET'
-const { REACT_APP_BACKEND_URL_TEST } = process.env;
+const { REACT_APP_BACKEND_URL } = process.env;
 
 
 
@@ -264,7 +264,7 @@ export function resetPetDetail() {
 // ------------------- CRUD -------------------------
 
 export function createNewPet(obj, token){
-  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets`;
+  const url = `${REACT_APP_BACKEND_URL}/api/v1.0/pets`;
   const options = {
     headers: { Authorization: `Bearer ${token}`},
   }
@@ -279,7 +279,7 @@ export function createNewPet(obj, token){
 }
 
 export function getBreedsByPetType(type) {
-  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/breed-pet/${type}`;
+  const url = `${REACT_APP_BACKEND_URL}/api/v1.0/breed-pet/${type}`;
   return async function (dispatch) {
     return await fetch(url)
       .then(response => response.json())
@@ -291,7 +291,7 @@ export function getBreedsByPetType(type) {
 }
 
 export function getColorsByPetType(type) {
-  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/color-pet/${type}`;
+  const url = `${REACT_APP_BACKEND_URL}/api/v1.0/color-pet/${type}`;
   return async function (dispatch) {
     return await fetch(url)
       .then(response => response.json())
@@ -303,7 +303,7 @@ export function getColorsByPetType(type) {
 }
 
 export function updatePetById(obj, id, token){
-  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`;
+  const url = `${REACT_APP_BACKEND_URL}/api/v1.0/pets/${id}`;
   const options = {
     headers: { 'authorization': token }
   }
@@ -321,7 +321,7 @@ export function resetUpdateMsg(){
 }
 
 export function disablePet(obj, id, token){
-  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets/${id}`;
+  const url = `${REACT_APP_BACKEND_URL}/api/v1.0/pets/${id}`;
   const options = {
     headers: { 'authorization': token }
   }
@@ -336,7 +336,7 @@ export function disablePet(obj, id, token){
 }
 
 export function createNewPetAuth0(obj, token){
-  const url = `${REACT_APP_BACKEND_URL_TEST}/api/v1.0/pets`;
+  const url = `${REACT_APP_BACKEND_URL}/api/v1.0/pets`;
   const options = {
     headers: { Authorization: `Bearer ${token}`, auth0: true},
   }
