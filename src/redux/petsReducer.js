@@ -28,6 +28,8 @@ import {
 	SEARCH_IN_FAVS,
 	UPDATE_PET_BY_ID,
 	RESET_UPDATE_MSG,
+	GET_PET_DETAIL_FAV,
+	RESERT_SEARCH
 } from './petsActions';
 
 
@@ -43,6 +45,7 @@ const initialState = {
 	colorsByPetType: [],
 	petsFavs: [],
 	petUpdated: {},
+	petDetailFav: []
 };
 
 export default function petsReducer(state = initialState, action) {
@@ -78,11 +81,16 @@ export default function petsReducer(state = initialState, action) {
 				petsAvailables: action.payload,
 				allPets: action.payload
 			}
-		case SEARCH_IN_FAVS: 
-			return{
+		case SEARCH_IN_FAVS:
+			return {
 				...state,
 				petsAvailables: action.payload,
 				petsFiltered: action.payload
+			}
+		case GET_PET_DETAIL_FAV:
+			return {
+				...state, 
+				petDetailFav: action.payload
 			}
 
 		// SEARCHER FILTERS
@@ -202,6 +210,7 @@ export default function petsReducer(state = initialState, action) {
 			}
 
 		// RESET FILTERS
+
 		case RESET_PET_ORDER:
 			return {
 				...state,
@@ -220,6 +229,8 @@ export default function petsReducer(state = initialState, action) {
 				...state,
 				petsAvailables: [],
 				petsFiltered: [],
+				filterActive: [],
+				filterDisplayed: []
 			}
 
 		case CREATE_NEW_PET:
@@ -241,16 +252,16 @@ export default function petsReducer(state = initialState, action) {
 			}
 
 		case UPDATE_PET_BY_ID:
-			return{
+			return {
 				...state,
 				petUpdated: action.payload
 			}
 
 		case RESET_UPDATE_MSG:
-			return{
+			return {
 				...state,
 				petUpdated: action.payload
-			}	
+			}
 
 		default:
 			return state;

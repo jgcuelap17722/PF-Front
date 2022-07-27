@@ -19,6 +19,9 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router'
 import notFound from '../../assets/images/not-found.png';
 import { getAllFoundations } from "../../redux/foundationsActions";
+import FavoriteBtn from "../../assets/FavoriteBtn/FavoriteBtn";
+import { getPetFav } from '../../redux/petsActions'
+
 
 const PetDetail = () => {
   let { id } = useParams();
@@ -33,6 +36,7 @@ const PetDetail = () => {
   const navigate = useNavigate()
   const idPetOwner = estado.userId;
   const idVisitorUser = Number(localStorage.userId);
+  const userId = localStorage.getItem('userId') || false
 
   if(estado){
       localStorage.setItem('petDetail', JSON.stringify(estado))
@@ -55,6 +59,13 @@ const PetDetail = () => {
       dispatch(resetPetDetail())
     }
   }, [dispatch, id, modalState])
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(getPetFav(userId, id))
+    }
+  }, [])
+  
 
   const Api = estado
 
@@ -201,9 +212,10 @@ const PetDetail = () => {
                           <button className={s.buttonSponsor} onClick={handleClick}>Donar</button>
                           :null
                         }
-                        <Link to='/favorites'>
+                          <FavoriteBtn userId={userId} petId={id}/>
+                        {/* <Link to='/favorites'>
                           <button className={foundation? s.buttonFavorite : s.buttonFavorite2}> {foundation? '★ Favoritos': '★ Agregar a Favoritos'}</button>
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                 </div>

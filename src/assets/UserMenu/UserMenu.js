@@ -17,9 +17,12 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
   const petsFavs = useSelector(state => state.petsReducer.petsFavs)
   const token = localStorage.getItem('token');
   const { loginWithRedirect, logout, isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+  const loginAuth = useSelector( state => state.reducer.newUser );
   const [ accessToken, setAccessToken ] = useState(null);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+  const authLogged = {token: accessToken, user: loginAuth};
+  localStorage.setItem('loginAuth', JSON.stringify(authLogged));
 
 
 
@@ -45,12 +48,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
     }
   };
 
-  useEffect(() => {
-    if(isAuthenticated){
-      console.log('creando usuario auth0');
-      dispatch(createAuth0User(auth0User, accessToken));
-    }
-  }, [])
+ 
 
   useEffect(() => {
    
@@ -70,8 +68,18 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
     password: Number(new Date()).toString()
   }
 
-  localStorage.setItem('userDetail', JSON.stringify(auth0User));
+   useEffect(() => {
+    if(isAuthenticated){
+      console.log('creando usuario auth0');
+      dispatch(createAuth0User(auth0User, accessToken));
+    }
+  }, [])
+
+  localStorage.setItem('auth0User', JSON.stringify(auth0User));
   localStorage.setItem('accessToken', accessToken);
+
+  //para pasar el Id a numero
+  localStorage.setItem('userIdAuth', Number(auth0User?.userId?.split('|')[1]));
 
   function closeSesion() {
     if (token) {
@@ -84,7 +92,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
 
       setTimeout( () => {
         Navigate('/login');
-      },1000)
+      },50)
     }
   }
 
@@ -97,6 +105,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
           </Link>
           
         </div>
+   
       </div>
 
       <div className={s.favsMenuList}>
@@ -113,7 +122,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
           </div>
           <div className={s.userOptions}>
             <Link to="#">
-              <p onClick={isAuthenticated ? () => logout() : token ? () => closeSesion() : null}>{token || isAuthenticated ? 'Cerrar Sesión' : 'Iniciar Sesión'}</p>
+              <p onClick={isAuthenticated ? () => logout() : token ? () => closeSesion() : null}>{token || isAuthenticated ? 'Cerrar Sesión' : ''}</p>
             </Link>
           </div>
         </div>

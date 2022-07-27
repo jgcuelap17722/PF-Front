@@ -1,13 +1,23 @@
-import React from 'react';
+import { useEffect } from 'react';
 import s from '../../css/DashboardAuth0User.module.css';
 import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuth0UserInfo } from '../../redux/actions.js';
 
 export default function DashboardAuth0User() {
 
-	let auth0User = localStorage.getItem('userDetail');
+	let auth0User = localStorage.getItem('auth0User');
     auth0User = JSON.parse(auth0User);
+    // const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     if(localStorage.accessToken){
+    //         dispatch(getAuth0UserInfo(userId, localStorage.accessToken))
+    //     }
+       
+    // }, [])
 
 	return (
 		<div>
@@ -35,28 +45,28 @@ export default function DashboardAuth0User() {
                                 <div className={s.left}>
                                     <div className={s.name}>
                                         <h4>Nombres</h4>
-                                        <p>{auth0User.name}</p>
+                                        <p>{auth0User?.name}</p>
                                     </div>
                                     <div className={s.name}>
                                         <h4>Teléfono</h4>
                                     </div>
                                     <div className={s.name}>
                                         <h4>País</h4>
-                                       	<p>{auth0User.countryName}</p>
+                                       	<p>{auth0User?.countryName}</p>
                                     </div>
                                 </div>
                                 <div className={s.right}>
                                     <div className={s.apellido}>
                                         <h4>Apellidos</h4>
-                                        <p>{auth0User.lastName}</p>
+                                        <p>{auth0User?.lastName}</p>
                                     </div>
                                     <div className={s.apellido}>
                                         <h4>Email</h4>
-                                        <p>{auth0User.email}</p>
+                                        <p>{auth0User?.email}</p>
                                     </div>
                                     <div className={s.apellido}>
                                         <h4>Ciudad</h4>
-                                       	<p>{auth0User.cityId}</p>
+                                       	<p>{auth0User?.cityId}</p>
                                     </div>
                                 </div>
                             </div>

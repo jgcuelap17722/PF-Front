@@ -2,11 +2,10 @@
 
 .contenedorPadre {
     max-width: 100%;
-    padding-bottom: 4rem;
-    background: @white;
-    
+    max-height: 4000px;
+    background: #FFFFFF;
 
-    .top{
+    .top {
         display: flex;
         width: 100%;
         box-shadow: 0px 17px 22px -8px rgba(80, 80, 80, 0.74);
@@ -25,11 +24,13 @@
             align-self: center;
             padding: 10px 0 8px 0;
             border-radius: 3px;
-            .arrow{
-                fill:@secondary;
+
+            .arrow {
+                fill: @secondary;
                 color: @secondary;
             }
         }
+
         .contenedorImg {
             width: 15rem;
             height: 15rem;
@@ -50,47 +51,53 @@
                 object-fit: cover;
             }
         }
-            .buttonRight {
-                display: none;
-                pointer-events: all;
-                background-color: @secondary;
-                border: none;
-                outline: none;
-                width: 3.125rem;
-                height: 100%;
-                text-align: center;
-                transition: .1s ease all;
-                align-self: center;
-                padding: 11px 0 7px 0;
-                border-radius: 3px;
-                transform: rotate(180deg);
+
+        .buttonRight {
+            display: none;
+            pointer-events: all;
+            background-color: @secondary;
+            border: none;
+            outline: none;
+            width: 3.125rem;
+            height: 100%;
+            text-align: center;
+            transition: .1s ease all;
+            align-self: center;
+            padding: 11px 0 7px 0;
+            border-radius: 3px;
+            transform: rotate(180deg);
+            fill: @secondary;
+
+            .arrow {
                 fill: @secondary;
-                .arrow{
-                    fill:@secondary;
-                    color: @secondary;
-                }
+                color: @secondary;
+            }
         }
         .topRight{
             padding-left: 1rem;
             align-self: center;
-            .name{
+
+            .name {
                 flex-direction: column;
                 width: 100%;
                 padding-bottom: 1rem;
                 text-transform: capitalize;
-                .contenedorStars{
+
+                .contenedorStars {
                     display: flex;
                     font-size: 2rem;
                     margin-top: 1rem;
                 }
-                .h3{
+
+                .h3 {
                     font-size: 45px;
                     color: @primary;
                     padding-bottom: .5rem;
                     text-transform: capitalize;
 
                 }
-                .p{
+
+                .p {
                     margin-top: 10px;
                     font-size: 30px;
                     color: @gray;
@@ -98,6 +105,7 @@
 
                 }
             }
+
             .etiquetas {
                 display: flex;
                 gap: 10px;
@@ -109,6 +117,7 @@
                 text-transform: capitalize;
 
             }
+
             .size {
                 display: flex;
                 flex-direction: column;
@@ -116,29 +125,34 @@
                 width: 100%;
                 padding-bottom: 1rem;
                 flex-wrap: wrap;
+
                 .sizeTags {
                     display: flex;
                     flex-direction: row;
-                    gap: 15px;               
+                    gap: 15px;
                 }
+
                 .h4 {
                     font-size: 25px;
                     color: @primary;
                     padding-bottom: .5rem;
                     text-transform: capitalize;
                 }
+
                 .p {
                     font-size: 20px;
-                    color: @primary; 
+                    color: @primary;
                     text-transform: capitalize;
+                }
             }
-         }
         }
     }
-    .medium{
+
+    .medium {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
+
         .contenedorMedium {
             display: flex;
             margin-top: 50px;
@@ -146,6 +160,7 @@
             margin-left: 20px;
             margin-bottom: 20px;
             justify-content: center;
+
             .contenedorDetalles {
                 background-color: @white;
                 width: 40rem;
@@ -154,44 +169,52 @@
                 flex-direction: column;
                 gap: 25px;
                 padding-bottom: 20px;
+
                 .info {
                     display: flex;
                     flex-direction: column;
                     margin-left: 20px;
                     gap: 25px;
+
                     .h3 {
                         font-size: 30px;
                         color: @primary;
-    
+
                     }
-                    .h4{
+
+                    .h4 {
                         color: @darkGray;
                         font-size: 25px;
                         gap: 5px;
                         padding-bottom: .5rem;
                     }
+
                     .p {
                         color: @gray;
                         font-size: 25px;
                         gap: 5px;
                         text-transform: capitalize;
-    
+
                     }
+
                     .salud {
                         display: flex;
                         flex-direction: column;
                         gap: 5px;
+
                         .h4 {
                             font-size: 30px;
                         }
+
                         .p {
                             font-size: 25px;
                         }
                     }
                 }
-    
-                
+
+
             }
+
             .contenedorAdopcion {
                 height: 31.5rem;
                 display: flex;
@@ -201,13 +224,14 @@
                 overflow: hidden;
                 margin-right: 5rem;
                 .contenedorPrincipalAdopcion {
-                
+
                     border-radius: 15px;
+
                     .name {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-    
+
                         .h3 {
                             width: 400.01px;
                             height: 200px;
@@ -222,12 +246,13 @@
                             justify-content: center;
                             text-align: center;
                             color: @primary;
-                            span{
+
+                            span {
                                 text-transform: capitalize;
                             }
                         }
                     }
-    
+
                     .contenedorButtons {
                         display: flex;
                         flex-direction: column;
@@ -235,6 +260,7 @@
                         align-items: center;
                         height: 230px;
                         gap: 10px;
+
                         .buttonAdoptar {
                             width: 380.44px;
                             height: 80px;
@@ -244,12 +270,14 @@
                             color: @white;
                             cursor: pointer;
                             border: none;
-                            &:hover{
+
+                            &:hover {
                                 background-color: @third;
                                 color: @lightGray;
                             }
                         }
                     }
+
                     .buttonSponsor {
                         width: 100%;
                         height: 80px;
@@ -261,16 +289,17 @@
                         border: none;
                         color: @primary;
                         transition: all .3s ease;
-                        &:hover{
+
+                        &:hover {
                             background-color: @darkSecondary;
                             color: @white;
                         }
                     }
-                    
+
                 }
-                
+
             }
-    
+
         }
         .contenedorDeComentarios{
             display: flex;
@@ -290,6 +319,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+
                 // justify-content: space-around;
                 .compName{
                     width: 90%;
@@ -299,13 +329,15 @@
                     color: @primary;
                     text-transform: capitalize;
                 }
-                .puntuacion{
+
+                .puntuacion {
                     display: flex;
                     flex-direction: row;
                     gap: 5px;
                     margin-left: 10rem;
                 }
-                .comentario{
+
+                .comentario {
                     margin: 20px;
                     padding-top: 1rem;
                     margin-left: 2rem;
@@ -333,6 +365,7 @@
         box-shadow: 0 0 2rem -1rem;
         width: 100%;
         align-items: center;
+
         .name {
             width: 80rem;
             display: flex;
@@ -364,17 +397,19 @@
                 align-items: center;
                 text-align: center;
                 color: @gray;
-                
+
             }
         }
 
         .nameImg {
             width: 100%;
+
             .img {
                 width: 100%;
                 object-fit: cover;
             }
         }
+
         .contenedorDirection {
             display: flex;
             justify-content: center;
@@ -387,11 +422,13 @@
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: center;
-                .addressIcon{
+
+                .addressIcon {
                     margin-right: .5rem;
                     font-size: 2rem;
                     color: @gray;
                 }
+
                 .directionInterior {
                     display: flex;
                     flex-direction: column;
@@ -417,71 +454,72 @@
 
 
     .mascotasCerca {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-
-
-    .proximityTitle {
-        margin-top: 45px;
-        margin-bottom: 35px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 40px;
-        line-height: 48px;
-
-        color: #504F6F;
-    }
-
-    .relatedBox {
-        width: 100vw;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 35px;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
 
-        .card {
-            text-decoration: none;
+
+        .proximityTitle {
+            margin-top: 45px;
+            margin-bottom: 35px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 48px;
+
+            color: #504F6F;
         }
-    }
+
+        .relatedBox {
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 35px;
+
+            .card {
+                text-decoration: none;
+            }
+        }
     }
 
     .mascotasFoundation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-
-
-    .proximityTitle {
-        margin-top: 45px;
-        margin-bottom: 35px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 40px;
-        line-height: 48px;
-
-        color: #504F6F;
-    }
-
-    .relatedBox {
-        width: 100vw;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 35px;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
 
-        .card {
-            text-decoration: none;
+
+        .proximityTitle {
+            margin-top: 45px;
+            margin-bottom: 35px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 48px;
+
+            color: #504F6F;
         }
-    }
+
+        .relatedBox {
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 35px;
+
+            .card {
+                text-decoration: none;
+            }
+        }
     }
 
 }
-.arrow{
-    fill:@secondary;
+
+.arrow {
+    fill: @secondary;
     color: @secondary;
 }

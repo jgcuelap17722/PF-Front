@@ -8,8 +8,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
 
 
-
-
 export default function Dashboard() {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
@@ -24,7 +22,8 @@ export default function Dashboard() {
     const donations = useSelector(state => state.reducer.donations);
     localStorage.setItem('donations', JSON.stringify(donations));
     
-    
+
+
     const [value, setValue] = useState({
     })
 
@@ -94,7 +93,6 @@ export default function Dashboard() {
         return cities;
     }
     const countryEstado = useSelector((state) => state.reducer.countries)
-
     return (
         <div>
             <NavBar />

@@ -72,6 +72,17 @@ const PetDetail = () => {
             navigate(`/review/${foundation?.id}`)
         }
     }
+    function handleClickDonar(e){
+        e.preventDefault();
+        
+        if(localStorage.token){
+          localStorage.setItem('petDetail', JSON.stringify(estado));
+          navigate(`/sponsor`) 
+        }else{
+          alert('Para realizar una donación debes estar logueado');
+          navigate('/login');
+        }
+      }
     
     return (
         <>
@@ -128,7 +139,9 @@ const PetDetail = () => {
                                     </div>
                                     <div>
                                         {foundation ?
-                                            <button className={s.buttonSponsor} onClick={handleClick}>Donar</button>
+                                           
+                                           <button className={s.buttonSponsor} onClick={handleClickDonar}>Donar</button>
+                                           
                                             : null
                                         }
                                     </div>
