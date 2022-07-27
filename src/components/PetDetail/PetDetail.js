@@ -212,10 +212,10 @@ const PetDetail = () => {
                           <button className={s.buttonSponsor} onClick={handleClick}>Donar</button>
                           :null
                         }
-                          <FavoriteBtn userId={userId} petId={id}/>
-                        {/* <Link to='/favorites'>
+                          {/* <FavoriteBtn userId={userId} petId={id}/> */}
+                        <Link to='/favorites'>
                           <button className={foundation? s.buttonFavorite : s.buttonFavorite2}> {foundation? '★ Favoritos': '★ Agregar a Favoritos'}</button>
-                        </Link> */}
+                        </Link>
                       </div>
                     </div>
                 </div>

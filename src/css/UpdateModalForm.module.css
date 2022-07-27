@@ -9,25 +9,23 @@
   z-index: 50;
 }
 .showModal form {
-  background-color: #DDDDDD;
+  background-color: #ffffff;
   border-radius: 1rem;
   padding: 3rem 4rem;
   width: 75%;
   height: 70vh;
   z-index: 7;
+  color: #727A85;
 }
 .showModal form #generalEdition {
-  color: #454B54;
+  color: #504F6F;
   font-size: 1.7rem;
   margin-bottom: 1rem;
   font-weight: bold;
 }
-.showModal form #generalEdition:hover {
-  cursor: pointer;
-  color: #4992AB;
-}
 .showModal form p:first-of-type {
   margin-right: 10%;
+  color: #727A85;
 }
 .showModal form div {
   display: flex;
@@ -44,75 +42,94 @@
 }
 .showModal form div .left select {
   height: 2.6rem;
-  width: 25rem;
+  width: 95%;
   text-transform: capitalize;
-  border: 0.1rem solid #504F6F;
+  border: 0.1rem solid #DDDDDD;
   border-radius: 0.3rem;
+  outline: none;
+  color: #727A85;
 }
 .showModal form div .left select:focus {
   border: 0.1rem solid #FAB942;
 }
 .showModal form div .left input {
   height: 2.2rem;
-  width: 24.65rem;
+  width: 93.4%;
   text-transform: capitalize;
-  border: 0.1rem solid #504F6F;
+  border: 0.1rem solid #DDDDDD;
   border-radius: 0.3rem;
   outline: none;
+  color: #727A85;
 }
 .showModal form div .left input:focus {
   border: 0.1rem solid #FAB942;
 }
 .showModal form div .right {
   width: 50%;
-  height: 60vh;
   flex-direction: column;
 }
 .showModal form div .right div {
-  height: 5rem;
+  height: 4.5rem;
   display: flex;
   flex-direction: column;
 }
 .showModal form div .right div textarea {
-  height: 7rem;
+  height: 10rem;
   border: none;
   border-radius: 0.5rem;
   outline: none;
-  width: 24.6rem;
-  border: 0.1rem solid #504F6F;
+  max-width: 93.5%;
   resize: none;
+  color: #727A85;
+  border: 0.1rem solid #DDDDDD;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 .showModal form div .right div textarea:focus {
   border: 0.1rem solid #FAB942;
 }
 .showModal form div .right div div {
-  margin-top: 1.3rem;
-  height: 10vh;
+  height: 16vh;
 }
 .showModal form div .right select {
   height: 2.6rem;
-  width: 25rem;
-  border: 0.1rem solid #504F6F;
+  width: 95%;
+  text-transform: capitalize;
+  border: 0.1rem solid #DDDDDD;
   border-radius: 0.3rem;
+  outline: none;
+  color: #727A85;
+  margin-bottom: 1.9rem;
 }
 .showModal form div .right select:focus {
   border: 0.1rem solid #FAB942;
 }
 .showModal form div .right .images {
-  height: auto;
+  height: 6rem;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-self: center;
   flex-wrap: wrap;
   position: relative;
-  top: 10rem;
+  top: 18rem;
+  right: 16rem;
+  margin-bottom: 2rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5rem;
 }
 .showModal form div .right .images .deleteImgIcon {
-  color: red;
+  color: #FAC942;
+  background-color: #504F6F;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
   position: absolute;
+  top: 0.55rem;
   z-index: 25;
   font-size: 2rem;
-  height: 30%;
+  height: 1rem;
+  width: 1rem;
   transition: all 0.3s ease;
   margin-left: 3.5rem;
 }
@@ -126,6 +143,7 @@
   border-radius: 0.3rem;
   box-shadow: 0 0 1.6rem -0.5rem;
   object-fit: cover;
+  margin-top: 0.5rem;
 }
 .hiddenModal {
   display: none;
@@ -144,7 +162,7 @@
 .conteinerButtons {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  width: 100%;
 }
 .conteinerButtons .button {
   height: 2.6rem;
@@ -161,17 +179,24 @@
   cursor: pointer;
 }
 .conteinerButtons .conteinerButtonAndIcon {
-  margin-right: 6rem;
+  display: flex;
+  justify-content: right;
+  width: 50%;
   gap: 5px;
 }
 .conteinerButtons .conteinerButtonAndIcon .buttonSecondary {
   height: 2.6rem;
-  width: 100%;
-  background-color: #504F6F;
+  width: 40%;
+  background-color: #FAC942;
   border: none;
   border-radius: 0.2rem;
-  color: #ffffff;
+  color: #504F6F;
   font-weight: 600;
+  text-align: center;
+  margin-right: 2rem;
+}
+.conteinerButtons .conteinerButtonAndIcon .buttonSecondary button {
+  width: 30rem;
 }
 .conteinerButtons .conteinerButtonAndIcon .buttonSecondary:hover {
   background-color: #4992AB;
@@ -179,5 +204,5 @@
   cursor: pointer;
 }
 .conteinerButtons .conteinerButtonAndIcon .icon {
-  height: 41px;
+  height: 20px;
 }
