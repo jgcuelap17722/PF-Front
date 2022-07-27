@@ -35,13 +35,13 @@ export default function Dashboard() {
                 <h1>Mi Dashboard</h1>
                 <div className={s.dash}>
                     <div className={s.datos}>
-                        <Link className={s.link} to={ isAuthenticated ? '/dashboard/auth0' : 'dashboard' }><div className={s.nonSelected}>
+                        <Link className={s.link} to={ isAuthenticated ? '/dashboard/auth0' : '/dashboard' }><div className={s.nonSelected}>
                             <h3>Sobre Mí</h3>
                         </div></Link>
                         <div className={s.selected}>
                             <h3>Mis Mascotas</h3>
                         </div>
-                        {userDetail?.role === 'user'?
+                        {userDetail.role === 'user'?
                         <div className={s.nonSelected}>
                             <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
                         </div>
