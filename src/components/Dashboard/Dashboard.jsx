@@ -8,8 +8,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
 
 
-
-
 export default function Dashboard() {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
@@ -25,6 +23,8 @@ export default function Dashboard() {
     localStorage.setItem('donations', JSON.stringify(donations));
     
     
+
+
     const [value, setValue] = useState({
     })
 
