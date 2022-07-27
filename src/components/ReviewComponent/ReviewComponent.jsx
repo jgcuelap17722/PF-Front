@@ -4,6 +4,7 @@ import { faStar, faMapLocationDot, faLocationDot, faEnvelope, faSquarePhone } fr
 import NavBar from "../../assets/NavBar/NavBar";
 import Footer from "../../assets/Footer/Footer";
 import s from '../../css/ReviewComponent.module.css'
+import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router'
 import { useDispatch, useSelector } from "react-redux";
 import { postReview } from "../../redux/actions";
@@ -88,8 +89,16 @@ const ReviewComponent = () => {
   function handleSubmit(e) {
   e.preventDefault();
   dispatch(postReview(obj, token))
-  .then(()=> alert("Comentario exitoso"))
-  .then(()=> navigate(`/foundation/${id}`))
+  .then(()=> {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Tu comentario ha sido publicado',
+      showConfirmButton: false,
+      timer: 2000
+    }).then(()=> navigate(`/foundation/${id}`))
+  })
+  
   } 
 
 

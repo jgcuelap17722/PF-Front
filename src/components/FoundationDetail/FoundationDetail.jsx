@@ -43,7 +43,6 @@ const PetDetail = () => {
         dispatch(getAllPets())
         dispatch(getDetail(id))
         dispatch(getAllFoundations())
-        window.scrollTo(0, 0)
         dispatch(getReview(id))
         return () => {
             dispatch(resetPetDetail())
