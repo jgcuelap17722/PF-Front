@@ -78,6 +78,9 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
   localStorage.setItem('auth0User', JSON.stringify(auth0User));
   localStorage.setItem('accessToken', accessToken);
 
+  //para pasar el Id a numero
+  localStorage.setItem('userIdAuth', Number(auth0User?.userId?.split('|')[1]));
+
   function closeSesion() {
     if (token) {
       localStorage.removeItem('token');

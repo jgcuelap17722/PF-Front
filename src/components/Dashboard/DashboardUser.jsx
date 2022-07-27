@@ -26,7 +26,6 @@ export default function Dashboard() {
         return ()=>{
             dispatch(resetDashboardPets())
         }
-      
     }, [dispatch])
     
     return (
@@ -42,7 +41,7 @@ export default function Dashboard() {
                         <div className={s.selected}>
                             <h3>Mis Mascotas</h3>
                         </div>
-                        {userDetail?.role === 'user'?
+                        {userDetail.role === 'user'?
                         <div className={s.nonSelected}>
                             <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
                         </div>

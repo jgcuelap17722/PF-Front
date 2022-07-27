@@ -74,6 +74,7 @@ export function createNewUser(obj, token) {
     return async function (dispatch) {
         return await axios.post(url, obj)
             .then(data => {
+                console.log(data)
                 return dispatch({ type: CREATE_NEW_USER, payload: data.data })
             })
             .catch(error => console.log(error))

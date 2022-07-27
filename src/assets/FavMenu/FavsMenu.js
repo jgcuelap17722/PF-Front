@@ -16,9 +16,10 @@ const FavsMenu = ({ userId }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getPetFavs(userId))
-
-  // }, [dispatch, petsFavs])
+    if (userId) {
+      dispatch(getPetFavs(userId))
+    }
+    // }, [dispatch, petsFavs])
   }, [dispatch])
 
 
@@ -38,7 +39,7 @@ const FavsMenu = ({ userId }) => {
             petsFavs.length > 0
               ?
               petsFavs.map((e, index) => {
-                let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
+                let photo = e.photos === undefined ? notFound : e.photos[0].option_1 
                 return (
                   <FavMiniCard
                     key={`fav_m${e.name}${index}`}
@@ -50,7 +51,7 @@ const FavsMenu = ({ userId }) => {
                     userId={userId}
                   />)
               })
-              : <div className={s.empty}> <p> No tienes mascotas favoritas</p> </div>
+              : <div className={s.empty}> <p>No tienes mascotas favoritas</p> </div>
           }
         </div>
         {

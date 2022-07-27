@@ -260,6 +260,7 @@
   display: flex;
   flex-direction: column;
   width: 60%;
+  margin-bottom: 50px;
 }
 .contenedorPadre .medium .contenedorDeComentarios .componentComent {
   margin-top: 3rem;
