@@ -34,6 +34,10 @@ const PetDetail = () => {
     const navigate = useNavigate()
     const stars = Array(5).fill(0)
 
+    useEffect(() => {
+      window.scrollTo(0,0)
+    }, [])
+    
 
     useEffect(() => {
         dispatch(getAllPets())
@@ -137,7 +141,7 @@ const PetDetail = () => {
                             {review?.comentarios?.length > 0 ? review.comentarios.map((el) => {
                                 return (
                                     <div className={s.componentComent}>
-                                        <div><h3>{el.name}</h3></div>
+                                        <div className={s.compName}><h3>{el.name}</h3></div>
                                         <div className={s.contenedorStars}>
                                             {stars?.map((_, index) => {
                                                 return (
