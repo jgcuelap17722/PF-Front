@@ -5,14 +5,15 @@ import NavBar from '../../assets/NavBar/NavBar';
 import Footer from '../../assets/Footer/Footer';
 import s from '../../css/CreatePet.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { createNewPet, getBreedsByPetType, getColorsByPetType } from '../../redux/petsActions.js';
+import { createNewPet, getBreedsByPetType, getColorsByPetType, createNewPetAuth0 } from '../../redux/petsActions.js';
 
 export default function CreatePet() {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	let user = localStorage.getItem('user');
-	user = JSON.parse(user);
+	let loginAuth = localStorage.getItem('loginAuth');
+	user = JSON.parse(user) || JSON.parse(loginAuth);
 	const userId = user?.user.id;
 	const breeds = useSelector( state => state.petsReducer.breedsByPetType );
 	const colors = useSelector( state => state.petsReducer.colorsByPetType );
@@ -74,10 +75,18 @@ export default function CreatePet() {
 			formData.append('photos', data.photos[i])
 		}
 		formData.append('data', JSON.stringify(data))
-		dispatch(createNewPet(formData, user.token)).then(() => {
-			alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
-			navigate('/dashboard/mascotas');
-		})
+
+		if(!loginAuth){
+			dispatch(createNewPet(formData, user.token)).then(() => {
+				alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
+				navigate('/dashboard/mascotas');
+			})
+		}else{
+			dispatch(createNewPetAuth0(formData, user.token)).then(() => {
+				alert('Tu mascota ha sido creada correctamente!. Si alguien está interesada en adoptarla recibirás un email con información al respecto.');
+				navigate('/dashboard/mascotas');
+			})
+		}
 	}
 
 	useEffect(() => {

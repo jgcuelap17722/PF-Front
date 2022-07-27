@@ -18,7 +18,8 @@ export default function DashboardAdoptante() {
     const dispatch = useDispatch()
     const Navigate = useNavigate()
     let userDetail = localStorage.getItem('userDetail');
-    userDetail = JSON.parse(userDetail)
+    let auth0User = localStorage.getItem('auth0User');
+    userDetail = JSON.parse(userDetail) || JSON.parse(auth0User);
     const { isAuthenticated } = useAuth0();
 
     

@@ -7,7 +7,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Dashboard() {
     let userDetail = localStorage.getItem('userDetail');
-    userDetail = JSON.parse(userDetail)
+    let auth0User = localStorage.getItem('auth0User');
+    userDetail = JSON.parse(userDetail) || JSON.parse(auth0User);
     let donations = localStorage.getItem('donations');
     donations = JSON.parse(donations)
     let userId = localStorage.getItem('userId');
