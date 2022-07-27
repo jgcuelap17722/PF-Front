@@ -25,7 +25,7 @@ export default function Adoption() {
 
     
     useEffect(() => {
-
+        window.scrollTo(0,0)
         if(token){
             dispatch(getUserInfo(userId, token));
             localStorage.setItem('userDetail', JSON.stringify(detail));

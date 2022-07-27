@@ -27,7 +27,7 @@ export default function Dashboard() {
                     <div className={s.nonSelected}>
                         <Link to='/dashboard/mascotas' className={s.link}> <h3>Mis Mascotas</h3></Link>
                     </div>
-                    {userDetail?.role === 'user'?
+                    {userDetail.role === 'user'?
                         <div className={s.nonSelected}>
                             <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
                         </div>
@@ -71,7 +71,7 @@ export default function Dashboard() {
                                     </div>
                             )
                         }):
-                        'No hay donaciones realizadas'}
+                        null}
                     </div>
                 </div>
                 </div>
