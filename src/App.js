@@ -50,9 +50,9 @@ function App() {
         <Route path='/pet-detail/:id' element={<PetDetail />} /> 
         {/* <Route path='/user' element={<User />} /> */}
         <Route path='/create-pet' element={user || Object.keys(usuario).length > 0 || isAuthenticated ? <CreatePet />: <Navigate replace to="/login"/>} /> 
-        {/* <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} /> */}
+        <Route path='/dashboard' element={user || Object.keys(usuario).length > 0?  <Dashboard/> : <Navigate replace to="/login"/>} />
         <Route path='/review/:id' element={<Review/>} />
-        <Route path='/dashboard' element={<Dashboard/>} />
+        {/*<Route path='/dashboard' element={<Dashboard/>} />*/}
         <Route path='/dashboard/mascotas' element={<DashboardUser/>} />
         <Route path='/dashboard/foundation' element={<DashboardFoundation/>} />
         <Route path='/dashboard/donations' element={<DashboardUserDonations/>} />
