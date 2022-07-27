@@ -33,7 +33,7 @@ const PetDetail = () => {
     const [selectImage, setSelectImage] = useState();
     const navigate = useNavigate()
     const stars = Array(5).fill(0)
-
+console.log(estado)
     useEffect(() => {
       window.scrollTo(0,0)
     }, [])
