@@ -72,6 +72,7 @@ const UserMenu = ({ userId, name = 'UsuarioTest', photo = userDefault, lastName 
 
   localStorage.setItem('userDetail', JSON.stringify(auth0User));
   localStorage.setItem('accessToken', accessToken);
+  localStorage.setItem('userId', auth0User.userId);
 
   function closeSesion() {
     if (token) {
