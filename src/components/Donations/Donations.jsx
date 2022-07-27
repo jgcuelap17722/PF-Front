@@ -38,13 +38,13 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
             }
         ],
         payer: {
-            name: detail.name,
-            surname: detail.lastName,
-            email: detail.email,
+            name: detail?.name,
+            surname: detail?.lastName,
+            email: detail?.email,
         },
         metadata: {
             fromUser: {
-                name: detail.name + ' ' + detail.lastName,
+                name: detail?.name + ' ' + detail.lastName,
                 id: userId,
                 email: detail.email,
                 country: detail.country
@@ -71,7 +71,7 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
     }
     const linkPago = linkPay.urlPreferentialPayment
     console.log(detail)
-    console.log(preference)
+    // console.log(preference)
     return (
         <div>
             <NavBar />
