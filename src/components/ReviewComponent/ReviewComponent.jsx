@@ -43,6 +43,7 @@ const ReviewComponent = () => {
 
 
   useEffect(() => {
+    window.scrollTo(0,0)
     dispatch(getAllFoundations())
 
     
@@ -98,11 +99,15 @@ const ReviewComponent = () => {
       <NavBar />
       {Object.keys(fundacion).length > 0 ?
         <div className={s.content}>
+          
           <div className={s.component}>
+            <div className={s.imgContainer}>
+              <img className={s.imagenFundacion} src={fundacion[0].photo}></img>
+            </div>
             <div className={s.componentGlobal}>
               <div >
                 <h1>{fundacion[0].name} </h1>
-                <h2><FontAwesomeIcon icon={faEnvelope} />{fundacion[0].email}</h2>
+                <h2><FontAwesomeIcon icon={faEnvelope} /> {fundacion[0].email} </h2>
                 <h2><FontAwesomeIcon icon={faLocationDot} /> {fundacion[0].country} {fundacion[0].city.name}</h2>
                 <h2><FontAwesomeIcon icon={faSquarePhone} /> {fundacion[0].phone}  </h2>
               </div>
@@ -129,16 +134,13 @@ const ReviewComponent = () => {
               </div>
 
               <div className={s.contentInput}>
-                <h3>Escribi tu opinion</h3>
+                <h3>Escribe tu opinion</h3>
                 <textarea name='coment' type='text' max={500} onChange={handleChange} placeholder="Describe tu experiencia"></textarea>
               {errors.coment && (<p className={s.error}>{errors.coment}</p>)}
               </div>
               <button onClick={handleSubmit} disabled={Object.keys(errors).length === 0 ? false : true }>Enviar</button>
             </div>
-            <div>
-
-              <img className={s.imagenFundacion} src={fundacion[0].photo}></img>
-            </div>
+            
 
 
           </div>
