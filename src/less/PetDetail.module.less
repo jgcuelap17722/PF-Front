@@ -1,9 +1,10 @@
 @import 'variables';
 
 .contenedorPadre {
-    max-width: 100%;
-    max-height: 3500px;
+    // max-width: 100%;
+    // max-height: 3500px;
     background: #FFFFFF;
+    padding-bottom: 4rem;
 
     .top{
         display: flex;
@@ -76,6 +77,22 @@
             padding-left: 2rem;
             width: 800px;
             align-self: center;
+
+            .updateIcon{
+                position: absolute;
+                right: 2rem;
+                font-size: 1.6rem;
+                color: @lightGray;
+                transition: all .3s ease;
+                background-color: rgba( 0 0 0 / 0);
+
+                &:hover{
+                    transform: rotate(90deg);
+                    cursor: pointer;
+                    color: @secondary;
+                }
+            }
+
             .name{
                 flex-direction: column;
                 width: 100%;
@@ -101,7 +118,7 @@
                 gap: 10px;
                 flex-direction: row;
                 margin-top: 10px;
-                font-size: 25px;
+                font-size: 20px;
                 color: @lightGray;
                 padding-bottom: 2rem;
                 text-transform: capitalize;
@@ -126,7 +143,7 @@
                     text-transform: capitalize;
                 }
                 .p {
-                    font-size: 15px;
+                    font-size: 20px;
                     color: @lightGray; 
                     text-transform: capitalize;
             }
@@ -146,21 +163,23 @@
             min-height: 35rem;
             display: flex;
             flex-direction: column;
-            gap: 50px;
+            gap: 25px;
             padding-bottom: 20px;
             .info {
                 display: flex;
                 flex-direction: column;
                 margin-left: 20px;
-                gap: 50px;
+                gap: 25px;
                 .h3 {
-                    font-size: 35px;
+                    font-size: 30px;
                     color: @primary;
+
                 }
                 .h4{
                     color: @darkGray;
                     font-size: 25px;
                     gap: 5px;
+                    padding-bottom: .5rem;
                 }
                 .p {
                     color: @gray;
@@ -182,18 +201,7 @@
                 }
             }
 
-            .contenedorMascota {
-                margin-left: 20px;
-                .h3 {
-                    font-size: 35px;
-                    color: @primary;
-                }
-                .p {
-                    margin-top: 20px;
-                    font-size: 20px;
-                    color: @gray;
-                }
-            }
+            
         }
         .contenedorAdopcion {
             height: 31.5rem;
@@ -219,9 +227,14 @@
                         font-size: 35px;
                         line-height: 36px;
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
+                        justify-content: center;
                         text-align: center;
                         color: @primary;
+                        span{
+                            text-transform: capitalize;
+                        }
                     }
                 }
 
@@ -280,10 +293,54 @@
                         color: @white;
                     }
                 }
+                .buttonFavorite2 {
+                    font-family: 'Inter';
+                    font-weight: 400;
+                    width: 100%;
+                    height: 80px;
+                    background-color: @secondary;
+                    font-size: 30px;
+                    cursor: pointer;
+                    border: none;
+
+                    color: @primary;
+                    transition: all .3s ease;
+                    &:hover{
+                        background-color: @darkSecondary;
+                        color: @white;
+                    }
+                }
             }
             
         }
 
+    }
+    .contenedorMascota {
+        margin-left: 10rem;
+        max-width: 77%;
+        text-align: justify;
+        .title{
+            display: flex;
+            .h3 {
+                font-size: 30px;
+                color: @primary;
+                display: flex;
+            }
+            .petName{
+                font-size: 30px;
+                color: @primary;
+                text-transform: capitalize;
+                margin-left: .8rem;
+            }
+        }
+        
+        .p {
+            margin-top: 20px;
+            font-size: 20px;
+            color: @gray;
+            padding-bottom: 2rem;
+        }
+       
     }
     .contenedorFundacion {
         display: flex;
@@ -320,15 +377,17 @@
                 display: flex;
                 align-items: center;
                 text-align: center;
-                color: @primary;
+                color: @gray;
+                
             }
         }
 
         .nameImg {
-            width: 100%;
+            width: 50%;
             .img {
-                width: 100%;
-                object-fit: cover;
+                object-fit:contain;
+                border: 3px solid @gray;
+                border-radius: 100%;
             }
         }
         .contenedorDirection {
@@ -343,6 +402,11 @@
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: center;
+                .addressIcon{
+                    margin-right: .5rem;
+                    font-size: 2rem;
+                    color: @gray;
+                }
                 .directionInterior {
                     display: flex;
                     flex-direction: column;
@@ -431,4 +495,10 @@
     }
     }
 
+}
+.link{
+text-decoration: none;
+}
+.displayNone{
+    display: none;
 }

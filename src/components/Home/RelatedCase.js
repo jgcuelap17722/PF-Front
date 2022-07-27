@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getAllPets } from "../../redux/petsActions"
+import { getAllPets, getAllPetsWithFavs } from "../../redux/petsActions"
 import Card from "../../assets/Card/Card"
 import SwiperCards from "../../assets/Swiper/SwiperCards"
 import s from "../../css/RelatedCase.module.css"
@@ -11,9 +11,16 @@ const RelatedCase = () => {
 
   const allPets = useSelector(state => state.petsReducer.allPets)
   const dispatch = useDispatch()
+  const userId = localStorage.getItem('userId');
+
 
   useEffect(() => {
-    dispatch(getAllPets())
+    if(userId){
+      dispatch(getAllPetsWithFavs(userId))
+    }else{
+      dispatch(getAllPets())
+    }
+    
   }, [dispatch])
 
   const dataRelated = allPets.filter((e, index) => index < 5)
@@ -21,7 +28,7 @@ const RelatedCase = () => {
 
   return (
     <section>
-      <h1 className={s.proximityTitle}>Mascotas Para Ser Adoptadas en tu Ciudad</h1>
+      <h1 className={s.proximityTitle}>Algunas Mascotas Para Adoptar</h1>
       <SwiperCards>
         {
           dataRelated && dataRelated.map((e, index) => {
@@ -31,9 +38,10 @@ const RelatedCase = () => {
                   key={`${e.name}${index}`}
                   img={e.photos[0].option_1}
                   name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                  location={`${e.contact.address.city}, ${e.contact.address.country}`}
                   age={e.age}
                   id={e.id}
+                  isFav={e.isFavourite}
                   cardType='home' />
               </SwiperSlide>
             )
@@ -49,7 +57,7 @@ const RelatedCase = () => {
                 key={`${e.name}${index}`}
                 img={e.photos[0].option_1}
                 name={e.name}
-                location={`${e.contact.address.city}, ${e.contact.address.state}`}
+                location={`${e.contact.address.city}, ${e.contact.address.country}`}
                 age={e.age}
                 id={e.id}
                 cardType='home' />

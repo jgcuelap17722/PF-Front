@@ -3,11 +3,11 @@
 .container{
 	display: flex;
 	width: 100%;
-	height: 133vh;
+	height: 220vh;
 
 	@media @normalDesktop{
-			height: 155vh;
-		}
+		height: 245vh;
+	}
 
 	.left{
 		background-image: url('../assets/images/create-pet.jpg');
@@ -25,7 +25,8 @@
 		width: 50%;
 
 		form{
-			padding: 3rem 7rem 3rem 7rem;
+			padding: 3rem 7rem 0 7rem;
+			height: auto;
 
 			h1{
 				color: @black;
@@ -55,11 +56,33 @@
 					outline: none;
 				}
 
+				
+
 				input:focus,
-				select:focus{
+				select:focus,
+				textarea{
 					color: @third;
 					border: .1rem solid @third;
 				}
+
+				textarea{
+					border: none;
+					width: 93.7%;
+					height: 98%;
+					border-radius: .5rem;
+					resize: none;
+					padding: 1rem;
+					border: .1rem solid @primary;
+					outline: none;
+				}
+
+
+				
+				input[id=file]{
+					// background-color: red;
+					color: rgb(0 0 0);
+				}
+				
 
 				p{
 					padding-top: .2rem;
@@ -67,7 +90,39 @@
 					font-weight: bold;
 					font-size: .8rem;
 				}
+			}
 
+			
+
+			div[id="tags"] select{
+				border: .1rem solid @primary;
+				height: 3rem;
+			}
+
+			div[id="attributes"],
+			div[id="environment"]{
+				border: .1rem solid @primary;
+				height: auto;
+				padding: 1rem;
+				margin-bottom: 1.5rem;
+				border-radius: .5rem;
+				color: @lightPrimary;
+				font-weight: bold;
+			}
+
+			div[id="attributes_house_trained"],
+			div[id="environment_children"]{
+				height: 5.7rem;
+
+				select{
+					margin-top: .5rem;
+				}
+			}
+
+			div[id="textarea"]{
+				width: 98.8%;
+				height: auto;
+				margin-bottom: 1rem;
 			}
 
 			button{
@@ -80,8 +135,8 @@
 				font-weight: 600;
 
 				&:hover{
-					background-color: @darkPrimary;
-					color: @secondary;
+					background-color: @third;
+					color: @lightGray;
 					cursor: pointer;
 				}
 			}
@@ -89,3 +144,4 @@
 		}
 	}
 }
+

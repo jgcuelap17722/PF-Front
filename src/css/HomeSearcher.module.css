@@ -9,7 +9,30 @@
   z-index: 2;
   background-color: #ffffff;
   margin-top: 64px;
-  overflow: hidden;
+  overflow: visible;
+}
+.formBox .searchByLocationBox {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: fit-content;
+  height: fit-content;
+  z-index: 20;
+  bottom: -35px;
+}
+.formBox .searchByLocationBox p {
+  color: #FAB942;
+}
+.formBox .searchByLocationBox p:hover {
+  color: #FED872;
+  cursor: pointer;
+}
+.formBox form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .formBox form input {
   font-size: 1.5em;
@@ -43,30 +66,57 @@
   background-color: #ffffff;
   transition: background-color 5000s ease-in-out 0s;
 }
-.formBox .pet {
+.formBox .city {
   margin-left: 0;
-  width: 507px;
+  width: 480px;
   height: 55px;
   border: none;
   box-sizing: border-box;
   border-radius: 15px 0px 0px 15px;
 }
-.formBox .city {
-  width: 856px;
+.formBox .line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #ABABAB;
+}
+.formBox .line p {
+  margin-top: 5px;
+  font-size: 20px;
+}
+.formBox select {
+  appearance: none;
+  width: 346px;
   height: 55px;
+  margin-left: 3px;
   border: none;
   box-sizing: border-box;
-  border-radius: 15px 0px 0px 15px;
+  font-size: 1.5em;
+  text-indent: 22px;
+  color: #ABABAB;
+}
+.formBox select:focus {
+  outline: none !important;
+  box-sizing: border-box;
+  border: 3px solid #FAB942;
+  background-color: #ffffff;
+}
+.formBox select option {
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
 }
 .formBox .button {
   position: absolute;
   width: 54px;
-  height: 60px;
+  height: 55px;
   right: 0;
   box-sizing: border-box;
   border: none;
   border-radius: 0px 15px 15px 0px;
   background-color: transparent;
+  overflow: hidden;
 }
 .formBox .button:hover {
   background-color: #FAC942;

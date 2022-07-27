@@ -19,6 +19,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
+  text-transform: capitalize;
   color: #363A40;
 }
 .filterCardBox button {

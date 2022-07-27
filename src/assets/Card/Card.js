@@ -1,20 +1,20 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router'
 import s from '../../css/Card.module.css'
 import FavoriteStar from '../FavoriteStar/FavoriteStar'
 
-const Card = ({ img, name, location, age, cardType, id }) => {
+const Card = ({ img, name, location, age, cardType, id, isFav }) => {
 
-  //CardType = home, search, care
-
+  const userId = localStorage.getItem('userId');
   const navigate = useNavigate()
-
+ 
   const onClickHandler = ()=>{
     navigate(`/pet-detail/${id}`) 
   }
   
   return (
     <div className={cardType === 'home' ? s.cards : cardType === 'search'? s.cards2 : cardType === 'care'? s.cards3 : null} >
-      <FavoriteStar id={id} />
+      <FavoriteStar petId={id} userId={userId} isFav={isFav}/>
       <div onClick={onClickHandler} className={s.cardsImg}>
         {
             img

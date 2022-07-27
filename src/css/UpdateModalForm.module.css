@@ -1,0 +1,208 @@
+.showModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(0 0 0 / 0.76);
+  height: 100vh;
+  width: 100vw;
+  z-index: 50;
+}
+.showModal form {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  width: 75%;
+  height: 70vh;
+  z-index: 7;
+  color: #727A85;
+}
+.showModal form #generalEdition {
+  color: #504F6F;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.showModal form p:first-of-type {
+  margin-right: 10%;
+  color: #727A85;
+}
+.showModal form div {
+  display: flex;
+}
+.showModal form div .left {
+  width: 50%;
+  height: 60vh;
+  flex-direction: column;
+}
+.showModal form div .left div {
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.showModal form div .left select {
+  height: 2.6rem;
+  width: 95%;
+  text-transform: capitalize;
+  border: 0.1rem solid #DDDDDD;
+  border-radius: 0.3rem;
+  outline: none;
+  color: #727A85;
+}
+.showModal form div .left select:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .left input {
+  height: 2.2rem;
+  width: 93.4%;
+  text-transform: capitalize;
+  border: 0.1rem solid #DDDDDD;
+  border-radius: 0.3rem;
+  outline: none;
+  color: #727A85;
+}
+.showModal form div .left input:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .right {
+  width: 50%;
+  flex-direction: column;
+}
+.showModal form div .right div {
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.showModal form div .right div textarea {
+  height: 10rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  max-width: 93.5%;
+  resize: none;
+  color: #727A85;
+  border: 0.1rem solid #DDDDDD;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+.showModal form div .right div textarea:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .right div div {
+  height: 16vh;
+}
+.showModal form div .right select {
+  height: 2.6rem;
+  width: 95%;
+  text-transform: capitalize;
+  border: 0.1rem solid #DDDDDD;
+  border-radius: 0.3rem;
+  outline: none;
+  color: #727A85;
+  margin-bottom: 1.9rem;
+}
+.showModal form div .right select:focus {
+  border: 0.1rem solid #FAB942;
+}
+.showModal form div .right .images {
+  height: 6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-self: center;
+  flex-wrap: wrap;
+  position: relative;
+  top: 18rem;
+  right: 16rem;
+  margin-bottom: 2rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5rem;
+}
+.showModal form div .right .images .deleteImgIcon {
+  color: #FAC942;
+  background-color: #504F6F;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 0.55rem;
+  z-index: 25;
+  font-size: 2rem;
+  height: 1rem;
+  width: 1rem;
+  transition: all 0.3s ease;
+  margin-left: 3.5rem;
+}
+.showModal form div .right .images .deleteImgIcon:hover {
+  cursor: pointer;
+}
+.showModal form div .right .images img {
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 1.6rem -0.5rem;
+  object-fit: cover;
+  margin-top: 0.5rem;
+}
+.hiddenModal {
+  display: none;
+}
+.closeModalIcon {
+  color: #DDDDDD;
+  font-size: 3rem;
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  z-index: 15;
+}
+.closeModalIcon:hover {
+  cursor: pointer;
+}
+.conteinerButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.conteinerButtons .button {
+  height: 2.6rem;
+  width: 20%;
+  background-color: #504F6F;
+  border: none;
+  border-radius: 0.2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+.conteinerButtons .button:hover {
+  background-color: #4992AB;
+  color: #DDDDDD;
+  cursor: pointer;
+}
+.conteinerButtons .conteinerButtonAndIcon {
+  display: flex;
+  justify-content: right;
+  width: 50%;
+  gap: 5px;
+}
+.conteinerButtons .conteinerButtonAndIcon .buttonSecondary {
+  height: 2.6rem;
+  width: 40%;
+  background-color: #FAC942;
+  border: none;
+  border-radius: 0.2rem;
+  color: #504F6F;
+  font-weight: 600;
+  text-align: center;
+  margin-right: 2rem;
+}
+.conteinerButtons .conteinerButtonAndIcon .buttonSecondary button {
+  width: 30rem;
+}
+.conteinerButtons .conteinerButtonAndIcon .buttonSecondary:hover {
+  background-color: #4992AB;
+  color: #DDDDDD;
+  cursor: pointer;
+}
+.conteinerButtons .conteinerButtonAndIcon .icon {
+  height: 20px;
+}

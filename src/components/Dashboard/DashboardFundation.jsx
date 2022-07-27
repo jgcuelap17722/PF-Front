@@ -3,15 +3,22 @@ import s from '../../css/DashboardFundation.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
-import { Donaciones } from '../../assets/dataMockups/Donaciones.js'
 
 export default function Dashboard() {
-const donaciones = Donaciones ;
+    let userDetail = localStorage.getItem('userDetail');
+    userDetail = JSON.parse(userDetail)
+    let donations = localStorage.getItem('donations');
+    donations = JSON.parse(donations)
+    let userId = localStorage.getItem('userId');
+    let donationsFilter = donations.filter(el => el.toUserId == userId )
+    console.log(donationsFilter)
+
     return (
         <div>
             <NavBar />
             <div className={s.content}>
                 <h1>Mi Dashboard</h1>
+                <div className={s.dash}>
                 <div className={s.datos}>
                     <div className={s.nonSelected}>
                     <Link className={s.link} to='/dashboard'><h3>Sobre Mí</h3></Link>
@@ -34,32 +41,35 @@ const donaciones = Donaciones ;
                                 <p className={s.p}>Id</p>
                             </div>
                             <div>
-                                <p className={s.p}>Nombre</p>
+                                <p className={s.p}>Estado</p>
                             </div>
                             <div>
                                 <p className={s.p}>Monto</p>
                             </div>
                         </div>
-                        {donaciones && donaciones.map((el, index) => {
+                        {donationsFilter.length >= 1 ? donationsFilter.map((el, index) => {
                             return (
                                     <div key={index} className={index % 2 === 1 ? s.detailsOptions : s.detailsOptionsColors}>
                                         <div>
-                                            <p className={s.p}>{el.date}</p>
+                                            <p className={s.p}>{el.date.split('T')[0]}</p>
                                         </div>
                                         <div>
-                                            <p className={s.p}>{el.idUser}</p>
+                                            <p className={s.p}>{el.fromUserId}</p>
                                         </div>
                                         <div>
-                                            <p className={s.p}>{el.name}</p>
+                                            <p className={s.p}>{el.status}</p>
                                         </div>
                                         <div>
-                                            <p className={s.p}>{`$${el.monto}`}</p>
+                                            <p className={s.p}>{`$${el.total_amount}`}</p>
                                         </div>
                                     </div>
                             )
-                        })}
+                        }):
+                        null
+                    }
                     </div>
                 </div>
+            </div>
             </div>
             <Footer />
         </div>

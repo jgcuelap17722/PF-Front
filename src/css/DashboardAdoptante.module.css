@@ -1,0 +1,188 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+.content h1 {
+  color: #504F6F;
+  margin: 3rem 0 2rem 0;
+}
+.content .dash {
+  width: 90%;
+  box-shadow: 0px 13px 26px 1px rgba(0, 0, 0, 0.85);
+  margin-bottom: 4rem;
+  border-radius: 0.5rem;
+}
+.content .dash .datos {
+  margin-top: 5px;
+  padding-top: 15px;
+  margin: 0 5rem 0 5rem;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+.content .dash .datos .link {
+  text-decoration: none;
+  color: #727A85;
+}
+.content .dash .datos h3 {
+  margin-top: 5px;
+  font-weight: 400;
+}
+.content .dash .datos .selected {
+  color: #454B54;
+  background-color: #FAC942;
+  padding: 0 20px;
+  border-radius: 15px 15px 0 0;
+  margin-right: 2rem;
+}
+.content .dash .datos .nonSelected {
+  color: #454B54;
+  margin-right: 2rem;
+}
+.content .dash .infoContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-top: 2px solid rgba(128, 128, 128, 0.341);
+  background-color: #ffffff;
+}
+.content .dash .infoContainer h2 {
+  color: #727A85;
+  padding-left: 5rem;
+  padding-top: 20px;
+  font-weight: 200;
+}
+.content .dash .infoContainer .inputContainer {
+  display: flex;
+  padding-top: 25px;
+  background-color: #ffffff;
+}
+.content .dash .infoContainer .inputContainer .left {
+  width: 45%;
+  margin-left: 5rem;
+  background-color: #ffffff;
+}
+.content .dash .infoContainer .inputContainer .left .name {
+  width: 90%;
+  height: 4rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5rem;
+  text-indent: 1rem;
+}
+.content .dash .infoContainer .inputContainer .left .name input {
+  width: 90%;
+  border: none;
+  text-indent: 1rem;
+  color: #66668F;
+}
+.content .dash .infoContainer .inputContainer .left .name p {
+  margin-top: 0.8rem;
+  text-transform: capitalize;
+  text-indent: 2rem;
+  color: #66668F;
+  font-size: 1.4rem;
+  font-style: oblique;
+  font-family: 'Inter';
+}
+.content .dash .infoContainer .inputContainer .right {
+  width: 45%;
+  background-color: #ffffff;
+}
+.content .dash .infoContainer .inputContainer .right .apellido {
+  width: 90%;
+  height: 4rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 0.5rem;
+  text-indent: 1rem;
+}
+.content .dash .infoContainer .inputContainer .right .apellido input {
+  width: 90%;
+  border: none;
+  text-indent: 1rem;
+  color: #66668F;
+}
+.content .dash .infoContainer .inputContainer .right .apellido select {
+  width: 90%;
+  border: none;
+  text-indent: 1rem;
+  color: #66668F;
+}
+.content .dash .infoContainer .inputContainer .right .apellido p {
+  margin-top: 0.8rem;
+  text-transform: capitalize;
+  text-indent: 2rem;
+  color: #66668F;
+  font-size: 1.4rem;
+  font-style: oblique;
+  font-family: 'Inter';
+}
+.content .dash .infoContainer .inputContainer h4 {
+  color: #727A85;
+}
+.content .dash .infoContainer .inputContainer input {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border: none;
+  border: 2px solid #66668F;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+}
+.content .dash .infoContainer .inputContainer input:focus {
+  border: 2px solid #4992AB;
+}
+.content .dash .infoContainer .button {
+  width: 100%;
+  height: 40px;
+  margin-top: 2rem;
+  align-self: center;
+  border: none;
+  background-color: #504F6F;
+  color: #FAC942;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.content .dash .infoContainer .button:hover {
+  color: #ffffff;
+  background-color: #4992AB;
+}
+.content .dash .infoContainer .link {
+  display: flex;
+  align-self: center;
+  width: 83%;
+}
+.content .dash .infoContainer a {
+  text-decoration: none;
+}
+.content .infoError {
+  display: flex;
+  border-top: 2px solid rgba(128, 128, 128, 0.341);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.content .infoError h2 {
+  margin-left: 6rem;
+  padding-right: 2rem;
+  color: #A1A8B1;
+}
+.content .infoError .send {
+  font-weight: 500;
+  margin-left: 3rem;
+}
+.content .infoError button {
+  color: #504F6F;
+  border: none;
+  font-weight: 800;
+  background-color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}

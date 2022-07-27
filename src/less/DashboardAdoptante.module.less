@@ -1,0 +1,214 @@
+@import 'variables';
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: @white;
+   
+    h1{
+        color: @primary;
+        margin: 3rem 0 2rem 0;
+
+    }
+    .dash{
+        width: 90%;
+        box-shadow: 0px 13px 26px 1px rgba(0,0,0,0.85);
+        margin-bottom: 4rem;
+        border-radius: .5rem;
+
+        .datos{
+            margin-top: 5px;
+            padding-top: 15px;
+            margin: 0 5rem 0 5rem;
+            height: 30px;
+            display: flex;
+            justify-content:flex-start ;
+    
+            .link{
+                text-decoration: none;
+                color: @darkGray;
+            }
+            h3{
+                margin-top: 5px;
+                font-weight: 400;
+
+            }
+            
+            .selected{
+                color: @black;
+                background-color: @secondary;
+                padding: 0 20px;
+                border-radius: 15px 15px 0 0;
+                margin-right: 2rem;
+    
+            }
+            .nonSelected{
+                color: @black;
+                margin-right: 2rem;
+            }
+        }
+        .infoContainer{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-top: 2px solid rgba(128, 128, 128, 0.341);
+            background-color: @white;
+            h2{
+                color: @darkGray;
+                padding-left: 5rem;
+                padding-top: 20px;
+                font-weight: 200;
+            }
+            .inputContainer{
+                display: flex;
+                padding-top: 25px;            
+                background-color: @white;
+
+                .left{
+                    width: 45%;
+                    margin-left: 5rem;
+                    background-color: @white;
+
+                   
+                    .name{
+                        width: 90%;
+                        height: 4rem;
+                        padding-top: 1rem;
+                        margin-bottom: 1rem;
+                        border: 1px solid @lightGray;
+                        border-radius: .5rem;
+                        text-indent: 1rem;
+
+
+                        input{
+                            width: 90%;
+                            border: none; 
+                            text-indent: 1rem;
+                            color: @lightPrimary;
+                        }
+                        p{
+                            margin-top: .8rem;
+                            text-transform: capitalize;
+                            text-indent: 2rem;
+                            color: @lightPrimary;
+                            font-size: 1.4rem;
+                            font-style: oblique;
+                            font-family: 'Inter';
+                        }
+
+                    }
+                }
+                .right{
+                    width: 45%;
+                    background-color: @white;
+                    .apellido{
+                        width: 90%;
+                        height: 4rem;
+                        padding-top: 1rem;
+                        margin-bottom: 1rem;
+                        border: 1px solid @lightGray;
+                        border-radius: .5rem;
+                        text-indent: 1rem;
+
+                        input{
+                            width: 90%;
+                            border: none;
+                            text-indent: 1rem;
+                            color: @lightPrimary;
+                        }
+                        select{
+                            width: 90%;
+                            border: none;
+                            text-indent: 1rem;
+                            color: @lightPrimary;
+                        }
+                        p{
+                            margin-top: .8rem;
+                            text-transform: capitalize;
+                            text-indent: 2rem;
+                            color: @lightPrimary;
+                            font-size: 1.4rem;
+                            font-style: oblique;
+                            font-family: 'Inter';
+                        }
+                    }
+                }
+    
+                h4{
+                    color: @darkGray;
+                }
+                input{
+                    text-transform: capitalize;
+                    margin-bottom: 20px;
+                    margin-top: 5px;
+                    border: none;
+                    border: 2px solid @lightPrimary;
+                    border-radius: 5px;
+                    height: 30px;
+                    outline:none;
+                    &:focus{
+                        border: 2px solid @third;
+                    }
+                }
+
+    
+            }
+            .button{
+                width: 100%;
+                height: 40px;
+                margin-top: 2rem;
+                align-self: center;
+                border: none;
+                background-color: @primary;
+                color: @secondary;
+                border-radius: 5px;
+                cursor: pointer;
+                &:hover{
+                    color: @white;
+                    background-color: @third;
+                }
+            }
+            .link{
+                display: flex;
+                align-self: center;
+                width: 83%;
+            }
+            a{
+                text-decoration: none;
+            }
+            
+        }
+       
+    }
+   
+    .infoError{
+        display: flex;
+        border-top: 2px solid rgba(128, 128, 128, 0.341);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        h2{
+            margin-left: 6rem;
+            padding-right: 2rem;
+            color: @gray;
+        }
+        .send{
+            font-weight: 500;
+            margin-left: 3rem;
+        }
+        button{
+            color: @primary;
+            border: none;
+            font-weight: 800;
+            background-color: @white;
+            font-size: 1.5rem;
+            text-decoration: underline;
+        }
+
+        
+    }
+    
+}

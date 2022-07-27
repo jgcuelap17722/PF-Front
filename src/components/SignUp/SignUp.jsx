@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,15 +31,21 @@ export default function SignUp() {
 
 	const onSubmit = data => {
 			const emailObj = {email: email};
-			dispatch(createNewUser(data)).then( () => {
-				dispatch(sendEmailConfirm(emailObj));
-			});
+			let formData = new FormData();
+
+		if(data.role === 'foundation'){
+			formData.append('document', data.document[0])
+		}
+		formData.append('data', JSON.stringify(data))
+		console.log(formData.get('data'))
+		dispatch(createNewUser(formData)).then( () => {
+			dispatch(sendEmailConfirm(emailObj));
+		});
 			localStorage.setItem('email', email);
 			return;
 	}
-	
 	useEffect( () => {
-
+		
 		if(selectCountry){
 			dispatch(getCitiesByCountry(selectCountry));
 		}
@@ -73,11 +81,18 @@ export default function SignUp() {
 		}
 
 	}, [selectCountry, watchPass, confirmPass, newUser])
+
+	useEffect(() => {
+		window.scrollTo(0,0)
+	}, [])
+	
 	
 	function showPassword(e){
 		e.preventDefault(e);
 		let inputPassword = document.getElementsByName('password');
 		inputPassword[0].type === 'password' ? inputPassword[0].type = 'text' : inputPassword[0].type = 'password'
+		let inputPassword2 = document.getElementsByName('confirmPassword');
+		inputPassword2[0].type === 'password' ? inputPassword2[0].type = 'text' : inputPassword2[0].type = 'password'
 	}
 
 	return (
@@ -91,7 +106,7 @@ export default function SignUp() {
 							<select {...register("role", { required: "Selecciona un tipo de cuenta"})}>
 								<option value="" disabled selected hidden>Tipo de Cuenta</option>
 								<option value="user">Usuario</option>
-								<option value="foundation">Fundación</option>
+								<option value="fundation">Fundación</option>
 							</select>
 							{ errors?.role && <p className={s.error}>{errors.role.message}</p> }
 						</div>
@@ -151,7 +166,7 @@ export default function SignUp() {
 										}})} 
 									type="password" 
 									placeholder="Contraseña"
-							/><button onClick={showPassword}>👁️</button>
+							/>
 							{ errors?.password && <p>{errors.password.message}</p> }
 						</div>
 
@@ -162,7 +177,7 @@ export default function SignUp() {
 							/>
 							{ errors?.confirmPassword && <p>{errors.confirmPassword.message}</p> }
 						</div>
-						{role === 'foundation' ?
+						{role === 'fundation' ?
 						<div>
 							<input   {...register("document", { required: "Por favor carga un documento válido" })} 
 									type="file" 
@@ -170,11 +185,12 @@ export default function SignUp() {
 									accept="image/png, image/jpeg, image/jpg , .pdf"
 									className={ role === 'fundation' ? s.fileInput : s.displayNone }
 							/> 
-							{ errors?.document && <p className={ role === 'fundation' ? s.fileInput : s.displayNone }>{errors.document.message}</p> }
+							{ errors?.document && <p className={ role === 'foundation' ? s.fileInput : s.displayNone }>{errors.document.message}</p> }
 						</div> : null}
 						
 						<button type="submit">Registrarme</button>
 					</form>
+					<button onClick={showPassword} className={s.eye}><FontAwesomeIcon icon={faEye}/></button>
 				</div>
 				<div className={s.right}>
 					<div className={s.overflow}></div>

@@ -73,8 +73,13 @@
   margin-right: 2rem;
 }
 .container .notification .notificationBottom form input {
+  outline: none;
+  width: 100%;
   height: 2rem;
   border-radius: 0.3rem;
+  border: none;
+  color: #727A85;
+  text-indent: 1rem;
 }
 .container .notification .notificationBottom form button {
   margin-top: 2.5rem;
@@ -89,5 +94,17 @@
 .container .notification .notificationBottom form button:hover {
   background-color: #4992AB;
   color: #DDDDDD;
+  cursor: pointer;
+}
+.eye {
+  position: relative;
+  right: -16rem;
+  bottom: 7.5rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  font-size: medium;
+  color: #A1A8B1;
+  border: none;
   cursor: pointer;
 }

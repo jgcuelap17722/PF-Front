@@ -5,8 +5,8 @@ import SearcherFilter from './SearcherFilter'
 import FiltersAmount from './FiltersAmount'
 import Pagination from './Pagination'
 import Card from '../../assets/Card/Card'
-
-import { getAllPets, typeFilter, resetSearch } from '../../redux/petsActions'
+import Spinner from '../../assets/Spinner/Spinner'
+import { resetSearch } from '../../redux/petsActions'
 
 import s from '../../css/Search.module.css'
 
@@ -20,11 +20,12 @@ const SearchCase = ({ petType, type }) => {
   const [petsPerPage, setPetsPerPage] = useState(9)
   const indexOfLastPet = currentPage * petsPerPage
   const indexOfFirstPet = indexOfLastPet - petsPerPage
-  const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet)
+  const currentPets = pets.length > 0 ? pets.slice(indexOfFirstPet, indexOfLastPet) : []
 
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
+
     return () => {
       dispatch(resetSearch())
     }
@@ -43,19 +44,22 @@ const SearchCase = ({ petType, type }) => {
         <FiltersAmount />
         <div className={s.cardsBox}>
           {
-            currentPets && currentPets.map((e, index) => {
-              let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
-              return (
-                <Card
-                  key={`${e.name}${index}`}
-                  id = {e.id}
-                  img={photo}
-                  name={e.name}
-                  location={`${e.contact.address.city}, ${e.contact.address.country}`}
-                  age={e.age}
-                  cardType='search' />
-              )
-            })
+            currentPets.length > 0
+              ? currentPets.map((e, index) => {
+                let photo = e.photos[0] === undefined ? notFound : e.photos[0].option_1
+                return (
+                  <Card
+                    key={`${e.name}${index}`}
+                    id={e.id}
+                    img={photo}
+                    name={e.name}
+                    location={`${e.contact.address.city}, ${e.contact.address.country}`}
+                    age={e.age}
+                    isFav={e.isFavourite}
+                    cardType='search' />
+                )
+              })
+              : <Spinner message={'No hay mascotas disponibles para tu búsqueda'}/>
           }
         </div>
 

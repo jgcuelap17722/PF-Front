@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import s from '../../css/PwReset.module.css';
-import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2'
+import { Navigate, useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { pwReset } from '../../redux/actions';
+import { pwReset, resetStatePwReset } from '../../redux/actions';
 
 
 export default function PwReset() {
@@ -17,14 +18,41 @@ export default function PwReset() {
 	const { register, handleSubmit, formState: {errors }, watch } = useForm();
 	const onSubmit = data => {
 		
-		return dispatch(pwReset(data)).then(()=> {
-			setTimeout(()=> {
-				navigate('/')
-			},10000)
-		})
+		dispatch(pwReset(data))
+			
 	}
 	
+	useEffect(() => {
+		if(msg.error){
+			Swal.fire({
+                title: 'El email no está registrado',
+                icon: 'error',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
+		}
+		if(msg.msg){
+			Swal.fire({
+                title: 'Hemos enviado un correo a tu bandeja de entrada',
+                icon: 'success',
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#66668F',
+              })
 
+				  return navigate('/')
+			
+		}
+	}, [msg])
+	
+	useEffect(() => {
+	  
+	
+	  return () => {
+		dispatch(resetStatePwReset())
+		  
+	  }
+	}, [dispatch])
+	
 	
 	
 

@@ -2,6 +2,7 @@ nav {
   background-color: #3C3B53;
   color: #ffffff;
   width: 100%;
+  box-shadow: 2rem 0 2rem 1rem;
 }
 nav a {
   text-decoration: none;
@@ -14,19 +15,66 @@ nav a:hover {
 nav .navTop {
   display: flex;
   justify-content: space-between;
-  padding: 0 6rem;
+  padding: 0 3rem 0 6rem;
+  height: 6rem;
 }
 nav .navTop .logo {
+  width: 15rem;
+}
+nav .navTop .subMenuArrow {
+  transform: rotate(270deg);
+  height: 1rem;
   position: relative;
-  height: 6rem;
-  bottom: -0.8rem;
+  top: 6rem;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+nav .navTop .subMenuArrow:hover {
+  cursor: pointer;
+}
+nav .navTop .subMenuArrowUp {
+  transform: rotate(90deg);
+  height: 1rem;
+  position: relative;
+  top: 8.4rem;
+  z-index: 10;
+}
+nav .navTop .subMenuArrowUp:hover {
+  cursor: pointer;
 }
 nav .navTop .registerLogin {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 20rem;
+  width: 15rem;
   font-size: 1.2rem;
+}
+@media (max-width: 767px) {
+  nav .navTop .registerLogin {
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  nav .navTop .registerLogin {
+    display: none;
+  }
+}
+nav .navTop .registerLogin .userIcon {
+  padding: 0.5rem;
+  border-radius: 100%;
+  border: 0.1rem solid #ffffff;
+}
+nav .navTop .registerLogin .imgAuth0 img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 100%;
+  border: 0.1rem solid #FAC942;
+}
+nav .navTop .registerLogin .imgAuth0 img:hover {
+  border: 0.1rem solid #FED872;
+  filter: brightness(0.9);
 }
 nav .navTop .registerLogin .favorites {
   height: 2.2rem;
@@ -38,11 +86,35 @@ nav .navTop .registerLogin .favorites:hover {
 nav .navBottom {
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(180deg, #3C3B53, #363A40);
-  padding-bottom: 0.5rem;
+  background-color: #FAC942;
+  padding: 0.6rem 0;
+  color: black;
+  transition: all 0.3s ease;
 }
 nav .navBottom .links {
   display: flex;
   justify-content: space-between;
   width: 50%;
+  color: black;
+}
+@media (max-width: 1023px) {
+  nav .navBottom .links {
+    width: 70%;
+  }
+}
+@media (max-width: 500px) {
+  nav .navBottom .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+nav .navBottom .links p {
+  color: black;
+}
+nav .navBottom .links p:hover {
+  color: #454B54;
+}
+.displayNone {
+  display: none;
 }

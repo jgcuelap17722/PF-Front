@@ -1,0 +1,61 @@
+@import 'variables.less';
+
+.favCardBox{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 1px @lightGray;
+  cursor: pointer;
+
+  .favCardImgBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100px;
+    overflow: hidden;
+
+    img{
+      height: 80%;
+      object-fit: contain;
+    }
+  }
+  .textBox{
+    // background-color: red;
+    height: 80%;
+    margin-left: 10px;
+
+    h5{
+      font-size: 15px
+    }
+
+    p{
+      font-size: 14px;
+    }
+
+    .favCardDelete{
+      margin-top: 15px;
+      background-color: transparent;
+      border: none;
+      text-indent: 0;
+      padding: 0;
+      color: @darkPrimary2;
+      transition: all 500ms ease; 
+      font-size: 14px;
+
+      &:hover{
+        color: @darkPrimary2;
+        font-weight: 900;
+        cursor: pointer;
+        // border-bottom: solid 0.5px @darkPrimary2;
+      }
+    }
+  }
+
+  &:hover{
+    background-color: @lighterGray;
+  }
+}

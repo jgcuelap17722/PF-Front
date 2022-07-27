@@ -54,10 +54,10 @@
 						color: @primary;
 						text-align: left;
 
-						&:focus{
-							border: .1rem solid @third;
-							color: @third;
-						}
+						// &:focus{
+						// 	border: .1rem solid @third;
+						// 	color: @third;
+						// }
 					}
 
 
@@ -69,16 +69,9 @@
 						padding-top: .2rem;
 					}
 
-					input[name="password"]{
-						width: 92%;
-						border-right: 0;
-						border-top-right-radius: 0;
-						border-bottom-right-radius: 0;
-					}
-
 					button{
 						width: 6.5%;
-						height: 2.4rem;
+						height: 2.5rem;
 						position: relative;
 						bottom: -.05rem;
 						background-color: @white;
@@ -87,6 +80,7 @@
 						border-right: .1rem solid @primary;
 						border-top-left-radius: 0;
 						border-bottom-left-radius: 0;
+						color: @gray;
 
 						&:hover{
 							background-color: @white;
@@ -94,7 +88,7 @@
 					}
 				}
 
-				.inputFile{
+				.fileInput{
 					display: block;
 				}
 
@@ -136,5 +130,17 @@
 		}
 	}
 
+}
+.eye{
+    position: relative;
+	right: 5.9rem;
+	top: 32.95rem;
+	width: 2rem;
+	height: 2rem;
+	background-color: transparent;
+	font-size: 1.3rem;
+	color: @gray;
+	border: none;
+	cursor: pointer;
 }
 
