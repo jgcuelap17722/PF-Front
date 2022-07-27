@@ -3,6 +3,7 @@ import s from '../../css/DashboardUserDonations.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Dashboard() {
     let userDetail = localStorage.getItem('userDetail');
@@ -11,6 +12,8 @@ export default function Dashboard() {
     donations = JSON.parse(donations)
     let userId = localStorage.getItem('userId');
     let donationsFilter = donations.filter(el => el.fromUserId == userId )
+    
+    
     return (
         <div>
             <NavBar />
@@ -24,7 +27,7 @@ export default function Dashboard() {
                     <div className={s.nonSelected}>
                         <Link to='/dashboard/mascotas' className={s.link}> <h3>Mis Mascotas</h3></Link>
                     </div>
-                    {userDetail?.role === 'user'?
+                    {userDetail.role === 'user'?
                         <div className={s.nonSelected}>
                             <Link className={s.link} to='/dashboard/adoptante'><h3>Perfil Adoptante</h3></Link>
                         </div>
@@ -68,7 +71,7 @@ export default function Dashboard() {
                                     </div>
                             )
                         }):
-                        'No hay donaciones realizadas'}
+                        null}
                     </div>
                 </div>
                 </div>

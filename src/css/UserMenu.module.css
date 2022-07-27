@@ -1,12 +1,12 @@
 .userManuBox {
-  position: relative;
+  width: 2.7rem;
 }
 .userManuBox .linkBox {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  min-width: 200px;
+  min-width: auto;
 }
 .userManuBox .linkBox a {
   text-decoration: none;
@@ -20,19 +20,18 @@
   width: 30px;
 }
 .userManuBox .linkBox .userImgBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: 30px;
-  margin-bottom: 15px;
-  overflow: hidden;
 }
 .userManuBox .linkBox .userImgBox img {
   object-fit: cover;
   height: 100%;
+  border-radius: 100%;
+  border: 0.15rem solid #FAC942;
+}
+.userManuBox .linkBox .userImgBox img:hover {
+  cursor: pointer;
+  filter: brightness(0.9);
 }
 .userManuBox .empty {
   width: 100%;
@@ -56,8 +55,8 @@
   width: 350px;
   max-height: 420px;
   z-index: 10;
-  left: -165px;
-  top: 53px;
+  right: 40px;
+  top: 80px;
   color: #454B54;
   transition: all 300ms ease;
   border-radius: 10px;
@@ -78,9 +77,6 @@
   text-transform: capitalize;
   color: #3C3B53;
 }
-.userManuBox .favsMenuList .listBox {
-  overflow: auto;
-}
 .userManuBox .favsMenuList .listBox .userOptions {
   width: 100%;
   height: 50px;
@@ -99,6 +95,7 @@
 }
 .userManuBox .favsMenuList .listBox .userOptions:hover {
   background-color: #FAC942;
+  cursor: pointer;
 }
 .userManuBox .favsMenuList .listBox .userOptions:hover a {
   color: #ffffff;

@@ -1,13 +1,11 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
 import s from '../../css/Dashboard.module.css';
 import NavBar from '../../assets/NavBar/NavBar'
 import Footer from '../../assets/Footer/Footer'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
-
-
 
 
 export default function Dashboard() {
@@ -16,6 +14,7 @@ export default function Dashboard() {
     const cities = useSelector(state => state.reducer.citiesByCountry);
     const detail = useSelector((state) => state.reducer.userDetail)
     const dispatch = useDispatch()
+    const { user, isAuthenticated, isLoading } = useAuth0();
     const patch = useSelector((state) => state.reducer.patch)
     localStorage.setItem('userDetail', JSON.stringify(detail));
     let userDetail = localStorage.getItem('userDetail');
@@ -23,6 +22,9 @@ export default function Dashboard() {
     const donations = useSelector(state => state.reducer.donations);
     localStorage.setItem('donations', JSON.stringify(donations));
     
+    
+
+
     const [value, setValue] = useState({
     })
 
@@ -95,7 +97,6 @@ export default function Dashboard() {
     return (
         <div>
             <NavBar />
-            
                 <div className={s.content}>
                     <h1>Mi Dashboard</h1>
                     <div className={s.dash}>
@@ -165,8 +166,8 @@ export default function Dashboard() {
                                 <button className={s.button}>Agregar Mascota</button>
                             </Link>
                         </div>
+                    </div>
                 </div>
-            </div>
             <Footer />
         </div>
     )
