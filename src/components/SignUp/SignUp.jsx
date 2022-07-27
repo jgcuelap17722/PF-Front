@@ -32,17 +32,18 @@ export default function SignUp() {
 	const onSubmit = data => {
 			const emailObj = {email: email};
 			let formData = new FormData();
-		
-		formData.append('document', data.document[0])
-		
+
+		if(data.role === 'foundation'){
+			formData.append('document', data.document[0])
+		}
 		formData.append('data', JSON.stringify(data))
+		console.log(formData.get('data'))
 		dispatch(createNewUser(formData)).then( () => {
 			dispatch(sendEmailConfirm(emailObj));
 		});
 			localStorage.setItem('email', email);
 			return;
 	}
-	
 	useEffect( () => {
 		
 		if(selectCountry){
@@ -105,7 +106,7 @@ export default function SignUp() {
 							<select {...register("role", { required: "Selecciona un tipo de cuenta"})}>
 								<option value="" disabled selected hidden>Tipo de Cuenta</option>
 								<option value="user">Usuario</option>
-								<option value="foundation">Fundación</option>
+								<option value="fundation">Fundación</option>
 							</select>
 							{ errors?.role && <p className={s.error}>{errors.role.message}</p> }
 						</div>
@@ -176,13 +177,13 @@ export default function SignUp() {
 							/>
 							{ errors?.confirmPassword && <p>{errors.confirmPassword.message}</p> }
 						</div>
-						{role === 'foundation' ?
+						{role === 'fundation' ?
 						<div>
 							<input   {...register("document", { required: "Por favor carga un documento válido" })} 
 									type="file" 
 									placeholder="Nombres" 
 									accept="image/png, image/jpeg, image/jpg , .pdf"
-									className={ role === 'foundation' ? s.fileInput : s.displayNone }
+									className={ role === 'fundation' ? s.fileInput : s.displayNone }
 							/> 
 							{ errors?.document && <p className={ role === 'foundation' ? s.fileInput : s.displayNone }>{errors.document.message}</p> }
 						</div> : null}

@@ -46,9 +46,11 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
             fromUser: {
                 name: detail.name + ' ' + detail.lastName,
                 id: userId,
-                email: detail.email
+                email: detail.email,
+                country: detail.country
             },
             toUser: {
+                country: infoFundacion.contact.address.country,
                 name: infoFundacion.contact.name,
                 id: infoFundacion.userId,
                 email: infoFundacion.contact.email
@@ -68,7 +70,6 @@ const fundacion = useSelector((state)=> state.reducer.userDetail)
         dispatch(postPay(preference))
     }
     const linkPago = linkPay.urlPreferentialPayment
-
     return (
         <div>
             <NavBar />

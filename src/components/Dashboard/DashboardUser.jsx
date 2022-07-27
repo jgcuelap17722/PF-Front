@@ -25,7 +25,6 @@ export default function Dashboard() {
         return ()=>{
             dispatch(resetDashboardPets())
         }
-      
     }, [dispatch])
     
     return (

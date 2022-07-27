@@ -16,7 +16,6 @@ export default function EmailConfirmed() {
 			dispatch(emailConfirmed(token));
 		}
 	}, [dispatch]);
-
 	function handleAccept(){
 		navigate('/login');
 	}

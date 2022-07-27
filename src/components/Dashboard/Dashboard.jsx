@@ -22,7 +22,6 @@ export default function Dashboard() {
     const donations = useSelector(state => state.reducer.donations);
     localStorage.setItem('donations', JSON.stringify(donations));
     
-    
 
 
     const [value, setValue] = useState({
@@ -94,7 +93,6 @@ export default function Dashboard() {
         return cities;
     }
     const countryEstado = useSelector((state) => state.reducer.countries)
-
     return (
         <div>
             <NavBar />
