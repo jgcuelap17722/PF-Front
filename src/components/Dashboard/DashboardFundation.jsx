@@ -10,7 +10,7 @@ export default function Dashboard() {
     let donations = localStorage.getItem('donations');
     donations = JSON.parse(donations)
     let userId = localStorage.getItem('userId');
-    let donationsFilter = donations.filter(el => el.fromUserId == userId )
+    let donationsFilter = donations.filter(el => el.toUserId == userId )
     console.log(donationsFilter)
 
     return (
