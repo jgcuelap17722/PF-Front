@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import { getCountries, getUserInfo, patchUser, getCitiesByCountry, getDonations } from '../../redux/actions';
+import Spinner from '../../assets/Spinner/Spinner.js';
 
 
 export default function Dashboard() {
@@ -97,6 +98,7 @@ export default function Dashboard() {
     return (
         <div>
             <NavBar />
+                { Object.keys(userDetail).length > 0 ?
                 <div className={s.content}>
                     <h1>Mi Dashboard</h1>
                     <div className={s.dash}>
@@ -167,8 +169,9 @@ export default function Dashboard() {
                             </Link>
                         </div>
                     </div>
+                <Footer />  
                 </div>
-            <Footer />
+                : <Spinner />}
         </div>
     )
 }

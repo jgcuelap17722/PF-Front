@@ -21,7 +21,7 @@ import notFound from '../../assets/images/not-found.png';
 import { getAllFoundations } from "../../redux/foundationsActions";
 import FavoriteBtn from "../../assets/FavoriteBtn/FavoriteBtn";
 import { getPetFav } from '../../redux/petsActions'
-
+import Spinner from '../../assets/Spinner/Spinner.js';
 
 const PetDetail = () => {
   let { id } = useParams();
@@ -69,16 +69,8 @@ const PetDetail = () => {
 
   const Api = estado
 
-  // const cantidad = Api?.photos.length
-  // console.log(cantidad)
-  // if (!Array.isArray(Api?.photos) || cantidad === 0) return;
-// console.log(allPets[0].contact.address.city);
   const ApiCerca = allPets?.filter(el => el.contact.address.city === Api.contact?.address.city && el.id !== Api?.id).slice(0, 5)
-  // const ApiOrganization = allPets?.filter(el => el.organization_animal_id === Api?.organization_animal_id && el.id !== Api?.id).slice(6, 11)
-  // const [preImage, setPrevImage] = useState(Api && Api?.photos[0]?.large);
-  // const [nextImage, setNextImage] = useState(Api && Api?.photos[0]?.large);
-
-  // setSelectImage(Api?.photos[0]?.small)
+  
   function previus() {
     const condition = selectIndex > 0;
     const nextIndex = condition ? selectIndex - 1 : Object.keys(Api.photos).length - 1;
@@ -109,13 +101,12 @@ const PetDetail = () => {
   function closeModal(){
     setModalState(false);
   }
-
   return (
     <>
       <div className={s.contenedorPadre}>
         <UpdateModalForm modalState={modalState} closeModal={closeModal} petDetail={Api} openModal={openModal}/>
         <NavBar />
-          
+            { Object.keys(Api).length > 0 ?
             <>
               <div className={s.top}>
               <button className={s.buttonLeft} onClick={previus}> < Arrow /> </button>
@@ -286,10 +277,7 @@ const PetDetail = () => {
                   }
                 </div>
               </div> : null }
-            </>
-          
-
-
+            </> : <Spinner />}
       </div>
       <Footer />
 
